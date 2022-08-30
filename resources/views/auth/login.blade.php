@@ -38,21 +38,23 @@
 </head>
 <body>
 
-<div class="container" style="margin-top:100px;">
+    
+<div class="container" style="margin-top:50px;">
+    
+    <h3 class="d-flex justify-content-center" style="font-size: 28px; margin:auto; ">Guidance Information System<br>
+        <br>
+     </h3>
 
 
     <div class="row justify-content-center">
         <div class="col-md-5">
 
-            <h3 style="font-size: 28px; margin:auto; position:relative; left: 45px; top: 8px; color: black; ">Guidance Information System <br>
-               <br>
-            </h3>
-
+            
             <div class="card shadow-lg rounded" >
-                <div class="card-header bg-dark shadow-lg rounded" >
-
-                    <h3 style="font-size: 18px; margin:auto; position:relative; left: 27px; top: 8px; color: white ">PANGANGAN NATIONAL HIGH SCHOOL <br>
-                        <p style="font-size: 15px; align-text:center; margin:auto; position:relative; left: 100px; color: whitesmoke;">Talisay, Calape, Bohol</p> <br>
+                <div class="card-header bg-dark shadow-lg rounded d-flex justify-content-between" >
+                    <img src="/images/image17.png" class=" shadow-lg rounded-circle" style="height: 100px; width:100px; margin:auto;">
+                    <h3 class="text-center" style="font-size: 18px; margin:auto;color: white ">PANGANGAN NATIONAL HIGH SCHOOL <br>
+                        <p class="text-center" style="font-size: 15px; color: whitesmoke;">Talisay, Calape, Bohol</p> 
                     </h3>
                 
                 </div>
