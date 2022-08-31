@@ -45,7 +45,7 @@
         <div class="col-md-5">
             <div class="card">
                 <div class="card-header bg-dark text-light">
-                    <h1 style="font-size: 20px;">Register Account</h1>
+                    <h1 style="font-size: 20px; " class="text-center">Register Account</h1>
                 </div>
 
                 <div class="card-body">
@@ -65,6 +65,36 @@
                                 @enderror
                             </div>
                         </div>
+
+                        
+                        <div class="row mb-3">
+                            <label for="usertype" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="usertype" type="usertype" class="form-control @error('usertype') is-invalid @enderror" name="usertype" value="{{ old('usertype') }}" required autocomplete="usertype">
+
+                                @error('usertype')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="advisory" class="col-md-4 col-form-label text-md-end">{{ __('Advisory') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="advisory" type="advisory" class="form-control @error('advisory') is-invalid @enderror" name="advisory" value="{{ old('advisory') }}" required autocomplete="advisory">
+
+                                @error('advisory')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
 
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
@@ -103,7 +133,7 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="d-flex justify-content-end"">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>

@@ -22,7 +22,9 @@ class User extends Authenticatable
         'email',
         'password',
         'admin',
-         'approved_at'
+        'approved_at',
+        'usertype',
+        'advisory'
     ];
 
     /**

@@ -67,8 +67,11 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'usertype' => $data['usertype'],
+            'advisory' => $data['advisory'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+
         ]);
         $admin = User::where('admin', 1)->first();
         if ($admin) {

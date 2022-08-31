@@ -1,8 +1,12 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdviserController;
+use App\Http\Controllers\AdminProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +36,35 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['admin'])->group(function () {
         Route::get('/users', 'UserController@index')->name('admin.users.index');
         Route::get('/users/{user_id}/approve', 'UserController@approve')->name('admin.users.approve');
+   
+
+
+        Route::get('/advisers', [
+            AdviserController::class, 'index'
+        ])->name('advisers');
+        Route::get('/show-adviser/{id}', [
+            AdviserController::class, 'show']);
+        Route::get('/delete-adviser/{id}', [
+            AdviserController::class, 'destroy']);
+        Route::get('/edit-adviser/{id}', [
+            AdviserController::class, 'edit']);
+        Route::put('/update-adviser/{id}', [
+            AdviserController::class, 'update']);
+
+
+            //for edit admin profile
+
+        
+        Route::get('/adminprofile', [
+                AdminProfileController::class, 'index'
+            ])->name('adminprofile');
+            
+            
+        Route::post('/adminprofile', [AdminProfileController::class, 'update_avatar']);     
+        Route::get('/edit-info/{id}', [AdminProfileController::class, 'edit']);
+        Route::put('/update-info/{id}', [AdminProfileController::class, 'update']);
+        
+        
+    
     });
 });
