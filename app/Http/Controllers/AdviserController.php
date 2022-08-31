@@ -22,15 +22,13 @@ class AdviserController extends Controller
     }
     
 
-
     public function index(){
 
-        $user = User::all()->sortBy('usertype');
+        $user = User::whereNotNull('approved_at')->get();
+        
         return view('adviser.index', compact('user'));
     }
 
-
-    
    public function show($id)
    {
        $user = User::find($id);

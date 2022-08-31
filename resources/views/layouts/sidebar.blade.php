@@ -3,7 +3,7 @@
         <img src="{{url('/images/image17.png')}}"
              alt="{{ config('app.name') }} Logo"
              class="brand-image img-circle elevation-3">
-        <span class="brand-text font-weight-bold" style=" font-size: 13px; color:whitesmoke;">Guidance Information System</span>
+        <span class="brand-text font-weight-bold" style=" font-size: 20px; color:whitesmoke;">PNHS-GI SYSTEM</span>
     </a>
 
     <div class="sidebar bg-dark text-light">

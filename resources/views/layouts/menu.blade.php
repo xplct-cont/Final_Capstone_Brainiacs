@@ -27,7 +27,7 @@
  <li class="nav-item">
     <a href="{{ route('admin.users.index') }}"
        class="nav-link {{ Request::is('admin.users.index') ? '' : '' }}">
-        <p>Approval Request</p>
+        <p>Approval Requests</p>
         <i class="fas fa-credit-card fa-pull-left fa-md "></i>
     </a>
 </li>
