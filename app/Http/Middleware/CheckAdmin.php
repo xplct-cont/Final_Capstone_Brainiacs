@@ -19,7 +19,7 @@ class CheckAdmin
         if (!auth()->user()->admin) {
             return redirect()->route('home');
         }
-
+        
         return $next($request);
     }
 }

@@ -78,9 +78,9 @@ public function update(Request $request, $id){
    public function destroy($id){
     $user = User::find($id);
     $destination = 'images/avatars/'.$user->avatar;
-     if(File::exists($destination)){
-         File::delete($destination);
-     }
+    //  if(File::exists($destination)){
+    //      File::delete($destination);
+    //  }
     $user->delete();
     return redirect()->back()->with('status', 'Adviser Removed Successfully!');
 

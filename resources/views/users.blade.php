@@ -51,8 +51,10 @@
                             </tr>
                             @forelse ($users as $user)
                                 <tr>
-                                    <td><a href="{{ route('admin.users.approve', $user->id) }}"
-                                        class="btn btn-success btn-sm" style="margin-top: 30px;">Approve</a></td>
+                                    <td><a href="{{ route('admin.users.destroy', $user->id) }}"
+                                        class="btn btn-danger btn-sm" style="margin-top: 1px;">Remove</a>
+                                    <a href="{{ route('admin.users.approve', $user->id) }}"
+                                        class="btn btn-success btn-sm" style="margin-top: 1px;;">Approve</a></td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{$user->usertype}}</td>
                                     <td>{{$user->advisory}}</td>

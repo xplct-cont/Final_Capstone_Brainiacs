@@ -21,7 +21,7 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('severus123'),
             'admin' => 1,
             'approved_at' => now(),
-            'usertype' => 'administrator',
+            'usertype' => 'admin',
             'advisory' => 'Grade 12 - Wisdom'
         ]);
     }

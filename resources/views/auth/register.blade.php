@@ -139,7 +139,7 @@
                                 </button>
                             </div>
                         </div>
-                        <a href="{{ route('login') }}" class="text-center" style="color: black; margin:auto;">I already have a membership</a>
+                        <a href="{{ route('login') }}" class="text-center" style="color: black; margin:auto;">I already have an account</a>
                     </form>
                 </div>
             </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdviserController;
 use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\AdviserHomePageController;
 
 
 /*
@@ -26,17 +27,19 @@ Route::get('/', function () {
 });
 
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', ])->group(function () {
     Route::get('/approval', 'HomeController@approval')->name('approval');
+    Route::get('/approval', 'AdviserHomePageController@approval')->name('approval');
 
-    Route::middleware(['approved'])->group(function () {
+    Route::middleware(['approved', 'auth', 'is_admin'])->group(function () {
         Route::get('/home', 'HomeController@index')->name('home');
+        // Route::get('/homepage', 'AdviserHomePageController@index')->name('homepage');
     });
 
-    Route::middleware(['admin'])->group(function () {
+    Route::middleware(['admin', ])->group(function () {
         Route::get('/users', 'UserController@index')->name('admin.users.index');
         Route::get('/users/{user_id}/approve', 'UserController@approve')->name('admin.users.approve');
-   
+        Route::get('/users/{user_id}/destroy', 'UserController@destroy')->name('admin.users.destroy');
 
 
         Route::get('/advisers', [
@@ -64,7 +67,18 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/edit-info/{id}', [AdminProfileController::class, 'edit']);
         Route::put('/update-info/{id}', [AdminProfileController::class, 'update']);
         
-        
-    
+       
+
+       });
     });
-});
+
+
+        ///For Adviser Page///////////////////////////////////
+        Route::get('/homepage', [   
+            AdviserHomePageController::class, 'index'
+         ])->name('homepage');
+      
+    
+
+    
+   
