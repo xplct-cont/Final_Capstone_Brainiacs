@@ -63,7 +63,7 @@
                
                <b>&nbsp;Name: &nbsp;</b>{{$user->name}} <br>
                <b>&nbsp;Advisory: &nbsp;</b>{{$user->advisory}} <br>
-               <b>&nbsp;Role: &nbsp;</b>{{$user->usertype}} <br>
+               <b>&nbsp;Contact No: &nbsp;</b>{{$user->contact_no}} <br>
                <b>&nbsp;Email: &nbsp;</b>{{$user->email}} <br>
             
               

@@ -21,8 +21,8 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('severus123'),
             'admin' => 1,
             'approved_at' => now(),
-            'usertype' => 'admin',
-            'advisory' => 'Grade 12 - Wisdom'
+            'contact_no' => '0936-165-2609',
+            'advisory' => 'Guidance Designate'
         ]);
     }
 }

@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('admin')->default(false);
             $table->timestamp('approved_at')->nullable();
-            $table->string('usertype')->nullable();
+            $table->string('contact_no')->nullable();
             $table->string('advisory')->nullable();
             $table->string('avatar')->default('image18.png');
             $table->rememberToken();

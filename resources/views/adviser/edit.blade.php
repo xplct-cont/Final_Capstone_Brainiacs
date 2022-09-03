@@ -58,14 +58,16 @@
                         </div>
                             <hr>
                             <div class="form-group mb-3" >
-                                <label for="" style="color:dimgray;">Role</label>
-                                <input type="text" name="usertype" value="{{$user->usertype}}" class="form-control" required >
-                              
+                                <label for="" style="color:dimgray;">Full Name</label>
+                                <input type="text" name="name" value="{{$user->name}}" class="form-control" required>   
+
+                               
                                 <label for="" style="color:dimgray;">Advisory</label>
                                 <input type="text" name="advisory" value="{{$user->advisory}}" class="form-control" required>
 
-                                <label for="" style="color:dimgray;">Full Name</label>
-                                <input type="text" name="name" value="{{$user->name}}" class="form-control" required>   
+                                <label for="" style="color:dimgray;">Contact No</label>
+                                <input type="text" name="contact_no" value="{{$user->contact_no}}" class="form-control" required >
+                              
                             </div>   
 
                             <div class="form-group mb-3">

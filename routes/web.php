@@ -29,11 +29,13 @@ Route::get('/', function () {
 
 Route::middleware(['auth', ])->group(function () {
     Route::get('/approval', 'HomeController@approval')->name('approval');
-    Route::get('/approval', 'AdviserHomePageController@approval')->name('approval');
+  
 
-    Route::middleware(['approved', 'auth', 'is_admin'])->group(function () {
-        Route::get('/home', 'HomeController@index')->name('home');
-        // Route::get('/homepage', 'AdviserHomePageController@index')->name('homepage');
+    Route::middleware(['approved'])->group(function () {
+        Route::middleware(['admin'])->group(function(){
+            Route::get('/home', 'HomeController@index')->name('home');
+        });   
+       
     });
 
     Route::middleware(['admin', ])->group(function () {
@@ -73,10 +75,25 @@ Route::middleware(['auth', ])->group(function () {
     });
 
 
-        ///For Adviser Page///////////////////////////////////
-        Route::get('/homepage', [   
-            AdviserHomePageController::class, 'index'
-         ])->name('homepage');
+
+    //////For Advisers//////////////////////////////////////////
+
+
+    Route::middleware(['auth', ])->group(function () {
+        Route::get('/approval', 'AdviserHomePageController@approval')->name('approval');
+    
+        
+    Route::middleware(['approved', 'auth', 'is_admin'])->group(function () {
+        Route::get('/homepage', 'AdviserHomePageController@index')->name('homepage');
+           
+        });
+    });
+    
+
+       
+
+
+
       
     
 

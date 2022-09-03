@@ -23,7 +23,7 @@ class User extends Authenticatable
         'password',
         'admin',
         'approved_at',
-        'usertype',
+        'contact_no',
         'advisory'
     ];
 

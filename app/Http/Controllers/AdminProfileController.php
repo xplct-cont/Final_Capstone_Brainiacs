@@ -65,7 +65,7 @@ class AdminProfileController extends Controller
             $user = User::find($id);
             $user->name = $request->input('name');
             $user->advisory = $request->input('advisory');
-            $user->usertype = $request->input('usertype');
+            $user->contact_no = $request->input('contact_no');
             $user->email = $request->input('email');
 
         

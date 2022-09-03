@@ -67,19 +67,6 @@
                         </div>
 
                         
-                        <div class="row mb-3">
-                            <label for="usertype" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="usertype" type="usertype" class="form-control @error('usertype') is-invalid @enderror" name="usertype" value="{{ old('usertype') }}" required autocomplete="usertype">
-
-                                @error('usertype')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
 
                         <div class="row mb-3">
                             <label for="advisory" class="col-md-4 col-form-label text-md-end">{{ __('Advisory') }}</label>
@@ -95,6 +82,19 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="contact_no" class="col-md-4 col-form-label text-md-end">{{ __('Contact No') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="contact_no" type="contact_no" class="form-control @error('contact_no') is-invalid @enderror" name="contact_no" value="{{ old('contact_no') }}" required autocomplete="contact_no">
+
+                                @error('contact_no')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>

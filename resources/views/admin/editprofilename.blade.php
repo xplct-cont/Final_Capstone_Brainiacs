@@ -53,8 +53,8 @@
 
 
                          <div class="form-section">
-                            <label for="" style="color:dimgray;">Role</label>
-                            <input type="text" name="usertype" value="{{$user->usertype}}" class="form-control" required>
+                            <label for="" style="color:dimgray;">Contact No</label>
+                            <input type="text" name="contact_no" value="{{$user->contact_no}}" class="form-control" required>
                         
                             <label for="" style="color:dimgray;">Email</label>
                              <input type="text" name="email" value="{{$user->email}}" class="form-control" required>

@@ -41,8 +41,8 @@
                                  <div class="card elevation-4 bg-dark" style="height: 270px; margin-top:-40px;">
                                     <img src="{{asset('images/avatars/'.$user->avatar)}}" class="img-circle elevation-4" style="position:relative; left: 20px; top: 10px; width:100px; height:100px; border-radius:50%;  background-color:#5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;"><br>
                                  <p style="color: 	#F5FFFA; position: relative; font-size: 16px; margin-left:20px; top: 20px;" >Name:&nbsp;&nbsp;{{$user->name}}</p>
-                                 <p style="color: 	#F5FFFA; position: relative;  font-size: 16px; margin-left:20px; top: 2px;" >Role:&nbsp;&nbsp;{{$user->usertype}}</p>
-                                 <p style="color: 	#F5FFFA; position: relative;  font-size: 16px; margin-left:20px; top: -15px;" >Advisory:&nbsp;&nbsp;{{$user->advisory}}</p>
+                                 <p style="color: 	#F5FFFA; position: relative;  font-size: 16px; margin-left:20px; top: 2px;" >Advisory:&nbsp;&nbsp;{{$user->advisory}}</p>
+                                 <p style="color: 	#F5FFFA; position: relative;  font-size: 16px; margin-left:20px; top: -15px;" >Contact No:&nbsp;&nbsp;{{$user->contact_no}}</p>
                                  <p style="color: 	#F5FFFA; position: relative;  font-size: 16px; margin-left:20px; top: -33px;" >Email:&nbsp;&nbsp;{{$user->email}}</p>
                                  
         

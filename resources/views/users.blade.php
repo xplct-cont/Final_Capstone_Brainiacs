@@ -43,7 +43,7 @@
                             <tr class="bg-info">
                                 <th>...</th>
                                 <th>Full Name</th>
-                                <th>Role</th>
+                                {{-- <th>Role</th> --}}
                                 <th>Advisory</th>
                                 <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Email</th>
                                 <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Registered at</th>
@@ -56,7 +56,7 @@
                                     <a href="{{ route('admin.users.approve', $user->id) }}"
                                         class="btn btn-success btn-sm" style="margin-top: 1px;;">Approve</a></td>
                                     <td>{{ $user->name }}</td>
-                                    <td>{{$user->usertype}}</td>
+                                    {{-- <td>{{$user->usertype}}</td> --}}
                                     <td>{{$user->advisory}}</td>
                                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $user->email }}</td>
                                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $user->created_at }}</td>

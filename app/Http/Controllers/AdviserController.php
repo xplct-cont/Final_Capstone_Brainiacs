@@ -51,7 +51,7 @@ class AdviserController extends Controller
 public function update(Request $request, $id){
 
     $user = User::find($id);
-    $user->usertype = $request->input('usertype');
+    $user->contact_no = $request->input('contact_no');
     $user->name = $request->input('name');
     $user->advisory = $request->input('advisory');
  

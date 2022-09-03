@@ -25,10 +25,10 @@
                                <tr>
                                   
                                    <th style="text-align: center">Profile Image</th>
-                                   <th style="text-align: center">Role</th>
                                    <th style="text-align: center">Name</th>
+                                   <th style="text-align: center">Advisory</th>
+                                   <th style="text-align: center">Contact No</th>
                                    <th class="d-none d-md-table-cell d-lg-table-cell d-lg-table-cell" style="text-align: center">Email</th>
-                                   <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Advisory</th>
                                    <th style="text-align: center">Edit</th>
                                    <th style="text-align: center">Delete</th>
                                    <th style="text-align: center">View</th>
@@ -40,10 +40,10 @@
                                <tr class="text-center" >
                                    
                                    <td><img src="{{asset('images/avatars/'.$item->avatar )}} " width="50px" height="50px" alt="Image" style="border-radius: 50%"></td>
-                                   <td>{{$item->usertype}}</td>
                                    <td>{{$item->name}}</td>
+                                   <td>{{$item->advisory}}</td>
+                                   <td>{{$item->contact_no}}</td>
                                    <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{$item->email}}</td>
-                                   <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{$item->advisory}}</td>
                                    <td><a href="{{url('edit-adviser/' .$item->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-edit"></i></a></td>
                                    <td><a href="{{url('delete-adviser/'.$item->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash"></i></a></td>
                                    <td><a href="{{url('show-adviser/'.$item->id)}}" class="btn btn-success btn-xs"><i class="fas fa-eye"></i></a></td>
