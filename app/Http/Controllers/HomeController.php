@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
@@ -23,12 +24,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+       $user = DB::table('users')->whereNotNull('approved_at')->count();   
+       $admin = DB::table('users')->where('admin', '1')->count();
+       return view('home', compact('user', 'admin'));
+
     }
 
+
+
     public function approval()
-{
+    {
     return view('approval');
-}
+    }
 
 }

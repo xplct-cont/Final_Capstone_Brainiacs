@@ -7,11 +7,32 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $users = User::whereNull('approved_at')->get();
 
-        return view('users', compact('users'));
+        $users = User::where([
+            ['approved_at', '=', Null],
+            [function($query) use ($request){
+                if(($term = $request->term)){
+                    $query->orWhere('name', 'LIKE', '%'. $term . '%')->get();
+                }
+            }]
+        ])
+
+        ->orderBy("name","asc")
+        ->paginate(10);
+
+
+
+
+
+        return view('users', compact('users'), ['users' => $users])
+        ->with('i',(request()->input('page',1)-1)*5);
+
+       
+
+
     }
 
     public function approve($user_id)

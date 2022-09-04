@@ -21,7 +21,7 @@
                 </div>
                 <div>
                     <div class="cardName" >Administrator</div>
-                    <div class="numbers" >2</div>
+                    <div class="numbers" ><span>{{$admin}}</span></div>
                 </div>
             </div>
             <div class="card elevation-2">
@@ -30,7 +30,7 @@
                 </div>
                 <div>
                     <div class="cardName" >Grade 11 Students</div>
-                    <div class="numbers">115</div>
+                    <div class="numbers">0</div>
                 </div>
             </div>
             <div class="card elevation-2">
@@ -39,7 +39,7 @@
                 </div>
                 <div>
                     <div class="cardName" >Grade 12 Students</div>
-                    <div class="numbers" >85</div>
+                    <div class="numbers" >0</div>
                 </div>
             </div>
           
@@ -49,7 +49,7 @@
                 </div>
                 <div>
                     <div class="cardName text-light" >Adviser</div>      
-                    <div class="numbers text-light" >12</div>
+                    <div class="numbers text-light" ><span>{{$user}}</span></div>
                
                 </div>
             </div>

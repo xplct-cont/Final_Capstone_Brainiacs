@@ -4,16 +4,16 @@
 
 <div class="search" style="position:relative; top: 50px;" >
     <div class="mx-auto" style="width:400px;">
-    <form action="#" method="GET" role="search">
+    <form action="{{route('admin.users.index')}}" method="GET" role="search">
 
         <div class="input-group">
             <span class="input-group-btn mr-2 mt-0">
-                <button class="btn btn-info" type="submit" title="Search Requests">
+                <button class="btn btn-info" type="submit" title="Search Full Name">
                     <span class="fas fa-search"></span>
                 </button>
             </span>
-            <input type="text" class="form-control mr-2" name="term" placeholder="Search Requests" id="term">
-            <a href="#" class=" mt-0">
+            <input type="text" class="form-control mr-2" name="term" placeholder="Search Full Name" id="term">
+            <a href="{{route('admin.users.index')}}" class=" mt-0">
                 <span class="input-group-btn">
                     <button class="btn btn-danger" type="button" title="Refresh page">
                         <span class="fas fa-sync-alt"></span>
@@ -46,7 +46,7 @@
                                 {{-- <th>Role</th> --}}
                                 <th>Advisory</th>
                                 <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Email</th>
-                                <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Registered at</th>
+                                <th>Registered at</th>
                                
                             </tr>
                             @forelse ($users as $user)
@@ -59,7 +59,7 @@
                                     {{-- <td>{{$user->usertype}}</td> --}}
                                     <td>{{$user->advisory}}</td>
                                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $user->email }}</td>
-                                    <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $user->created_at }}</td>
+                                    <td>{{ $user->created_at }}</td>
                                     
                                 </tr>
                             @empty
