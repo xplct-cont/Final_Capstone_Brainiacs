@@ -63,7 +63,7 @@
                                <div class="form-navigation">
                                 <button type="button" class="previous btn btn-info float-left btn-sm">Previous</button>
                                 <button type="button" class="next btn btn-info float-right btn-sm">Next</button>    
-                                <button type="submit" class="btn btn-success float-right btn-sm">Save</button>
+                                <button type="submit" class="btn btn-success float-right btn-sm">Save Changes</button>
 
                              </div>
                         </form>

@@ -45,7 +45,7 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i><h2 style="position:relative; margin:auto; left:23px; top:-21.2px; font-size:16px; color:white;">{{date('Y-m-d')}}</h2></a>
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i><h2 style="position:relative; margin:auto; left:23px; top:-21.2px; font-size:16px; color:white;">Current Date: {{date('Y-m-d')}}</h2></a>
             </li>
         </ul>
 

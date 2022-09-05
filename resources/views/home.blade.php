@@ -64,7 +64,7 @@
 
                     <div class="search" style="margin-top:-20px; margin-bottom:10px;">
                         <div class="mx-auto pull-left">
-                        <form action="#" method="GET" role="search">
+                        <form action="{{route('home')}}" method="GET" role="search">
         
                             <div class="input-group">
                                 <span class="input-group-btn mr-2 mt-0">
@@ -72,8 +72,8 @@
                                         <span class="fas fa-search"></span>
                                     </button>
                                 </span>
-                                <input type="text" class="form-control mr-2" name="term" placeholder="Search Sections" id="term">
-                                <a href="#" class=" mt-0">
+                                <input type="text" class="form-control mr-2" name="section" placeholder="Search Sections" id="section">
+                                <a href="{{route('home')}}" class=" mt-0">
                                     <span class="input-group-btn">
                                         <button class="btn btn-danger" type="button" title="Refresh page">
                                             <span class="fas fa-sync-alt"></span>
@@ -85,58 +85,29 @@
                     </div>
                 </div>
 
-                    <table class="table table-sm table-hover text-dark rounded elevation-2">
+                    <table class="table table-sm table-hover text-dark rounded elevation-2 text-center">
                         <thead>
                           <tr>
                             <th scope="col" class="bg-info ">Action</th>
-                            <th scope="col" class="bg-info">#</th>
-                            <th scope="col" class="bg-info">First</th>
-                            <th scope="col" class="bg-info">Last</th>
-                            <th scope="col" class="bg-info">Handle</th>
+                            <th scope="col" class="bg-info">Sections</th>
+                            <th scope="col" class="bg-info">Number of Students</th>
+                            <th scope="col" class="bg-info">Section Adviser</th>
+                           
                             
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th><button class="btn btn-sm bg-success">View</button></th>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            
+
+                          @foreach ($section as $section)
+                          <tr class="text-center">
+                            <td><button class="btn btn-sm bg-success">View</button></td>
+                            <td>{{$section->advisory}}</td>
+                            <td>50</td>
+                            <td>{{$section->name}}</td>
                           </tr>
-                          <tr>
-                            <th><button class="btn btn-sm bg-success">View</button></th>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                           
-                          </tr>
-                          <tr>
-                            <th><button class="btn btn-sm bg-success">View</button></th>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            
-                          </tr>
-                          <tr>
-                            <th><button class="btn btn-sm bg-success">View</button></th>
-                            <th scope="row">4</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            
-                          </tr>
-                          <tr>
-                            <th><button class="btn btn-sm bg-success">View</button></th>
-                            <th scope="row">5</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            
-                          </tr>
+                              
+                          @endforeach
+                          
                         </tbody>
                       </table>
 

@@ -22,12 +22,29 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
 
        $user = DB::table('users')->whereNotNull('approved_at')->count();   
        $admin = DB::table('users')->where('admin', '1')->count();
-       return view('home', compact('user', 'admin'));
+
+       $section = DB::table('users')->whereNotNull('approved_at')->get()->sortBy('advisory'); 
+       $section = User::where([
+        ['approved_at', '!=', Null],
+        [function($query) use ($request){
+            if(($section = $request->section)){
+                $query->orWhere('advisory', 'LIKE', '%'. $section . '%')->get();
+            }
+        }]
+    ])
+
+    ->orderBy("advisory","asc")
+    ->paginate(10);
+
+
+       return view('home', compact('user', 'admin', 'section'), ['section' => $section])
+       ->with('i',(request()->input('page',1)-1)*5);
+      
 
     }
 

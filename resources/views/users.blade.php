@@ -47,19 +47,19 @@
                                 <th>Advisory</th>
                                 <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Email</th>
                                 <th>Registered at</th>
+                                <th>...</th>
                                
                             </tr>
                             @forelse ($users as $user)
                                 <tr>
                                     <td><a href="{{ route('admin.users.destroy', $user->id) }}"
-                                        class="btn btn-danger btn-sm" style="margin-top: 1px;">Remove</a>
-                                    <a href="{{ route('admin.users.approve', $user->id) }}"
-                                        class="btn btn-success btn-sm" style="margin-top: 1px;;">Approve</a></td>
+                                        class="btn btn-danger btn-sm" style="margin-top: 1px;"><span class="fas fa-trash-alt"></span></a></td>
                                     <td>{{ $user->name }}</td>
-                                    {{-- <td>{{$user->usertype}}</td> --}}
                                     <td>{{$user->advisory}}</td>
                                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $user->email }}</td>
                                     <td>{{ $user->created_at }}</td>
+                                    <td> <a href="{{ route('admin.users.approve', $user->id) }}"
+                                        class="btn btn-success btn-sm" style="margin-top: 1px;;"><span class="fas fa-check"></span></a></td></td>
                                     
                                 </tr>
                             @empty

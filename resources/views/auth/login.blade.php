@@ -37,8 +37,7 @@
  
 </head>
 <body>
-
-    
+     
 <div class="container" style="margin-top:50px;">
     
     <h3 class="d-flex justify-content-center" style="font-size: 28px; margin:auto; ">Guidance Information System<br>
@@ -65,10 +64,8 @@
 
                         <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+                            <div class="col-md-6"> 
+                                <input id="email" type="email" class="form-control  @error('email') is-invalid @enderror" placeholder="example@gmail.com" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -110,7 +107,7 @@
                         <div class="row mb-0 ">
                             <div class="col-md-6 offset-md-4 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary ">
-                                    {{ __('Login') }}
+                                    {{ __('Login') }} <span class="fas fa-sign-in-alt"></span>
                                 </button>
                                
 
@@ -124,7 +121,7 @@
                         </a>
                     @endif
                         <p class="mb-0 d-flex justify-content-center">
-                            <a href="{{ route('register') }}" class="text-center" style="color:black; font-size: 14px; margin:auto;">Register new account</a>
+                            <a href="{{ route('register') }}" class="text-center" style="color:black; font-size: 14px; margin:auto;">Register an account</a>
                            
                         </p>
                     </div>
@@ -135,10 +132,12 @@
 
     </div>
 </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.5/js/adminlte.min.js"
         integrity="sha512-++c7zGcm18AhH83pOIETVReg0dr1Yn8XTRw+0bWSIWAVCAwz1s2PwnSj4z/OOyKlwSXc4RLg3nnjR22q0dhEyA=="
         crossorigin="anonymous"></script>
-</body>
+    
+    </body>
 </html>
-
 @endsection
+

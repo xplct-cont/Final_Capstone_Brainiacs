@@ -1,6 +1,7 @@
 @extends('layouts.layoutsidebar')
 
 @section('content')
+
 <div class="container">
     <div class="row">
         @if (session('status'))
@@ -18,7 +19,6 @@
                         <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image" style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
                     </div>
                     <div class="card-body">
-
                        <table class="table table-hover bg-light table-sm elevation-2" style="margin:auto;">
 
                            <thead class="bg-info rounded">
@@ -27,7 +27,7 @@
                                    <th style="text-align: center">Profile Image</th>
                                    <th style="text-align: center">Name</th>
                                    <th style="text-align: center">Advisory</th>
-                                   <th style="text-align: center">Contact No</th>
+                                   <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Contact No</th>
                                    <th class="d-none d-md-table-cell d-lg-table-cell d-lg-table-cell" style="text-align: center">Email</th>
                                    <th style="text-align: center">Edit</th>
                                    <th style="text-align: center">Delete</th>
@@ -42,7 +42,7 @@
                                    <td><img src="{{asset('images/avatars/'.$item->avatar )}} " width="50px" height="50px" alt="Image" style="border-radius: 50%"></td>
                                    <td>{{$item->name}}</td>
                                    <td>{{$item->advisory}}</td>
-                                   <td>{{$item->contact_no}}</td>
+                                   <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{$item->contact_no}}</td>
                                    <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{$item->email}}</td>
                                    <td><a href="{{url('edit-adviser/' .$item->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-edit"></i></a></td>
                                    <td><a href="{{url('delete-adviser/'.$item->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash"></i></a></td>

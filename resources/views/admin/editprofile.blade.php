@@ -27,6 +27,7 @@
           integrity="sha512-8vq2g5nHE062j3xor4XxPeZiPjmRDh6wlufQlfC6pdQ/9urJkU07NM0tEREeymP++NczacJ/Q59ul+/K2eYvcg=="
           crossorigin="anonymous"/>
 
+        
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -37,49 +38,106 @@
 </head>
 
 <body>
-    
-<div class="card elevation-4" style="width: 440px; height: 400px; margin:auto; top: 20px;">
-    <div class="card-header bg-info elevation-2">
-        <h5>Administrator Profile Info</h5>
-    </div>
-<div class="card-body">
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
 
-            <img src="/images/avatars/{{$user->avatar}}" style="width: 150px; height:150px; border-radius: 50%; float:left; margin-right:25px; background-color: #5bc0de; padding-top:5px; padding-left:5px; padding-right:5px; padding-bottom:5px;">
-          
-             <form enctype="multipart/form-data" action="/adminprofile" method="POST">   
-                <label>Update Profile Image</label><br>
-                <input type="file" name="avatar">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}"><br><br>
-                <div class="btv">
-                <input type="submit" class="btn btn-sm btn-success" >
-               <div class="table elevation-2 bg-secondary rounded" style="width: 405px; margin:auto; position:absolute; left 10px; top: -60px;">
-                <div class="edit">
-                    <a href="{{url('edit-info/' .$user->id)}}" class="fas fa-edit" style="color: orange;"></a>
-                </div>
-                
-               
-               <b>&nbsp;Name: &nbsp;</b>{{$user->name}} <br>
-               <b>&nbsp;Advisory: &nbsp;</b>{{$user->advisory}} <br>
-               <b>&nbsp;Contact No: &nbsp;</b>{{$user->contact_no}} <br>
-               <b>&nbsp;Email: &nbsp;</b>{{$user->email}} <br>
-            
-              
+    <h1 style="color:dimgray; font-weight:regular; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 25px; position:relative; top: 20px; margin-left: 10px;">Administrator Profile</h1>
+   <br>  <hr>
+   
+   <div class="row">
 
-               </div>
-             
-               
-            </form>
+    <div class="col-md-5" style="height: 283px; overflow:hidden;">
+        <div class="position-relative">
+            <img src="/images/avatars/{{$user->avatar}}" style=" position:absolute; top:0px; width: 255px; left: 120px; height:255px;border-radius: 50%; float:left; ">
+           
         </div>
-      
-        </div>
+        <p style="position:absolute; left: 190px; top: 260px; color:black">{{$user->advisory}} </p>
     </div>
- </div>
  
-</div>
-</div>
+    <div class="col-md-6 text-dark mx-auto">
+        <form enctype="multipart/form-data" action="/adminprofile" method="POST">   
+            <input type="file" name="avatar">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"><br><br>
+            <div class="btv">
+            <input type="submit" class="btn btn-sm btn-success" >
+           <div class="table elevation-2 bg-secondary rounded" style="width: 405px; margin:auto; position:absolute; left 10px; top: -60px;">
+           
+
+           </div>
+        </form>
+    </div>
+   
+     
+    
+
+    <div class="cold-md-4" style="height: 265px; margin-left: 10px; margin-top: 10px; margin-bottom: 100px;">
+        <h2 class="text-center" style="color:dimgray; font-size:20px; font-weight: normal;">Administrator Details</h2>
+    <hr>
+
+    <form action="{{url('update-info/'.$user->id)}}" method="POST" accept-charset="UTF-8">
+        @csrf
+        @method('PUT')
+        
+
+        <div class="input-group mb-3">
+           <label for="" style="color:dimgray;"><span class="fas fa-user input-group-text bg-secondary" style="width: 43px;"></span></label>
+           <input type="text" name="name" value="{{$user->name}}" class="form-control" required>
+        </div>
+
+        <div class="input-group mb-3">
+           <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">AV</span></label>
+           <input type="text" name="advisory" value="{{$user->advisory}}" class="form-control" required>
+       
+           </div>
+
+
+           <div class="input-group mb-3">
+           <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">PH</span></label>
+           <input type="text" name="contact_no" value="{{$user->contact_no}}" class="form-control" required>
+           </div>
+
+           <div class="input-group mb-3">
+           <label for="" style="color:dimgray;"><span class="fas fa-envelope input-group-text bg-secondary" style="width: 43px;"></span></label>
+            <input type="text" name="email" value="{{$user->email}}" class="form-control" required>
+        </div>
+
+              <div class="mb-3">
+               
+               <button type="submit" class="btn btn-success float-right btn-sm"><span class="fas fa-save"></span> Save Changes</button>
+
+            </div>
+       </form>
+       
+
+       
+    </div>
+
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.5/js/adminlte.min.js"
         integrity="sha512-++c7zGcm18AhH83pOIETVReg0dr1Yn8XTRw+0bWSIWAVCAwz1s2PwnSj4z/OOyKlwSXc4RLg3nnjR22q0dhEyA=="
@@ -93,39 +151,6 @@
 <style scoped>
  
      
-   
-    .btv {
-        position: relative;
-        left: 50%;
-    }
-    h5{
-        color: white;
-    }
-      .edit{
-        position: absolute;
-        left: 380px;
-    }
-    label{
-        position:absolute;
-        top: 30px;
-        font-size: 15px;
-        color: dimgray;
-        margin: auto;
-    }
-    input{
-        position:absolute;
-        top: 60px;
-        font-size: 15px;
-        color: dimgray;
-        margin: auto;
-    }
-    .btv{
-        position:relative;
-        top: 150px;
-        left: -10px;
-        color: dimgray;
-        margin: auto;
-    }
    
 </style>
 @endsection

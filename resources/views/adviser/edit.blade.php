@@ -35,7 +35,7 @@
 
                  <div class="card elevation-4 text-dark">
                      <div class="card-header bg-info elevation-2">
-                         <h4 style="position: absolute; left:40%; color:whitesmoke; margin:auto; ">Edit Roles</h4>
+                         <h4 style="position: absolute; left:40%; color:whitesmoke; margin:auto; ">Edit Advisory</h4>
                          <a href="{{url('advisers')}}" class="btn btn-danger btn-sm float-start" >Back</a>
                      </div>
                      <div class="card-body">
@@ -71,7 +71,7 @@
                             </div>   
 
                             <div class="form-group mb-3">
-                                <button type="submit" class="btn btn-success btn-sm float-right">Update</button>
+                                <button type="submit" class="btn btn-success btn-sm float-right"><span class="fas fa-save"></span> Save Changes</button>
 
                             </div>
                         </form>
