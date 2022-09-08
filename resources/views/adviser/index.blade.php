@@ -50,9 +50,12 @@
                                </tr>
                                @endforeach
                            </tbody>
-
                        </table>
 
+                                  <div class="div d-flex justify-content-center mt-3">
+                                   {{$user->onEachSide(1)->links()}}
+                                  </div>
+                                  
                     </div>
                 </div>
             </div>

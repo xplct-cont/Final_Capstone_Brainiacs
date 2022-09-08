@@ -29,7 +29,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card elevation-2">
-                    <div class="card-header d-flex justify-content-start elevation-2">Pending Approval Requests</div>
+                    <div class="card-header d-flex justify-content-start elevation-2">Pending Approval Requests <span class="fas fa-exclamation-triangle mt-1 ml-1 text-danger" style="font-size:20px;"></span></div>
 
                     <div class="card-body">
 
@@ -39,15 +39,15 @@
                             </div>
                         @endif
 
-                        <table class="table table-sm text-center table-striped">
-                            <tr class="bg-info">
-                                <th>...</th>
+                        <table class="table table-sm text-center">
+                            <tr class="bg-danger">
+                                <th>Remove</th>
                                 <th>Full Name</th>
                                 {{-- <th>Role</th> --}}
                                 <th>Advisory</th>
                                 <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Email</th>
                                 <th>Registered at</th>
-                                <th>...</th>
+                                <th>Approve</th>
                                
                             </tr>
                             @forelse ($users as $user)

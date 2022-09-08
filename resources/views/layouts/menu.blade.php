@@ -28,21 +28,23 @@
     <a href="{{ route('admin.users.index') }}"
        class="nav-link {{ Request::is('admin.users.index') ? '' : '' }}">
         <p>Approval Requests</p>
-        <i class="fas fa-credit-card fa-pull-left fa-md "></i>
+        <i class="fas fa-exclamation-circle fa-pull-left fa-md "></i>
     </a>
 </li>
  
+<li class="nav-item">
+    <a href="{{ route('home') }}"
+       class="nav-link {{ Request::is('home') ? '' : '' }}">
+        <p>Events</p>
+        <i class="fas fa-swatchbook fa-pull-left fa-md "></i>
+    </a>
+</li>
  
- 
- {{-- <li class="user-footer" style=" margin-top: 415px; margin-left: 18px;">
-     <a href="#" class="fas fa-sign-out-alt fa-pull-left fa-md text-white"
-        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-        Sign out
-     </a>
-     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-         @csrf
-     </form>
- </li> --}}
+
+
+
+
+
  
  <style scoped>
  

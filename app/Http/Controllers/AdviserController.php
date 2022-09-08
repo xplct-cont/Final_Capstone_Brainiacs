@@ -24,9 +24,11 @@ class AdviserController extends Controller
 
     public function index(){
 
-        $user = User::whereNotNull('approved_at')->get();
+        $user = User::whereNotNull('approved_at')->paginate(4);
         
         return view('adviser.index', compact('user'));
+
+        // $paginate = User::paginate('4');
     }
 
    public function show($id)

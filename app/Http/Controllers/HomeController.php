@@ -39,7 +39,7 @@ class HomeController extends Controller
     ])
 
     ->orderBy("advisory","asc")
-    ->paginate(10);
+    ->paginate(4);
 
 
        return view('home', compact('user', 'admin', 'section'), ['section' => $section])

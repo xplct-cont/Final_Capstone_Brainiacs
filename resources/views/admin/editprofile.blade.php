@@ -83,14 +83,14 @@
         </div>
 
         <div class="input-group mb-3">
-           <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">AV</span></label>
+           <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">As</span></label>
            <input type="text" name="advisory" value="{{$user->advisory}}" class="form-control" required>
        
            </div>
 
 
            <div class="input-group mb-3">
-           <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">PH</span></label>
+           <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">Pn</span></label>
            <input type="text" name="contact_no" value="{{$user->contact_no}}" class="form-control" required>
            </div>
 
