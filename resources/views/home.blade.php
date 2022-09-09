@@ -12,9 +12,21 @@
 <body>
     
            <h1 style="color:dimgray; font-size:22px; margin-left:20px; position:relative; top:15px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">DASHBOARD</h1>
-           {{-- <h2 class="text-center text-dark" style="font-size: 20px; margin:auto; ">DASHBOARD</h2> --}}
+    
+        <li class="nav-item d-flex justify-content-end" style="position:relative; top:-30px;">
+            <a href="{{ route('calendar') }}"
+               class="nav-link {{ Request::is('calendar') ? '' : '' }}">
+                <span class="input-group-text fas fa-calendar-alt bg-success "><span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">&nbsp;Calendar</span> </span>
+                
+            </a>
+        </li>
+         
+       
+          
+           
+        
 
-          <div class="cardBox">
+          <div class="cardBox" style="margin-top:-20px;">
             <div class="card elevation-2">
                 <div class="iconBx">
                     <ion-icon name="person"></ion-icon>

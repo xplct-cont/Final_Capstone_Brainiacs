@@ -32,6 +32,7 @@
           integrity="sha512-aEe/ZxePawj0+G2R+AaIxgrQuKT68I28qh+wgLrcAJOz3rxCP+TwrK5SPN+E5I+1IQjNtcfvb96HDagwrKRdBw=="
           crossorigin="anonymous"/>
 
+
     @yield('third_party_stylesheets')
 
     @stack('page_css')
@@ -51,11 +52,7 @@
 
         <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown user-menu">
-                {{-- <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                      <img src="/images/avatars/{{Auth::user()->avatar}}"
-                         class="user-image img-circle elevation-2" alt="User Image">
-                    <span class="d-none d-md-inline">{{ Auth::user()->name }}</span>
-                </a> --}}
+                
                 <a href="#" class=""
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <h2 style="font-size: 16px; margin:auto;">&nbsp;Logout</h2>
@@ -63,29 +60,7 @@
              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                  @csrf
              </form>
-                {{-- <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <!-- User image -->
-                    <li class="user-header bg-info">
-                        <img src="/images/avatars/{{Auth::user()->avatar}}"
-                             class="img-circle elevation-2"
-                             alt="Admin Image">
-                        <p>
-                            {{ Auth::user()->name }}
-                            <h1 style="color:#414a4c; font-size:15px;">Guidance Administrator</h1>
-                        </p>
-                    </li>
-                    <!-- Menu Footer-->
-                    <li class="user-footer">
-                        <a href="{{url('/editprofile')}}" class="btn btn-default btn-flat bg-info">Profile</a>
-                        <a href="#" class="btn btn-default btn-flat bg-danger float-right"
-                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            Sign out
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </li>
-                </ul> --}}
+              
             </li>
         </ul>
     </nav> 

@@ -85,7 +85,6 @@
         <div class="input-group mb-3">
            <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">As</span></label>
            <input type="text" name="advisory" value="{{$user->advisory}}" class="form-control" required>
-       
            </div>
 
 

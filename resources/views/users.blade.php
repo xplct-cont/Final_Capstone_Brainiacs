@@ -4,7 +4,7 @@
 
 <div class="search" style="position:relative; top: 50px;" >
     <div class="mx-auto" style="width:400px;">
-    <form action="{{route('admin.users.index')}}" method="GET" role="search">
+    <form action="{{route('users')}}" method="GET" role="search">
 
         <div class="input-group">
             <span class="input-group-btn mr-2 mt-0">
@@ -13,7 +13,7 @@
                 </button>
             </span>
             <input type="text" class="form-control mr-2" name="term" placeholder="Search Full Name" id="term">
-            <a href="{{route('admin.users.index')}}" class=" mt-0">
+            <a href="{{route('users')}}" class=" mt-0">
                 <span class="input-group-btn">
                     <button class="btn btn-danger" type="button" title="Refresh page">
                         <span class="fas fa-sync-alt"></span>

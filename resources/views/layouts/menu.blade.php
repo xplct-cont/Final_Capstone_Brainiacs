@@ -11,26 +11,27 @@
      
  <li class="nav-item">
      <a href="{{ route('home') }}"
-        class="nav-link {{ Request::is('home*') ? '' : '' }}">
+        class="nav-link {{ Request::is('home*') ? 'active bg-info mt-2' : '' }}">
          <p>Dashboard</p>
          <i class="fas fa-tachometer-alt fa-pull-left fa-md "></i>
      </a>
  </li>
  <li class="nav-item">
      <a href="{{ route('advisers') }}"
-        class="nav-link {{ Request::is('advisers*') ? '' : '' }}">
+        class="nav-link {{ Request::is('advisers*') ? 'active bg-info' : '' }}">
          <p>Advisers</p>
          <i class="fas fa-chalkboard-teacher fa-pull-left fa-md "></i>
      </a>
  </li>
 
  <li class="nav-item">
-    <a href="{{ route('admin.users.index') }}"
-       class="nav-link {{ Request::is('admin.users.index') ? '' : '' }}">
+    <a href="{{ route('users') }}"
+       class="nav-link {{ Request::is('users') ? 'active bg-info': ''  }}">
         <p>Approval Requests</p>
         <i class="fas fa-exclamation-circle fa-pull-left fa-md "></i>
     </a>
 </li>
+
  
 <li class="nav-item">
     <a href="{{ route('home') }}"
@@ -81,7 +82,7 @@
      height: 45px;
      width: 45px;
     }
- 
- 
+
+
  
  </style>

@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdviserController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\AdviserHomePageController;
+use App\Http\Controllers\AdminCalendarController;
 
 
 /*
@@ -39,7 +40,7 @@ Route::middleware(['auth', ])->group(function () {
     });
 
     Route::middleware(['admin', ])->group(function () {
-        Route::get('/users', 'UserController@index')->name('admin.users.index');
+        Route::get('/users', 'UserController@index')->name('users');
         Route::get('/users/{user_id}/approve', 'UserController@approve')->name('admin.users.approve');
         Route::get('/users/{user_id}/destroy', 'UserController@destroy')->name('admin.users.destroy');
 
@@ -68,7 +69,12 @@ Route::middleware(['auth', ])->group(function () {
         Route::post('/adminprofile', [AdminProfileController::class, 'update_avatar']);     
         Route::get('/edit-info/{id}', [AdminProfileController::class, 'edit']);
         Route::put('/update-info/{id}', [AdminProfileController::class, 'update']);
-        
+
+
+        //for events admin panel
+
+        Route::get('fullcalender', [AdminCalendarController::class, 'index'])->name('calendar');
+        Route::post('fullcalenderAjax', [AdminCalendarController::class, 'ajax']);
        
 
        });

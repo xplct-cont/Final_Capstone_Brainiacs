@@ -40,7 +40,7 @@ class UserController extends Controller
         $user = User::findOrFail($user_id);
         $user->update(['approved_at' => now()]);
 
-        return redirect()->route('admin.users.index')->withMessage('Adviser approved successfully');
+        return redirect()->route('users')->withMessage('Request approved successfully');
     }
 
 
@@ -52,7 +52,7 @@ class UserController extends Controller
     //      File::delete($destination);
     //  }
     $user->delete();
-    return redirect()->back()->with('status', 'Adviser Removed Successfully!');
+    return redirect()->back()->with('status', 'Request Removed Successfully!');
 
 
     }

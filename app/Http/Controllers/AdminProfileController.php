@@ -29,7 +29,7 @@ class AdminProfileController extends Controller
     {
 
         //Show Edit Profile    
-           return view('admin.editprofile', array('user'=>Auth::user()));
+           return view('admin.profile.editprofile', array('user'=>Auth::user()));
            $user = User::all();
         
    }
@@ -47,7 +47,7 @@ class AdminProfileController extends Controller
              $user->save();
 
          }
-         return view('admin.editprofile', array('user'=>Auth::user()));
+         return view('admin.profile.editprofile', array('user'=>Auth::user()));
 
    
    
@@ -56,7 +56,7 @@ class AdminProfileController extends Controller
 
         public function edit($id){
             $user = User::find($id);
-            return view('admin.editprofilename', compact('user'));
+            return view('admin.profile.editprofilename', compact('user'));
         }
 
 

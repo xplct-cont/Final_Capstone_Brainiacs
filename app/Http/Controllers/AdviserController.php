@@ -26,7 +26,7 @@ class AdviserController extends Controller
 
         $user = User::whereNotNull('approved_at')->paginate(4);
         
-        return view('adviser.index', compact('user'));
+        return view('admin.adviser.index', compact('user'));
 
         // $paginate = User::paginate('4');
     }
@@ -41,12 +41,12 @@ class AdviserController extends Controller
            return redirect(route('users.index'));
        }
 
-       return view('adviser.show')->with('user', $user);
+       return view('admin.adviser.show')->with('user', $user);
    }
 
    public function edit($id){
     $user = User::find($id);
-    return view('adviser.edit', compact('user'));
+    return view('admin.adviser.edit', compact('user'));
 }
 
 
