@@ -4,10 +4,12 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AdviserController;
-use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\Admin\AdviserController;
+use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\AdminCalendarController;
+
+
 use App\Http\Controllers\AdviserHomePageController;
-use App\Http\Controllers\AdminCalendarController;
 
 
 /*
@@ -71,12 +73,13 @@ Route::middleware(['auth', ])->group(function () {
         Route::put('/update-info/{id}', [AdminProfileController::class, 'update']);
 
 
-        //for events admin panel
+        //for calendar admin panel
 
         Route::get('fullcalender', [AdminCalendarController::class, 'index'])->name('calendar');
         Route::post('fullcalenderAjax', [AdminCalendarController::class, 'ajax']);
-       
 
+
+      
        });
     });
 

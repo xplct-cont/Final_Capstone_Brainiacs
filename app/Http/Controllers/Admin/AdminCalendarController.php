@@ -1,9 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Event;
+use DB;
 
 class AdminCalendarController extends Controller
 {
@@ -15,6 +18,8 @@ class AdminCalendarController extends Controller
 
     public function index(Request $request)
     {
+
+        $events = DB::table('events')->get();
   
         if($request->ajax()) {
        
@@ -25,7 +30,7 @@ class AdminCalendarController extends Controller
              return response()->json($data);
         }
   
-        return view('admin.calendar.calendar');
+        return view('admin.calendar.calendar', compact('events'));
     }
  
     /**

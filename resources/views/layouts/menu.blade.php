@@ -11,14 +11,14 @@
      
  <li class="nav-item">
      <a href="{{ route('home') }}"
-        class="nav-link {{ Request::is('home*') ? 'active bg-info mt-2' : '' }}">
+        class="nav-link {{ Request::is('home*') ? '' : '' }}">
          <p>Dashboard</p>
          <i class="fas fa-tachometer-alt fa-pull-left fa-md "></i>
      </a>
  </li>
  <li class="nav-item">
      <a href="{{ route('advisers') }}"
-        class="nav-link {{ Request::is('advisers*') ? 'active bg-info' : '' }}">
+        class="nav-link {{ Request::is('advisers*') ? '' : '' }}">
          <p>Advisers</p>
          <i class="fas fa-chalkboard-teacher fa-pull-left fa-md "></i>
      </a>
@@ -26,7 +26,7 @@
 
  <li class="nav-item">
     <a href="{{ route('users') }}"
-       class="nav-link {{ Request::is('users') ? 'active bg-info': ''  }}">
+       class="nav-link {{ Request::is('users') ? '': ''  }}">
         <p>Approval Requests</p>
         <i class="fas fa-exclamation-circle fa-pull-left fa-md "></i>
     </a>
@@ -34,10 +34,10 @@
 
  
 <li class="nav-item">
-    <a href="{{ route('home') }}"
-       class="nav-link {{ Request::is('home') ? '' : '' }}">
-        <p>Events</p>
-        <i class="fas fa-swatchbook fa-pull-left fa-md "></i>
+    <a href="{{ route('calendar') }}"
+       class="nav-link {{ Request::is('calendar') ? '' : '' }}">
+        <p>Calendar/Events</p>
+        <i class="fas fa-calendar-alt fa-pull-left fa-md "></i>
     </a>
 </li>
  
