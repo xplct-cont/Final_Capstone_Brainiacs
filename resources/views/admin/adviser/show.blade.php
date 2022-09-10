@@ -14,55 +14,59 @@
     
 </body>
 </html>
-
-     <div class="container">
-         <div class="row">
-             <div class="col-md-7"  style="positon:relative; top:10px; margin:auto;">
-
-                 <div class="card elevation-2" style="height: 500px;">
-                     <div class="card-header bg-dark elevation-2">
-                         <h4 style="position: absolute; left:33%; color:whitesmoke; margin:auto; font-weight:normal;">Adviser Informations</h4>
-                         <a href="{{url('advisers')}}" class="btn btn-danger btn-sm float-start text-white">Back</a>
-                     </div>
-                     <div class="card-body">
-
-                        <form action="{{url('show-adviser/'.$user->id)}}" method="GET" enctype="multipart/form-data">
-                         @csrf
-                         @method('GET')
-                         
-                         <div class="bb">
-                                <img src="{{url('/images/bbbb.png')}}" style="position:relative; height:100px; width:100%; background-position:center; background-repeat:no-repeat; background-size: cover;  ">
-                            </div>
-                            <h1 class="text-center" style="position:relative; top:-90px; font-size: 20px; margin:auto;">Pangangan National High School</h1>
-                            <h2 class="text-center" style="position:relative; top:-80px; font-size: 17px; margin:auto; color:whitesmoke;">Talisay, Calape, Bohol</h2>
-                            <h5 class="text-center text-dark" style="margin:auto; position:relative; top:-42px; font-size: 18px;">School ID: 302882</h5>
-               
-                               
-                                 <div class="card elevation-4 bg-dark" style="height: 270px; margin-top:-40px;">
-                                    <img src="{{asset('images/avatars/'.$user->avatar)}}" class="img-circle elevation-4" style="position:relative; left: 20px; top: 10px; width:100px; height:100px; border-radius:50%;  background-color:#5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;"><br>
-                                 <p style="color: 	#F5FFFA; position: relative; font-size: 16px; margin-left:20px; top: 20px;" >Name:&nbsp;&nbsp;{{$user->name}}</p>
-                                 <p style="color: 	#F5FFFA; position: relative;  font-size: 16px; margin-left:20px; top: 2px;" >Advisory:&nbsp;&nbsp;{{$user->advisory}}</p>
-                                 <p style="color: 	#F5FFFA; position: relative;  font-size: 16px; margin-left:20px; top: -15px;" >Contact No:&nbsp;&nbsp;{{$user->contact_no}}</p>
-                                 <p style="color: 	#F5FFFA; position: relative;  font-size: 16px; margin-left:20px; top: -33px;" >Email:&nbsp;&nbsp;{{$user->email}}</p>
-                                 
-        
-                                </div>
-                        
+                      <div class="" style="height: 500px; position:relative; top:10px;">
+                        <div class="card-header elevation-1">
+                            <h4 style="position: absolute; left:33%; color: dimgray; margin:auto; font-weight:normal;">ADVISER INFORMATIONS</h4>
+                            <a href="{{url('advisers')}}" class="btn btn-danger btn-sm float-start text-white">Back</a>
                         </div>
-                        </form>
+                      
+                      <div class="row mt-5" style="width:97%;">
+
+                        <div class="col-md-5" style="height: 283px; overflow:hidden;">
+                            <div class="position-relative">
+                                <img src="/images/avatars/{{$user->avatar}}" style=" position:absolute; top:0px; width: 255px; left: 120px; height:255px;border-radius: 50%; float:left; ">
+                               
+                            </div>
+                            <p style="position:absolute; left: 190px; top: 260px; color:black">{{$user->advisory}} </p>
+                        </div>
+                     
+                        <div class="col-md-6 text-dark mx-auto">
+                            
                          
                         
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
-
-
-
-
-
-
-
-
+                    
+                        <div class="cold-md-4" style="height: 265px; margin-left: 10px; margin-top: 10px; margin-bottom: 100px;">
+                            <h2 class="text-center" style="color:dimgray; font-size:20px; font-weight: normal;">Details</h2>
+                        <hr>
+                    
+                        <form action="{{url('update-info/'.$user->id)}}" method="POST" accept-charset="UTF-8">
+                            @csrf
+                            @method('PUT')
+                            
+                    
+                            <div class="input-group mb-3">
+                               <label for="" style="color:dimgray;"><span class="fas fa-user input-group-text bg-dark" style="width: 43px;"></span></label>
+                               <input type="text" name="name" value="{{$user->name}}" class="form-control" readonly>
+                            </div>
+                    
+                            <div class="input-group mb-3">
+                               <label for="" style="color:dimgray;"><span class="input-group-text bg-dark" style="width: 43px;">As</span></label>
+                               <input type="text" name="advisory" value="{{$user->advisory}}" class="form-control" readonly>
+                               </div>
+                    
+                    
+                               <div class="input-group mb-3">
+                               <label for="" style="color:dimgray;"><span class="input-group-text bg-dark" style="width: 43px;">Pn</span></label>
+                               <input type="text" name="contact_no" value="{{$user->contact_no}}" class="form-control" readonly>
+                               </div>
+                    
+                               <div class="input-group mb-3">
+                               <label for="" style="color:dimgray;"><span class="fas fa-envelope input-group-text bg-dark" style="width: 43px;"></span></label>
+                                <input type="text" name="email" value="{{$user->email}}" class="form-control" readonly>
+                            </div>  
+                        </div>
+                       </div>
+                   
+          
+    
 @endsection

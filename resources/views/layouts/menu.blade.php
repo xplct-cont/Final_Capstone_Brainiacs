@@ -33,14 +33,14 @@
 </li>
 
  
-<li class="nav-item">
+{{-- <li class="nav-item">
     <a href="{{ route('calendar') }}"
        class="nav-link {{ Request::is('calendar') ? '' : '' }}">
         <p>Calendar/Events</p>
         <i class="fas fa-calendar-alt fa-pull-left fa-md "></i>
     </a>
 </li>
- 
+  --}}
 
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use DB;
 
@@ -25,6 +26,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
 
+       $events = DB::table('events')->get();
        $user = DB::table('users')->whereNotNull('approved_at')->count();   
        $admin = DB::table('users')->where('admin', '1')->count();
 
@@ -39,10 +41,10 @@ class HomeController extends Controller
     ])
 
     ->orderBy("advisory","asc")
-    ->paginate(4);
+    ->paginate(3);
 
 
-       return view('home', compact('user', 'admin', 'section'), ['section' => $section])
+       return view('home', compact('user', 'admin', 'section', 'events'), ['section' => $section])
        ->with('i',(request()->input('page',1)-1)*5);
       
 

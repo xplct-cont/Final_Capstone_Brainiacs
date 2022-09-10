@@ -13,20 +13,20 @@
     
            <h1 style="color:dimgray; font-size:22px; margin-left:20px; position:relative; top:15px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">DASHBOARD</h1>
     
-        <li class="nav-item d-flex justify-content-end" style="position:relative; top:-30px;">
+        {{-- <li class="nav-item d-flex justify-content-end" style="position:relative; top:-30px;">
             <a href="{{ route('calendar') }}"
                class="nav-link {{ Request::is('calendar') ? '' : '' }}">
-                <span class="input-group-text fas fa-calendar-alt bg-success "><span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">&nbsp;Calendar</span> </span>
+                <span class="input-group-text fas fa-calendar-alt bg-success "><span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">&nbsp;Calendar|Events</span> </span>
                 
             </a>
-        </li>
+        </li> --}}
          
        
           
            
         
 
-          <div class="cardBox" style="margin-top:-20px;">
+          <div class="cardBox" style="margin-top:8px;">
             <div class="card elevation-2">
                 <div class="iconBx">
                     <ion-icon name="person"></ion-icon>
@@ -62,74 +62,119 @@
                 <div>
                     <div class="cardName text-light" >Adviser</div>      
                     <div class="numbers text-light" ><span>{{$user}}</span></div>
-               
                 </div>
             </div>              
           </div>
-        
-            <div class="card elevation-2 rounded" style="margin:auto;">
-                <div class="card-header">
-                    <h2 style="color: dimgray; font-size:16px;" class="d-flex justify-content-between" >ALL SENIOR HIGH SCHOOL SECTIONS
-                        {{$section->onEachSide(1)->links()}}</h2>
+           
+          <div class="row d-flex justify-content-between" style="position:relative; top:2px;">
+            <div class="column">
+              <h2 style="color: dimgray; font-size:20px; ">List of Events</h2>
+              <div class="card text-center" style="width: 445px; margin:auto;">
+                <h3 style="color: dimgray; font-size: 20px;">
 
-                    <div class="card-body">
-                    <div class="search" style="margin-top:-20px; margin-bottom:10px;">
-                        <div class="mx-auto pull-left">
-                        <form action="{{route('home')}}" method="GET" role="search">
-        
-                            <div class="input-group">
-                                <span class="input-group-btn mr-2 mt-0">
-                                    <button class="btn btn-info" type="submit" title="Search Sections">
-                                        <span class="fas fa-search"></span>
-                                    </button>
-                                </span>
-                                <input type="text" class="form-control mr-2" name="section" placeholder="Search Sections" id="section">
-                                <a href="{{route('home')}}" class=" mt-0">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-danger" type="button" title="Refresh page">
-                                            <span class="fas fa-sync-alt"></span>
-                                        </button>
-                                    </span>
-                                </a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
 
-                    <table class="table table-sm table-hover text-dark rounded elevation-2 text-center">
-                        <thead>
-                          <tr>
-                            <th scope="col" class="bg-secondary">Action</th>
-                            <th scope="col" class="bg-secondary">Sections</th>
-                            <th scope="col" class="bg-secondary">Number of Students</th>
-                            <th scope="col" class="bg-secondary">Section Adviser</th>
-                           
+                    <div class="nav-item" style="position:relative; top:-30px; margin:auto; width: 230px;">
+                        <a href="{{ route('calendar') }}"
+                           class="nav-link {{ Request::is('calendar') ? '' : '' }}">
+                            <span class="input-group-text fas fa-calendar-alt bg-info "><span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">&nbsp;Open Events Calendar</span> </span>
                             
-                          </tr>
+                        </a>
+                    </div>
+                    <img src="/images/image17.png" class="user-image img-circle elevation-2" alt="User Image" style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
+                    School Events
+                    
+                </h3>
+                   <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th class="text-dark bg-secondary" style="text-align: center">Event Title</th>
+                                <th class="text-dark bg-secondary" style="text-align: center">Date</th>
+                                <th class="text-dark bg-secondary" style="text-align:center">Time</th>
+                            </tr>
                         </thead>
                         <tbody>
-
-                          @foreach ($section as $sections)
-                          <tr class="text-center">
-                            <td><button class="btn btn-sm bg-success" style="font-size:11px; border-radius:30px;">View</button></td>
-                            <td>{{$sections->advisory}}</td>
-                            <td>50</td>
-                            <td>{{$sections->name}}</td>
-                          </tr>
-                              
-                          @endforeach
-                          
-                          
+                            @foreach ($events as $sched)
+                            <tr class="text-dark">
+                                 
+                                <td>{{$sched->title}}</td>
+                                <td>{{$sched->start}}</td>
+                                <td>-</td>
+                                
+        
+                            </tr>
+                            @endforeach
+                            
                         </tbody>
-                      </table>
-                     
-                     
-
-                </div>
-            </div>
+                   </table>
+               
+                <button class="btn btn-sm input-group-center bg-success ">Send to all students</button>
+              </div>
         </div>
-
-            
+          
+            <div class="column">
+                    <div class="card d-flex justify-content-end" style="width: 450px; padding:3px;">
+                      
+                            <h2 style="color: dimgray; font-size:16px;" class="d-flex justify-content-between " >ALL SENIOR HIGH SCHOOL SECTIONS
+                               </h2> {{$section->onEachSide(1)->links()}}
+        
+                            <div class="card-body">
+                            <div class="search" style="margin-top:-20px; margin-bottom:10px;">
+                                <div class="mx-auto pull-left">
+                                <form action="{{route('home')}}" method="GET" role="search">
+                
+                                    <div class="input-group">
+                                        <span class="input-group-btn mr-2 mt-0">
+                                            <button class="btn btn-info" type="submit" title="Search Sections">
+                                                <span class="fas fa-search"></span>
+                                            </button>
+                                        </span>
+                                        <input type="text" class="form-control mr-2" name="section" placeholder="Search Sections" id="section">
+                                        <a href="{{route('home')}}" class=" mt-0">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-danger" type="button" title="Refresh page">
+                                                    <span class="fas fa-sync-alt"></span>
+                                                </button>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+        
+                            <table class="table table-sm table-hover text-dark rounded elevation-2 text-center">
+                                <thead>
+                                  <tr>
+                                    <th scope="col" class="bg-secondary">Action</th>
+                                    <th scope="col" class="bg-secondary">Sections</th>
+                                    <th scope="col" class="bg-secondary">Number of Students</th>
+                                    <th scope="col" class="bg-secondary">Section Adviser</th>
+                                   
+                                    
+                                  </tr>
+                                </thead>
+                                <tbody>
+        
+                                  @foreach ($section as $sections)
+                                  <tr class="text-center">
+                                    <td><button class="btn btn-sm bg-success" style="font-size:11px; border-radius:30px;">View</button></td>
+                                    <td>{{$sections->advisory}}</td>
+                                    <td>50</td>
+                                    <td>{{$sections->name}}</td>
+                                  </tr>
+                                      
+                                  @endforeach
+                                  
+                                  
+                                </tbody>
+                              </table>
+                             
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </div>
+        </div> 
           <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
           <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
@@ -190,7 +235,45 @@
     .cardBox .card:hover .iconBx {
         color: white;
     }
-  
 
+
+ 
+    * {
+      box-sizing: border-box;
+    }
+    
+   
+    .column {
+      float: left;
+      width: 25%;
+      padding: 0 10px;
+    }
+    
+    /* Remove extra left and right margins, due to padding */
+    .row {margin: 0 -5px;}
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    
+
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+    
+
+        /* .card {
+        
+        padding: 1px;
+        text-align: center;
+        background-color: #f1f1f1;
+        } */
 </style>
 @endsection

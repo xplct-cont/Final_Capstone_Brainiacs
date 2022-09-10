@@ -24,7 +24,7 @@
 
      <div class="container">
          <div class="row">
-             <div class="col-md-6"  style="positon:relative; top:10px; margin:auto;">
+             <div class="col-md-8"  style="positon:relative; top:10px; margin:auto;">
 
                 @if (session('status'))
                 <h6 class="alert alert-success" style="position: relative; margin-top:4%;">
@@ -33,9 +33,9 @@
                     
                 @endif
 
-                 <div class="card elevation-4 text-dark">
-                     <div class="card-header bg-info elevation-2">
-                         <h4 style="position: absolute; left:40%; color:whitesmoke; margin:auto; ">Edit Advisory</h4>
+                 <div class="card elevation-2 text-dark">
+                     <div class="card-header bg-dark elevation-2">
+                         <h4 style="position: absolute; left:40%; color:whitesmoke; margin:auto; ">EDIT DATA</h4>
                          <a href="{{url('advisers')}}" class="btn btn-danger btn-sm float-start" >Back</a>
                      </div>
                      <div class="card-body">
@@ -65,7 +65,7 @@
                                 <label for="" style="color:dimgray;">Advisory</label>
                                 <input type="text" name="advisory" value="{{$user->advisory}}" class="form-control" required>
 
-                                <label for="" style="color:dimgray;">Contact No</label>
+                                <label for="" style="color:dimgray;"></label>
                                 <input type="text" name="contact_no" value="{{$user->contact_no}}" class="form-control" required >
                               
                             </div>   

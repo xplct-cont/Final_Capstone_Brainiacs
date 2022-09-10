@@ -17,48 +17,11 @@
 </head>
 
 <body>
-<div class="row d-flex justify-content-between" style="position:relative; top:20px;">
-    <div class="column">
-      <h2 style="color: dimgray; font-size:20px; ">List of Events</h2><hr>
-      <div class="card" style="width: 445px; margin:auto;">
-        <h3 style="color: dimgray; font-size: 20px;">
-            <img src="/images/image17.png" class="user-image img-circle elevation-2" alt="User Image" style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
-            School Events
-        </h3>
-           <table class="table table-sm">
-                <thead>
-                    <tr>
-                        <th class="text-dark" style="text-align: center">Event Title</th>
-                        <th class="text-dark" style="text-align: center">Date</th>
-                        <th class="text-dark" style="text-align:center">Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($events as $sched)
-                    <tr class="text-dark">
-                         
-                        <td>{{$sched->title}}</td>
-                        <td>{{$sched->start}}</td>
-                        <td>-</td>
-                        
-
-                    </tr>
-                    @endforeach
-                    
-                </tbody>
-           </table>
-       
-        <button class="btn btn-sm input-group-center bg-success ">Send to all students</button>
-      </div>
-
-     
-      
+<div class="row">
    
-</div>
-  
-    <div class="column">
-        <h3 style="color: dimgray; font-size:20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:auto;">Calendar of Events</h3><hr>
-        <div class="card d-flex justify-content-end" style="width: 445px;">
+    <div class="" style=" margin:auto;">
+        <h3 class="text-center" style="color: dimgray; font-size:20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:auto; position:relative; top: 20px;">CALENDAR OF EVENTS</h3> <br><hr>
+        <div class="card" style="width: 460px; margin:auto;">
         <div id='calendar' class="calendar elevation-2 rounded mx-auto" style="width:100%;">
         </div>
    
