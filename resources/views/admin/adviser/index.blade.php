@@ -31,7 +31,6 @@
                                    <th class="d-none d-md-table-cell d-lg-table-cell d-lg-table-cell" style="text-align: center">Email</th>
                                    <th style="text-align: center">Edit</th>
                                    <th style="text-align: center">Delete</th>
-                                   <th style="text-align: center">View</th>
                                </tr>
                            </thead>
 
@@ -46,7 +45,7 @@
                                    <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{$item->email}}</td>
                                    <td><a href="{{url('edit-adviser/' .$item->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-edit"></i></a></td>
                                    <td><a href="{{url('delete-adviser/'.$item->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash"></i></a></td>
-                                   <td><a href="{{url('show-adviser/'.$item->id)}}" class="btn btn-success btn-xs"><i class="fas fa-eye"></i></a></td>
+                                   {{-- <td><a href="{{url('show-adviser/'.$item->id)}}" class="btn btn-success btn-xs"><i class="fas fa-eye"></i></a></td> --}}
                                </tr>
                                @endforeach
                            </tbody>

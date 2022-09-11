@@ -50,8 +50,8 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('/advisers', [
             AdviserController::class, 'index'
         ])->name('advisers');
-        Route::get('/show-adviser/{id}', [
-            AdviserController::class, 'show']);
+        // Route::get('/show-adviser/{id}', [
+        //     AdviserController::class, 'show']);
         Route::get('/delete-adviser/{id}', [
             AdviserController::class, 'destroy']);
         Route::get('/edit-adviser/{id}', [

@@ -1,144 +1,118 @@
-
 @extends('layouts.layoutsidebar')
 
 @section('content')
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ config('app.name') }}</title>
 
-    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.2/parsley.min.js" integrity="sha512-eyHL1atYNycXNXZMDndxrDhNAegH2BDWt1TmkXJPoGf1WLlNYt08CSjkqF5lnCRmdm3IrkHid8s2jOUY4NIZVQ==" crossorigin="anonymous"></script> --}}
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" name="viewport">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+          integrity="sha512-0S+nbAYis87iX26mmj/+fWt1MmaKCv80H+Mbo+Ne7ES4I6rxswpfnC6PxmLiw33Ywj2ghbtTw0FkLbMWqh4F7Q=="
+          crossorigin="anonymous"/>
+
+    <!-- AdminLTE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.5/css/adminlte.min.css"
+          integrity="sha512-rVZC4rf0Piwtw/LsgwXxKXzWq3L0P6atiQKBNuXYRbg2FoRbSTIY0k2DxuJcs7dk4e/ShtMzglHKBOJxW8EQyQ=="
+          crossorigin="anonymous"/>
+
+    <!-- iCheck -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icheck-bootstrap/3.0.1/icheck-bootstrap.min.css"
+          integrity="sha512-8vq2g5nHE062j3xor4XxPeZiPjmRDh6wlufQlfC6pdQ/9urJkU07NM0tEREeymP++NczacJ/Q59ul+/K2eYvcg=="
+          crossorigin="anonymous"/>
+
+        
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+ 
 </head>
+
 <body>
+
+    <h1 style="color:dimgray; font-weight:regular; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 25px; position:relative; top: 20px; margin-left: 10px;">Adviser Profile</h1>
+   <br>  <hr>
+   
+   <div class="row">
+
+    <div class="col-md-5" style="height: 283px; overflow:hidden;">
+        <div class="position-relative">
+            <img src="/images/avatars/{{$user->avatar}}" style=" position:absolute; top:0px; width: 255px; left: 120px; height:255px;border-radius: 50%; float:left; ">
+           
+        </div>
+        <p style="position:absolute; left: 190px; top: 260px; color:black">{{$user->advisory}} </p>
+    </div>
+ 
+    <div class="col-md-6 text-dark mx-auto">
+       
+   
+     
     
+
+    <div class="cold-md-4" style="height: 265px; margin-left: 10px; margin-top: 10px; margin-bottom: 100px;">
+        <h2 class="text-center" style="color:dimgray; font-size:20px; font-weight: normal;">Adviser Details</h2>
+    <hr>
+
+    <form action="{{url('update-adviser/'.$user->id)}}" method="POST" accept-charset="UTF-8">
+        @csrf
+        @method('PUT')
+        
+
+        <div class="input-group mb-3">
+           <label for="" style="color:dimgray;"><span class="fas fa-user input-group-text bg-secondary" style="width: 43px;"></span></label>
+           <input type="text" name="name" value="{{$user->name}}" class="form-control" required>
+        </div>
+
+        <div class="input-group mb-3">
+           <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">As</span></label>
+           <input type="text" name="advisory" value="{{$user->advisory}}" class="form-control" required>
+           </div>
+
+
+           <div class="input-group mb-3">
+           <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">Pn</span></label>
+           <input type="text" name="contact_no" value="{{$user->contact_no}}" class="form-control" required>
+           </div>
+
+           <div class="input-group mb-3">
+           <label for="" style="color:dimgray;"><span class="fas fa-envelope input-group-text bg-secondary" style="width: 43px;"></span></label>
+            <input type="text" name="email" value="{{$user->email}}" class="form-control" required>
+        </div>
+
+              <div class="mb-3">
+               
+               <button type="submit" class="btn btn-success float-right btn-sm"><span class="fas fa-save"></span> Save Changes</button>
+
+            </div>
+       </form>
+       
+
+       
+    </div>
+
+   </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.5/js/adminlte.min.js"
+        integrity="sha512-++c7zGcm18AhH83pOIETVReg0dr1Yn8XTRw+0bWSIWAVCAwz1s2PwnSj4z/OOyKlwSXc4RLg3nnjR22q0dhEyA=="
+        crossorigin="anonymous"></script>
+
+
 </body>
 </html>
 
-     <div class="container">
-         <div class="row">
-             <div class="col-md-8"  style="positon:relative; top:10px; margin:auto;">
 
-                @if (session('status'))
-                <h6 class="alert alert-success" style="position: relative; margin-top:4%;">
-                  {{session('status')}}
-                </h6>
-                    
-                @endif
-
-                 <div class="card elevation-2 text-dark">
-                     <div class="card-header bg-dark elevation-2">
-                         <h4 style="position: absolute; left:40%; color:whitesmoke; margin:auto; ">EDIT DATA</h4>
-                         <a href="{{url('advisers')}}" class="btn btn-danger btn-sm float-start" >Back</a>
-                     </div>
-                     <div class="card-body">
-
-                        <form action="{{url('update-adviser/'.$user->id)}}"  method="POST" enctype="multipart/form-data">
-                         @csrf
-                         @method('PUT')
-                         
-
-                          <div class="card bg-dark">
-                            
-                            <div class="form-group mb-1">
-                                <div class="bb">
-                                    <img src="{{url('/images/bbbb.png')}}" style="position:absolute; height:100%; width:100%; background-position:center; background-repeat:no-repeat; background-size: cover;  ">
-                            </div>
-                                <img src="{{asset('images/avatars/'.$user->avatar)}}" class="img-circle elevation-4" style="background-color:#5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px; position: relative; left: 0px; margin:auto; width:100px; height:100px; border-radius:50%;">
-                                {{-- <label for="" style="color:dimgray;"></label>
-                                <input type="file" name="avatar" > --}}
-                            </div>
-                        </div>
-                            <hr>
-                            <div class="form-group mb-3" >
-                                <label for="" style="color:dimgray;">Full Name</label>
-                                <input type="text" name="name" value="{{$user->name}}" class="form-control" required>   
-
-                               
-                                <label for="" style="color:dimgray;">Advisory</label>
-                                <input type="text" name="advisory" value="{{$user->advisory}}" class="form-control" required>
-
-                                <label for="" style="color:dimgray;"></label>
-                                <input type="text" name="contact_no" value="{{$user->contact_no}}" class="form-control" required >
-                              
-                            </div>   
-
-                            <div class="form-group mb-3">
-                                <button type="submit" class="btn btn-success btn-sm float-right"><span class="fas fa-save"></span> Save Changes</button>
-
-                            </div>
-                        </form>
-                         
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
-
-     {{-- <script>
-        $(function(){
-            var $sections = $('.form-section');
-            function navigateTo(index){
-                $sections.removeClass('current').eq(index).addClass('current');
-                $('.form-navigation .previous').toggle(index>0);
-                var atTheEnd = index >= $sections.length - 1;
-                $('.form-navigation .next').toggle(!atTheEnd);
-                $('.form-navigation [type=submit]').toggle(atTheEnd);
-            }
-            function curIndex(){
-                return $sections.index($sections.filter('.current'));
-            }
-            $('.form-navigation .previous').click(function(){
-                navigateTo(curIndex()-1);
-            });
-            $('.form-navigation .next').click(function(){
-                $('.contact-form').parsley().whenValidate({
-                        group: 'block-' + curIndex()
-                }).done(function(){
-                    navigateTo(curIndex()+1);
-                });
-            });
-            $sections.each(function(index,section){
-                $(section).find(':input').attr('data-parsley-group','block-'+index);
-            });
-            navigateTo(0);
-        });
-    </script>
-    </body>
-    </html>
-    <style scoped>
-        .section{
-            padding-top:100px !important;
-        }
-        .form-section{
-            padding-left:15px;
-            display: none;
-        }
-        .form-section.current{
-            display: inherit;
-        }
-        .btn-info, .btn-success{
-            margin-top:10px;
-        }
-        .parsley-error-list{
-            margin: 2px 0 3px;
-            padding: 0;
-            list-style-type:none;
-            color:red;
-        }
+<style scoped>
+ 
+     
    
-    </style> --}}
-
-
-
-
-
-
+</style>
 @endsection

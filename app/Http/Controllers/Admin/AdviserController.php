@@ -58,6 +58,7 @@ public function update(Request $request, $id){
     $user->contact_no = $request->input('contact_no');
     $user->name = $request->input('name');
     $user->advisory = $request->input('advisory');
+    $user->email = $request->input('email');
  
    
     if($request->hasFile('avatar')){
