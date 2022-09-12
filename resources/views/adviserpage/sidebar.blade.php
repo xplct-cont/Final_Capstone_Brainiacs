@@ -7,7 +7,7 @@
         <span class="brand-text font-weight-bold" style="color:whitesmoke;">PNHS SHS-GIS</span>
     </a>
 
-    <div class="sidebar bg-dark text-light">
+    <div class="sidebar bg-dark text-light ">
         <nav class="mt-3 ml-3">
             <ul class="nav nav-pills nav-sidebar flex-column bg-dark" data-widget="treeview" role="menu" data-accordion="false">
                 @include('adviserpage.menu')

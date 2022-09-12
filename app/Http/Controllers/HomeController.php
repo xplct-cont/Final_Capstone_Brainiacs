@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 use DB;
 
 class HomeController extends Controller
@@ -50,11 +52,11 @@ class HomeController extends Controller
 
     }
 
-
-
     public function approval()
     {
     return view('approval');
     }
 
+
+   
 }

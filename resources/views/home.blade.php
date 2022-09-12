@@ -84,12 +84,15 @@
                     School Events
                     
                 </h3>
+
+
                    <table class="table table-sm">
                         <thead>
                             <tr>
                                 <th class="text-dark bg-secondary" style="text-align: center">Event Title</th>
                                 <th class="text-dark bg-secondary" style="text-align: center">Date</th>
                                 <th class="text-dark bg-secondary" style="text-align:center">Time</th>
+                                <th class="text-dark bg-secondary" style="text-align:center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -99,7 +102,8 @@
                                 <td>{{$sched->title}}</td>
                                 <td>{{$sched->start}}</td>
                                 <td>-</td>
-                                
+                                <td><button type="submit" class="btn btn-sm bg-success" style="border-radius: 30px; font-size:11px;">Send</button></td>
+                               
         
                             </tr>
                             @endforeach
@@ -108,7 +112,7 @@
                    </table>
                
                 <button class="btn btn-sm input-group-center bg-success ">Send to all students</button>
-              </div>
+            </div>
         </div>
           
             <div class="column">

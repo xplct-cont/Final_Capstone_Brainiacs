@@ -41,11 +41,11 @@
 <div class="wrapper">
   
     <!-- Main Header -->
-     <nav class="main-header navbar navbar-expand navbar-info navbar-light">
+     <nav class="main-header navbar navbar-expand navbar-info  elevation-0">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i><h2 style="position:relative; margin:auto; left:23px; top:-21.2px; font-size:16px; color:white;">{{date('Y-m-d')}}</h2></a>
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-light"></i><h2 style="position:relative; margin:auto; left:23px; top:-21.2px; font-size:16px; color:white;">{{date('Y-m-d')}}</h2></a>
             </li>
         </ul>
 
@@ -58,7 +58,7 @@
                 </a> --}}
                 <a href="#" class=""
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <h2>&nbsp;Logout</h2>
+                <h2 class="">&nbsp;Logout</h2>
              </a>
              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                  @csrf

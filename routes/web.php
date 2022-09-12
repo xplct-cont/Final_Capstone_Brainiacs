@@ -78,6 +78,10 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('fullcalender', [AdminCalendarController::class, 'index'])->name('calendar');
         Route::post('fullcalenderAjax', [AdminCalendarController::class, 'ajax']);
 
+    
+
+       
+
 
       
        });
