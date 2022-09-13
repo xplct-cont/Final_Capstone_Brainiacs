@@ -10,8 +10,8 @@
 
 <div class="container">
     <div class="row">
-                <a class="btn btn-secondary  mt-3 ml-3" style="" href="{{route('export_user_pdf')}}">Export PDF</a>
-    
+                <a class="btn btn-danger mt-3 ml-3" style="" href="{{route('export_user_pdf')}}">Download PDF</a>
+                <a href="/export_user_excel" class=" mt-3 ml-3 btn btn-success">Export to Excel</a>
      <div class="container " style="position: relative; margin-top:2%;">
         <div class="row">
             <div class="col-md-12">

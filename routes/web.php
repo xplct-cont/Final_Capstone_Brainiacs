@@ -63,12 +63,12 @@ Route::middleware(['auth', ])->group(function () {
         Route::put('/update-adviser/{id}', [
             AdviserController::class, 'update']);
 
+
+            //for PDF and Excel Advisers
         Route::get('export_user_pdf', [AdviserController::class, 'export_user_pdf'])->name('export_user_pdf');
-
-
-            //for edit admin profile
-
+        Route::get('export_user_excel', [AdviserController::class, 'export_user_excel'])->name('export_user_excel');
         
+        //for edit admin profile
         Route::get('/adminprofile', [
                 AdminProfileController::class, 'index'
             ])->name('adminprofile');
@@ -85,10 +85,9 @@ Route::middleware(['auth', ])->group(function () {
         Route::post('fullcalenderAjax', [AdminCalendarController::class, 'ajax']);
 
     
-       //for events damin
+       //for events admin
 
        Route::get('/event-delete/{id}', [HomeController::class, 'destroy']);
-
        Route::post('/send-event', function(){
            $user = User::all();
         //    $user->notify(new EmailNotification());

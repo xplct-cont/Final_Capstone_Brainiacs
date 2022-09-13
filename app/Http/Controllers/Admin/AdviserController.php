@@ -15,6 +15,8 @@ use App\Rules\MatchOldPassword;
 use Flash;
 use Response;
 use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UsersExport;
 
 class AdviserController extends Controller
 {
@@ -96,7 +98,11 @@ public function update(Request $request, $id){
         $pdf = PDF::loadVIew('pdf.users', [
             'users' => $user
         ]);
-        return $pdf->download('users.pdf');
+        return $pdf->download('PNHS SHS Advisers.pdf');
     }
     
+    public function export_user_excel(){
+         $user = User::whereNotNull('approved_at')->get();
+         return Excel::download(new UsersExport($user),'PNHS SHS Advisers.xlsx');
+    }
 }
