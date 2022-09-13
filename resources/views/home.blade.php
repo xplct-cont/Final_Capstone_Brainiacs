@@ -86,9 +86,7 @@
                     </div>
                     <img src="/images/image17.png" class="user-image img-circle elevation-2" alt="User Image" style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
                     School Events
-                    
                 </h3>
-
                 <form action="{{url('send-event/')}}" method="POST" accept-charset="UTF-8">
                     @csrf
                    <table class="table table-sm">
