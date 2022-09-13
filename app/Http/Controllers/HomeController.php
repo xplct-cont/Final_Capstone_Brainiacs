@@ -6,6 +6,9 @@ use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\Notifications;
+use App\Notifications\EmailNotification;
+use Notification;
 use DB;
 
 class HomeController extends Controller
@@ -43,7 +46,7 @@ class HomeController extends Controller
     ])
 
     ->orderBy("advisory","asc")
-    ->paginate(3);
+    ->paginate(2);
 
 
        return view('home', compact('user', 'admin', 'section', 'events'), ['section' => $section])
@@ -58,5 +61,17 @@ class HomeController extends Controller
     }
 
 
+     public function destroy($id){
+
+        $events = Event::find($id);
+        $events->delete();
+        return redirect()->back()->with('status', 'Event Removed Successfully!');
+     }
+
+     public function sendMail(Request $request){
+       
+       }
+
+     }
    
-}
+

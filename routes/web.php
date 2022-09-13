@@ -1,15 +1,19 @@
 <?php
 
 use Carbon\Carbon;
+use App\Notifications\EmailNotification;
+use App\Mail\EmailNotif;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\AdviserController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\AdminCalendarController;
-
+use App\Models\User;
 
 use App\Http\Controllers\AdviserHomePageController;
+use App\Http\Controllers\EmailController;
+
 
 
 /*
@@ -59,6 +63,8 @@ Route::middleware(['auth', ])->group(function () {
         Route::put('/update-adviser/{id}', [
             AdviserController::class, 'update']);
 
+        Route::get('export_user_pdf', [AdviserController::class, 'export_user_pdf'])->name('export_user_pdf');
+
 
             //for edit admin profile
 
@@ -79,19 +85,21 @@ Route::middleware(['auth', ])->group(function () {
         Route::post('fullcalenderAjax', [AdminCalendarController::class, 'ajax']);
 
     
+       //for events damin
 
-       
+       Route::get('/event-delete/{id}', [HomeController::class, 'destroy']);
 
-
+       Route::post('/send-event', function(){
+           $user = User::all();
+        //    $user->notify(new EmailNotification());
+        Notification::send($user, new EmailNotification());
+        return redirect()->back();
+    });
       
        });
     });
 
-
-
     //////For Advisers//////////////////////////////////////////
-
-
     Route::middleware(['auth', ])->group(function () {
         Route::get('/approval', 'AdviserHomePageController@approval')->name('approval');
     
@@ -101,9 +109,10 @@ Route::middleware(['auth', ])->group(function () {
            
         });
     });
-    
 
-       
+  
+  
+    
 
 
 

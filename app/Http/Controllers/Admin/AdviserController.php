@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Rules\MatchOldPassword;
 use Flash;
 use Response;
+use PDF;
 
 class AdviserController extends Controller
 {
@@ -24,10 +25,9 @@ class AdviserController extends Controller
     }
     
 
-    public function index(){
+    public function index(Request $request){
 
-        $user = User::whereNotNull('approved_at')->paginate(4);
-        
+        $user = User::whereNotNull('approved_at')->paginate(4);    
         return view('admin.adviser.index', compact('user'));
 
         // $paginate = User::paginate('4');
@@ -89,7 +89,14 @@ public function update(Request $request, $id){
     $user->delete();
     return redirect()->back()->with('status', 'Adviser Removed Successfully!');
 
+    }
 
+    public function export_user_pdf(){
+        $user = User::whereNotNull('approved_at')->get();
+        $pdf = PDF::loadVIew('pdf.users', [
+            'users' => $user
+        ]);
+        return $pdf->download('users.pdf');
     }
     
 }

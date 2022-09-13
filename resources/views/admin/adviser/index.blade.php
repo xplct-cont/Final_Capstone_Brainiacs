@@ -1,23 +1,31 @@
 @extends('layouts.layoutsidebar')
 
 @section('content')
+ 
+@if (session('status'))
+<h6 class="alert alert-success"style="position: relative; margin-top:4%;">
+  {{session('status')}}
+</h6>
+@endif
 
 <div class="container">
     <div class="row">
-        @if (session('status'))
-                <h6 class="alert alert-success"style="position: relative; margin-top:4%;">
-                  {{session('status')}}
-                </h6>
-                @endif
-     <div class="container " style="position: relative; margin-top:3%;">
+                <a class="btn btn-secondary  mt-3 ml-3" style="" href="{{route('export_user_pdf')}}">Export PDF</a>
+    
+     <div class="container " style="position: relative; margin-top:2%;">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header elevation-2" style="height: 60px;">
                         <h4 style="position: absolute; left:38%; color:dimgray;">Senior High Advisers</h4>
                         {{-- <a href="{{url('add-adviser')}}" class="btn btn-info float-start" >Register Adviser</a> --}}
+                       
                         <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image" style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
                     </div>
+
+                  
+
+
                     <div class="card-body">
                        <table class="table table-hover bg-light table-sm elevation-2" style="margin:auto;">
 

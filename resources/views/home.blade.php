@@ -11,6 +11,12 @@
 </head>
 <body>
     
+    @if (session('status'))
+    <h6 class="alert alert-success"style="font-size: 20px;">
+      {{session('status')}}
+    </h6>
+    @endif
+
            <h1 style="color:dimgray; font-size:22px; margin-left:20px; position:relative; top:15px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">DASHBOARD</h1>
     
         {{-- <li class="nav-item d-flex justify-content-end" style="position:relative; top:-30px;">
@@ -21,11 +27,6 @@
             </a>
         </li> --}}
          
-       
-          
-           
-        
-
           <div class="cardBox" style="margin-top:8px;">
             <div class="card elevation-2">
                 <div class="iconBx">
@@ -73,6 +74,9 @@
                 <h3 style="color: dimgray; font-size: 20px;">
 
 
+                   
+
+
                     <div class="nav-item" style="position:relative; top:-30px; margin:auto; width: 230px;">
                         <a href="{{ route('calendar') }}"
                            class="nav-link {{ Request::is('calendar') ? '' : '' }}">
@@ -85,7 +89,8 @@
                     
                 </h3>
 
-
+                <form action="{{url('send-event/')}}" method="POST" accept-charset="UTF-8">
+                    @csrf
                    <table class="table table-sm">
                         <thead>
                             <tr>
@@ -102,7 +107,7 @@
                                 <td>{{$sched->title}}</td>
                                 <td>{{$sched->start}}</td>
                                 <td>-</td>
-                                <td><button type="submit" class="btn btn-sm bg-success" style="border-radius: 30px; font-size:11px;">Send</button></td>
+                                <td><a href="{{url('event-delete/'.$sched->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash"></i></a></td>
                                
         
                             </tr>
@@ -111,7 +116,8 @@
                         </tbody>
                    </table>
                
-                <button class="btn btn-sm input-group-center bg-success ">Send to all students</button>
+                <button type="submit" class="btn btn-sm input-group-center bg-success mb-1 ">Send to all</button>
+                </form>
             </div>
         </div>
           
@@ -145,6 +151,8 @@
                             </div>
                         </div>
         
+
+                             
                             <table class="table table-sm table-hover text-dark rounded elevation-2 text-center">
                                 <thead>
                                   <tr>
