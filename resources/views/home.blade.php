@@ -66,16 +66,62 @@
                 </div>
             </div>              
           </div>
-           
-          <div class="row d-flex justify-content-between" style="position:relative; top:2px;">
-            <div class="column">
-              <h2 style="color: dimgray; font-size:20px; ">List of Events</h2>
-              <div class="card text-center" style="width: 445px; margin:auto;">
+        
+                    <div class="card d-flex justify-content-end col-md-12" style="padding:3px;">
+                      
+                         <h2 style="color: dimgray; font-size:16px;" class="d-flex justify-content-between " >ALL SENIOR HIGH SCHOOL SECTIONS
+                          </h2> {{$section->onEachSide(1)->links()}} <br>
+        
+                           <div class="card-body">
+                            <div class="search" style="margin-top:-20px; margin-bottom:10px;">
+                              <div class="mx-auto pull-left">
+                                <form action="{{route('home')}}" method="GET" role="search">
+                
+                                    <div class="input-group">
+                                        <span class="input-group-btn mr-2 mt-0">
+                                            <button class="btn btn-info" type="submit" title="Search Sections">
+                                                <span class="fas fa-search"></span>
+                                            </button>
+                                        </span>
+                                        <input type="text" class="form-control mr-2" name="section" placeholder="Search Sections" id="section">
+                                        <a href="{{route('home')}}" class=" mt-0">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-danger" type="button" title="Refresh page">
+                                                    <span class="fas fa-sync-alt"></span>
+                                                </button>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                          </div>
+                             
+                            <table class="table table-sm table-hover text-dark rounded elevation-2 text-center">
+                                <thead>
+                                  <tr>
+                                    <th scope="col" class="bg-secondary">Action</th>
+                                    <th scope="col" class="bg-secondary">Sections</th>
+                                    <th scope="col" class="bg-secondary">Number of Students</th>
+                                    <th scope="col" class="bg-secondary">Section Adviser</th>                        
+                                  </tr>
+                                </thead>
+                                <tbody>
+        
+                                  @foreach ($section as $sections)
+                                  <tr class="text-center">
+                                    <td><button class="btn btn-sm bg-success" style="font-size:11px; border-radius:30px;">View</button></td>
+                                    <td>{{$sections->advisory}}</td>
+                                    <td>50</td>
+                                    <td>{{$sections->name}}</td>
+                                  </tr>                          
+                                  @endforeach     
+                                </tbody>
+                              </table>   
+                        </div>
+                    </div>
+        
+              <div class="card text-center mt-5 col-md-8" style="margin:auto;">
                 <h3 style="color: dimgray; font-size: 20px;">
-
-
-                   
-
 
                     <div class="nav-item" style="position:relative; top:-30px; margin:auto; width: 230px;">
                         <a href="{{ route('calendar') }}"
@@ -105,91 +151,22 @@
                                 <td>{{$sched->title}}</td>
                                 <td>{{$sched->start}}</td>
                                 <td>-</td>
-                                <td><a href="{{url('event-delete/'.$sched->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash"></i></a></td>
-                               
+                                <td><a href="{{url('event-delete/'.$sched->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash"></i></a></td>                       
         
                             </tr>
-                            @endforeach
-                            
+                            @endforeach                
                         </tbody>
                    </table>
-               
-                <button type="submit" class="btn btn-sm input-group-center bg-success mb-1 ">Send to all</button>
+                 <button type="submit" class="btn btn-sm input-group-center bg-success mb-1 ">Send to all</button>
                 </form>
-            </div>
-        </div>
-          
-            <div class="column">
-                    <div class="card d-flex justify-content-end" style="width: 450px; padding:3px;">
-                      
-                            <h2 style="color: dimgray; font-size:16px;" class="d-flex justify-content-between " >ALL SENIOR HIGH SCHOOL SECTIONS
-                               </h2> {{$section->onEachSide(1)->links()}}
-        
-                            <div class="card-body">
-                            <div class="search" style="margin-top:-20px; margin-bottom:10px;">
-                                <div class="mx-auto pull-left">
-                                <form action="{{route('home')}}" method="GET" role="search">
-                
-                                    <div class="input-group">
-                                        <span class="input-group-btn mr-2 mt-0">
-                                            <button class="btn btn-info" type="submit" title="Search Sections">
-                                                <span class="fas fa-search"></span>
-                                            </button>
-                                        </span>
-                                        <input type="text" class="form-control mr-2" name="section" placeholder="Search Sections" id="section">
-                                        <a href="{{route('home')}}" class=" mt-0">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-danger" type="button" title="Refresh page">
-                                                    <span class="fas fa-sync-alt"></span>
-                                                </button>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-        
-
-                             
-                            <table class="table table-sm table-hover text-dark rounded elevation-2 text-center">
-                                <thead>
-                                  <tr>
-                                    <th scope="col" class="bg-secondary">Action</th>
-                                    <th scope="col" class="bg-secondary">Sections</th>
-                                    <th scope="col" class="bg-secondary">Number of Students</th>
-                                    <th scope="col" class="bg-secondary">Section Adviser</th>
-                                   
-                                    
-                                  </tr>
-                                </thead>
-                                <tbody>
-        
-                                  @foreach ($section as $sections)
-                                  <tr class="text-center">
-                                    <td><button class="btn btn-sm bg-success" style="font-size:11px; border-radius:30px;">View</button></td>
-                                    <td>{{$sections->advisory}}</td>
-                                    <td>50</td>
-                                    <td>{{$sections->name}}</td>
-                                  </tr>
-                                      
-                                  @endforeach
-                                  
-                                  
-                                </tbody>
-                              </table>
-                             
-                        </div>
-                    </div>
-                </div>
               </div>
-        </div>
-    </div>
-        </div> 
-          <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+             </div>
+            </div> 
+           <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
           <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
         </body>
-        </html>
+      </html>
 
 
 

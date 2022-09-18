@@ -39,7 +39,7 @@
 <li class="nav-item" style="margin-top:-5px;">
     <a href="{{ route('home') }}"
        class="nav-link {{ Request::is('home') ? '': ''  }}">
-        <p>Grade 11 - Black</p>
+        <p>Grade 11 - Wisdom</p>
         <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
     </a>
 </li>
@@ -47,7 +47,7 @@
 <li class="nav-item" style="margin-top:-10px;">
     <a href="{{ route('home') }}"
        class="nav-link {{ Request::is('home') ? '': ''  }}">
-        <p>Grade 11 - Red</p>
+        <p>Grade 11 - Faith</p>
         <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
     </a>
 </li>
@@ -55,7 +55,7 @@
 <li class="nav-item" style="margin-top:-10px;">
     <a href="{{ route('home') }}"
        class="nav-link {{ Request::is('home') ? '': ''  }}">
-        <p>Grade 11 - Blue</p>
+        <p>Grade 11 - Charity</p>
         <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
     </a>
 </li>
@@ -67,7 +67,7 @@
 <li class="nav-item" style="margin-top:-5px;">
    <a href="{{ route('home') }}"
       class="nav-link {{ Request::is('home') ? '': ''  }}">
-       <p>Grade 12- Cyan</p>
+       <p>Grade 12- Hope</p>
        <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
    </a>
 </li>
@@ -75,18 +75,18 @@
 <li class="nav-item" style="margin-top:-10px;">
    <a href="{{ route('home') }}"
       class="nav-link {{ Request::is('home') ? '': ''  }}">
-       <p>Grade 12 - Brown</p>
+       <p>Grade 12 - Love</p>
        <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
    </a>
 </li>
 
-<li class="nav-item" style="margin-top:-10px;">
+{{-- <li class="nav-item" style="margin-top:-10px;">
    <a href="{{ route('home') }}"
       class="nav-link {{ Request::is('home') ? '': ''  }}">
        <p>Grade 12 - Gray</p>
        <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
    </a>
-</li>
+</li> --}}
 
 
 

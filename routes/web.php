@@ -12,7 +12,9 @@ use App\Http\Controllers\Admin\AdminCalendarController;
 use App\Models\User;
 
 use App\Http\Controllers\AdviserHomePageController;
-use App\Http\Controllers\EmailController;
+use App\Http\Controllers\Adviser\AdviserProfileController;
+use App\Http\Controllers\Adviser\StudentListController;
+
 
 
 
@@ -105,6 +107,26 @@ Route::middleware(['auth', ])->group(function () {
         
     Route::middleware(['approved', 'auth', 'is_admin'])->group(function () {
         Route::get('/homepage', 'AdviserHomePageController@index')->name('homepage');
+
+
+        Route::get('/adviserprofile', [
+            AdviserProfileController::class, 'index'
+        ])->name('adviserprofile');
+        
+        
+    Route::post('/adviserprofile', [AdviserProfileController::class, 'update_avatar']);     
+    Route::put('/update-adviser-info/{id}', [AdviserProfileController::class, 'update']);
+
+        Route::get('/advisory-list-students', [
+            StudentListController::class, 'index'
+        ])->name('advisory-list-students');
+
+        Route::get('/adviser-change-password/{id}', [
+            AdviserProfileController::class, 'passwordIndex'
+        ])->name('adviser-change-password');
+    
+
+
            
         });
     });

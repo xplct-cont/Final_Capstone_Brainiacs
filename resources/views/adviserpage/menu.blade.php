@@ -1,4 +1,4 @@
-<ul style="position:relative; left: -36px; margin:auto; height: 50px;">
+<div style=" margin:auto; height: 50px;">
     <li class="nav-item"> 
      <a href="{{url('/adviserprofile')}}">
                <img src="/images/avatars/{{Auth::user()->avatar}}"
@@ -7,19 +7,19 @@
                      <p style="font-size: 10px; position:relative; top:-10px; left: 60px; ">Adviser</p>
              <hr size="1" color="white" style=" position:relative; width: 145px; left: 7px; top: -20px; ">
              </li>
-         </ul>  
+         </div>  
      
  <li class="nav-item">
      <a href="{{ route('homepage') }}"
         class="nav-link {{ Request::is('homepage*') ? '' : '' }}">
-         <p>Dashboard</p>
-         <i class="fas fa-tachometer-alt fa-pull-left fa-md "></i>
+         <p>Home</p>
+         <i class="fas fa-home fa-pull-left fa-md "></i>
      </a>
  </li>
  
  <li class="nav-item">
-    <a href="{{ route('homepage') }}"
-       class="nav-link {{ Request::is('homepage*') ? '' : '' }}">
+    <a href="{{ route('advisory-list-students') }}"
+       class="nav-link {{ Request::is('advisory-list-students*') ? '' : '' }}">
         <p>Your Students</p>
         <i class="fas fa-user-graduate fa-pull-left fa-md "></i>
     </a>
