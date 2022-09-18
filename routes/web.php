@@ -124,6 +124,8 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('/adviser-change-password/{id}', [
             AdviserProfileController::class, 'passwordIndex'
         ])->name('adviser-change-password');
+
+    Route::post('/adviser-change-password', [AdviserProfileController::class, 'passwordChange'])->name('adviser-save-password');   
     
 
 

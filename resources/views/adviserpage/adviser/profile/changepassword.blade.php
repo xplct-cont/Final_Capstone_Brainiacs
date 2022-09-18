@@ -2,43 +2,62 @@
 
 @section('content')
 
+ 
+@if (session('status'))
+<h6 class="alert alert-success"style="font-size: 20px;">
+  {{session('status')}}
+</h6>
+@endif
 
-
-    <h1 class="d-flex justify-content-center" style="position:relative; top:70px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:dimgray; font-size: 20px; margin:auto;">CHANGE PASSWORD</h1><hr>
-   <div class="row d-flex justify-content-center" style="position:relative; top:80px;">
-    <div class="col-md-6">
-        <form action="{{url('update-adviser-info/'.$user->id)}}" method="POST" accept-charset="UTF-8">
-            @csrf
-            @method('PUT')
+<div class="container" style="position:relative; top:70px;">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-dark text-center">CHANGE PASSWORD</div>
+   
+                <div class="card-body">
+                    <form method="POST" action="{{ route('adviser-save-password') }}">
+                        @csrf 
+   
+                         @foreach ($errors->all() as $error)
+                            <p class="text-danger">{{ $error }}</p>
+                         @endforeach 
+  
+                        <div class="form-group row d-flex justify-content-center">
+                            <label for="password"><span class="input-group-text text-light bg-info" style="width:42px;"><span class="fas fa-lock" style="font-size: 20px; height: 25px;"></span></span></label>
+  
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="current_password" autocomplete="current-password" placeholder="Current Password">
+                            </div>
+                        </div>
+  
+                        <div class="form-group row d-flex justify-content-center">
+                            <label for="password"><span class="input-group-text text-light bg-success" style="width:42px;"><span class="fas fa-key" style="font-size: 20px; height: 25px;"></span></span></label>
+  
+                            <div class="col-md-6">
+                                <input id="new_password" type="password" class="form-control" name="new_password" autocomplete="current-password" placeholder="New Password">
+                            </div>
+                        </div>
+  
+                        <div class="form-group row d-flex justify-content-center">
+                            <label for="password"><span class="input-group-text text-light bg-success" style="width:42px;"><span class="fas fa-key" style="font-size: 20px; height: 25px;"></span></span></label>
     
-            <div class="input-group mb-3">
-               
-                <span class="input-group-text bg-info text-white" style="width:39px;"><i class="fas fa-lock"></i></span>
-                <input class="form-control" placeholder="Current Password" name="current_password" type="password" value="" required>
-            </div>
-
-            <div class="input-group mb-3">
-               
-                <span class="input-group-text bg-success text-white" style="width:39px;"><i class="fas fa-key"></i></span>
-                <input class="form-control" placeholder="New Password" name="new_password" type="password"  value="" required>
-            </div>
-
-            <div class="input-group mb-3">
-               
-                <span class="input-group-text bg-success text-white" style="width:39px;"><i class="fas fa-key"></i></span>
-                <input class="form-control" placeholder="Confirm New Password" name="new_password_confirmation" type="password"  value="" required>
-            </div>
-            
-                  <div class="mb-3">
-                   <button type="submit" class="btn btn-success float-right btn-sm"><span class="fas fa-save"></span> Save Changes</button>
+                            <div class="col-md-6">
+                                <input id="new_confirm_password" type="password" class="form-control" name="new_confirm_password" autocomplete="current-password" placeholder="Confirm New Password">
+                            </div>
+                        </div>
+   
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-7">
+                                <button type="submit" class="btn btn-sm btn-success"><span class="fas fa-save"></span> Update Password</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-           </form>
-           
-    
+            </div>
+        </div>
     </div>
-   </div>
-
-
+</div>
 
 
 

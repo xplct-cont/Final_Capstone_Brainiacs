@@ -50,7 +50,7 @@
            
         </div>
         <p style="position:absolute; left: 190px; top: 260px; color:black">{{$user->advisory}} </p>
-        <a class="btn btn-sm btn-danger" href="{{url('adviser-change-password/'.$user->id)}}" style="position:absolute; left: 190px; top: 320px; color:white;"><span class="fas fa-key"></span> Change Password</a>
+        <a class="btn btn-sm btn-danger" href="{{url('adviser-change-password/'.$user->id)}}" style="position:absolute; left: 190px; top: 320px; color:white;"><span class="fas fa-key"></span>&nbsp;Change Password</a>
     </div>
  
     <div class="col-md-6 text-dark mx-auto">
