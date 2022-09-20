@@ -44,12 +44,13 @@
    
    <div class="row">
 
-    <div class="col-md-5" style="height: 283px; overflow:hidden;">
+    <div class="col-md-5" style="height: 400px; overflow:hidden;">
         <div class="position-relative">
             <img src="/images/avatars/{{$user->avatar}}" style=" position:absolute; top:0px; width: 255px; left: 120px; height:255px;border-radius: 50%; float:left; ">
            
         </div>
         <p style="position:absolute; left: 190px; top: 260px; color:black">{{$user->advisory}} </p>
+        <a class="btn btn-sm btn-danger" href="{{url('admin-change-password/'.$user->id)}}" style="position:absolute; left: 190px; top: 320px; color:white;"><span class="fas fa-key"></span>&nbsp;Change Password</a>
     </div>
  
     <div class="col-md-6 text-dark mx-auto">

@@ -80,6 +80,12 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('/edit-info/{id}', [AdminProfileController::class, 'edit']);
         Route::put('/update-info/{id}', [AdminProfileController::class, 'update']);
 
+        Route::get('/admin-change-password/{id}', [
+            AdminProfileController::class, 'passwordIndex'
+        ])->name('admin-change-password');
+
+        Route::post('/admin-change-password', [AdminProfileController::class, 'passwordChange'])->name('admin-save-password');   
+
 
         //for calendar admin panel
 
@@ -95,9 +101,9 @@ Route::middleware(['auth', ])->group(function () {
         //    $user->notify(new EmailNotification());
         Notification::send($user, new EmailNotification());
         return redirect()->back();
-    });
+        });
       
-       });
+     });
     });
 
     //////For Advisers//////////////////////////////////////////
