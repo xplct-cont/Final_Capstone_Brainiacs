@@ -107,7 +107,8 @@ Route::middleware(['auth', ])->group(function () {
     });
 
     //////For Advisers//////////////////////////////////////////
-    Route::middleware(['auth', ])->group(function () {
+    Auth::routes(['verify' => true]);
+    Route::middleware(['auth'])->group(function () {
         Route::get('/approval', 'AdviserHomePageController@approval')->name('approval');
     
         

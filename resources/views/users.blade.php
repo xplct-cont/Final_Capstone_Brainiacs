@@ -47,6 +47,7 @@
                                 <th>Advisory</th>
                                 <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Email</th>
                                 <th>Registered at</th>
+                                <th>Email Verified at</th>
                                 <th>Approve</th>
                                
                             </tr>
@@ -58,6 +59,7 @@
                                     <td>{{$user->advisory}}</td>
                                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $user->email }}</td>
                                     <td>{{ $user->created_at }}</td>
+                                    <td>{{ $user->email_verified_at}}</td>
                                     <td> <a href="{{ route('admin.users.approve', $user->id) }}"
                                         class="btn btn-success btn-sm" style="margin-top: 1px;;"><span class="fas fa-check"></span></a></td></td>
                                     
