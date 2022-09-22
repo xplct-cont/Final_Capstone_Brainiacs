@@ -1,5 +1,5 @@
 <ul style="position:relative; left: -38px; margin:auto; height: 50px;">
-    <li class="nav-item"> 
+    <li class="nav-item list-unstyled"> 
      <a href="{{url('/adminprofile')}}">
         <img src="/images/avatars/{{Auth::user()->avatar}}"
                   class="user-image img-circle elevation-4" alt="User Image" style="width: 37px; height:37px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
@@ -32,123 +32,98 @@
     </a>
 </li>
 
-<div class="eleven text-white text-center mt-2" style="padding:5px; font-size:15px; background-color:dimgray;">
-     GRADE 11 SECTIONS
+
+
+
+<li class="text-white text-center mt-2" style="padding:5px; font-size:15px; background-color:dimgray;">
+    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-white">GRADE 11 SECTIONS</a>
+    <ul class="collapse list-unstyled" id="pageSubmenu">
+        <li style="margin-top: 12px;">
+            <a href="{{ route('advisers') }}" style="color:white; margin-left: -50px;">Grade 11 - Charity</a><i class="fas fa-graduation-cap fa-pull-left fa-md " style="margin-left: 10px;  margin-right: 25px;"></i>
+        </li>
+        <li style="margin-top: 10px;">
+            <a href="{{ route('advisers') }}" style="color:white; margin-left: -67px;">Grade 11 - Faith</a><i class="fas fa-graduation-cap fa-pull-left fa-md " style="margin-left: 10px; margin-right: 25px;"></i>
+        </li>
+        <li style="margin-top: 10px;">
+            <a href="{{ route('advisers') }}" style="color:white; margin-left: -44px;">Grade 11 - Wisdom</a><i class="fas fa-graduation-cap fa-pull-left fa-md " style="margin-left: 10px; margin-right: 25px;"></i>
+        </li>
+    </ul>
+</li>
+
+
+
+
+<li class="text-white text-center mt-3" style="padding:5px; font-size:15px; background-color:dimgray;">
+    <a href="#Submenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle text-white">GRADE 12 SECTIONS</a>
+    <ul class="collapse list-unstyled" id="Submenu">
+        <li style="margin-top: 12px;">
+            <a href="{{ route('advisers') }}" style="color:white; margin-left: -63px;">Grade 12 - Love</a><i class="fas fa-graduation-cap fa-pull-left fa-md " style="margin-left: 10px; margin-right: 25px;"></i>
+        </li>
+        <li style="margin-top: 10px;">
+            <a href="{{ route('advisers') }}" style="color:white; margin-left: -60px;">Grade 12 - Hope</a><i class="fas fa-graduation-cap fa-pull-left fa-md " style="margin-left: 10px; margin-right: 25px;"></i>
+        </li>
+    </ul>
+</li>
+
+
+
+
+
+
+{{-- <div class="eleven text-white text-center mt-2" style="padding:5px; font-size:15px; background-color:dimgray;">
+    GRADE 11 SECTIONS
 </div>
 
 <li class="nav-item" style="margin-top:-5px;">
-    <a href="{{ route('home') }}"
-       class="nav-link {{ Request::is('home') ? '': ''  }}">
-        <p>Grade 11 - Wisdom</p>
-        <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
-    </a>
+   <a href="{{ route('home') }}"
+      class="nav-link {{ Request::is('home') ? '': ''  }}">
+       <p>Grade 11 - Wisdom</p>
+       <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
+   </a>
 </li>
 
 <li class="nav-item" style="margin-top:-10px;">
-    <a href="{{ route('home') }}"
-       class="nav-link {{ Request::is('home') ? '': ''  }}">
-        <p>Grade 11 - Faith</p>
-        <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
-    </a>
+   <a href="{{ route('home') }}"
+      class="nav-link {{ Request::is('home') ? '': ''  }}">
+       <p>Grade 11 - Faith</p>
+       <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
+   </a>
 </li>
 
 <li class="nav-item" style="margin-top:-10px;">
-    <a href="{{ route('home') }}"
-       class="nav-link {{ Request::is('home') ? '': ''  }}">
-        <p>Grade 11 - Charity</p>
-        <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
-    </a>
+   <a href="{{ route('home') }}"
+      class="nav-link {{ Request::is('home') ? '': ''  }}">
+       <p>Grade 11 - Charity</p>
+       <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
+   </a>
 </li>
 
 <div class="eleven text-white text-center mt-2" style="padding:5px; font-size:15px; background-color:dimgray;">
-    GRADE 12 SECTIONS
+   GRADE 12 SECTIONS
 </div>
 
 <li class="nav-item" style="margin-top:-5px;">
-   <a href="{{ route('home') }}"
-      class="nav-link {{ Request::is('home') ? '': ''  }}">
-       <p>Grade 12- Hope</p>
-       <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
-   </a>
+  <a href="{{ route('home') }}"
+     class="nav-link {{ Request::is('home') ? '': ''  }}">
+      <p>Grade 12- Hope</p>
+      <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
+  </a>
 </li>
 
 <li class="nav-item" style="margin-top:-10px;">
-   <a href="{{ route('home') }}"
-      class="nav-link {{ Request::is('home') ? '': ''  }}">
-       <p>Grade 12 - Love</p>
-       <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
-   </a>
+  <a href="{{ route('home') }}"
+     class="nav-link {{ Request::is('home') ? '': ''  }}">
+      <p>Grade 12 - Love</p>
+      <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
+  </a>
 </li>
-
-{{-- <li class="nav-item" style="margin-top:-10px;">
-   <a href="{{ route('home') }}"
-      class="nav-link {{ Request::is('home') ? '': ''  }}">
-       <p>Grade 12 - Gray</p>
-       <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
-   </a>
-</li> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{-- 
-<div class="btn-group dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Grade 11 - Sections
-    </button>
-    <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenu2">
-        <a href="{{ route('home') }}"
-        class="nav-link {{ Request::is('home') ? 'bg-dark text-white': ''  }}">
-         <p>Grade 11 - Blue</p>
-         <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
-     </a>
-      <a href="{{ route('home') }}"
-        class="nav-link {{ Request::is('home') ? 'bg-dark text-white': ''  }}">
-         <p>Grade 11 - Blue</p>
-         <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
-     </a>
-      <a href="{{ route('home') }}"
-        class="nav-link {{ Request::is('home') ? 'bg-dark text-white': ''  }}">
-         <p>Grade 11 - Blue</p>
-         <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
-     </a>
-    </div>
-  </div>
-
-
-  
-<div class="btn-group dropdown mt-4">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Grade 12 - Sections
-    </button>
-    <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenu2">
-        <a href="{{ route('home') }}"
-        class="nav-link {{ Request::is('home') ? 'bg-dark text-white': ''  }}">
-         <p>Grade 12 - Blue</p>
-         <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
-     </a>
-      <a href="{{ route('home') }}"
-        class="nav-link {{ Request::is('home') ? 'bg-dark text-white': ''  }}">
-         <p>Grade 12 - Blue</p>
-         <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
-     </a>
-      <a href="{{ route('home') }}"
-        class="nav-link {{ Request::is('home') ? 'bg-dark text-white': ''  }}">
-         <p>Grade 12 - Blue</p>
-         <i class="fas fa-graduation-cap fa-pull-left fa-md "></i>
-     </a>
-    </div>
-  </div>
  --}}
+
+
+
+
+
+
 
 
 

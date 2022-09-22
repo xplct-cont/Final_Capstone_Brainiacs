@@ -42,8 +42,8 @@
 
 <div class="container" style="margin-top:60px;">
     <div class="row justify-content-center">
-        <div class="col-md-5">
-            <div class="card">
+        <div class="col-md-6">
+            <div class="card shadow-lg rounded">
                 <div class="card-header bg-dark text-light">
                     <h1 style="font-size: 20px; " class="text-center">Register Account</h1>
                 </div>
