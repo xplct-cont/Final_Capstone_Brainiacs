@@ -24,7 +24,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'admin',
         'approved_at',
         'contact_no',
-        'advisory'
+        'advisory',
+        'role'
     ];
 
     /**

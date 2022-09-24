@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('contact_no')->nullable();
             $table->string('advisory')->nullable();
             $table->string('avatar')->default('image18.png');
+            $table->string('role')->default('author');
             $table->rememberToken();
             $table->timestamps();
         });
