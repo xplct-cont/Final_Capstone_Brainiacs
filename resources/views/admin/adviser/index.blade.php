@@ -3,7 +3,7 @@
 @section('content')
  
 @if (session('status'))
-<h6 class="alert alert-success"style="position: relative; margin-top:4%;">
+<h6 class="alert alert-success">
   {{session('status')}}
 </h6>
 @endif

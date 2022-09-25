@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\StudentAdviserMiddleware;
+use App\Http\Middleware\CanEditStudentMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -66,5 +68,7 @@ class Kernel extends HttpKernel
         'approved' => \App\Http\Middleware\CheckApproved::class,
         'admin' => \App\Http\Middleware\CheckAdmin::class,
         'is_admin' => \App\Http\Middleware\AdminMiddleware::class,
+        'owner' => StudentAdviserMiddleware::class,
+        'can-edit' => CanEditStudentMiddleware::class,
     ];
 }

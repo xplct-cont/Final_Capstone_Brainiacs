@@ -123,19 +123,28 @@ Route::middleware(['auth', ])->group(function () {
         
     Route::post('/adviserprofile', [AdviserProfileController::class, 'update_avatar']);     
     Route::put('/update-adviser-info/{id}', [AdviserProfileController::class, 'update']);
-
-        Route::get('/advisory-list-students', [
-            StudentListController::class, 'index'
-        ])->name('advisory-list-students');
-
-        Route::get('/adviser-change-password/{id}', [
-            AdviserProfileController::class, 'passwordIndex'
-        ])->name('adviser-change-password');
+    
+    Route::get('/adviser-change-password/{id}', [
+        AdviserProfileController::class, 'passwordIndex'
+    ])->name('adviser-change-password');
 
     Route::post('/adviser-change-password', [AdviserProfileController::class, 'passwordChange'])->name('adviser-save-password');   
-    
 
 
+
+
+
+        Route::get('/advisory-list-students', [
+            StudentListController::class, 'myStudents'
+        ])->name('advisory-list-students');
+        
+        Route::get('/students/create',[StudentListController::class, 'create']);
+
+        Route::post('/students', [StudentListController::class, 'store']);
+
+        Route::get('/students/edit/{student}', [StudentListController::class, 'edit'])->middleware('can-edit');
+        Route::put('/students/{student}',[StudentListController::class, 'update'])->middleware('can-edit');
+        Route::get('/delete-student/{student}', [StudentListController::class, 'destroy']);
            
         });
     });
