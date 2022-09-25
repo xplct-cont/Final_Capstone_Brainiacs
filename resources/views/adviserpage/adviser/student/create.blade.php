@@ -5,9 +5,9 @@
 
 
 <div class="row d-flex justify-content-center text-dark">
-    <div class="col-md-7 elevation-2 rounded mt-1 bg-light">
+    <div class="col-md-8 elevation-2 rounded mt-1 bg-light" style="position:relative; top: 30px;">
         @if (session('status'))
-         <h6 class="alert alert-success"style="position: relative; margin-top:4%;">
+         <h6 class="alert alert-success">
            {{session('status')}}
          </h6>
     @endif
@@ -19,26 +19,32 @@
             @csrf
             
                
-               <div class="form-group mb-3">
-                   <label for="">Last Name</label>
-                   <input type="text" name="lastname" class="form-control" required>
-               </div>
-               <div class="form-group mb-3">
-                   <label for="">First Name</label>
-                   <input type="text" name="firstname" class="form-control"  required>
-               </div>
-               <div class="form-group mb-3">
-                   <label for="">Year/Section</label>
-                   <input type="text" name="year_section" class="form-control" required>
-               </div>
-               <div class="form-group mb-3">
-                   <label for="">Email</label>
-                   <input type="email" name="email" class="form-control" required>
-               </div>
-               <div class="form-group mb-3">
-                   <label for="">Address</label>
-                   <input type="text" name="address" class="form-control" required>
-               </div>
+    <div class="input-group mb-3 mt-4">
+       <label for="" style="color:dimgray;"><span class=" input-group-text bg-secondary" style="width: 43px;">Ln</span></label>
+       <input type="text" name="lastname"  class="form-control" placeholder="Enter Last Name" required>
+    </div>
+
+    <div class="input-group mb-3">
+       <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">Fn</span></label>
+       <input type="text" name="firstname"  class="form-control" placeholder="Enter First Name" required>
+       </div>
+
+
+       <div class="input-group mb-3">
+       <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">Y/S</span></label>
+       <input type="text" name="year_section"  class="form-control" placeholder="Enter Year/Section" required>
+       </div>
+
+       <div class="input-group mb-3">
+       <label for="" style="color:dimgray;"><span class="fas fa-envelope input-group-text bg-secondary" style="width: 43px;"></span></label>
+        <input type="text" name="email" class="form-control" placeholder="Enter Email" required>
+    </div>
+
+    <div class="input-group mb-3">
+        <label for="" style="color:dimgray;"><span class=" input-group-text bg-secondary" style="width: 43px;">Ad</span></label>
+        <input type="text" name="address"  class="form-control" placeholder="Enter Address" required>
+        </div>
+             
 
                 <div class="form-group mb-3 d-flex justify-content-end">
                     <button type="submit" class="btn btn-success"><span class="fas fa-save"></span> Save</button>

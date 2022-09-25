@@ -24,7 +24,7 @@ class StudentListController extends Controller
     public function myStudents() {
         $myStudents = Student::where('user_id', auth()->user()->id)
             ->orderBy('lastname', 'asc')
-            ->paginate(6);
+            ->paginate(7);
 
         return view('adviserpage.adviser.student.my-students',['myStudents'=>$myStudents]);
     }
@@ -65,7 +65,7 @@ class StudentListController extends Controller
 
     public function destroy(Student $student){
         $student = Student::find($student)->each->delete();
-        return redirect()->route('advisory-list-students')->with('status', 'Adviser Removed Successfully!');
+        return redirect()->route('advisory-list-students')->with('status', 'Student Removed Successfully!');
     
         }
 }

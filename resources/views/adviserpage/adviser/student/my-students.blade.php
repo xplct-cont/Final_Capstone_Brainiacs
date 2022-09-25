@@ -11,7 +11,7 @@
 </div>
 
 
-<div class="search" style="position:relative; top: 10px;" >
+<div class="search" style="position:relative; top: 5px;" >
     <div class="mx-auto" style="width:400px;">
     <form action="{{route('users')}}" method="GET" role="search">
 
@@ -36,8 +36,8 @@
 
 
 
-<a class="btn btn-danger mt-3 ml-3" style="" href="{{route('export_user_pdf')}}">Download PDF</a>
-<a href="/export_user_excel" class=" mt-3 ml-3 btn btn-success">Export to Excel</a>
+<a class="btn btn-danger mt-2 ml-3" style="" href="{{route('export_user_pdf')}}">Download PDF</a>
+<a href="/export_user_excel" class=" mt-2 ml-3 btn btn-success">Export to Excel</a>
 
 <div class="d-flex justify-content-end" style="position: relative;top:-38px;">
   <a href="{{url('/students/create')}}" class="btn btn-primary"><span class="fas fa-user-graduate mr-1"></span>
@@ -45,7 +45,7 @@
   </a>
 </div>
 
-<div class="card col-md-12 d-flex justify-content-between bg-dark" style="position:relative; top: -20px;">
+<div class="card col-md-12 d-flex justify-content-between bg-dark" style="position:relative; top: -32px;">
     <div class="card-header text-secondary">
         <h4 style="position: absolute; left:38%; color:whitesmoke; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">{{Auth::user()->advisory}} Students</h4>
                         <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image" style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
@@ -54,7 +54,7 @@
 
         <div class="card-body bg-light" >
 
-            <table class="table table-sm text-center">
+            <table class="table table-sm text-center elevation-3">
                 <thead class="bg-info">
                   <tr>
                     
