@@ -39,7 +39,7 @@
 
 <body>
 
-    <h1 style="color:dimgray; font-weight:regular; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 25px; position:relative; top: 20px; margin-left: 10px;">Adviser Profile</h1>
+    <h1 style="color:dimgray; font-weight:regular; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 25px; position:relative; top: 20px; margin-left: 10px;">{{$user->admin ? 'Administrator' : 'Adviser'  }} Profile</h1>
    <br>  <hr>
    
    <div class="row">
@@ -53,13 +53,9 @@
     </div>
  
     <div class="col-md-6 text-dark mx-auto">
-       
-   
-     
-    
 
     <div class="cold-md-4" style="height: 265px; margin-left: 10px; margin-top: 10px; margin-bottom: 100px;">
-        <h2 class="text-center" style="color:dimgray; font-size:20px; font-weight: normal;">Adviser Details</h2>
+        <h2 class="text-center" style="color:dimgray; font-size:20px; font-weight: normal;">{{$user->admin ? 'Administrator' : 'Adviser'  }} Details</h2>
     <hr>
 
     <form action="{{url('update-adviser/'.$user->id)}}" method="POST" accept-charset="UTF-8">
@@ -88,8 +84,24 @@
             <input type="text" name="email" value="{{$user->email}}" class="form-control" required>
         </div>
 
+        <div class="input-group mb-3">
+             <label for="" style="color:dimgray;"><span class=" input-group-text bg-secondary" style="width: 55px;">Role</span></label>
+             <input type="text" name="admin" value="{{ $user->admin ? 'Administrator' : 'Adviser' }}" class="form-control" readonly>
+         </div>
+
+            
+        <div class="form-floating mb-3">
+            <select name="admin" class="form-select" style="width: 100px;">
+             <option hidden="true"></option>
+             <option selected disabled>Select Role</option>
+             <option value="1">Admin</option>
+             <option value="0">Adviser</option>
+            </select>
+            <label for="admin"></label>
+         </div>
+
+
               <div class="mb-3">
-               
                <button type="submit" class="btn btn-success float-right btn-sm"><span class="fas fa-save"></span> Save Changes</button>
 
             </div>

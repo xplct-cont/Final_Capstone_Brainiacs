@@ -61,6 +61,7 @@ public function update(Request $request, $id){
     $user->name = $request->input('name');
     $user->advisory = $request->input('advisory');
     $user->email = $request->input('email');
+    $user->admin = $request->input('admin');
  
    
     if($request->hasFile('avatar')){

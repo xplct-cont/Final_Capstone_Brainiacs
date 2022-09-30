@@ -43,7 +43,7 @@
                 </div>
                 <div>
                     <div class="cardName" >Grade 11 Students</div>
-                    <div class="numbers">0</div>
+                    <div class="numbers"><span>{{$student}}</span></div>
                 </div>
             </div>
             <div class="card elevation-2">

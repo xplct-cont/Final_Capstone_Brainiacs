@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Student;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -34,6 +35,9 @@ class HomeController extends Controller
        $events = DB::table('events')->get();
        $user = DB::table('users')->whereNotNull('approved_at')->count();   
        $admin = DB::table('users')->where('admin', '1')->count();
+       $student = DB::table('students')->where('year_section', 'Grade 11 - Wisdom')
+       ->orWhere('year_section', 'Grade 11 - Charity')
+       ->orWhere('year_section', 'Grade 11 - Faith')->count();
 
        $section = DB::table('users')->whereNotNull('approved_at')->get()->sortBy('advisory'); 
        $section = User::where([
@@ -49,7 +53,7 @@ class HomeController extends Controller
     ->paginate(4);
 
 
-       return view('home', compact('user', 'admin', 'section', 'events'), ['section' => $section])
+       return view('home', compact('user', 'admin', 'student', 'section', 'events'), ['section' => $section])
        ->with('i',(request()->input('page',1)-1)*5);
       
 

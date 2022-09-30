@@ -58,7 +58,7 @@
                 </a> --}}
                 <a href="#" class=""
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <h2 class="">&nbsp;Logout</h2>
+                <h2 class=""><span class="fas fa-sign-in-alt"></span>&nbsp;Logout</h2>
              </a>
              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                  @csrf

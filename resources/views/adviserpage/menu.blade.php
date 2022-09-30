@@ -20,7 +20,7 @@
  <li class="nav-item">
     <a href="{{ route('advisory-list-students') }}"
        class="nav-link {{ Request::is('advisory-list-students*') ? '' : '' }}">
-        <p>Your Students</p>
+        <p>{{Auth::user()->advisory}}</p>
         <i class="fas fa-user-graduate fa-pull-left fa-md "></i>
     </a>
 </li>
