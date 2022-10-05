@@ -2,13 +2,19 @@
 
 @section('content')
     
-<div>
+{{-- <div>
   @if (session('status'))
 <h6 class="alert alert-success">
   {{session('status')}}
 </h6>
 @endif
+</div> --}}
+@if ($message = Session::get('status'))
+<div class="alert alert-success alert-block">
+	<button type="button" class="close" data-dismiss="alert" style="color:black;">×</button>	
+        <strong>{{ $message }}</strong>
 </div>
+@endif
 
 
 <a class="btn btn-danger mt-3 ml-3" style="" href="{{route('export_advisers_pdf')}}">Download PDF</a>

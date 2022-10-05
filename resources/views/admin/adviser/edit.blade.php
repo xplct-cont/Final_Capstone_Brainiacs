@@ -39,10 +39,16 @@
 
 
 <body>
-    @if (session('status'))
+    {{-- @if (session('status'))
     <h6 class="alert alert-success"style="font-size: 20px;">
       {{session('status')}}
     </h6>
+    @endif --}}
+    @if ($message = Session::get('status'))
+    <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert" style="color:black;">×</button>	
+            <strong>{{ $message }}</strong>
+    </div>
     @endif
 
     <h1 style="color:dimgray; font-weight:regular; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 25px; position:relative; top: 20px; margin-left: 10px;">{{$adviser->admin ? 'Administrator' : 'Adviser'  }} Profile</h1>

@@ -33,10 +33,16 @@
 
                     <div class="card-body">
 
-                        @if (session('message'))
+                        {{-- @if (session('message'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('message') }}
                             </div>
+                        @endif --}}
+                        @if ($message = Session::get('status'))
+                        <div class="alert alert-success alert-block">
+                            <button type="button" class="close" data-dismiss="alert" style="color:black;">×</button>	
+                                <strong>{{ $message }}</strong>
+                        </div>
                         @endif
 
                         <table class="table table-sm text-center">

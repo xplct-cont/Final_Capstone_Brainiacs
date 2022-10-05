@@ -3,10 +3,16 @@
 @section('content')
     
  
-@if (session('status'))
+{{-- @if (session('status'))
 <h6 class="alert alert-success">
   {{session('status')}}
 </h6>
+@endif --}}
+@if ($message = Session::get('status'))
+<div class="alert alert-success alert-block">
+	<button type="button" class="close" data-dismiss="alert" style="color:black;">×</button>	
+        <strong>{{ $message }}</strong>
+</div>
 @endif
 
 <div class="search" style="position:relative; top: 5px;" >
