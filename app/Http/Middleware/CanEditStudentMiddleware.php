@@ -19,7 +19,7 @@ class CanEditStudentMiddleware
         $student = $request->route('student');
 
         if(!$student->isEditable()){
-              return redirect('/students/my-students')-> with('Error', 'Sorry you are not allowed to edit this data.');
+              return redirect('/adviserpage/adviser/student/my-students')-> with('Error', 'Sorry you are not allowed to edit this data.');
         }
         return $next($request);
     }

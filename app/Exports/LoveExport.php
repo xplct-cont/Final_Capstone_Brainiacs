@@ -8,18 +8,18 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Events\AfterSheet;
 
-class UsersExport implements FromView, ShouldAutoSize, WithEvents
+class LoveExport implements FromView, ShouldAutoSize, WithEvents
 {
     
-    public function __construct($user)
+    public function __construct($loveStudents)
     {
-        $this->user = $user;
+        $this->loveStudents = $loveStudents;
     }
 
     public function view(): View
     {
-        return view('excel.users',[
-            'users'=>$this->user
+        return view('excel.love-students',[
+            'students'=>$this->loveStudents
         ]);
     }
 

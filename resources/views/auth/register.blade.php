@@ -67,7 +67,7 @@
                         </div>
 
                         
-
+{{-- 
                         <div class="row mb-3">
                             <label for="advisory" class="col-md-4 col-form-label text-md-end">{{ __('Advisory') }}</label>
 
@@ -81,6 +81,30 @@
                                 @enderror
                             </div>
                         </div>
+                            --}}
+                        <div class="row mb-3">
+                            <label for="advisory" class="col-md-4 col-form-label text-md-end">{{ __('Advisory') }}</label>
+
+                        <div class=" col-md-6" >
+                            <select name="advisory" class="form-control" required>
+                                <option hidden="true"></option>
+                                <option selected disabled>Select Advisory</option>
+                                <option value="Grade 11 - Charity">Grade 11 - Charity</option>
+                                <option value="Grade 11 - Faith">Grade 11 - Faith</option>
+                                <option value="Grade 11 - Wisdom">Grade 11 - Wisdom</option>
+                                <option value="Grade 12 - Hope">Grade 12 - Hope</option>
+                                <option value="Grade 12 - Love">Grade 12 - Love</option>
+                               </select> 
+                            </div>
+                            @error('advisory')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        </div>
+
+
+
 
                         <div class="row mb-3">
                             <label for="contact_no" class="col-md-4 col-form-label text-md-end">{{ __('Contact No') }}</label>

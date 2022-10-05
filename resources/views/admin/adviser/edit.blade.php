@@ -37,64 +37,70 @@
  
 </head>
 
-<body>
 
-    <h1 style="color:dimgray; font-weight:regular; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 25px; position:relative; top: 20px; margin-left: 10px;">{{$user->admin ? 'Administrator' : 'Adviser'  }} Profile</h1>
+<body>
+    @if (session('status'))
+    <h6 class="alert alert-success"style="font-size: 20px;">
+      {{session('status')}}
+    </h6>
+    @endif
+
+    <h1 style="color:dimgray; font-weight:regular; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 25px; position:relative; top: 20px; margin-left: 10px;">{{$adviser->admin ? 'Administrator' : 'Adviser'  }} Profile</h1>
    <br>  <hr>
    
    <div class="row">
 
     <div class="col-md-5" style="height: 283px; overflow:hidden;">
         <div class="position-relative">
-            <img src="/images/avatars/{{$user->avatar}}" style=" position:absolute; top:0px; width: 255px; left: 120px; height:255px;border-radius: 50%; float:left; ">
+            <img src="/images/avatars/{{$adviser->avatar}}" style=" position:absolute; top:0px; width: 255px; left: 120px; height:255px;border-radius: 50%; float:left; ">
            
         </div>
-        <p style="position:absolute; left: 190px; top: 260px; color:black">{{$user->advisory}} </p>
+        <p style="position:absolute; left: 190px; top: 260px; color:black">{{$adviser->advisory}} </p>
     </div>
  
     <div class="col-md-6 text-dark mx-auto">
 
     <div class="cold-md-4" style="height: 265px; margin-left: 10px; margin-top: 10px; margin-bottom: 100px;">
-        <h2 class="text-center" style="color:dimgray; font-size:20px; font-weight: normal;">{{$user->admin ? 'Administrator' : 'Adviser'  }} Details</h2>
+        <h2 class="text-center" style="color:dimgray; font-size:20px; font-weight: normal;">{{$adviser->admin ? 'Administrator' : 'Adviser'  }} Details</h2>
     <hr>
 
-    <form action="{{url('update-adviser/'.$user->id)}}" method="POST" accept-charset="UTF-8">
+    <form action="{{url('update-adviser/'.$adviser->id)}}" method="POST" accept-charset="UTF-8">
         @csrf
         @method('PUT')
         
 
         <div class="input-group mb-3">
            <label for="" style="color:dimgray;"><span class="fas fa-user input-group-text bg-secondary" style="width: 43px;"></span></label>
-           <input type="text" name="name" value="{{$user->name}}" class="form-control" required>
+           <input type="text" name="name" value="{{$adviser->name}}" class="form-control" required>
         </div>
 
         <div class="input-group mb-3">
            <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">As</span></label>
-           <input type="text" name="advisory" value="{{$user->advisory}}" class="form-control" required>
+           <input type="text" name="advisory" value="{{$adviser->advisory}}" class="form-control" required>
            </div>
 
 
            <div class="input-group mb-3">
            <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">Pn</span></label>
-           <input type="text" name="contact_no" value="{{$user->contact_no}}" class="form-control" required>
+           <input type="text" name="contact_no" value="{{$adviser->contact_no}}" class="form-control" required>
            </div>
 
            <div class="input-group mb-3">
            <label for="" style="color:dimgray;"><span class="fas fa-envelope input-group-text bg-secondary" style="width: 43px;"></span></label>
-            <input type="text" name="email" value="{{$user->email}}" class="form-control" required>
+            <input type="text" name="email" value="{{$adviser->email}}" class="form-control" required>
         </div>
 
         <div class="input-group mb-3">
              <label for="" style="color:dimgray;"><span class=" input-group-text bg-secondary" style="width: 55px;">Role</span></label>
-             <input type="text" name="admin" value="{{ $user->admin ? 'Administrator' : 'Adviser' }}" class="form-control" readonly>
+             <input type="text" name="admin" value="{{ $adviser->admin ? 'Administrator' : 'Adviser' }}" class="form-control" readonly>
          </div>
 
             
         <div class="form-floating mb-3">
-            <select name="admin" class="form-select" style="width: 100px;">
+            <select name="admin" class="form-select" style="width: 120px;">
              <option hidden="true"></option>
              <option selected disabled>Select Role</option>
-             <option value="1">Admin</option>
+             <option value="1">Administrator</option>
              <option value="0">Adviser</option>
             </select>
             <label for="admin"></label>

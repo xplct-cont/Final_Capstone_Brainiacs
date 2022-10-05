@@ -48,40 +48,40 @@ class AdviserController extends Controller
        return view('admin.adviser.show')->with('user', $user);
    }
 
-   public function edit($id){
-    $user = User::find($id);
-    return view('admin.adviser.edit', compact('user'));
-}
+//    public function edit($id){
+//     $user = User::find($id);
+//     return view('admin.adviser.edit', compact('user'));
+// }
 
 
-public function update(Request $request, $id){
+// public function update(Request $request, $id){
 
-    $user = User::find($id);
-    $user->contact_no = $request->input('contact_no');
-    $user->name = $request->input('name');
-    $user->advisory = $request->input('advisory');
-    $user->email = $request->input('email');
-    $user->admin = $request->input('admin');
+//     $user = User::find($id);
+//     $user->contact_no = $request->input('contact_no');
+//     $user->name = $request->input('name');
+//     $user->advisory = $request->input('advisory');
+//     $user->email = $request->input('email');
+//     $user->admin = $request->input('admin');
  
    
-    if($request->hasFile('avatar')){
+//     if($request->hasFile('avatar')){
 
-      $destination = 'images/avatars/'.$user->avatar;
-    //   if(File::exists($destination)){
-    //      File::delete($destination);
-    //   }
-      $file = $request->file('avatar');
-      $extention = $file->getClientOriginalExtension();
-      $filename = time().'.'. $extention;
-      $file->move('images/avatars/', $filename);
-      $user->avatar = $filename;
+//       $destination = 'images/avatars/'.$user->avatar;
+//     //   if(File::exists($destination)){
+//     //      File::delete($destination);
+//     //   }
+//       $file = $request->file('avatar');
+//       $extention = $file->getClientOriginalExtension();
+//       $filename = time().'.'. $extention;
+//       $file->move('images/avatars/', $filename);
+//       $user->avatar = $filename;
     
-    }
+//     }
 
-    $user->update();
-    return redirect()->back()->with('status', 'Adviser Updated Successfully!');
+//     $user->update();
+//     return redirect()->back()->with('status', 'Adviser Updated Successfully!');
   
- }
+//  }
 
    public function destroy($id){
     $user = User::find($id);

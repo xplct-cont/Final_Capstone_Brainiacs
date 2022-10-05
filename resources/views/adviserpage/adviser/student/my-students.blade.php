@@ -11,57 +11,57 @@
 </div>
 
 
-<div class="search" style="position:relative; top: 5px;" >
-    <div class="mx-auto" style="width:400px;">
-    <form action="{{route('users')}}" method="GET" role="search">
+<a class="btn btn-danger mt-3 ml-3" style="" href="{{route('export_advisers_pdf')}}">Download PDF</a>
+<a href="/export_advisers_excel" class=" mt-3 ml-3 btn btn-success">Export to Excel</a>
 
-        <div class="input-group">
-            <span class="input-group-btn mr-2 mt-0">
-                <button class="btn btn-info" type="submit" title="Search Full Name">
-                    <span class="fas fa-search"></span>
-                </button>
-            </span>
-            <input type="text" class="form-control mr-2" name="term" placeholder="Search Full Name" id="term">
-            <a href="{{route('users')}}" class=" mt-0">
-                <span class="input-group-btn">
-                    <button class="btn btn-danger" type="button" title="Refresh page">
-                        <span class="fas fa-sync-alt"></span>
-                    </button>
-                </span>
-            </a>
-        </div>
-    </form>
-</div>
-
-
-
-
-<a class="btn btn-danger mt-2 ml-3" style="" href="{{route('export_user_pdf')}}">Download PDF</a>
-<a href="/export_user_excel" class=" mt-2 ml-3 btn btn-success">Export to Excel</a>
-
-<div class="d-flex justify-content-end" style="position: relative;top:-38px;">
-  <a href="{{url('/students/create')}}" class="btn btn-primary"><span class="fas fa-user-graduate mr-1"></span>
-      Add New Student
-  </a>
-</div>
-
-<div class="card col-md-12 d-flex justify-content-between bg-dark" style="position:relative; top: -32px;">
+<div class="card col-md-12 d-flex justify-content-between bg-dark" style="position:relative; top: 30px;">
     <div class="card-header text-secondary">
         <h4 style="position: absolute; left:38%; color:whitesmoke; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">{{Auth::user()->advisory}} Students</h4>
-                        <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image" style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
-                  
+                        {{-- <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image" style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;"> --}}
+                        <a href="{{url('/students/create')}}" class="btn btn-primary"><span class="fas fa-user-graduate mr-1"></span>
+                          Add New Student
+                      </a>
+                    
                     </div>
 
         <div class="card-body bg-light" >
 
-            <table class="table table-sm text-center elevation-3">
+          <div class="search" style="position:relative; top: -10px;" >
+            <div class="mx-auto" style="width:400px;">
+            <form action="{{route('advisory-list-students')}}" method="GET" role="search">
+        
+                <div class="input-group">
+                    <span class="input-group-btn mr-2 mt-0">
+                        <button class="btn btn-info" type="submit" title="Search Full Name">
+                            <span class="fas fa-search"></span>
+                        </button>
+                    </span>
+                    <input type="text" class="form-control mr-2" name="student" placeholder="Search Full Name" id="student">
+                    <a href="{{route('advisory-list-students')}}" class=" mt-0">
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button" title="Refresh page">
+                                <span class="fas fa-sync-alt"></span>
+                            </button>
+                        </span>
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        <div class="d-flex justify-content-end text-dark">
+          <p class="text-dark">Number of {{Auth::user()->advisory}} Students : &nbsp; <p class="text-dark" style="font-weight: bold;">{{$countmyStudents}}</p> </p>
+        </div>
+        
+
+            <table class="table table-sm text-center elevation-3 table-hover mt-2">
                 <thead class="bg-info">
                   <tr>
                     
-                    <th scope="col">View</th>
+                    <th scope="col">View Records</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">First Name</th>
                     <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Year/Section</th>
+                    <th scope="col">Gender</th>
                     <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Email</th>
                     <th scope="col">Address</th>
                     <th scope="col">Edit</th>
@@ -69,20 +69,25 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($myStudents as $student)
+                  @forelse ($myStudents as $student)
                   <tr class="text-center">
                     
-                    <td><a href="{{url('/students/show/'.$student->id)}}" class="btn btn-success btn-xs "><i class="fas fa-eye"></i></a></td>
+                    <td><a href="{{url('/students/show/'.$student->id)}}" class="btn btn-success btn-sm "></i>View</a></td>
                     <td>{{$student->lastname}}</td>
                     <td>{{$student->firstname}}</td>
                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->year_section}}</td>
+                    <td>{{$student->gender}}</td>
                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->email}}</td>
                     <td>{{$student->address}}</td>
                     <td><a href="{{url('/students/edit/' .$student->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-edit"></i></a></td>
                     <td><a href="{{url('delete-student/'.$student->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash-alt"></i></a></td>
                   </tr>
                       
-                  @endforeach
+                  @empty
+                  <tr>
+                      <td colspan="8" class="text-dark"><span class="fas fa-exclamation-circle text-danger"></span> No {{Auth::user()->advisory}} Students Found!</td>
+                  </tr>
+                  @endforelse
                  
                 </tbody>
               </table>

@@ -67,23 +67,28 @@
             </div>              
           </div>
         
+
+          
                     <div class="card d-flex justify-content-end col-md-12" style="padding:3px;">
                       
-                         <h2 style="color: dimgray; font-size:16px;" class="d-flex justify-content-between " >ALL SENIOR HIGH SCHOOL SECTIONS
-                          </h2> {{$section->onEachSide(1)->links()}} <br>
-        
+                         <h2 style="color: dimgray; font-size:16px;" class="d-flex justify-content-between " >ALL SENIOR HIGH SCHOOL TEACHERS
+                          </h2> 
+                          <div class="mx-auto">
+                          <a class="btn btn-danger mb-2 mr-2" style="" href="{{route('export_advisers_pdf')}}"><span class="fas fa-arrow-circle-down" style="font-size: 15px;"></span> Export PDF</a>
+                             <a href="/export_advisers_excel" style="" class="mb-2 ml-2 btn btn-success"><span class="fas fa-arrow-circle-down" style="font-size: 15px;"></span> Export Excel</a>
+                            </div>
                            <div class="card-body">
-                            <div class="search" style="margin-top:-20px; margin-bottom:10px;">
+                            <div class="search" style=" margin-bottom:10px;">
                               <div class="mx-auto pull-left">
                                 <form action="{{route('home')}}" method="GET" role="search">
                 
                                     <div class="input-group">
                                         <span class="input-group-btn mr-2 mt-0">
-                                            <button class="btn btn-info" type="submit" title="Search Sections">
+                                            <button class="btn btn-info" type="submit" title="Search">
                                                 <span class="fas fa-search"></span>
                                             </button>
                                         </span>
-                                        <input type="text" class="form-control mr-2" name="section" placeholder="Search Sections" id="section">
+                                        <input type="text" class="form-control mr-2" name="adviser" placeholder="Search..." id="adviser">
                                         <a href="{{route('home')}}" class=" mt-0">
                                             <span class="input-group-btn">
                                                 <button class="btn btn-danger" type="button" title="Refresh page">
@@ -96,29 +101,53 @@
                             </div>
                           </div>
                              
-                            <table class="table table-sm table-hover text-dark rounded elevation-2 text-center">
-                                <thead>
-                                  <tr>
-                                    <th scope="col" class="bg-secondary">Action</th>
-                                    <th scope="col" class="bg-secondary">Sections</th>
-                                    <th scope="col" class="bg-secondary">Number of Students</th>
-                                    <th scope="col" class="bg-secondary">Section Adviser</th>                        
-                                  </tr>
+                            <table class="table table-sm table-hover text-dark elevation-2 rounded table-borderless text-center">
+                                <thead style="background-color: rgb(219, 219, 219)">
+                                    <tr>
+                                  
+                                        <th style="text-align: center">Profile Image</th>
+                                        <th style="text-align: center">Name</th>
+                                        <th style="text-align: center">Advisory</th>
+                                        <th style="text-align: center">Role</th>
+                                        <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Contact No</th>
+                                        <th class="d-none d-md-table-cell d-lg-table-cell d-lg-table-cell" style="text-align: center">Email</th>
+                                        <th style="text-align: center">Edit</th>
+                                        <th style="text-align: center">Delete</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
         
-                                  @foreach ($section as $sections)
-                                  <tr class="text-center">
-                                    <td><button class="btn btn-sm bg-success" style="font-size:11px; border-radius:30px;">View</button></td>
-                                    <td>{{$sections->advisory}}</td>
-                                    <td>50</td>
-                                    <td>{{$sections->name}}</td>
-                                  </tr>                          
-                                  @endforeach     
+                                    @forelse ($adviser as $item)
+                                    <tr class="text-center" >
+                                        
+                                        <td><img src="{{asset('images/avatars/'.$item->avatar )}} " width="50px" height="50px" alt="Image" style="border-radius: 50%"></td>
+                                        <td>{{$item->name}}</td>
+                                        <td>{{$item->advisory}}</td>
+                                        <td>{{ $item->admin ? 'Guidance Designate' : 'Adviser' }}</td>
+                                        <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{$item->contact_no}}</td>
+                                        <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{$item->email}}</td>
+                                        <td><a href="{{url('edit-adviser/' .$item->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-edit"></i></a></td>
+                                        <td><a href="{{url('delete-adviser/'.$item->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash"></i></a></td>
+                                        {{-- <td><a href="{{url('show-adviser/'.$item->id)}}" class="btn btn-success btn-xs"><i class="fas fa-eye"></i></a></td> --}}
+                                    </tr>
+                                    
+                                    @empty
+                                    <tr>
+                                        <td colspan="8" class="text-dark"><span class="fas fa-exclamation-circle text-danger"></span> No Senior High School Adviser Found!</td>
+                                    </tr>
+                                    @endforelse
+
                                 </tbody>
                               </table>   
+                              <div class="mt-1 d-flex justify-content-center">
+                              {{$adviser->onEachSide(1)->links()}}
+                            </div>
                         </div>
+                       
                     </div>
+                
+                  
+                        
         
               <div class="card text-center mt-5 col-md-8" style="margin:auto;">
                 <h3 style="color: dimgray; font-size: 20px;">

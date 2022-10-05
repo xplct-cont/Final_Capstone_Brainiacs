@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->boolean('admin')->default(false);
             $table->timestamp('approved_at')->nullable();
             $table->string('contact_no')->nullable();
-            $table->string('advisory')->nullable();
+            $table->string('advisory')->unique();
             $table->string('avatar')->default('image18.png');
             $table->string('role')->default('author');
             $table->rememberToken();

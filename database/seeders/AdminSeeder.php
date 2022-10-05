@@ -22,7 +22,7 @@ class AdminSeeder extends Seeder
             'admin' => 1,
             'approved_at' => now(),
             'contact_no' => '0936-165-2609',
-            'advisory' => 'Guidance Designate',
+            'advisory' => 'Grade 11 - Wisdom',
             'role' => 'editor'
         ]);
     }

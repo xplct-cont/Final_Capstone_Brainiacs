@@ -28,7 +28,8 @@
 </head>
 <body>
 
-<h1 class="text-dark text-center" style="margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Advisers List of Informations</h1>
+<h1 style="font-size: 25px; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Pangangan National High School - Talisay, Calape, Bohol</h1><hr>
+<h1 style="font-size: 20px; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Senior High School Advisers</h1>
 
 <table id="customers">
   <tr>

@@ -18,6 +18,7 @@ class CreateStudents extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->string('firstname');
             $table->string('lastname');
+            $table->string('gender');
             $table->string('year_section');
             $table->string('email');
             $table->string('address');
