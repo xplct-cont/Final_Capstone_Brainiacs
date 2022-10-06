@@ -67,11 +67,11 @@ class HopeStudentController extends Controller
             return redirect('hope-students')->with('status', 'Student Updated Successfully!');
         }
         
-        public function destroy(Student $student){
-            $student = Student::find($student)->each->delete();
-            return redirect()->back()->with('status', 'Student Removed Successfully!');
+        // public function destroy(Student $student){
+        //     $student = Student::find($student)->each->delete();
+        //     return redirect()->back()->with('status', 'Student Removed Successfully!');
         
-            }
+        //     }
             
     
             public function export_hopeStudents_pdf(){
@@ -86,5 +86,26 @@ class HopeStudentController extends Controller
                  $hopeStudents = Student::where('year_section', 'Grade 12 - Hope')->orderBy('lastname', 'asc')->get();
                  return Excel::download(new HopeExport($hopeStudents),'PNHS Grade 12 - Hope Students.xlsx');
             }
+
+            public function multipleDelete(Request $request) 
+            {
+        
+                $ids = $request->ids;
+                Student::whereIn('id', $ids)->delete();
+                return redirect()->back()->with('status', 'Students Deleted Successfully!');
+            }   
+
+            public function showStudentRecord($id){
+                $hopeStud = Student::find($id);
+        
+               if (empty($hopeStud)) {
+                   Flash::error('Student not found');
+        
+                   return redirect()->back();
+               }
+        
+               return view('admin.student.Hope.show')->with('hopeStud', $hopeStud);
+            }
+        
     
 }

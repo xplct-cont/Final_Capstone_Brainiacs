@@ -114,33 +114,37 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/edit-wisdom-student/{id}', [WisdomStudentController::class, 'edit']);
        Route::get('/add-wisdom-student',[WisdomStudentController::class, 'create']);
        Route::post('/add-new-wisdom-student', [WisdomStudentController::class, 'store']);
-       Route::get('/delete-wisdom-student/{student}', [WisdomStudentController::class, 'destroy']);
+       Route::post('/multiple-delete', [WisdomStudentController::class, 'multipleDelete']);
        Route::put('/update-wisdom-student/{id}', [WisdomStudentController::class, 'update'])->name('update-wisdom-student');
+       Route::get('/show-student-wisdom/{id}', [WisdomStudentController::class, 'showStudentRecord']);
        
-        //for 11 Faith Students
+       //for 11 Faith Students
        Route::get('faith-students', [FaithStudentController::class, 'index'])->name('faith-list');
        Route::get('/edit-faith-student/{id}', [FaithStudentController::class, 'edit']);
-       Route::get('/delete-faith-student/{student}', [FaithStudentController::class, 'destroy']);
+       Route::post('/multiple-delete', [FaithStudentController::class, 'multipleDelete']);
        Route::put('/update-faith-student/{id}', [FaithStudentController::class, 'update'])->name('update-faith-student');
-
+       Route::get('/show-student-faith/{id}', [FaithStudentController::class, 'showStudentRecord']);
+      
        //for 11 Charity Students
        Route::get('charity-students', [CharityStudentController::class, 'index'])->name('charity-list');
        Route::get('/edit-charity-student/{id}', [CharityStudentController::class, 'edit']);
-       Route::get('/delete-charity-student/{student}', [CharityStudentController::class, 'destroy']);
        Route::put('/update-charity-student/{id}', [CharityStudentController::class, 'update'])->name('update-charity-student');
-
+       Route::post('/multiple-delete', [CharityStudentController::class, 'multipleDelete']);
+       Route::get('/show-student-charity/{id}', [CharityStudentController::class, 'showStudentRecord']);
+       
        //for 12 Hope Students
        Route::get('hope-students', [HopeStudentController::class, 'index'])->name('hope-list');
        Route::get('/edit-hope-student/{id}', [HopeStudentController::class, 'edit']);
-       Route::get('/delete-hope-student/{student}', [HopeStudentController::class, 'destroy']);
+       Route::post('/multiple-delete', [HopeStudentController::class, 'multipleDelete']);
        Route::put('/update-hope-student/{id}', [HopeStudentController::class, 'update'])->name('update-hope-student');
-
+       Route::get('/show-student-hope/{id}', [HopeStudentController::class, 'showStudentRecord']);
+    
        //for 12 Love Students
        Route::get('love-students', [LoveStudentController::class, 'index'])->name('love-list');
        Route::get('/edit-love-student/{id}', [LoveStudentController::class, 'edit']);
-       Route::get('/delete-love-student/{student}', [LoveStudentController::class, 'destroy']);
+       Route::post('/multiple-delete', [LoveStudentController::class, 'multipleDelete']);
        Route::put('/update-love-student/{id}', [LoveStudentController::class, 'update'])->name('update-love-student');
-
+       Route::get('/show-student-love/{id}', [LoveStudentController::class, 'showStudentRecord']);
 
 
 
@@ -199,6 +203,7 @@ Route::middleware(['auth', ])->group(function () {
         // Route::put('/update-mystudent/{id}',[StudentListController::class, 'update']);
         Route::put('/update-my-student/{student}', [StudentListController::class, 'update'])->middleware('can-edit');
         Route::get('/delete-student/{student}', [StudentListController::class, 'destroy']);
+        Route::get('/show-my-student/{id}', [StudentListController::class, 'showStudentRecord']);
            
         });
     });

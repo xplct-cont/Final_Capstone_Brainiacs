@@ -129,11 +129,11 @@ class WisdomStudentController extends Controller
     //     return redirect()->route('wisdom-list')->with('status','Added New Student!');
     // }
 
-    public function destroy(Student $student){
-        $student = Student::find($student)->each->delete();
-        return redirect()->back()->with('status', 'Student Removed Successfully!');
+    // public function destroy(Student $student){
+    //     $student = Student::find($student)->each->delete();
+    //     return redirect()->back()->with('status', 'Student Removed Successfully!');
     
-        }
+    //     }
 
 
     public function export_wisdomStudents_pdf(){
@@ -148,6 +148,26 @@ class WisdomStudentController extends Controller
          $wisdomStudents = Student::where('year_section', 'Grade 11 - Wisdom')->orderBy('lastname', 'asc')->get();
          return Excel::download(new WisdomExport($wisdomStudents),'PNHS Grade 11 - Wisdom Students.xlsx');
     }
-    
+
+    public function multipleDelete(Request $request) 
+    {
+
+        $ids = $request->ids;
+        Student::whereIn('id', $ids)->delete();
+        return redirect()->back()->with('status', 'Students Deleted Successfully!');
+    }
+
+    public function showStudentRecord($id){
+        $wisdomStud = Student::find($id);
+
+       if (empty($wisdomStud)) {
+           Flash::error('Student not found');
+
+           return redirect()->back();
+       }
+
+       return view('admin.student.Wisdom.show')->with('wisdomStud', $wisdomStud);
+    }
+
 
 }

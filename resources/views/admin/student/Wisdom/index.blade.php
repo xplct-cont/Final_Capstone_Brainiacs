@@ -38,12 +38,11 @@
 </div>
 
 
-<div class="container">
-    <div class="row">
+
         <a href="{{url('/add-wisdom-student')}}" class="btn btn-primary ml-2 "><span class="fas fa-user-graduate mr-1"></span>
             Add New Student
         </a> 
-     <div class="container " style="position: relative; margin-top:1%;">
+     <div class="container col-md-12 " style="position: relative; margin-top:1%;">
        
         <div class="row">
             <div class="col-md-12">
@@ -78,6 +77,8 @@
                              --}} 
                         </div>
                     
+                        <form action="/multiple-delete" method="POST">
+                            @csrf
                       
                        <table class="table table-hover bg-light table-sm elevation-2" style="margin:auto; position:relative; top: -10px;">
                            <thead class="bg-info rounded text-center">
@@ -99,7 +100,7 @@
                             @forelse ($wisdomStudents as $wisdom)
                             <tr class="text-center">
                               
-                              <td><a href="{{url('/students/show/'.$wisdom->id)}}" class="btn btn-success btn-sm ">View</a></td>
+                              <td><a href="{{url('show-student-wisdom/'.$wisdom->id)}}" class="btn btn-success btn-sm ">View</a></td>
                               <td>{{$wisdom->lastname}}</td>
                               <td>{{$wisdom->firstname}}</td>
                               <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$wisdom->year_section}}</td>
@@ -107,7 +108,7 @@
                               <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$wisdom->email}}</td>
                               <td>{{$wisdom->address}}</td>
                               <td><a href="{{url('edit-wisdom-student/' .$wisdom->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-edit"></i></a></td>
-                              <td><a href="{{url('delete-wisdom-student/'.$wisdom->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash-alt"></i></a></td>
+                              <td><input type="checkbox" name="ids[]" value="{{$wisdom->id}}"></td>
                             </tr>
                                 
                             @empty
@@ -115,10 +116,13 @@
                                 <td colspan="5" class="text-dark"><span class="fas fa-exclamation-circle text-danger"></span> No Grade 11 - Wisdom students found!</td>
                             </tr>
                             @endforelse
-          
                            </tbody>
-                       </table>        
+                       </table>    
+                       <div class="d-flex justify-content-end mt-2">
+                        <button type="submit" class="btn-danger" value="Delete Students">Delete Students</button>
                     </div>
+                  </form>    
+                </div>
                 </div>
                 <div class="div d-flex justify-content-center mt-3">
                     {{$wisdomStudents->onEachSide(1)->links()}}

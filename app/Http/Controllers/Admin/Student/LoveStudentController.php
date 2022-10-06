@@ -67,11 +67,11 @@ class LoveStudentController extends Controller
             return redirect('love-students')->with('status', 'Student Updated Successfully!');
         }
         
-        public function destroy(Student $student){
-            $student = Student::find($student)->each->delete();
-            return redirect()->back()->with('status', 'Student Removed Successfully!');
+        // public function destroy(Student $student){
+        //     $student = Student::find($student)->each->delete();
+        //     return redirect()->back()->with('status', 'Student Removed Successfully!');
         
-            }
+        //     }
             
     
             public function export_loveStudents_pdf(){
@@ -86,4 +86,25 @@ class LoveStudentController extends Controller
                  $loveStudents = Student::where('year_section', 'Grade 12 - Love')->orderBy('lastname', 'asc')->get();
                  return Excel::download(new LoveExport($loveStudents),'PNHS Grade 12 - Love Students.xlsx');
             }
+
+            public function multipleDelete(Request $request) 
+            {
+        
+                $ids = $request->ids;
+                Student::whereIn('id', $ids)->delete();
+                return redirect()->back()->with('status', 'Students Deleted Successfully!');
+            }   
+
+            public function showStudentRecord($id){
+                $loveStud = Student::find($id);
+        
+               if (empty($loveStud)) {
+                   Flash::error('Student not found');
+        
+                   return redirect()->back();
+               }
+        
+               return view('admin.student.Love.show')->with('loveStud', $loveStud);
+            }
+        
 }

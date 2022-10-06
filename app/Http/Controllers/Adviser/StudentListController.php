@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Image;
 use Validator;
 use DB;
+use Illuminate\Support\Facades\Session;
 
 
 
@@ -37,7 +38,7 @@ class StudentListController extends Controller
         ])
     
             ->orderBy('lastname', 'asc')
-            ->paginate(8);
+            ->paginate(7);
             
         return view('adviserpage.adviser.student.my-students',compact('myStudents', 'countmyStudents'),['myStudents'=>$myStudents])
         ->with('i',(request()->input('page',1)-1)*5);
@@ -116,6 +117,18 @@ class StudentListController extends Controller
         $student = Student::find($student)->each->delete();
         return redirect()->route('advisory-list-students')->with('status', 'Student Removed Successfully!');
     
+        }
+
+    public function showStudentRecord($id){
+            $myStud = Student::where('user_id', auth()->user()->id)->find($id);
+    
+           if (empty($myStud)) {
+               Session::flash('Student not found');
+    
+               return redirect()->route('advisory-list-students');
+           }
+    
+           return view('adviserpage.adviser.student.show-my-students')->with('myStud', $myStud);
         }
 }
 

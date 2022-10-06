@@ -38,9 +38,8 @@
 </div>
 
 
-<div class="container">
-    <div class="row">
-     <div class="container " style="position: relative; margin-top:1%;">
+
+     <div class="container col-md-12 " style="position: relative; margin-top:1%;">
       
         <div class="row">
             <div class="col-md-12">
@@ -76,6 +75,8 @@
                              --}} 
                         </div>
                     
+                        <form action="/multiple-delete" method="POST">
+                            @csrf
                       
                        <table class="table table-hover bg-light table-sm elevation-2" style="margin:auto; position:relative; top: -20px;">
                            <thead class="bg-info rounded text-center">
@@ -97,7 +98,7 @@
                             @forelse ($loveStudents as $love)
                             <tr class="text-center">
                               
-                              <td><a href="{{url('/students/show/'.$love->id)}}" class="btn btn-success btn-sm ">View</a></td>
+                              <td><a href="{{url('show-student-love/'.$love->id)}}" class="btn btn-success btn-sm ">View</a></td>
                               <td>{{$love->lastname}}</td>
                               <td>{{$love->firstname}}</td>
                               <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$love->year_section}}</td>
@@ -105,7 +106,7 @@
                               <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$love->email}}</td>
                               <td>{{$love->address}}</td>
                               <td><a href="{{url('edit-love-student/' .$love->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-edit"></i></a></td>
-                              <td><a href="{{url('delete-love-student/'.$love->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash-alt"></i></a></td>
+                              <td><input type="checkbox" name="ids[]" value="{{$love->id}}"></td>
                             </tr>
                                 
                             @empty
@@ -115,8 +116,12 @@
                             @endforelse
           
                            </tbody>
-                       </table>             
-                    </div>
+                       </table>     
+                       <div class="d-flex justify-content-end mt-2">
+                        <button type="submit" class="btn-danger" value="Delete Students">Delete Students</button>
+                    </div>         
+                 </form>
+                </div>
                 </div>
                 <div class="div d-flex justify-content-center mt-3">
                     {{$loveStudents->onEachSide(1)->links()}}

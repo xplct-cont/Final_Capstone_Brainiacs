@@ -38,9 +38,8 @@
 </div>
 
 
-<div class="container">
-    <div class="row">
-     <div class="container " style="position: relative; margin-top:1%;">
+
+     <div class="container col-md-12 " style="position: relative; margin-top:1%;">
       
         <div class="row">
             <div class="col-md-12">
@@ -76,8 +75,10 @@
                              --}} 
                         </div>
                     
+                        <form action="/multiple-delete" method="POST">
+                            @csrf
                       
-                       <table class="table table-hover bg-light table-sm elevation-2" style="margin:auto; position:relative; top: -10px;">
+                       <table class="table table-hover bg-light table-sm elevation-2" style="margin:auto; position:relative; top: -20px;">
                            <thead class="bg-info rounded text-center">
                                <tr>           
                                 <th scope="col">View Records</th>
@@ -97,7 +98,7 @@
                             @forelse ($faithStudents as $faith)
                             <tr class="text-center">
                               
-                              <td><a href="{{url('/students/show/'.$faith->id)}}" class="btn btn-success btn-sm ">View</a></td>
+                              <td><a href="{{url('show-student-faith/'.$faith->id)}}" class="btn btn-success btn-sm ">View</a></td>
                               <td>{{$faith->lastname}}</td>
                               <td>{{$faith->firstname}}</td>
                               <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$faith->year_section}}</td>
@@ -105,7 +106,7 @@
                               <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$faith->email}}</td>
                               <td>{{$faith->address}}</td>
                               <td><a href="{{url('edit-faith-student/' .$faith->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-edit"></i></a></td>
-                              <td><a href="{{url('delete-faith-student/'.$faith->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash-alt"></i></a></td>
+                              <td><input type="checkbox" name="ids[]" value="{{$faith->id}}"></td>
                             </tr>
 
                             @empty
@@ -115,18 +116,18 @@
                             @endforelse
           
                            </tbody>
-                       </table>             
-                    </div>
-                </div>
-                <div class="div d-flex justify-content-center mt-3">
+                       </table>   
+                       <div class="d-flex justify-content-end mt-2">
+                        <button type="submit" class="btn-danger" value="Delete Students">Delete Students</button>
+                     </div> 
+                 </form>          
+            </div>
+        </div>
+    <div class="div d-flex justify-content-center mt-3">
                     {{$faithStudents->onEachSide(1)->links()}}
                   </div>
             </div>
         </div>
     </div>
-
-    </div>
-</div>
-
     
 @endsection

@@ -72,11 +72,11 @@ class FaithStudentController extends Controller
         return redirect('faith-students')->with('status', 'Student Updated Successfully!');
     }
     
-    public function destroy(Student $student){
-        $student = Student::find($student)->each->delete();
-        return redirect()->back()->with('status', 'Student Removed Successfully!');
+    // public function destroy(Student $student){
+    //     $student = Student::find($student)->each->delete();
+    //     return redirect()->back()->with('status', 'Student Removed Successfully!');
     
-        }
+    //     }
         
 
         public function export_faithStudents_pdf(){
@@ -92,4 +92,25 @@ class FaithStudentController extends Controller
              return Excel::download(new FaithExport($faithStudents),'PNHS Grade 11 - Faith Students.xlsx');
         }
 
+        public function multipleDelete(Request $request) 
+       {
+
+        $ids = $request->ids;
+        Student::whereIn('id', $ids)->delete();
+        return redirect()->back()->with('status', 'Students Deleted Successfully!');
+      }
+
+      public function showStudentRecord($id){
+        $faithStud = Student::find($id);
+
+       if (empty($faithStud)) {
+           Flash::error('Student not found');
+
+           return redirect()->back();
+       }
+
+       return view('admin.student.Faith.show')->with('faithStud', $faithStud);
     }
+
+
+}

@@ -78,7 +78,7 @@
                   @forelse ($myStudents as $student)
                   <tr class="text-center">
                     
-                    <td><a href="{{url('/students/show/'.$student->id)}}" class="btn btn-success btn-sm "></i>View</a></td>
+                    <td><a href="{{url('show-my-student/'.$student->id)}}" class="btn btn-success btn-sm "></i>View</a></td>
                     <td>{{$student->lastname}}</td>
                     <td>{{$student->firstname}}</td>
                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->year_section}}</td>
@@ -97,23 +97,11 @@
                  
                 </tbody>
               </table>
-              <div class="div d-flex justify-content-center mt-3">
-                {{$myStudents->onEachSide(1)->links()}}
-               </div>
-
-    
-    </div>
-
-
-
+        </div>
+   </div>
 </div>
 
-
-
-
-
-
-
-
-    
+<div class="div d-flex justify-content-center" style="position: relative; top:-28px;">
+  {{$myStudents->onEachSide(1)->links()}}
+ </div>    
 @endsection

@@ -49,7 +49,7 @@
                 </div>
                 <div>
                     <div class="cardName" >Grade 11 Students</div>
-                    <div class="numbers"><span>{{$student}}</span></div>
+                    <div class="numbers"><span>{{$student11}}</span></div>
                 </div>
             </div>
             <div class="card elevation-2">
@@ -58,7 +58,7 @@
                 </div>
                 <div>
                     <div class="cardName" >Grade 12 Students</div>
-                    <div class="numbers" >0</div>
+                    <div class="numbers" >{{$student12}}</div>
                 </div>
             </div>
           

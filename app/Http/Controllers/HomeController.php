@@ -40,9 +40,14 @@ class HomeController extends Controller
         $events = DB::table('events')->get();
         $user = DB::table('users')->whereNotNull('approved_at')->count();   
         $admin = DB::table('users')->where('admin', '1')->count();
-        $student = DB::table('students')->where('year_section', 'Grade 11 - Wisdom')
+
+        $student11 = DB::table('students')->where('year_section', 'Grade 11 - Wisdom')
         ->orWhere('year_section', 'Grade 11 - Charity')
         ->orWhere('year_section', 'Grade 11 - Faith')->count();
+
+        $student12 = DB::table('students')->where('year_section', 'Grade 12 - Hope')
+        ->orWhere('year_section', 'Grade 12 - Love')->count();
+
         $adviser = User::whereNotNull('approved_at')->get()->sortBy('advisory');  
         $adviser = User::where([
                 ['approved_at', '!=', Null],
@@ -57,7 +62,7 @@ class HomeController extends Controller
             ->orderBy("advisory","asc")
             ->paginate(3);  
 
-        return view('home', compact('events', 'admin', 'student', 'user', 'adviser'),
+        return view('home', compact('events', 'admin', 'student11', 'user', 'adviser', 'student12'),
         ['adviser' => $adviser])->with('i',(request()->input('page',1)-1)*5);
 
     //    $events = DB::table('events')->get();

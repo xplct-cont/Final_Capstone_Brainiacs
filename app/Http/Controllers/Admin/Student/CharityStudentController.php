@@ -72,13 +72,13 @@ class CharityStudentController extends Controller
         return redirect('charity-students')->with('status', 'Student Updated Successfully!');
     }
     
-    public function destroy(Student $student){
-        $student = Student::find($student)->each->delete();
-        return redirect()->back()->with('status', 'Student Removed Successfully!');
+    // public function destroy(Student $student){
+    //     $student = Student::find($student)->each->delete();
+    //     return redirect()->back()->with('status', 'Student Removed Successfully!');
     
-        }
+    //     }
         
-//not yet edited
+
         public function export_charityStudents_pdf(){
             $charityStudents = Student::where('year_section', 'Grade 11 - Charity')->orderBy('lastname', 'asc')->get();
             $pdf = PDF::loadVIew('pdf.charity-students', [
@@ -92,7 +92,27 @@ class CharityStudentController extends Controller
              return Excel::download(new CharityExport($charityStudents),'PNHS Grade 11 - Charity Students.xlsx');
         }
 
+    public function multipleDelete(Request $request) 
+    {
+
+        $ids = $request->ids;
+        Student::whereIn('id', $ids)->delete();
+        return redirect()->back()->with('status', 'Students Deleted Successfully!');
     }
+
+    public function showStudentRecord($id){
+        $charityStud = Student::find($id);
+
+       if (empty($charityStud)) {
+           Flash::error('Student not found');
+
+           return redirect()->back();
+       }
+
+       return view('admin.student.Charity.show')->with('charityStud', $charityStud);
+    }
+
+}
 
 
 

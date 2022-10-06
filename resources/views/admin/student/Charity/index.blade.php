@@ -38,12 +38,11 @@
 </div>
 
 
-<div class="container">
-    <div class="row">
-     <div class="container " style="position: relative; margin-top:1%;">
+
+     <div class="container col-md-12" style="position: relative; margin-top:1%;">
       
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-lg-12">
                 <div class="card bg-dark">
                     <div class="card-header elevation-2" style="height: 60px;">
                         <h4 style="position: absolute; left:38%; color:whitesmoke;">Grade 11 - Charity Students</h4>
@@ -60,24 +59,15 @@
                            <a class="btn btn-danger mt-2 ml-2" style="" href="{{route('export_charityStudents_pdf')}}"><span class="fas fa-arrow-circle-down" style="font-size: 15px;"></span> Export PDF</a>
                             <a href="/export_charityStudents_excel" class=" mt-2 ml-4 btn btn-success"><span class="fas fa-arrow-circle-down" style="font-size: 15px;"></span> Export Excel</a>
                       
-                                <div class="d-flex justify-content-end">
-                                    <p>Number of students : {{$charity}}</p>
-                                </div>
-
-
-                            {{-- <div class="mx-auto" style="width: 200px;">
-                                <select name="gender" class="form-control" required>
-                                    <option hidden="true"></option>
-                                    <option selected disabled>All</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Male">Male</option>
-                                   </select>
-                                </div> 
-                             --}} 
+                            <div class="d-flex justify-content-end">
+                                <p>Number of students : {{$charity}}</p>
+                            </div>
                         </div>
-                    
-                      
-                       <table class="table table-hover bg-light table-sm elevation-2" style="margin:auto; position:relative; top: -20px;">
+
+                    <form action="/multiple-delete" method="POST">
+                        @csrf
+
+                       <table class="table table-hover bg-light table-sm elevation-2" style="margin:auto;">
                            <thead class="bg-info rounded text-center">
                                <tr>           
                                 <th scope="col">View Records</th>
@@ -97,7 +87,7 @@
                             @forelse ($charityStudents as $charity)
                             <tr class="text-center">
                               
-                              <td><a href="{{url('/students/show/'.$charity->id)}}" class="btn btn-success btn-sm ">View</a></td>
+                              <td><a href="{{url('show-student-charity/'.$charity->id)}}" class="btn btn-success btn-sm ">View</a></td>
                               <td>{{$charity->lastname}}</td>
                               <td>{{$charity->firstname}}</td>
                               <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$charity->year_section}}</td>
@@ -105,28 +95,29 @@
                               <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$charity->email}}</td>
                               <td>{{$charity->address}}</td>
                               <td><a href="{{url('edit-charity-student/' .$charity->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-edit"></i></a></td>
-                              <td><a href="{{url('delete-charity-student/'.$charity->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash-alt"></i></a></td>
+                              <td><input type="checkbox" name="ids[]" value="{{$charity->id}}"></td>
                             </tr>
-                                
+
                             @empty
                             <tr>
                                 <td colspan="5" class="text-dark"><span class="fas fa-exclamation-circle text-danger"></span> No Grade 11 - Charity students found!</td>
                             </tr>
                             @endforelse
-          
                            </tbody>
-                       </table>             
-                    </div>
+                       </table>   
+                       <div class="d-flex justify-content-end mt-2">
+                        <button type="submit" class="btn-danger" value="Delete Students">Delete Students</button>
+                     </div> 
+                    </form>         
                 </div>
-                <div class="div d-flex justify-content-center mt-3">
+            </div>
+        <div class="div d-flex justify-content-center mt-3">
                     {{$charityStudents->onEachSide(1)->links()}}
                   </div>
             </div>
         </div>
     </div>
 
-    </div>
-</div>
 
     
 @endsection
