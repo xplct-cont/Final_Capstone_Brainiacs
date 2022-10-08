@@ -2,9 +2,25 @@
 <html>
 <head>
 <style>
+
+
+
+th{
+  font-size: 15px;
+}
+
+tr{
+  font-size: 15px;
+}
+h2{
+  text-align: center;
+}
+
 #customers {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
+  font-size: 18px;
+  text-align: center;
   width: 100%;
 }
 
@@ -18,20 +34,25 @@
 #customers tr:hover {background-color: #ddd;}
 
 #customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   text-align: left;
   background-color: #5bc0de;
   color: dimgray;
+  text-align: center;
+
+
 }
 </style>
 </head>
-<body>
 
-<h1 style="font-size: 25px; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Pangangan National High School - Talisay, Calape, Bohol</h1><hr>
-<h1 style="font-size: 20px; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Senior High School Advisers</h1>
+<body style="text-center">
 
-<table id="customers">
+<h1 style="font-size: 25px; text-center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Pangangan National High School - Talisay, Calape, Bohol</h1><hr>
+<h2 style="font-size: 20px; text-center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Senior High School Advisers</h2>
+
+
+ <table id="customers">
   <tr>
     <th>ID</th>
     <th>Name</th>

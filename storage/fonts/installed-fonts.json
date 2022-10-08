@@ -5,5 +5,8 @@
     "font awesome 5 free": {
         "normal": "C:\\Users\\admin\\Desktop\\Final_Capstone_Brainiacs\\storage\\fonts\/font_awesome_5_free_normal_a8e488e53e1974b305896d267d71f585",
         "900": "font_awesome_5_free_900_e96e8b3524912a660989e06fdf0ad45a"
+    },
+    "nunito": {
+        "normal": "nunito_normal_586f3f8a461df5c8635a870033365d5e"
     }
 }

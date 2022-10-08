@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container d-flex justify-content-center" style="position:relative; top: 40px;">
+<div class="container d-flex justify-content-center" style="position:relative; top: 10px;">
 <div class="card p-3 col-md-8 ">
     <div class="card-header">
         <h1 class="text-center" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:auto; font-size: 25px; color:dimgray;">EDIT STUDENT INFORMATIONS</h1>
@@ -23,6 +23,10 @@
        <input type="text" name="lastname" value="{{$student->lastname}}" class="form-control" required>
        </div>
 
+    <div class="input-group mb-3">
+        <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">Mn</span></label>
+        <input type="text" name="middlename" value="{{$student->middlename}}" class="form-control" required>
+        </div>
 
        <div class="input-group mb-3">
        <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">Pn</span></label>
@@ -33,6 +37,16 @@
        <label for="" style="color:dimgray;"><span class="fas fa-envelope input-group-text bg-secondary" style="width: 43px;"></span></label>
         <input type="email" name="email" value="{{$student->email}}" class="form-control" required>
     </div>
+
+    <div class="input-group mb-3">
+        <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">Pn</span></label>
+        <input type="text" name="parent_name" value="{{$student->parent_name}}" class="form-control" required>
+        </div>
+
+    <div class="input-group mb-3">
+        <label for="" style="color:dimgray;"><span class="fas fa-envelope input-group-text bg-secondary" style="width: 43px;"></span></label>
+        <input type="email" name="parent_email" value="{{$student->parent_email}}" class="form-control">
+        </div>
 
     <div class="input-group mb-3">
         <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">Ad</span></label>
@@ -46,7 +60,7 @@
                 <option value="Female">Female</option>
                 <option value="Male">Male</option>
                </select>
-            </div> <hr>
+            </div> 
               
 
           <div class="mb-3">

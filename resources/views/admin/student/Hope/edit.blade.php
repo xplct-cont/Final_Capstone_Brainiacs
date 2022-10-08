@@ -3,7 +3,7 @@
 @section('content')
     
 <div class="row d-flex justify-content-center text-dark">
-    <div class="col-md-8 elevation-2 rounded mt-1 bg-light" style="position:relative; top: 30px;">
+    <div class="col-md-8 elevation-2 rounded bg-light" style="position:relative; top: 10px;">
         @if (session('status'))
          <h6 class="alert alert-success">
            {{session('status')}}
@@ -27,6 +27,10 @@
        <input type="text" name="firstname"  class="form-control" value="{{$hopeStudents->firstname}}" required>
        </div>
 
+    <div class="input-group mb-3">
+       <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">Mn</span></label>
+       <input type="text" name="middlename"  class="form-control" value="{{$hopeStudents->middlename}}" required>
+       </div>
 
        <div class="input-group mb-3">
        <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">Y/S</span></label>
@@ -35,8 +39,18 @@
 
        <div class="input-group mb-3">
        <label for="" style="color:dimgray;"><span class="fas fa-envelope input-group-text bg-secondary" style="width: 43px;"></span></label>
-        <input type="text" name="email" class="form-control" value="{{$hopeStudents->email}}" required>
+        <input type="email" name="email" class="form-control" value="{{$hopeStudents->email}}" required>
     </div>
+
+    <div class="input-group mb-3">
+        <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">Pn</span></label>
+        <input type="text" name="parent_name"  class="form-control" value="{{$hopeStudents->parent_name}}" required>
+        </div>
+    
+    <div class="input-group mb-3">
+       <label for="" style="color:dimgray;"><span class=" fas fa-envelope input-group-text bg-secondary" style="width: 43px;"></span></label>
+       <input type="email" name="parent_email"  class="form-control" value="{{$hopeStudents->parent_email}}">
+       </div>
 
     <div class="input-group mb-3">
         <label for="" style="color:dimgray;"><span class=" input-group-text bg-secondary" style="width: 43px;">Ad</span></label>

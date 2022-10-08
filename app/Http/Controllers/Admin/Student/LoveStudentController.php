@@ -57,10 +57,14 @@ class LoveStudentController extends Controller
             $loveStudents = Student::find($id);
             $loveStudents->lastname = $request->input('lastname');
             $loveStudents->firstname = $request->input('firstname');
+            $loveStudents->middlename = $request->input('middlename');
             $loveStudents->year_section = $request->input('year_section');
-            $loveStudents->email = $request->input('email');
-            $loveStudents->address = $request->input('address');
             $loveStudents->gender = $request->input('gender');
+            $loveStudents->email = $request->input('email');
+            $loveStudents->parent_name = $request->input('parent_name');
+            $loveStudents->parent_email = $request->input('parent_email');
+            $loveStudents->address = $request->input('address');
+            
     
         
             $loveStudents->update();

@@ -18,9 +18,12 @@ class CreateStudents extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->string('firstname');
             $table->string('lastname');
+            $table->string('middlename');
             $table->string('gender');
             $table->string('year_section');
-            $table->string('email');
+            $table->string('email')->unique();
+            $table->string('parent_name');
+            $table->string('parent_email')->unique()->nullable();
             $table->string('address');
             $table->string('avatar')->default('image18.png');
             $table->timestamps();

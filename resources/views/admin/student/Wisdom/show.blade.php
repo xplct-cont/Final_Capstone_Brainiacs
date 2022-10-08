@@ -23,7 +23,7 @@
                                 style="width: 62px; height:62px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
                         </div>
                         <div class="details mt-2">
-                            <h2>Personal Information</h2>
+                            <h2>Student Information Sheet</h2>
                         </div>
                     </div>
                 </a>
@@ -75,7 +75,7 @@
 
                         </div>
                         <div class="details mt-2">
-                            <h2>buang</h2>
+                            <h2>Counseling Report</h2>
                         </div>
                     </div>
                 </a>
@@ -99,7 +99,7 @@
 
                         </div>
                         <div class="details mt-2">
-                            <h2>Counseling Report</h2>
+                            <h2>Exit Interview Form</h2>
                         </div>
                     </div>
                 </a>

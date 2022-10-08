@@ -55,9 +55,7 @@
     <h1 style="font-size: 25px; text-center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Pangangan
         National High School - Talisay, Calape, Bohol</h1>
     <hr>
-    <h2 style="font-size: 20px; text-center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">List of
-        Students in Grade 12 - Hope</h2>
-
+    <h2 style="font-size: 20px; text-center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">My Students</h2>
 
 
     <table id="customers">
@@ -71,20 +69,20 @@
             <th scope="col">Address</th>
         </tr>
         @if (count($students))
-            @foreach ($students as $hope)
+            @foreach ($students as $myStudents)
                 <tr>
-                    <td>{{ $hope->lastname }}</td>
-                    <td>{{ $hope->firstname }}</td>
-                    <td>{{ $hope->middlename }}</td>
-                    <td>{{ $hope->year_section }}</td>
-                    <td>{{ $hope->gender }}</td>
-                    <td>{{ $hope->email }}</td>
-                    <td>{{ $hope->address }}</td>
+                    <td>{{ $myStudents->lastname }}</td>
+                    <td>{{ $myStudents->firstname }}</td>
+                    <td>{{ $myStudents->middlename }}</td>
+                    <td>{{ $myStudents->year_section }}</td>
+                    <td>{{ $myStudents->gender }}</td>
+                    <td>{{ $myStudents->email }}</td>
+                    <td>{{ $myStudents->address }}</td>
                 </tr>
             @endforeach
         @else
             <tr>
-                <td colspan="3">No Grade 12 - Hope Students Found!</td>
+                <td colspan="3">No Students Found!</td>
             </tr>
 
         @endif

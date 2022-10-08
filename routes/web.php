@@ -89,7 +89,7 @@ Route::middleware(['auth', ])->group(function () {
              //for PDF and Excel Love Students
         Route::get('export_loveStudents_pdf', [LoveStudentController::class, 'export_loveStudents_pdf'])->name('export_loveStudents_pdf');
         Route::get('export_loveStudents_excel', [LoveStudentController::class, 'export_loveStudents_excel'])->name('export_loveStudents_excel'); 
-       
+             
        
         //for edit admin profile
         Route::get('/adminprofile', [
@@ -204,6 +204,11 @@ Route::middleware(['auth', ])->group(function () {
         Route::put('/update-my-student/{student}', [StudentListController::class, 'update'])->middleware('can-edit');
         Route::get('/delete-student/{student}', [StudentListController::class, 'destroy']);
         Route::get('/show-my-student/{id}', [StudentListController::class, 'showStudentRecord']);
+
+        //for PDF and Excel My Students Only
+        Route::get('export_myStudents_pdf', [StudentListController::class, 'export_myStudents_pdf'])->name('export_myStudents_pdf');
+        Route::get('export_myStudents_excel', [StudentListController::class, 'export_myStudents_excel'])->name('export_myStudents_excel'); 
+             
            
         });
     });

@@ -67,9 +67,12 @@ class WisdomStudentController extends Controller
         $request->validate([
             'firstname' => 'string|required',
             'lastname' => 'string|required',
+            'middlename' => 'string|required',
             'gender' => 'string|required',
             'year_section' => 'string|required',
             'email' => 'email|required',
+            'parent_name' => 'string|required',
+            'parent_email' => 'nullable|email',
             'address' => 'string|required',
         ]);
 
@@ -77,9 +80,12 @@ class WisdomStudentController extends Controller
             'user_id' => auth()->user()->id,
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
+            'middlename' => $request->middlename,
             'gender' => $request->gender,
             'year_section' => $request->year_section,
             'email' => $request->email,
+            'parent_name' => $request->parent_name,
+            'parent_email' => $request->parent_email,
             'address' => $request->address,
         ]);
 
@@ -91,10 +97,13 @@ class WisdomStudentController extends Controller
         $wisdomStudents = Student::find($id);
         $wisdomStudents->lastname = $request->input('lastname');
         $wisdomStudents->firstname = $request->input('firstname');
+        $wisdomStudents->middlename = $request->input('middlename');
         $wisdomStudents->year_section = $request->input('year_section');
+        $wisdomStudents->gender = $request->input('gender');
         $wisdomStudents->email = $request->input('email');
         $wisdomStudents->address = $request->input('address');
-        $wisdomStudents->gender = $request->input('gender');
+        $wisdomStudents->parent_name = $request->input('parent_name');
+        $wisdomStudents->parent_email = $request->input('parent_email');
 
     
         $wisdomStudents->update();

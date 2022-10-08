@@ -62,11 +62,16 @@ class FaithStudentController extends Controller
         $faithStudents = Student::find($id);
         $faithStudents->lastname = $request->input('lastname');
         $faithStudents->firstname = $request->input('firstname');
+        $faithStudents->middlename = $request->input('middlename');
         $faithStudents->year_section = $request->input('year_section');
-        $faithStudents->email = $request->input('email');
-        $faithStudents->address = $request->input('address');
         $faithStudents->gender = $request->input('gender');
-
+        $faithStudents->email = $request->input('email');
+        $faithStudents->parent_name = $request->input('parent_name');
+        $faithStudents->parent_email = $request->input('parent_email');
+        $faithStudents->address = $request->input('address');
+        
+        
+        
     
         $faithStudents->update();
         return redirect('faith-students')->with('status', 'Student Updated Successfully!');

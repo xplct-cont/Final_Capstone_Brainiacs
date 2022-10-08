@@ -29,7 +29,7 @@
     <a href="{{ route('homepage') }}"
        class="nav-link {{ Request::is('homepage*') ? '' : '' }}">
         <p>Parents</p>
-        <i class="fas fa-user fa-pull-left fa-md "></i>
+        <i class="fas fa-users fa-pull-left fa-md "></i>
     </a>
 </li>
  

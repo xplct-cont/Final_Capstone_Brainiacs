@@ -1,65 +1,95 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<style>
-#customers {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+    <style>
+        th {
+            font-size: 12px;
+        }
 
-#customers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
+        tr {
+            font-size: 12px;
+        }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+        h2 {
+            text-align: center;
+        }
 
-#customers tr:hover {background-color: #ddd;}
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            font-size: 18px;
+            text-align: center;
+            width: 100%;
+        }
 
-#customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #5bc0de;
-  color: dimgray;
-}
-</style>
+        #customers td,
+        #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            text-align: left;
+            background-color: #5bc0de;
+            color: dimgray;
+            text-align: center;
+
+
+        }
+    </style>
 </head>
-<body>
 
-<h1 style="margin:auto; font-size:25px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Pangangan National High School - Talisay, Calape, Bohol</h1><hr>
-<h1 style="margin:auto; font-size:20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">List of Students in Grade 11 - Charity</h1>
+<body style="text-center">
+
+    <h1 style="font-size: 25px; text-center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Pangangan
+        National High School - Talisay, Calape, Bohol</h1>
+    <hr>
+    <h2 style="font-size: 20px; text-center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">List of
+        Students in Grade 11 - Charity</h2>
 
 
-<table id="customers">
-  <tr>
-    <th scope="col">Last Name</th>
-    <th scope="col">First Name</th>
-    <th scope="col" >Year/Section</th>
-    <th scope="col" >Email</th>
-    <th scope="col">Address</th>
-  </tr>
-  @if(count($students))
-  @foreach($students as $charity)
-  <tr>
-    <td>{{$charity->lastname}}</td>
-    <td>{{$charity->firstname}}</td>
-    <td>{{$charity->year_section}}</td>
-    <td>{{$charity->email}}</td>
-    <td>{{$charity->address}}</td>
-  </tr>
-  @endforeach
-  @else
-   <tr>
-    <td colspan="3">No Grade 11 - Charity Students Found!</td>
-   </tr>
+    <table id="customers">
+        <tr>
+            <th scope="col">Last Name</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Middle Name</th>
+            <th scope="col">Year/Section</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+        </tr>
+        @if (count($students))
+            @foreach ($students as $charity)
+                <tr>
+                    <td>{{ $charity->lastname }}</td>
+                    <td>{{ $charity->firstname }}</td>
+                    <td>{{ $charity->middlename }}</td>
+                    <td>{{ $charity->year_section }}</td>
+                    <td>{{ $charity->gender }}</td>
+                    <td>{{ $charity->email }}</td>
+                    <td>{{ $charity->address }}</td>
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="3">No Grade 11 - Charity Students Found!</td>
+            </tr>
 
-  @endif
-  
-</table>
+        @endif
+
+    </table>
 
 </body>
+
 </html>
-
-

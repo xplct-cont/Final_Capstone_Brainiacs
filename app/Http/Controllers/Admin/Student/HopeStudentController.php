@@ -57,10 +57,14 @@ class HopeStudentController extends Controller
             $hopeStudents = Student::find($id);
             $hopeStudents->lastname = $request->input('lastname');
             $hopeStudents->firstname = $request->input('firstname');
+            $hopeStudents->middlename = $request->input('middlename');
             $hopeStudents->year_section = $request->input('year_section');
-            $hopeStudents->email = $request->input('email');
-            $hopeStudents->address = $request->input('address');
             $hopeStudents->gender = $request->input('gender');
+            $hopeStudents->email = $request->input('email');
+            $hopeStudents->parent_name = $request->input('parent_name');
+            $hopeStudents->parent_email = $request->input('parent_email');
+            $hopeStudents->address = $request->input('address');
+            
     
         
             $hopeStudents->update();

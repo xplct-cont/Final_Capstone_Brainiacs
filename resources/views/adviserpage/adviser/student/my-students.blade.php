@@ -17,8 +17,8 @@
 @endif
 
 
-<a class="btn btn-danger mt-3 ml-3" style="" href="{{route('export_advisers_pdf')}}">Download PDF</a>
-<a href="/export_advisers_excel" class=" mt-3 ml-3 btn btn-success">Export to Excel</a>
+<a class="btn btn-danger mt-3 ml-3" style="" href="{{route('export_myStudents_pdf')}}">Download PDF</a>
+<a href="/export_myStudents_excel" class=" mt-3 ml-3 btn btn-success">Export to Excel</a>
 
 <div class="card col-md-12 d-flex justify-content-between bg-dark" style="position:relative; top: 30px;">
     <div class="card-header text-secondary">
@@ -66,6 +66,7 @@
                     <th scope="col">View Records</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">First Name</th>
+                    <th scope="col">Middle Name</th>
                     <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Year/Section</th>
                     <th scope="col">Gender</th>
                     <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Email</th>
@@ -81,6 +82,7 @@
                     <td><a href="{{url('show-my-student/'.$student->id)}}" class="btn btn-success btn-sm "></i>View</a></td>
                     <td>{{$student->lastname}}</td>
                     <td>{{$student->firstname}}</td>
+                    <td>{{$student->middlename}}</td>
                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->year_section}}</td>
                     <td>{{$student->gender}}</td>
                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->email}}</td>

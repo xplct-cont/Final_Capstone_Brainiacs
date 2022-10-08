@@ -12,7 +12,9 @@ use Image;
 use Validator;
 use DB;
 use Illuminate\Support\Facades\Session;
-
+use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\MyStudentsExport;
 
 
 class StudentListController extends Controller
@@ -38,7 +40,7 @@ class StudentListController extends Controller
         ])
     
             ->orderBy('lastname', 'asc')
-            ->paginate(7);
+            ->paginate(8);
             
         return view('adviserpage.adviser.student.my-students',compact('myStudents', 'countmyStudents'),['myStudents'=>$myStudents])
         ->with('i',(request()->input('page',1)-1)*5);
@@ -55,9 +57,12 @@ class StudentListController extends Controller
         $request->validate([
             'firstname' => 'string|required',
             'lastname' => 'string|required',
+            'middlename' => 'string|required',
             'gender' => 'string|required',
             'year_section' => 'string|required',
             'email' => 'email|required',
+            'parent_name' => 'string|required',
+            'parent_email' => 'nullable|email',
             'address' => 'string|required',
         ]);
 
@@ -65,9 +70,12 @@ class StudentListController extends Controller
             'user_id' => auth()->user()->id,
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
+            'middlename' => $request->middlename,
             'gender' => $request->gender,
             'year_section' => $request->year_section,
             'email' => $request->email,
+            'parent_name' => $request->parent_name,
+            'parent_email' => $request->parent_email,
             'address' => $request->address,
         ]);
 
@@ -100,9 +108,12 @@ class StudentListController extends Controller
         $request->validate([
             'firstname' => 'string|required',
             'lastname' => 'string|required',
+            'middlename' => 'string|required',
             'gender' => 'string|required',
             'year_section' => 'string|required',
             'email' => 'email|required',
+            'parent_name' => 'string|required',
+            'parent_email' => 'nullable|email',
             'address' => 'string|required',
         ]);
 
@@ -129,6 +140,20 @@ class StudentListController extends Controller
            }
     
            return view('adviserpage.adviser.student.show-my-students')->with('myStud', $myStud);
+        }
+
+
+        public function export_myStudents_pdf(){
+            $myStudents = Student::where('user_id', auth()->user()->id)->orderBy('lastname', 'asc')->get();
+            $pdf = PDF::loadVIew('pdf.my-students', [
+                'students' => $myStudents
+            ]);
+            return $pdf->download('Students in my advisory.pdf');
+        }
+        
+        public function export_myStudents_excel(){
+             $myStudents = Student::where('user_id', auth()->user()->id)->orderBy('lastname', 'asc')->get();
+             return Excel::download(new MyStudentsExport($myStudents),'Students in my advisory.xlsx');
         }
 }
 

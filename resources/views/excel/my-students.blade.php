@@ -12,17 +12,17 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($students as $charity)
+        @foreach ($students as $myStudents)
             <tr class="text-center">
 
-                <td>{{ $charity->id }}</td>
-                <td>{{ $charity->lastname }}</td>
-                <td>{{ $charity->firstname }}</td>
-                <td>{{ $charity->middlename }}</td>
-                <td>{{ $charity->year_section }}</td>
-                <td>{{ $charity->gender }}</td>
-                <td>{{ $charity->email }}</td>
-                <td>{{ $charity->address }}</td>
+                <td>{{ $myStudents->id }}</td>
+                <td>{{ $myStudents->lastname }}</td>
+                <td>{{ $myStudents->firstname }}</td>
+                <td>{{ $myStudents->middlename }}</td>
+                <td>{{ $myStudents->year_section }}</td>
+                <td>{{ $myStudents->gender }}</td>
+                <td>{{ $myStudents->email }}</td>
+                <td>{{ $myStudents->address }}</td>
             </tr>
         @endforeach
 

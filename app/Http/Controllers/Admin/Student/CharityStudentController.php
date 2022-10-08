@@ -62,10 +62,15 @@ class CharityStudentController extends Controller
         $charityStudents = Student::find($id);
         $charityStudents->lastname = $request->input('lastname');
         $charityStudents->firstname = $request->input('firstname');
+        $charityStudents->middlename = $request->input('middlename');
         $charityStudents->year_section = $request->input('year_section');
-        $charityStudents->email = $request->input('email');
-        $charityStudents->address = $request->input('address');
         $charityStudents->gender = $request->input('gender');
+        $charityStudents->email = $request->input('email');
+        $charityStudents->parent_name = $request->input('parent_name');
+        $charityStudents->parent_email = $request->input('parent_email');
+        $charityStudents->address = $request->input('address');
+        
+        
 
     
         $charityStudents->update();

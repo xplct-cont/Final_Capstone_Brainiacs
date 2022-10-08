@@ -23,7 +23,7 @@
                                 style="width: 62px; height:62px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
                         </div>
                         <div class="details mt-2">
-                            <h2>Personal Information</h2>
+                            <h2>Student Information Sheet</h2>
                         </div>
                     </div>
                 </a>
@@ -57,30 +57,6 @@
         </div>
 
 
-
-        <div class="testimotionals">
-            <div class="card">
-                <a href="{{ route('home') }}">
-                    <div class="layer">
-
-                    </div>
-                    <div class="content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iusto ea tenetur quas facere minima
-                            obcaecati mollitia sed ipsum quod, eius repellat nihil quos. Saepe ipsa veritatis magni
-                            voluptates voluptatum.</p>
-
-                        <div class="image">
-                            <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image"
-                                style="width: 62px; height:62px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
-
-                        </div>
-                        <div class="details mt-2">
-                            <h2>Anecdotal Record</h2>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
 
         <div class="testimotionals">
             <div class="card">
@@ -100,6 +76,30 @@
                         </div>
                         <div class="details mt-2">
                             <h2>Counseling Report</h2>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="testimotionals">
+            <div class="card">
+                <a href="{{ route('home') }}">
+                    <div class="layer">
+
+                    </div>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iusto ea tenetur quas facere minima
+                            obcaecati mollitia sed ipsum quod, eius repellat nihil quos. Saepe ipsa veritatis magni
+                            voluptates voluptatum.</p>
+
+                        <div class="image">
+                            <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image"
+                                style="width: 62px; height:62px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
+
+                        </div>
+                        <div class="details mt-2">
+                            <h2>Exit Interview Form</h2>
                         </div>
                     </div>
                 </a>
