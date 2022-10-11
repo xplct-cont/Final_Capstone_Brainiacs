@@ -29,4 +29,8 @@ class Student extends Model
 
          return auth()->user()->role == 'editor' || auth()->user()->id == $student->user_id;
     }
+
+    public function anecdotal_record(){
+        return $this->hasMany('App\Models\Anecdotal_Record');
+    }
 }

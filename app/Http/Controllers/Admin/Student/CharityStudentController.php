@@ -30,14 +30,15 @@ class CharityStudentController extends Controller
 
     public function index(Request $request){
 
-    // $wisdomStudents = Student::where('year_section', 'Grade 11 - Wisdom')->get();
+    // $charityStudents = Student::where('year_section', 'Grade 11 - Wisdom')->get();
     $charity = DB::table('students')->where('year_section', 'Grade 11 - Charity')->count();
     $charityStudents = Student::where([
         ['year_section', 'Grade 11 - Charity'],
         [function($query) use ($request){
             if(($charity = $request->charity)){
                 $query->orWhere('lastname', 'LIKE', '%'. $charity . '%')
-                ->orWhere('firstname', 'LIKE', '%'. $charity . '%')->get();
+                ->orWhere('firstname', 'LIKE', '%'. $charity . '%')
+                ->orWhere('middlename', 'LIKE', '%'. $charity . '%')->get();
 
                 
             }
@@ -45,7 +46,7 @@ class CharityStudentController extends Controller
     ])
 
     ->orderBy("lastname","asc")
-    ->paginate(8);
+    ->paginate(15);
 
 
        return view('admin.student.Charity.index',compact('charityStudents', 'charity'),['charityStudents'=>$charityStudents])
@@ -56,6 +57,44 @@ class CharityStudentController extends Controller
     public function edit($id){
         $charityStudents = Student::find($id);
         return view('admin.student.Charity.edit', compact('charityStudents'));
+    }
+
+    
+    public function create() {
+
+         $charityAd = DB::table('users')->where('advisory', 'Grade 11 - Charity')->get();
+        return view('admin.student.Charity.create', compact('charityAd'));
+    }
+
+    public function store(Request $request) {
+        $request->validate([
+            'user_id' => 'required',
+            'firstname' => 'string|required',
+            'lastname' => 'string|required',
+            'middlename' => 'string|required',
+            'gender' => 'string|required',
+            'year_section' => 'string|required',
+            'email' => 'email|required',
+            'parent_name' => 'string|required',
+            'parent_email' => 'nullable|email',
+            'address' => 'string|required',
+        ]);
+
+        $charityStudents = Student::create([
+            
+            'user_id' => $request->user_id,
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'middlename' => $request->middlename,
+            'gender' => $request->gender,
+            'year_section' => $request->year_section,
+            'email' => $request->email,
+            'parent_name' => $request->parent_name,
+            'parent_email' => $request->parent_email,
+            'address' => $request->address,
+        ]);
+
+        return redirect()->route('charity-list')->with('status','Added New Student!');
     }
 
     public function update(Request $request, $id){

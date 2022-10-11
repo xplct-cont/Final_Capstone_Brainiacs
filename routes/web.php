@@ -14,11 +14,19 @@ use App\Http\Controllers\Admin\Student\FaithStudentController;
 use App\Http\Controllers\Admin\Student\CharityStudentController;
 use App\Http\Controllers\Admin\Student\HopeStudentController;
 use App\Http\Controllers\Admin\Student\LoveStudentController;
+use App\Http\Controllers\Admin\Parent\ParentController;
 use App\Models\User;
+
+use App\Http\Controllers\Admin\Anecdotal_Record\Wisdom_Anecdotal_RecordController;
+use App\Http\Controllers\Admin\Anecdotal_Record\Charity_Anecdotal_RecordController;
+use App\Http\Controllers\Admin\Anecdotal_Record\Faith_Anecdotal_RecordController;
+use App\Http\Controllers\Admin\Anecdotal_Record\Hope_Anecdotal_RecordController;
+use App\Http\Controllers\Admin\Anecdotal_Record\Love_Anecdotal_RecordController;
 
 use App\Http\Controllers\AdviserHomePageController;
 use App\Http\Controllers\Adviser\AdviserProfileController;
 use App\Http\Controllers\Adviser\StudentListController;
+use App\Http\Controllers\Adviser\ParentListController;
 
 
 
@@ -117,36 +125,57 @@ Route::middleware(['auth', ])->group(function () {
        Route::post('/multiple-delete', [WisdomStudentController::class, 'multipleDelete']);
        Route::put('/update-wisdom-student/{id}', [WisdomStudentController::class, 'update'])->name('update-wisdom-student');
        Route::get('/show-student-wisdom/{id}', [WisdomStudentController::class, 'showStudentRecord']);
+    
+       
+       Route::get('/show-student-wisdom/{id}/anecdotal_record_wisdom/', [Wisdom_Anecdotal_RecordController::class, 'index'])->name('wisdom-anecdotal');
        
        //for 11 Faith Students
        Route::get('faith-students', [FaithStudentController::class, 'index'])->name('faith-list');
        Route::get('/edit-faith-student/{id}', [FaithStudentController::class, 'edit']);
+       Route::get('/add-faith-student',[FaithStudentController::class, 'create']);
+       Route::post('/add-new-faith-student', [FaithStudentController::class, 'store']);
        Route::post('/multiple-delete', [FaithStudentController::class, 'multipleDelete']);
        Route::put('/update-faith-student/{id}', [FaithStudentController::class, 'update'])->name('update-faith-student');
        Route::get('/show-student-faith/{id}', [FaithStudentController::class, 'showStudentRecord']);
       
+       Route::get('/show-student-faith/{id}/anecdotal_record_faith/', [Faith_Anecdotal_RecordController::class, 'index'])->name('faith-anecdotal');
+
        //for 11 Charity Students
        Route::get('charity-students', [CharityStudentController::class, 'index'])->name('charity-list');
        Route::get('/edit-charity-student/{id}', [CharityStudentController::class, 'edit']);
+       Route::get('/add-charity-student',[CharityStudentController::class, 'create']);
+       Route::post('/add-new-charity-student', [CharityStudentController::class, 'store']);
        Route::put('/update-charity-student/{id}', [CharityStudentController::class, 'update'])->name('update-charity-student');
        Route::post('/multiple-delete', [CharityStudentController::class, 'multipleDelete']);
        Route::get('/show-student-charity/{id}', [CharityStudentController::class, 'showStudentRecord']);
-       
+
+       Route::get('/show-student-charity/{id}/anecdotal_record_charity/', [Charity_Anecdotal_RecordController::class, 'index'])->name('charity-anecdotal');
+
        //for 12 Hope Students
        Route::get('hope-students', [HopeStudentController::class, 'index'])->name('hope-list');
        Route::get('/edit-hope-student/{id}', [HopeStudentController::class, 'edit']);
+       Route::get('/add-hope-student',[HopeStudentController::class, 'create']);
+       Route::post('/add-new-hope-student', [HopeStudentController::class, 'store']);
        Route::post('/multiple-delete', [HopeStudentController::class, 'multipleDelete']);
        Route::put('/update-hope-student/{id}', [HopeStudentController::class, 'update'])->name('update-hope-student');
        Route::get('/show-student-hope/{id}', [HopeStudentController::class, 'showStudentRecord']);
     
+       Route::get('/show-student-hope/{id}/anecdotal_record_hope/', [Hope_Anecdotal_RecordController::class, 'index'])->name('hope-anecdotal');
+
        //for 12 Love Students
        Route::get('love-students', [LoveStudentController::class, 'index'])->name('love-list');
        Route::get('/edit-love-student/{id}', [LoveStudentController::class, 'edit']);
+       Route::get('/add-love-student',[LoveStudentController::class, 'create']);
+       Route::post('/add-new-love-student', [LoveStudentController::class, 'store']);
        Route::post('/multiple-delete', [LoveStudentController::class, 'multipleDelete']);
        Route::put('/update-love-student/{id}', [LoveStudentController::class, 'update'])->name('update-love-student');
        Route::get('/show-student-love/{id}', [LoveStudentController::class, 'showStudentRecord']);
 
+       Route::get('/show-student-love/{id}/anecdotal_record_love/', [Love_Anecdotal_RecordController::class, 'index'])->name('love-anecdotal');
 
+       //for SHS Parents
+       Route::get('shs-parents', [ParentController::class, 'index'])->name('shs-parents');
+       Route::get('/email_to_parent/{id}', [ParentController::class, 'emailToParent']);
 
         //for calendar admin panel
         Route::get('fullcalender', [AdminCalendarController::class, 'index'])->name('calendar');
@@ -209,7 +238,10 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('export_myStudents_pdf', [StudentListController::class, 'export_myStudents_pdf'])->name('export_myStudents_pdf');
         Route::get('export_myStudents_excel', [StudentListController::class, 'export_myStudents_excel'])->name('export_myStudents_excel'); 
              
-           
+        //for Parents on my Advisory
+        Route::get('parent-lists', [ParentListController::class, 'index'])->name('parent-lists');
+        Route::get('/email_parent/{id}', [ParentListController::class, 'emailParent']);
+        
         });
     });
 

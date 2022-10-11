@@ -14,7 +14,7 @@ class CreateStudents extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->string('firstname');
             $table->string('lastname');
@@ -27,6 +27,9 @@ class CreateStudents extends Migration
             $table->string('address');
             $table->string('avatar')->default('image18.png');
             $table->timestamps();
+
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

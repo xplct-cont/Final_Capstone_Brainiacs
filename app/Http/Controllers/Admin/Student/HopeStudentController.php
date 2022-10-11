@@ -32,7 +32,8 @@ class HopeStudentController extends Controller
             [function($query) use ($request){
                 if(($hope = $request->hope)){
                     $query->orWhere('lastname', 'LIKE', '%'. $hope . '%')
-                    ->orWhere('firstname', 'LIKE', '%'. $hope . '%')->get();
+                    ->orWhere('firstname', 'LIKE', '%'. $hope . '%')
+                    ->orWhere('middlename', 'LIKE', '%'. $hope . '%')->get();
     
                     
                 }
@@ -40,7 +41,7 @@ class HopeStudentController extends Controller
         ])
     
         ->orderBy("lastname","asc")
-        ->paginate(8);
+        ->paginate(15);
     
     
            return view('admin.student.Hope.index',compact('hopeStudents', 'hope'),['hopeStudents'=>$hopeStudents])
@@ -52,6 +53,44 @@ class HopeStudentController extends Controller
             $hopeStudents = Student::find($id);
             return view('admin.student.Hope.edit', compact('hopeStudents'));
         }
+
+        public function create() {
+
+            $hopeAd = DB::table('users')->where('advisory', 'Grade 12 - Hope')->get();
+           return view('admin.student.Hope.create', compact('hopeAd'));
+       }
+   
+       public function store(Request $request) {
+           $request->validate([
+               'user_id' => 'required',
+               'firstname' => 'string|required',
+               'lastname' => 'string|required',
+               'middlename' => 'string|required',
+               'gender' => 'string|required',
+               'year_section' => 'string|required',
+               'email' => 'email|required',
+               'parent_name' => 'string|required',
+               'parent_email' => 'nullable|email',
+               'address' => 'string|required',
+           ]);
+   
+           $hopeStudents = Student::create([
+               
+               'user_id' => $request->user_id,
+               'firstname' => $request->firstname,
+               'lastname' => $request->lastname,
+               'middlename' => $request->middlename,
+               'gender' => $request->gender,
+               'year_section' => $request->year_section,
+               'email' => $request->email,
+               'parent_name' => $request->parent_name,
+               'parent_email' => $request->parent_email,
+               'address' => $request->address,
+           ]);
+   
+           return redirect()->route('hope-list')->with('status','Added New Student!');
+       }
+   
     
         public function update(Request $request, $id){
             $hopeStudents = Student::find($id);

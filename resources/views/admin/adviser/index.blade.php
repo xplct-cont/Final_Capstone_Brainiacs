@@ -22,8 +22,8 @@
                         <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image" style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
                     </div>
                     <div class="mx-auto">
-                        <a class="btn btn-danger mb-2" style="position:relative; top: 10px;" href="{{route('export_user_pdf')}}"><span class="fas fa-arrow-circle-down" style="font-size: 15px;"></span> Export PDF</a>
-                        <a href="/export_user_excel" style="position:relative; top: 10px;" class="mb-2 btn btn-success"><span class="fas fa-arrow-circle-down" style="font-size: 15px;"></span> Export Excel</a>
+                        <a class="btn btn-danger mb-2" style="position:relative; top: 10px;" href="{{route('export_user_pdf')}}"><span class="fas fa-download" style="font-size: 15px;"></span> Generate PDF</a>
+                        <a href="/export_user_excel" style="position:relative; top: 10px;" class="mb-2 btn btn-success"><span class="fas fa-print" style="font-size: 15px;"></span> Export to Excel</a>
                     </div>
                     <div class="card-body">
                        

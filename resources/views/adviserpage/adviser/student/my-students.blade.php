@@ -17,12 +17,12 @@
 @endif
 
 
-<a class="btn btn-danger mt-3 ml-3" style="" href="{{route('export_myStudents_pdf')}}">Download PDF</a>
-<a href="/export_myStudents_excel" class=" mt-3 ml-3 btn btn-success">Export to Excel</a>
+<a class="btn btn-danger mt-3 ml-3" style="" href="{{route('export_myStudents_pdf')}}"><span class="fas fa-file-pdf"></span> Generate PDF</a>
+<a href="/export_myStudents_excel" class=" mt-3 ml-3 btn btn-success"><span class="fas fa-file-excel"></span> Export to Excel</a>
 
 <div class="card col-md-12 d-flex justify-content-between bg-dark" style="position:relative; top: 30px;">
     <div class="card-header text-secondary">
-        <h4 style="position: absolute; left:38%; color:whitesmoke; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">{{Auth::user()->advisory}} Students</h4>
+        <h4 style="position: absolute; left:40%; color:whitesmoke; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">{{Auth::user()->advisory}} Students</h4>
                         {{-- <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image" style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;"> --}}
                         <a href="{{url('/students/create')}}" class="btn btn-primary"><span class="fas fa-user-graduate mr-1"></span>
                           Add New Student
@@ -79,7 +79,7 @@
                   @forelse ($myStudents as $student)
                   <tr class="text-center">
                     
-                    <td><a href="{{url('show-my-student/'.$student->id)}}" class="btn btn-success btn-sm "></i>View</a></td>
+                    <td><a href="{{url('show-my-student/'.$student->id)}}" class="btn btn-success btn-sm "><span class="fas fa-mail-bulk"></span></a></td>
                     <td>{{$student->lastname}}</td>
                     <td>{{$student->firstname}}</td>
                     <td>{{$student->middlename}}</td>
@@ -87,7 +87,7 @@
                     <td>{{$student->gender}}</td>
                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->email}}</td>
                     <td>{{$student->address}}</td>
-                    <td><a href="{{url('/students/edit/' .$student->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-edit"></i></a></td>
+                    <td><a href="{{url('/students/edit/' .$student->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-user-edit text-dark"></i></a></td>
                     <td><a href="{{url('delete-student/'.$student->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash-alt"></i></a></td>
                   </tr>
                       

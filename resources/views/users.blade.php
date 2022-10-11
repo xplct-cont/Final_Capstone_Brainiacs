@@ -28,7 +28,7 @@
     <div class="container text-dark" style="margin:auto; position:relative; top: 30px;">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="card">
+                <div class="card bg-dark">
                     <div class="card-header d-flex justify-content-start">Pending Approval Requests <span class="fas fa-exclamation-triangle mt-1 ml-1 text-danger" style="font-size:20px;"></span></div>
 
                     <div class="card-body">

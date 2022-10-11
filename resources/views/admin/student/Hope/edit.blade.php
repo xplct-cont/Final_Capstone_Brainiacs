@@ -3,7 +3,7 @@
 @section('content')
     
 <div class="row d-flex justify-content-center text-dark">
-    <div class="col-md-8 elevation-2 rounded bg-light" style="position:relative; top: 10px;">
+    <div class="col-md-8 p-2 rounded bg-light" style="position:relative; top: 5px;">
         @if (session('status'))
          <h6 class="alert alert-success">
            {{session('status')}}
@@ -64,7 +64,7 @@
                 <option value="Female">Female</option>
                 <option value="Male">Male</option>
                </select>
-            </div> <hr>
+            </div>
                 <div class="form-group mb-3 d-flex justify-content-end">
                     <button type="submit" class="btn btn-success"><span class="fas fa-save"></span> Save Changes</button>
 

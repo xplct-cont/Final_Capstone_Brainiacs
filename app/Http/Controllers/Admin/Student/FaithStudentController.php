@@ -37,7 +37,8 @@ class FaithStudentController extends Controller
         [function($query) use ($request){
             if(($faith = $request->faith)){
                 $query->orWhere('lastname', 'LIKE', '%'. $faith . '%')
-                ->orWhere('firstname', 'LIKE', '%'. $faith . '%')->get();
+                ->orWhere('firstname', 'LIKE', '%'. $faith . '%')
+                ->orWhere('middlename', 'LIKE', '%'. $faith . '%')->get();
 
                 
             }
@@ -45,7 +46,7 @@ class FaithStudentController extends Controller
     ])
 
     ->orderBy("lastname","asc")
-    ->paginate(8);
+    ->paginate(15);
 
 
        return view('admin.student.Faith.index',compact('faithStudents', 'faith'),['faithStudents'=>$faithStudents])
@@ -57,6 +58,45 @@ class FaithStudentController extends Controller
         $faithStudents = Student::find($id);
         return view('admin.student.Faith.edit', compact('faithStudents'));
     }
+
+
+    public function create() {
+
+        $faithAd = DB::table('users')->where('advisory', 'Grade 11 - Faith')->get();
+       return view('admin.student.Faith.create', compact('faithAd'));
+   }
+
+   public function store(Request $request) {
+       $request->validate([
+           'user_id' => 'required',
+           'firstname' => 'string|required',
+           'lastname' => 'string|required',
+           'middlename' => 'string|required',
+           'gender' => 'string|required',
+           'year_section' => 'string|required',
+           'email' => 'email|required',
+           'parent_name' => 'string|required',
+           'parent_email' => 'nullable|email',
+           'address' => 'string|required',
+       ]);
+
+       $faithStudents = Student::create([
+           
+           'user_id' => $request->user_id,
+           'firstname' => $request->firstname,
+           'lastname' => $request->lastname,
+           'middlename' => $request->middlename,
+           'gender' => $request->gender,
+           'year_section' => $request->year_section,
+           'email' => $request->email,
+           'parent_name' => $request->parent_name,
+           'parent_email' => $request->parent_email,
+           'address' => $request->address,
+       ]);
+
+       return redirect()->route('faith-list')->with('status','Added New Student!');
+   }
+
 
     public function update(Request $request, $id){
         $faithStudents = Student::find($id);

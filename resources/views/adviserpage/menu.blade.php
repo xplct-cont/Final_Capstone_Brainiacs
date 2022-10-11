@@ -26,8 +26,8 @@
 </li>
 
 <li class="nav-item">
-    <a href="{{ route('homepage') }}"
-       class="nav-link {{ Request::is('homepage*') ? '' : '' }}">
+    <a href="{{ route('parent-lists') }}"
+       class="nav-link {{ Request::is('parent-lists*') ? '' : '' }}">
         <p>Parents</p>
         <i class="fas fa-users fa-pull-left fa-md "></i>
     </a>
@@ -41,10 +41,7 @@
      </a>
  </li>
   --}}
- 
- 
-
- 
+  
  <style scoped>
     .nav-item p{
         position: relative;

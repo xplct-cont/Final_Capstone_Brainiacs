@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Student;
+use App\Models\Anecdotal_Record;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
@@ -31,13 +32,14 @@ class WisdomStudentController extends Controller
     public function index(Request $request){
 
     // $wisdomStudents = Student::where('year_section', 'Grade 11 - Wisdom')->get();
-    $wisdom = DB::table('students')->where('year_section', 'Grade 11 - Wisdom')->count();
+    $wisdom = DB::table('students')->where('user_id', auth()->user()->id)->count();
     $wisdomStudents = Student::where([
-        ['year_section', 'Grade 11 - Wisdom'],
+        ['user_id', auth()->user()->id],
         [function($query) use ($request){
             if(($wisdom = $request->wisdom)){
                 $query->orWhere('lastname', 'LIKE', '%'. $wisdom . '%')
-                ->orWhere('firstname', 'LIKE', '%'. $wisdom . '%')->get();
+                ->orWhere('firstname', 'LIKE', '%'. $wisdom . '%')
+                ->orWhere('middlename', 'LIKE', '%'. $wisdom . '%')->get();
 
                 
             }
@@ -45,7 +47,7 @@ class WisdomStudentController extends Controller
     ])
 
     ->orderBy("lastname","asc")
-    ->paginate(8);
+    ->paginate(15);
 
 
        return view('admin.student.Wisdom.index',compact('wisdomStudents', 'wisdom'),['wisdomStudents'=>$wisdomStudents])
@@ -59,7 +61,7 @@ class WisdomStudentController extends Controller
     }
 
     public function create() {
-
+        
         return view('admin.student.Wisdom.create');
     }
 
@@ -177,6 +179,5 @@ class WisdomStudentController extends Controller
 
        return view('admin.student.Wisdom.show')->with('wisdomStud', $wisdomStud);
     }
-
 
 }

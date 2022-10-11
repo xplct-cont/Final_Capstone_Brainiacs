@@ -19,11 +19,11 @@
 
                 <div class="input-group">
                     <span class="input-group-btn mr-2 mt-0">
-                        <button class="btn btn-info" type="submit" title="Search Full Name">
+                        <button class="btn btn-info" type="submit" title="Search Name">
                             <span class="fas fa-search"></span>
                         </button>
                     </span>
-                    <input type="text" class="form-control mr-2" name="hope" placeholder="Search Full Name"
+                    <input type="text" class="form-control mr-2" name="hope" placeholder="Search Name"
                         id="hope">
                     <a href="{{ route('hope-list') }}" class=" mt-0">
                         <span class="input-group-btn">
@@ -36,15 +36,18 @@
             </form>
         </div>
 
-
+        <a href="{{ url('/add-hope-student') }}" class="btn btn-primary ml-2" style="margin-top: 10px;"><span
+            class="fas fa-user-graduate mr-1"></span>
+        Add New Student
+    </a>
 
         <div class="container col-md-12 " style="position: relative; margin-top:1%;">
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card bg-dark">
-                        <div class="card-header elevation-2" style="height: 60px;">
-                            <h4 style="position: absolute; left:38%; color:whitesmoke;">Grade 12 - Hope Students</h4>
+                    <div class="">
+                        <div class="card-header" style="height: 60px;">
+                            <h4 style="position: absolute; left:38%; color:dimgray; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Grade 12 - Hope Students</h4>
                             {{-- <a href="{{url('add-new-wisdom-student')}}" class="btn btn-primary"><span class="fas fa-user-graduate mr-1"></span>
                           Add New Student
                       </a> --}}
@@ -57,13 +60,13 @@
                         <div class="card-body">
                             <div class="" style="position: relative; top:-20px;">
                                 <a class="btn btn-danger mt-2 ml-2" style=""
-                                    href="{{ route('export_hopeStudents_pdf') }}"><span class="fas fa-arrow-circle-down"
-                                        style="font-size: 15px;"></span> Export PDF</a>
+                                    href="{{ route('export_hopeStudents_pdf') }}"><span class="fas fa-file-pdf"
+                                        style="font-size: 15px;"></span> Generate PDF</a>
                                 <a href="/export_hopeStudents_excel" class=" mt-2 ml-4 btn btn-success"><span
-                                        class="fas fa-arrow-circle-down" style="font-size: 15px;"></span> Export Excel</a>
+                                        class="fas fa-file-excel" style="font-size: 15px;"></span> Export to Excel</a>
 
                                 <div class="d-flex justify-content-end">
-                                    <p>Number of students : {{ $hope }}</p>
+                                    <p class="text-dark">Number of students : {{ $hope }}</p>
                                 </div>
 
 
@@ -110,7 +113,7 @@
                                             <tr class="text-center">
 
                                                 <td><a href="{{ url('show-student-hope/' . $hope->id) }}"
-                                                        class="btn btn-success btn-sm ">View</a></td>
+                                                        class="btn btn-success btn-sm "><span class="fas fa-mail-bulk"></span></a></td>
                                                 <td>{{ $hope->lastname }}</td>
                                                 <td>{{ $hope->firstname }}</td>
                                                 <td>{{ $hope->middlename }}</td>
@@ -122,7 +125,7 @@
                                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                     style="text-align: center">{{ $hope->address }}</td>
                                                 <td><a href="{{ url('edit-hope-student/' . $hope->id) }}"
-                                                        class="btn btn-warning btn-xs "><i class="fas fa-edit"></i></a></td>
+                                                        class="btn btn-warning btn-xs "><i class="fas fa-user-edit text-dark"></i></a></td>
                                                 <td><input type="checkbox" name="ids[]" value="{{ $hope->id }}"></td>
                                             </tr>
 
@@ -137,11 +140,11 @@
                                     </tbody>
                                 </table>
                                 <div class="d-flex justify-content-end mt-2">
-                                    <button type="submit" class="btn-danger" value="Delete Students">Delete
+                                    <button type="submit" class="btn btn-sm btn-danger" value="Delete Students">Delete
                                         Students</button>
                                 </div>
                             </form>
-                            <div class="div d-flex justify-content-center mt-3">
+                            <div class="div d-flex justify-content-center">
                                 {{ $hopeStudents->onEachSide(1)->links() }}
                             </div>
                         </div>

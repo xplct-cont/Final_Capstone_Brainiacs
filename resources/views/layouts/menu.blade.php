@@ -26,7 +26,7 @@
 </li>
 
 <li class="nav-item">
-    <a href="{{ route('users') }}" class="nav-link {{ Request::is('users') ? '' : '' }}">
+    <a href="{{ route('shs-parents') }}" class="nav-link {{ Request::is('shs-parents') ? '' : '' }}">
         <p>Parents</p>
         <i class="fas fa-users fa-pull-left fa-md "></i>
     </a>

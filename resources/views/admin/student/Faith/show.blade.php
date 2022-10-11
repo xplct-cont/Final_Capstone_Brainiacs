@@ -34,7 +34,7 @@
 
         <div class="testimotionals">
             <div class="card">
-                <a href="{{ route('home') }}">
+                <a href="{{ url('show-student-faith/'. $faithStud->id. '/anecdotal_record_faith')}}">
                     <div class="layer">
 
                     </div>
@@ -60,7 +60,7 @@
 
         <div class="testimotionals">
             <div class="card">
-                <a href="{{ route('home') }}">
+                <a href="{{route('home')}}">
                     <div class="layer">
 
                     </div>
@@ -114,7 +114,7 @@
 
         <div class="container " style="position: relative; top:-40px;">
             <button type="submit" class="btn btn-info rounded"
-                style="width: 130px; height: 40px; position:relative; top: 10px;">Send Email</button>
+                style="width: 130px; height: 40px; position:relative; top: 10px;">Send Email&nbsp;&nbsp;<span class="fas fa-envelope"></span></button>
             <div class="bg-light" style="">
                 <div class="input-group mt-3">
                     <textarea class="form-control" aria-label="" placeholder="Write something here..." style="height: 12rem;"></textarea>

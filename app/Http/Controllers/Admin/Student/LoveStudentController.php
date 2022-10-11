@@ -32,7 +32,8 @@ class LoveStudentController extends Controller
             [function($query) use ($request){
                 if(($love = $request->love)){
                     $query->orWhere('lastname', 'LIKE', '%'. $love . '%')
-                    ->orWhere('firstname', 'LIKE', '%'. $love . '%')->get();
+                    ->orWhere('firstname', 'LIKE', '%'. $love . '%')
+                    ->orWhere('middle', 'LIKE', '%'. $love . '%')->get();
     
                     
                 }
@@ -40,7 +41,7 @@ class LoveStudentController extends Controller
         ])
     
         ->orderBy("lastname","asc")
-        ->paginate(8);
+        ->paginate(15);
     
     
            return view('admin.student.Love.index',compact('loveStudents', 'love'),['loveStudents'=>$loveStudents])
@@ -52,6 +53,44 @@ class LoveStudentController extends Controller
             $loveStudents = Student::find($id);
             return view('admin.student.Love.edit', compact('loveStudents'));
         }
+
+        public function create() {
+
+            $loveAd = DB::table('users')->where('advisory', 'Grade 12 - Love')->get();
+           return view('admin.student.Love.create', compact('loveAd'));
+       }
+   
+       public function store(Request $request) {
+           $request->validate([
+               'user_id' => 'required',
+               'firstname' => 'string|required',
+               'lastname' => 'string|required',
+               'middlename' => 'string|required',
+               'gender' => 'string|required',
+               'year_section' => 'string|required',
+               'email' => 'email|required',
+               'parent_name' => 'string|required',
+               'parent_email' => 'nullable|email',
+               'address' => 'string|required',
+           ]);
+   
+           $loveStudents = Student::create([
+               
+               'user_id' => $request->user_id,
+               'firstname' => $request->firstname,
+               'lastname' => $request->lastname,
+               'middlename' => $request->middlename,
+               'gender' => $request->gender,
+               'year_section' => $request->year_section,
+               'email' => $request->email,
+               'parent_name' => $request->parent_name,
+               'parent_email' => $request->parent_email,
+               'address' => $request->address,
+           ]);
+   
+           return redirect()->route('love-list')->with('status','Added New Student!');
+       }
+   
     
         public function update(Request $request, $id){
             $loveStudents = Student::find($id);

@@ -40,7 +40,7 @@ class StudentListController extends Controller
         ])
     
             ->orderBy('lastname', 'asc')
-            ->paginate(8);
+            ->paginate(15);
             
         return view('adviserpage.adviser.student.my-students',compact('myStudents', 'countmyStudents'),['myStudents'=>$myStudents])
         ->with('i',(request()->input('page',1)-1)*5);

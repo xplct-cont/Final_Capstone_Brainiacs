@@ -101,6 +101,15 @@
     </div>
 
     <!-- Main Footer -->
+    <div class="d-flex justify-content-end">
+        <footer class="sticky-footer">
+            <div class="container">
+                <div class="copyright text-center">
+                    <span style="color: whitesmoke;">Copyright &copy; Pangangan National High School 2022</span>
+                </div>
+            </div>
+        </footer>
+       </div>
   
 </div>
 

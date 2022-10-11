@@ -80,8 +80,8 @@
                          <h2 style="color: dimgray; font-size:16px;" class="d-flex justify-content-between " >ALL SENIOR HIGH SCHOOL TEACHERS
                           </h2> 
                           <div class="mx-auto">
-                          <a class="btn btn-danger mb-2 mr-2" style="" href="{{route('export_advisers_pdf')}}"><span class="fas fa-arrow-circle-down" style="font-size: 15px;"></span> Export PDF</a>
-                             <a href="/export_advisers_excel" style="" class="mb-2 ml-2 btn btn-success"><span class="fas fa-arrow-circle-down" style="font-size: 15px;"></span> Export Excel</a>
+                          <a class="btn btn-danger mb-2 mr-2" style="" href="{{route('export_advisers_pdf')}}"><span class="fas fa-file-pdf" style="font-size: 15px;"></span> Generate PDF</a>
+                             <a href="/export_advisers_excel" style="" class="mb-2 ml-2 btn btn-success"><span class="fas fa-file-excel" style="font-size: 15px;"></span> Export to Excel</a>
                             </div>
                            <div class="card-body">
                             <div class="search" style=" margin-bottom:10px;">
@@ -132,7 +132,7 @@
                                         <td>{{ $item->admin ? 'Guidance Designate' : 'Adviser' }}</td>
                                         <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{$item->contact_no}}</td>
                                         <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{$item->email}}</td>
-                                        <td><a href="{{url('edit-adviser/' .$item->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-edit"></i></a></td>
+                                        <td><a href="{{url('edit-adviser/' .$item->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-user-edit text-dark"></i></a></td>
                                         <td><a href="{{url('delete-adviser/'.$item->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash"></i></a></td>
                                         {{-- <td><a href="{{url('show-adviser/'.$item->id)}}" class="btn btn-success btn-xs"><i class="fas fa-eye"></i></a></td> --}}
                                     </tr>
@@ -199,7 +199,6 @@
             </div> 
            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
           <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
         </body>
       </html>
 

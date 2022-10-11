@@ -2,11 +2,11 @@
 
 @section('content')
 
-<div class="container d-flex justify-content-center" style="position:relative; top: 10px;">
-<div class="card p-3 col-md-8 ">
+<div class="container d-flex justify-content-center" style="position:relative; top: 5px;">
+<div class="p-2 col-md-8">
     <div class="card-header">
         <h1 class="text-center" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:auto; font-size: 25px; color:dimgray;">EDIT STUDENT INFORMATIONS</h1>
-    </div><hr>
+    </div> <br>
     
 <form action="{{url('update-my-student/'.$student->id)}}" method="POST" accept-charset="UTF-8">
     @csrf
@@ -14,12 +14,12 @@
     
 
     <div class="input-group mb-3">
-       <label for="" style="color:dimgray;"><span class="fas fa-user input-group-text bg-secondary" style="width: 43px;"></span></label>
+       <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">Ln</span></label>
        <input type="text" name="firstname" value="{{$student->firstname}}" class="form-control" required>
     </div>
 
     <div class="input-group mb-3">
-       <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">As</span></label>
+       <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary" style="width: 43px;">Fn</span></label>
        <input type="text" name="lastname" value="{{$student->lastname}}" class="form-control" required>
        </div>
 
