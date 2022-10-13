@@ -71,6 +71,7 @@ class WisdomStudentController extends Controller
             'lastname' => 'string|required',
             'middlename' => 'string|required',
             'gender' => 'string|required',
+            'age' => 'string|required',
             'year_section' => 'string|required',
             'email' => 'email|required',
             'parent_name' => 'string|required',
@@ -84,6 +85,7 @@ class WisdomStudentController extends Controller
             'lastname' => $request->lastname,
             'middlename' => $request->middlename,
             'gender' => $request->gender,
+            'age' => $request->age,
             'year_section' => $request->year_section,
             'email' => $request->email,
             'parent_name' => $request->parent_name,
@@ -102,6 +104,7 @@ class WisdomStudentController extends Controller
         $wisdomStudents->middlename = $request->input('middlename');
         $wisdomStudents->year_section = $request->input('year_section');
         $wisdomStudents->gender = $request->input('gender');
+        $wisdomStudents->age = $request->input('age');
         $wisdomStudents->email = $request->input('email');
         $wisdomStudents->address = $request->input('address');
         $wisdomStudents->parent_name = $request->input('parent_name');

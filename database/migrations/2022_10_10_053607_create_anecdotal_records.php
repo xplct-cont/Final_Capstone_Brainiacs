@@ -18,18 +18,9 @@ class CreateAnecdotalRecords extends Migration
             $table->bigInteger('student_id')->unsigned();
             $table->dateTime('observation_date_time')->nullable();
             $table->string('description_of_incident')->nullable();
-            $table->string('location_of_incident')->nullable();
-            $table->string('action_taken')->nullable();
+            $table->string('location_of_incidents')->nullable();
+            $table->string('actions_taken')->nullable();
             $table->string('recommendations')->nullable();
-            $table->string('reasons_for_contact')->nullable();
-            $table->string('referred_by')->nullable();
-            $table->string('reasons_for_referral')->nullable();
-            $table->string('follow_up_counseling_session')->nullable();
-            $table->string('voluntary')->nullable();
-            $table->string('behavior_observed')->nullable();
-            $table->string('interview_findings')->nullable();
-            $table->string('clinical_impressions')->nullable();
-            $table->string('recommendation')->nullable();
             $table->timestamps();
 
 

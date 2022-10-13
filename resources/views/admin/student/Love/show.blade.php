@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="text-dark p-3"
         style="font-weight:normal; font-size: 25px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; ">
-        Records of {{ $loveStud->lastname }}, {{ $loveStud->firstname }} from {{$loveStud->year_section}}</h1>
+        Records of {{ $loveStud->lastname }}, {{ $loveStud->firstname }} from {{ $loveStud->year_section }}</h1>
     <hr>
 
     <div class="container col-md-12 mx-auto" style="position: relative; top: -60px;">
@@ -14,9 +14,10 @@
 
                     </div>
                     <div class="content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iusto ea tenetur quas facere minima
-                            obcaecati mollitia sed ipsum quod, eius repellat nihil quos. Saepe ipsa veritatis magni
-                            voluptates voluptatum.</p>
+                        <div class="div">
+                            <p style="font-size: 20px;">Pangangan National High School</p>
+                            <p style="font-size: 15px;">Talisay, Calape, Bohol</p>
+                        </div>
 
                         <div class="image">
                             <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image"
@@ -34,14 +35,16 @@
 
         <div class="testimotionals">
             <div class="card">
-                <a href="{{ url('show-student-love/'. $loveStud->id. '/anecdotal_record_love')}}">
+                <a href="{{ url('show-student-love/' . $loveStud->id . '/anecdotal_record_love') }}">
                     <div class="layer">
 
                     </div>
                     <div class="content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iusto ea tenetur quas facere minima
-                            obcaecati mollitia sed ipsum quod, eius repellat nihil quos. Saepe ipsa veritatis magni
-                            voluptates voluptatum.</p>
+                        <div class="div">
+                            <p style="font-size: 20px;">Pangangan National High School</p>
+                            <p style="font-size: 15px;">Talisay, Calape, Bohol</p>
+                        </div>
+
 
                         <div class="image">
                             <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image"
@@ -65,9 +68,11 @@
 
                     </div>
                     <div class="content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iusto ea tenetur quas facere minima
-                            obcaecati mollitia sed ipsum quod, eius repellat nihil quos. Saepe ipsa veritatis magni
-                            voluptates voluptatum.</p>
+                        <div class="div">
+                            <p style="font-size: 20px;">Pangangan National High School</p>
+                            <p style="font-size: 15px;">Talisay, Calape, Bohol</p>
+                        </div>
+
 
                         <div class="image">
                             <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image"
@@ -89,9 +94,11 @@
 
                     </div>
                     <div class="content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iusto ea tenetur quas facere minima
-                            obcaecati mollitia sed ipsum quod, eius repellat nihil quos. Saepe ipsa veritatis magni
-                            voluptates voluptatum.</p>
+                        <div class="div">
+                            <p style="font-size: 20px;">Pangangan National High School</p>
+                            <p style="font-size: 15px;">Talisay, Calape, Bohol</p>
+                        </div>
+
 
                         <div class="image">
                             <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image"
@@ -114,7 +121,8 @@
 
         <div class="container " style="position: relative; top:-40px;">
             <button type="submit" class="btn btn-info rounded"
-                style="width: 130px; height: 40px; position:relative; top: 10px;">Send Email&nbsp;&nbsp;<span class="fas fa-envelope"></span></button>
+                style="width: 130px; height: 40px; position:relative; top: 10px;">Send Email&nbsp;&nbsp;<span
+                    class="fas fa-envelope"></span></button>
             <div class="bg-light" style="">
                 <div class="input-group mt-3">
                     <textarea class="form-control" aria-label="" placeholder="Write something here..." style="height: 12rem;"></textarea>
@@ -130,7 +138,7 @@
                 padding: 0;
                 width: 100%;
                 height: 100%;
-            
+
             }
 
             .testimotionals {
@@ -138,7 +146,7 @@
                 display: inline-block;
                 margin-left: 50px;
                 margin-top: 50px;
-              
+
 
             }
 
@@ -164,7 +172,7 @@
                 height: 100%;
                 width: 100%;
                 left: 0;
-                background: linear-gradient(to left, #4ca1af ,#c4e0e5);
+                background: linear-gradient(to left, #4ca1af, #c4e0e5);
                 transition: 0.5s;
 
             }
@@ -200,6 +208,5 @@
                 font-size: 18px;
                 color: black;
             }
-
         </style>
     @endsection

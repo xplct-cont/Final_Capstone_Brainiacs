@@ -9,23 +9,15 @@ class Anecdotal_Record extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
     protected $fillable =
     [
         'student_id',
         'observation_date_time',
         'description_of_incident',
-        'location_of_incident',
-        'action_taken',
+        'location_of_incidents',
+        'actions_taken',
         'recommendations',
-        'reasons_for_contact',
-        'referred_by',
-        'reasons_for_referral',
-        'follow_up_counseling_session',
-        'voluntary',
-        'behavior_observed',
-        'interview_findings',
-        'clinical_impressions',
-        'recommendation'
 
     ];
 
@@ -35,6 +27,7 @@ class Anecdotal_Record extends Model
     protected $casts = [
         'created_at' => 'datetime',
         'observation_date_time' => 'date:hh:mm',
+        
     ];
 
 
@@ -42,4 +35,5 @@ class Anecdotal_Record extends Model
         return $this->belongsTo('App\Models\Student');
 
     }
+    
 }

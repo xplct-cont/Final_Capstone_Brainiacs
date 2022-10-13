@@ -23,8 +23,7 @@
                             <span class="fas fa-search"></span>
                         </button>
                     </span>
-                    <input type="text" class="form-control mr-2" name="charity" placeholder="Search Name"
-                        id="charity">
+                    <input type="text" class="form-control mr-2" name="charity" placeholder="Search Name" id="charity">
                     <a href="{{ route('charity-list') }}" class=" mt-0">
                         <span class="input-group-btn">
                             <button class="btn btn-danger" type="button" title="Refresh page">
@@ -37,9 +36,9 @@
         </div>
 
         <a href="{{ url('/add-charity-student') }}" class="btn btn-primary ml-2" style="margin-top: 10px;"><span
-            class="fas fa-user-graduate mr-1"></span>
-        Add New Student
-    </a>
+                class="fas fa-user-graduate mr-1"></span>
+            Add New Student
+        </a>
 
         <div class="container col-md-12" style="position: relative; margin-top:1%;">
 
@@ -47,7 +46,9 @@
                 <div class="col-lg-12">
                     <div class="">
                         <div class="card-header " style="height: 60px;">
-                            <h4 style="position: absolute; left:38%; color:dimgray; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Grade 11 - Charity Students</h4>
+                            <h4
+                                style="position: absolute; left:38%; color:dimgray; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                                Grade 11 - Charity Students</h4>
                             {{-- <a href="{{url('add-new-wisdom-student')}}" class="btn btn-primary"><span class="fas fa-user-graduate mr-1"></span>
                           Add New Student
                       </a> --}}
@@ -73,10 +74,11 @@
                             <form action="/multiple-delete" method="POST">
                                 @csrf
 
-                                <table class="table table-hover bg-light table-sm elevation-2" style="margin:auto; position:relative; top: -20px;">
+                                <table class="table table-hover bg-light table-sm elevation-2"
+                                    style="margin:auto; position:relative; top: -20px;">
                                     <thead class="bg-info rounded text-center ">
                                         <tr>
-                                            <th scope="col">View Records</th>
+                                            <th scope="col">Records</th>
                                             <th scope="col">Last Name</th>
                                             <th scope="col">First Name</th>
                                             <th scope="col">Middle Name</th>
@@ -101,7 +103,8 @@
                                             <tr class="text-center">
 
                                                 <td><a href="{{ url('show-student-charity/' . $charity->id) }}"
-                                                        class="btn btn-sm btn-success"><span class="fas fa-mail-bulk"></span></a></td>
+                                                        class="btn btn-sm btn-success"><span
+                                                            class="fas fa-mail-bulk"></span></a></td>
                                                 <td>{{ $charity->lastname }}</td>
                                                 <td>{{ $charity->firstname }}</td>
                                                 <td>{{ $charity->middlename }}</td>
@@ -113,7 +116,8 @@
                                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                     style="text-align: center">{{ $charity->address }}</td>
                                                 <td><a href="{{ url('edit-charity-student/' . $charity->id) }}"
-                                                        class="btn btn-warning btn-xs "><i class="fas fa-user-edit text-dark"></i></a></td>
+                                                        class="btn btn-warning btn-xs "><i
+                                                            class="fas fa-user-edit text-dark"></i></a></td>
                                                 <td><input type="checkbox" name="ids[]" value="{{ $charity->id }}"></td>
                                             </tr>
 

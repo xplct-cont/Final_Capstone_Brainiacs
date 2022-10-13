@@ -30,9 +30,66 @@ class Hope_Anecdotal_RecordController extends Controller
 
     public function index($id){
  
-        $anecdotal_hope= Student::find($id);
-    
+      $anecdotal_hope = Anecdotal_Record::with(['student'])->where('student_id', '=', $id)->get();
+      
 
-        return view('admin.student.Hope.anecdotal_record')->with('anecdotal_hope', $anecdotal_hope);
+      $student_hop = Student::find($id);
+      return view('admin.student.Hope.Anecdotal_Record.index', compact('anecdotal_hope', 'student_hop'));
+    }
+
+
+    public function show($student){
+
+        try{
+        $student_hope = Anecdotal_Record::findOrFail($student);
+        }
+        catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            abort(404);
+        } 
+        return view('admin.student.Hope.Anecdotal_Record.show', compact( 'student_hope'));
+
+    }
+
+
+    public function create($id) {
+
+        $anecdotal_hope = Anecdotal_Record::with(['student'])->where('student_id', '=', $id)->get();
+        
+        $student_hop = Student::find($id);
+
+        return view('admin.student.Hope.Anecdotal_Record.create', compact('anecdotal_hope', 'student_hop'));
+    }
+
+
+    public function store(Request $request) {
+        $request->validate([
+
+        'student_id' => 'required',
+        'observation_date_time' => 'required',
+        'description_of_incident'  => 'required',
+        'location_of_incidents' => 'string|required',
+        'actions_taken' => 'string|required',
+        'recommendations' => 'required',
+       
+        ]);
+
+        $student_hop = Anecdotal_Record::create([
+                   
+            'student_id' => $request->student_id,
+            'observation_date_time' => $request->observation_date_time,
+            'description_of_incident'  => $request->description_of_incident,
+            'location_of_incidents' => $request->location_of_incidents,
+            'actions_taken' => $request->actions_taken,
+            'recommendations' => $request->recommendations,
+           
+        ]);
+        return redirect()->back()->with('status','Added New Record!');
+    }
+
+        public function destroy(Anecdotal_Record $id){
+            $removeRec = Anecdotal_Record::find($id)->each->delete();
+            return redirect()->back()->with('status', 'Record Deleted Successfully!');
+        
+            
     }
 }

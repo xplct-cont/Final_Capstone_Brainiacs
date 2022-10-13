@@ -1,11 +1,6 @@
 @extends('layouts.layoutsidebar')
 
 @section('content')
-    {{-- @if (session('status'))
-<h6 class="alert alert-success">
-  {{session('status')}}
-</h6>
-@endif --}}
     @if ($message = Session::get('status'))
         <div class="alert alert-success alert-block">
             <button type="button" class="close" data-dismiss="alert" style="color:black;">×</button>
@@ -23,8 +18,7 @@
                             <span class="fas fa-search"></span>
                         </button>
                     </span>
-                    <input type="text" class="form-control mr-2" name="wisdom" placeholder="Search Name"
-                        id="wisdom">
+                    <input type="text" class="form-control mr-2" name="wisdom" placeholder="Search Name" id="wisdom">
                     <a href="{{ route('wisdom-list') }}" class=" mt-0">
                         <span class="input-group-btn">
                             <button class="btn btn-danger" type="button" title="Refresh page">
@@ -48,7 +42,9 @@
                 <div class="col-md-12">
                     <div class="" style="margin-top: -12px;">
                         <div class="card-header" style="height: 60px;">
-                            <h4 style="position: absolute; left:38%; color:dimgray; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Grade 11 - Wisdom Students</h4>
+                            <h4
+                                style="position: absolute; left:38%; color:dimgray; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                                Grade 11 - Wisdom Students</h4>
 
                             <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image"
                                 style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
@@ -88,7 +84,7 @@
                                     style="margin:auto; position:relative; top: -20px;">
                                     <thead class="bg-info rounded text-center">
                                         <tr>
-                                            <th scope="col">View Records</th>
+                                            <th scope="col">Records</th>
                                             <th scope="col">Last Name</th>
                                             <th scope="col">First Name</th>
                                             <th scope="col">Middle Name</th>
@@ -113,7 +109,8 @@
                                             <tr class="text-center">
 
                                                 <td><a href="{{ url('show-student-wisdom/' . $wisdom->id) }}"
-                                                        class="btn btn-success btn-sm "><span class="fas fa-mail-bulk"></span></a></td>
+                                                        class="btn btn-success btn-sm "><span
+                                                            class="fas fa-mail-bulk"></span></a></td>
                                                 <td>{{ $wisdom->lastname }}</td>
                                                 <td>{{ $wisdom->firstname }}</td>
                                                 <td>{{ $wisdom->middlename }}</td>
@@ -125,7 +122,8 @@
                                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                     style="text-align: center">{{ $wisdom->address }}</td>
                                                 <td><a href="{{ url('edit-wisdom-student/' . $wisdom->id) }}"
-                                                        class="btn btn-warning btn-xs "><i class="fas fa-user-edit text-dark"></i></a></td>
+                                                        class="btn btn-warning btn-xs "><i
+                                                            class="fas fa-user-edit text-dark"></i></a></td>
                                                 <td><input type="checkbox" name="ids[]" value="{{ $wisdom->id }}"></td>
                                             </tr>
 
@@ -152,5 +150,5 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 @endsection

@@ -20,6 +20,7 @@ class CreateStudents extends Migration
             $table->string('lastname');
             $table->string('middlename');
             $table->string('gender');
+            $table->string('age')->nullable();
             $table->string('year_section');
             $table->string('email')->unique();
             $table->string('parent_name');

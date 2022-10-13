@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Anecdotal_Record;
+namespace App\Http\Controllers\Adviser;
 
 
 use App\Http\Controllers\Controller;
@@ -14,13 +14,14 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use App\Rules\MatchOldPassword;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Response;
 use DB;
 use PDF;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ParentExport;
 
-class Faith_Anecdotal_RecordController extends Controller
+class MyStudent_Anecdotal_RecordController extends Controller
 {
     
     public function __construct()
@@ -30,34 +31,61 @@ class Faith_Anecdotal_RecordController extends Controller
 
     public function index($id){
  
-      $anecdotal_faith = Anecdotal_Record::with(['student'])->where('student_id', '=', $id)->get();
+    $anecdotal_myStudent = Anecdotal_Record::with(['student'])->where('student_id', '=', $id)->get();
+
+      $student_myS = Student::where('user_id', auth()->user()->id)->find($id);
+      if (empty($student_myS)) {
+
+        abort(404);
+    }
+      return view('adviserpage.adviser.student.MyStudentAnecdotal_Record.index', compact('anecdotal_myStudent'))->with('student_myS', $student_myS);
+    }
+
+
+
+
+
+
+
+    //Need Security Changes////////////////////////////////////////////////////////
+    public function show( Student $id, $student){
+
+
+      $anecdotal_myStud = Anecdotal_Record::with(['student'])->findOrFail($student);
+      if (empty($anecdotal_myStud)) {
+
+        abort(404);
+    }
+  
+    try{
+      $student_myS = Student::where('user_id', auth()->user()->id)->firstOrFail();
+     
+    }
+    catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+        abort(404);
+    } 
       
-
-      $student_fai = Student::find($id);
-      return view('admin.student.Faith.Anecdotal_Record.index', compact('anecdotal_faith', 'student_fai'));
+      return view('adviserpage.adviser.student.MyStudentAnecdotal_Record.show', compact('anecdotal_myStud'))->with('student_myS', $student_myS);
     }
 
+    ///////////////////////////////////////////////////////////////
 
-    public function show($student){
 
-        try{
-        $student_fait = Anecdotal_Record::findOrFail($student);
-        }
-        catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            abort(404);
-        } 
-        return view('admin.student.Faith.Anecdotal_Record.show', compact( 'student_fait'));
 
-    }
+
+
+
 
 
     public function create($id) {
 
-        $anecdotal_faith = Anecdotal_Record::with(['student'])->where('student_id', '=', $id)->get();
-        
-        $student_fai = Student::find($id);
+        $anecdotal_myStudent = Anecdotal_Record::with(['student'])->where('student_id', '=', $id)->get();
 
-        return view('admin.student.Faith.Anecdotal_Record.create', compact('anecdotal_faith', 'student_fai'));
+        $student_myS = Student::where('user_id', auth()->user()->id)->find($id);
+        if (empty($student_myS)) {
+          abort(404);
+      }
+        return view('adviserpage.adviser.student.MyStudentAnecdotal_Record.create', compact('anecdotal_myStudent', 'student_myS'));
     }
 
 
@@ -73,7 +101,7 @@ class Faith_Anecdotal_RecordController extends Controller
        
         ]);
 
-        $student_fai = Anecdotal_Record::create([
+        $student_wis= Anecdotal_Record::create([
                    
             'student_id' => $request->student_id,
             'observation_date_time' => $request->observation_date_time,
@@ -89,7 +117,6 @@ class Faith_Anecdotal_RecordController extends Controller
         public function destroy(Anecdotal_Record $id){
             $removeRec = Anecdotal_Record::find($id)->each->delete();
             return redirect()->back()->with('status', 'Record Deleted Successfully!');
-        
-            
-    }
+         
+     }
 }

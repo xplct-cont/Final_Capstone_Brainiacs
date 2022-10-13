@@ -21,7 +21,7 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('severus123'),
             'admin' => 1,
             'approved_at' => now(),
-            'contact_no' => '0936-165-2609',
+            'contact_no' => '09361652609',
             'advisory' => 'Grade 11 - Wisdom',
             'role' => 'editor'
         ]);

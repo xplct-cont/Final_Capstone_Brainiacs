@@ -23,8 +23,7 @@
                             <span class="fas fa-search"></span>
                         </button>
                     </span>
-                    <input type="text" class="form-control mr-2" name="hope" placeholder="Search Name"
-                        id="hope">
+                    <input type="text" class="form-control mr-2" name="hope" placeholder="Search Name" id="hope">
                     <a href="{{ route('hope-list') }}" class=" mt-0">
                         <span class="input-group-btn">
                             <button class="btn btn-danger" type="button" title="Refresh page">
@@ -37,9 +36,9 @@
         </div>
 
         <a href="{{ url('/add-hope-student') }}" class="btn btn-primary ml-2" style="margin-top: 10px;"><span
-            class="fas fa-user-graduate mr-1"></span>
-        Add New Student
-    </a>
+                class="fas fa-user-graduate mr-1"></span>
+            Add New Student
+        </a>
 
         <div class="container col-md-12 " style="position: relative; margin-top:1%;">
 
@@ -47,7 +46,9 @@
                 <div class="col-md-12">
                     <div class="">
                         <div class="card-header" style="height: 60px;">
-                            <h4 style="position: absolute; left:38%; color:dimgray; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Grade 12 - Hope Students</h4>
+                            <h4
+                                style="position: absolute; left:38%; color:dimgray; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                                Grade 12 - Hope Students</h4>
                             {{-- <a href="{{url('add-new-wisdom-student')}}" class="btn btn-primary"><span class="fas fa-user-graduate mr-1"></span>
                           Add New Student
                       </a> --}}
@@ -70,15 +71,6 @@
                                 </div>
 
 
-                                {{-- <div class="mx-auto" style="width: 200px;">
-                                <select name="gender" class="form-control" required>
-                                    <option hidden="true"></option>
-                                    <option selected disabled>All</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Male">Male</option>
-                                   </select>
-                                </div> 
-                             --}}
                             </div>
 
                             <form action="/multiple-delete" method="POST">
@@ -88,7 +80,7 @@
                                     style="margin:auto; position:relative; top: -20px;">
                                     <thead class="bg-info rounded text-center">
                                         <tr>
-                                            <th scope="col">View Records</th>
+                                            <th scope="col">Records</th>
                                             <th scope="col">Last Name</th>
                                             <th scope="col">First Name</th>
                                             <th scope="col">Middle Name</th>
@@ -113,7 +105,8 @@
                                             <tr class="text-center">
 
                                                 <td><a href="{{ url('show-student-hope/' . $hope->id) }}"
-                                                        class="btn btn-success btn-sm "><span class="fas fa-mail-bulk"></span></a></td>
+                                                        class="btn btn-success btn-sm "><span
+                                                            class="fas fa-mail-bulk"></span></a></td>
                                                 <td>{{ $hope->lastname }}</td>
                                                 <td>{{ $hope->firstname }}</td>
                                                 <td>{{ $hope->middlename }}</td>
@@ -125,7 +118,8 @@
                                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                     style="text-align: center">{{ $hope->address }}</td>
                                                 <td><a href="{{ url('edit-hope-student/' . $hope->id) }}"
-                                                        class="btn btn-warning btn-xs "><i class="fas fa-user-edit text-dark"></i></a></td>
+                                                        class="btn btn-warning btn-xs "><i
+                                                            class="fas fa-user-edit text-dark"></i></a></td>
                                                 <td><input type="checkbox" name="ids[]" value="{{ $hope->id }}"></td>
                                             </tr>
 

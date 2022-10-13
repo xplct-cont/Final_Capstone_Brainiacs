@@ -85,25 +85,8 @@ class StudentListController extends Controller
     public function edit(Student $student) {
         return view('adviserpage.adviser.student.edit', ['student'=>$student]);
     }
-    // public function edit($id){
-    //     $myStudents = Student::find($id);
-    //     return view('adviserpage.adviser.student.edit', compact('myStudents'));
-    // }
-
+   
     
-    // public function update(Request $request, $student){
-    //     $student = Student::find($id);
-    //     $student->lastname = $request->input('lastname');
-    //     $student->firstname = $request->input('firstname');
-    //     $student->year_section = $request->input('year_section');
-    //     $student->email = $request->input('email');
-    //     $student->address = $request->input('address');
-    //     $student->gender = $request->input('gender');
-
-    
-    //     $student->update();
-    //     return redirect('advisory-list-students')->with('status', 'Student Updated Successfully!');
-    // }
     public function update(Student $student, Request $request) {
         $request->validate([
             'firstname' => 'string|required',
@@ -123,20 +106,16 @@ class StudentListController extends Controller
     }
 
     
-
     public function destroy(Student $student){
         $student = Student::find($student)->each->delete();
-        return redirect()->route('advisory-list-students')->with('status', 'Student Removed Successfully!');
-    
+        return redirect()->route('advisory-list-students')->with('status', 'Student Removed Successfully!'); 
         }
 
     public function showStudentRecord($id){
             $myStud = Student::where('user_id', auth()->user()->id)->find($id);
     
            if (empty($myStud)) {
-               Session::flash('Student not found');
-    
-               return redirect()->route('advisory-list-students');
+            abort(404);
            }
     
            return view('adviserpage.adviser.student.show-my-students')->with('myStud', $myStud);
