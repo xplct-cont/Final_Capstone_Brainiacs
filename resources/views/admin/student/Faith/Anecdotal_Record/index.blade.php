@@ -26,9 +26,7 @@
                     <thead class="bg-secondary">
                         <tr>
 
-                            <th>Date</th>
-                            <th>Description of Incident</th>
-                            <th>Action Taken</th>
+                            <th>Observation Date/Time</th>
                             <th>Location of Incident</th>
                             <th>View</th>
                             <th>Delete</th>
@@ -38,10 +36,8 @@
                         @forelse ($anecdotal_faith as $anec_fai)
                             <tr>
                                 <td class="text-dark">{{ $anec_fai->observation_date_time }}</td>
-                                <td class="text-dark">{{ $anec_fai->description_of_incident }}</td>
-                                <td class="text-dark">{{ $anec_fai->actions_taken }}</td>
                                 <td class="text-dark">{{ $anec_fai->location_of_incidents }}</td>
-                                <td><a href="{{ url('/show-student-faith/anecdotal_record_faith/' . $anec_fai->id) }}"
+                                <td><a href="{{ url('/show-student-faith/'. $anec_fai->student->id .'/anecdotal_record_faith/' . $anec_fai->id) }}"
                                         class="btn btn-xs "><i class="fas fa-search text-info"></i></a></td>
                                 <td><a href="{{ url('delete_anecdotal_record_faith/' . $anec_fai->id) }}"
                                         class="btn btn-xs "><i class="text-danger fas fa-trash-alt"></i></a></td>

@@ -3,7 +3,7 @@
 @section('content')
     
 <div class="row d-flex justify-content-center text-dark">
-    <div class="col-md-8 p-2 rounded bg-light" style="position:relative; top: 5px;">
+    <div class="col-md-8 p-2 rounded bg-light" style="">
         @if (session('status'))
          <h6 class="alert alert-success">
            {{session('status')}}
@@ -38,6 +38,12 @@
        </div>
 
        <div class="input-group mb-3">
+        <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary"
+                style="width: 43px;">AG</span></label>
+        <input type="text" name="age" class="form-control" value="{{ $hopeStudents->age }}" required>
+    </div>
+
+       <div class="input-group mb-3">
        <label for="" style="color:dimgray;"><span class="fas fa-envelope input-group-text bg-secondary" style="width: 43px;"></span></label>
         <input type="email" name="email" class="form-control" value="{{$hopeStudents->email}}" required>
     </div>
@@ -57,14 +63,19 @@
         <input type="text" name="address"  class="form-control" value="{{$hopeStudents->address}}" required>
         </div>
 
-        <div class="mx-auto" style="width: 200px;">
-            <select name="gender" class="form-control" required>
-                <option hidden="true"></option>
-                <option selected disabled>Select Gender</option>
-                <option value="Female">Female</option>
-                <option value="Male">Male</option>
-               </select>
+        <div class="form-group text-dark d-flex justify-content-center">
+            <div class="maxl">
+                <label class="radio inline mr-5">
+                    <input type="radio" name="gender" value="Male" {{ ($hopeStudents->gender == 'Male' ? ' checked' : 'Unchecked') }}>
+                    <span>Male</span>
+                </label>
+                <label class="radio inline">
+                    <input type="radio" name="gender" value="Female"  {{ ($hopeStudents->gender == 'Female' ? ' checked' : 'Unchecked') }}>
+                    <span>Female</span>
+                </label>
             </div>
+        </div>
+    
                 <div class="form-group mb-3 d-flex justify-content-end">
                     <button type="submit" class="btn btn-success"><span class="fas fa-save"></span> Save Changes</button>
 

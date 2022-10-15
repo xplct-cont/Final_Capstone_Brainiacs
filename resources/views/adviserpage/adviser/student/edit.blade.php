@@ -35,9 +35,15 @@
 
                 <div class="input-group mb-3">
                     <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary"
-                            style="width: 43px;">Pn</span></label>
+                            style="width: 43px;">Y/S</span></label>
                     <input type="text" name="year_section" value="{{ $student->year_section }}" class="form-control"
                         readonly>
+                </div>
+
+                <div class="input-group mb-3">
+                    <label for="" style="color:dimgray;"><span class="input-group-text bg-secondary"
+                            style="width: 43px;">AG</span></label>
+                    <input type="text" name="age" class="form-control" value="{{ $student->age }}" required>
                 </div>
 
                 <div class="input-group mb-3">

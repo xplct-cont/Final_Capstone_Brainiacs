@@ -63,7 +63,7 @@
 
         <div class="testimotionals">
             <div class="card">
-                <a href="{{ route('home') }}">
+                <a href="{{ url('show-student-love/' . $loveStud->id . '/counseling_anecdotal_record_love') }}">
                     <div class="layer">
 
                     </div>
@@ -80,7 +80,7 @@
 
                         </div>
                         <div class="details mt-2">
-                            <h2>Counseling Report</h2>
+                            <h2>Counseling Anecdotal Record</h2>
                         </div>
                     </div>
                 </a>

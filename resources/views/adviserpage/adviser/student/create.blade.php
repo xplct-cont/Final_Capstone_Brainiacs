@@ -44,6 +44,12 @@
                                 <input type="text" name="year_section" class="form-control"
                                     value="{{ Auth::user()->advisory }}" readonly>
 
+                            <div class="form-group">
+                                <label for="" style="color:dimgray;">Age</label>
+                                <input type="text" name="age" class="form-control" placeholder="Enter Age" required>
+
+                            </div>
+
                             </div>
                             <div class="form-group text-dark">
                                 <div class="maxl">

@@ -73,6 +73,7 @@ class FaithStudentController extends Controller
            'lastname' => 'string|required',
            'middlename' => 'string|required',
            'gender' => 'string|required',
+           'age' => 'string|required',
            'year_section' => 'string|required',
            'email' => 'email|required',
            'parent_name' => 'string|required',
@@ -87,6 +88,7 @@ class FaithStudentController extends Controller
            'lastname' => $request->lastname,
            'middlename' => $request->middlename,
            'gender' => $request->gender,
+           'age' => $request->age,
            'year_section' => $request->year_section,
            'email' => $request->email,
            'parent_name' => $request->parent_name,
@@ -105,6 +107,7 @@ class FaithStudentController extends Controller
         $faithStudents->middlename = $request->input('middlename');
         $faithStudents->year_section = $request->input('year_section');
         $faithStudents->gender = $request->input('gender');
+        $faithStudents->age = $request->input('age');
         $faithStudents->email = $request->input('email');
         $faithStudents->parent_name = $request->input('parent_name');
         $faithStudents->parent_email = $request->input('parent_email');

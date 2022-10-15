@@ -38,16 +38,23 @@ class Charity_Anecdotal_RecordController extends Controller
     }
 
 
-    public function show($student){
+    public function show(Student $id, $student){
 
-        try{
-        $student_char = Anecdotal_Record::findOrFail($student);
-        }
-        catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            abort(404);
-        } 
-        return view('admin.student.Charity.Anecdotal_Record.show', compact( 'student_char'));
+        $student_char = Anecdotal_Record::with(['student'])->find($student);
+        if (empty($student_char)) {
+  
+          abort(404);
+      }
+    
+      try{
+        $student_c = Student::find($id);
+       
+      }
+      catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+          abort(404);
+      } 
 
+        return view('admin.student.Charity.Anecdotal_Record.show', compact( 'student_char'))->with('student_c', $student_c);
     }
 
 

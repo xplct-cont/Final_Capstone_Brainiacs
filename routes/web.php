@@ -23,6 +23,12 @@ use App\Http\Controllers\Admin\Anecdotal_Record\Faith_Anecdotal_RecordController
 use App\Http\Controllers\Admin\Anecdotal_Record\Hope_Anecdotal_RecordController;
 use App\Http\Controllers\Admin\Anecdotal_Record\Love_Anecdotal_RecordController;
 
+use App\Http\Controllers\Admin\Counseling_Anecdotal_Record\Wisdom_Counseling_Anecdotal_RecordController;
+use App\Http\Controllers\Admin\Counseling_Anecdotal_Record\Charity_Counseling_Anecdotal_RecordController;
+use App\Http\Controllers\Admin\Counseling_Anecdotal_Record\Faith_Counseling_Anecdotal_RecordController;
+use App\Http\Controllers\Admin\Counseling_Anecdotal_Record\Hope_Counseling_Anecdotal_RecordController;
+use App\Http\Controllers\Admin\Counseling_Anecdotal_Record\Love_Counseling_Anecdotal_RecordController;
+
 use App\Http\Controllers\AdviserHomePageController;
 use App\Http\Controllers\Adviser\AdviserProfileController;
 use App\Http\Controllers\Adviser\StudentListController;
@@ -129,12 +135,15 @@ Route::middleware(['auth', ])->group(function () {
     
        
        Route::get('/show-student-wisdom/{id}/anecdotal_record_wisdom/', [Wisdom_Anecdotal_RecordController::class, 'index'])->name('wisdom-anecdotal');
-       Route::get('/show-student-wisdom/anecdotal_record_wisdom/{student}', [Wisdom_Anecdotal_RecordController::class, 'show'])->name('wisdom-student-anecdotal-list');
        Route::get('/show-student-wisdom/{id}/anecdotal_record_wisdom/create',[Wisdom_Anecdotal_RecordController::class, 'create']);
+       Route::get('/show-student-wisdom/{id}/anecdotal_record_wisdom/{student}', [Wisdom_Anecdotal_RecordController::class, 'show'])->name('wisdom-student-anecdotal-list');
        Route::post('/add_anecdotal_record_wisdom',[Wisdom_Anecdotal_RecordController::class, 'store']);
        Route::get('/delete_anecdotal_record_wisdom/{id}', [Wisdom_Anecdotal_RecordController::class, 'destroy']);
 
 
+       Route::get('/show-student-wisdom/{id}/counseling_anecdotal_record_wisdom/', [Wisdom_Counseling_Anecdotal_RecordController::class, 'index']);
+       Route::get('/show-student-wisdom/{id}/counseling_anecdotal_record_wisdom/create',[Wisdom_Counseling_Anecdotal_RecordController::class, 'create']);
+      
        //for 11 Faith Students
        Route::get('faith-students', [FaithStudentController::class, 'index'])->name('faith-list');
        Route::get('/edit-faith-student/{id}', [FaithStudentController::class, 'edit']);
@@ -145,11 +154,14 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-faith/{id}', [FaithStudentController::class, 'showStudentRecord']);
       
        Route::get('/show-student-faith/{id}/anecdotal_record_faith/', [Faith_Anecdotal_RecordController::class, 'index'])->name('faith-anecdotal');
-       Route::get('/show-student-faith/anecdotal_record_faith/{student}', [Faith_Anecdotal_RecordController::class, 'show'])->name('faith-student-anecdotal-list');
        Route::get('/show-student-faith/{id}/anecdotal_record_faith/create',[Faith_Anecdotal_RecordController::class, 'create']);
+       Route::get('/show-student-faith/{id}/anecdotal_record_faith/{student}', [Faith_Anecdotal_RecordController::class, 'show'])->name('faith-student-anecdotal-list');
        Route::post('/add_anecdotal_record_faith',[Faith_Anecdotal_RecordController::class, 'store']);
        Route::get('/delete_anecdotal_record_faith/{id}', [Faith_Anecdotal_RecordController::class, 'destroy']);
-            
+
+
+       Route::get('/show-student-faith/{id}/counseling_anecdotal_record_faith/', [Faith_Counseling_Anecdotal_RecordController::class, 'index']);
+       Route::get('/show-student-faith/{id}/counseling_anecdotal_record_faith/create',[Faith_Counseling_Anecdotal_RecordController::class, 'create']);
 
        //for 11 Charity Students
        Route::get('charity-students', [CharityStudentController::class, 'index'])->name('charity-list');
@@ -161,11 +173,14 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-charity/{id}', [CharityStudentController::class, 'showStudentRecord']);
 
        Route::get('/show-student-charity/{id}/anecdotal_record_charity/', [Charity_Anecdotal_RecordController::class, 'index'])->name('charity-anecdotal');
-       Route::get('/show-student-charity/anecdotal_record_charity/{student}', [Charity_Anecdotal_RecordController::class, 'show'])->name('charity-student-anecdotal-list');
        Route::get('/show-student-charity/{id}/anecdotal_record_charity/create',[Charity_Anecdotal_RecordController::class, 'create']);
+       Route::get('/show-student-charity/{id}/anecdotal_record_charity/{student}', [Charity_Anecdotal_RecordController::class, 'show'])->name('charity-student-anecdotal-list');
        Route::post('/add_anecdotal_record_charity',[Charity_Anecdotal_RecordController::class, 'store']);
        Route::get('/delete_anecdotal_record_charity/{id}', [Charity_Anecdotal_RecordController::class, 'destroy']);
 
+
+       Route::get('/show-student-charity/{id}/counseling_anecdotal_record_charity/', [Charity_Counseling_Anecdotal_RecordController::class, 'index']);
+       Route::get('/show-student-charity/{id}/counseling_anecdotal_record_charity/create',[Charity_Counseling_Anecdotal_RecordController::class, 'create']);
 
        //for 12 Hope Students
        Route::get('hope-students', [HopeStudentController::class, 'index'])->name('hope-list');
@@ -177,11 +192,14 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-hope/{id}', [HopeStudentController::class, 'showStudentRecord']);
     
        Route::get('/show-student-hope/{id}/anecdotal_record_hope/', [Hope_Anecdotal_RecordController::class, 'index'])->name('hope-anecdotal');
-       Route::get('/show-student-hope/anecdotal_record_hope/{student}', [Hope_Anecdotal_RecordController::class, 'show'])->name('hope-student-anecdotal-list');
        Route::get('/show-student-hope/{id}/anecdotal_record_hope/create',[Hope_Anecdotal_RecordController::class, 'create']);
+       Route::get('/show-student-hope/{id}/anecdotal_record_hope/{student}', [Hope_Anecdotal_RecordController::class, 'show'])->name('hope-student-anecdotal-list');
        Route::post('/add_anecdotal_record_hope',[Hope_Anecdotal_RecordController::class, 'store']);
        Route::get('/delete_anecdotal_record_hope/{id}', [Hope_Anecdotal_RecordController::class, 'destroy']);
-            
+
+
+       Route::get('/show-student-hope/{id}/counseling_anecdotal_record_hope/', [Hope_Counseling_Anecdotal_RecordController::class, 'index']);
+       Route::get('/show-student-hope/{id}/counseling_anecdotal_record_hope/create',[Hope_Counseling_Anecdotal_RecordController::class, 'create']);
 
        //for 12 Love Students
        Route::get('love-students', [LoveStudentController::class, 'index'])->name('love-list');
@@ -193,11 +211,14 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-love/{id}', [LoveStudentController::class, 'showStudentRecord']);
 
        Route::get('/show-student-love/{id}/anecdotal_record_love/', [Love_Anecdotal_RecordController::class, 'index'])->name('love-anecdotal');
-       Route::get('/show-student-love/anecdotal_record_love/{student}', [Love_Anecdotal_RecordController::class, 'show'])->name('love-student-anecdotal-list');
        Route::get('/show-student-love/{id}/anecdotal_record_love/create',[Love_Anecdotal_RecordController::class, 'create']);
+       Route::get('/show-student-love/{id}/anecdotal_record_love/{student}', [Love_Anecdotal_RecordController::class, 'show'])->name('love-student-anecdotal-list');
        Route::post('/add_anecdotal_record_love',[Love_Anecdotal_RecordController::class, 'store']);
        Route::get('/delete_anecdotal_record_love/{id}', [Love_Anecdotal_RecordController::class, 'destroy']);
 
+
+       Route::get('/show-student-love/{id}/counseling_anecdotal_record_love/', [Love_Counseling_Anecdotal_RecordController::class, 'index']);
+       Route::get('/show-student-love/{id}/counseling_anecdotal_record_love/create',[Love_Counseling_Anecdotal_RecordController::class, 'create']);
 
        //for SHS Parents
        Route::get('shs-parents', [ParentController::class, 'index'])->name('shs-parents');

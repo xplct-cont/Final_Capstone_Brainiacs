@@ -30,7 +30,7 @@ class ParentListController extends Controller
 
     public function index(Request $request){
 
-        // $wisdomStudents = Student::where('year_section', 'Grade 11 - Wisdom')->get();
+        // $wisdomStudents = Student::where('user_id', auth()->user()->id)->get();
         $parentLists = Student::where([
             ['user_id', auth()->user()->id],
             [function($query) use ($request){
@@ -52,7 +52,12 @@ class ParentListController extends Controller
         }
 
         public function emailParent($id){
-            $parentLists = Student::find($id);
+            $parentLists = Student::where('user_id', auth()->user()->id)->find($id);
+            if (empty($parentLists)) {
+
+                abort(404);
+            }
+
            return view('adviserpage.adviser.parent.show')->with('parentLists', $parentLists);
         }
     

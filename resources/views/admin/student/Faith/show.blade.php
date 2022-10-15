@@ -64,7 +64,7 @@
 
         <div class="testimotionals">
             <div class="card">
-                <a href="{{ route('home') }}">
+                <a href="{{ url('show-student-faith/' . $faithStud->id . '/counseling_anecdotal_record_faith') }}">
                     <div class="layer">
 
                     </div>
@@ -81,7 +81,7 @@
 
                         </div>
                         <div class="details mt-2">
-                            <h2>Counseling Report</h2>
+                            <h2>Counseling Anecdotal Record</h2>
                         </div>
                     </div>
                 </a>

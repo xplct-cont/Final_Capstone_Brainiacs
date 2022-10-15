@@ -73,6 +73,7 @@ class CharityStudentController extends Controller
             'lastname' => 'string|required',
             'middlename' => 'string|required',
             'gender' => 'string|required',
+            'age' => 'string|required',
             'year_section' => 'string|required',
             'email' => 'email|required',
             'parent_name' => 'string|required',
@@ -87,6 +88,7 @@ class CharityStudentController extends Controller
             'lastname' => $request->lastname,
             'middlename' => $request->middlename,
             'gender' => $request->gender,
+            'age' => $request->age,
             'year_section' => $request->year_section,
             'email' => $request->email,
             'parent_name' => $request->parent_name,
@@ -104,6 +106,7 @@ class CharityStudentController extends Controller
         $charityStudents->middlename = $request->input('middlename');
         $charityStudents->year_section = $request->input('year_section');
         $charityStudents->gender = $request->input('gender');
+        $charityStudents->age = $request->input('age');
         $charityStudents->email = $request->input('email');
         $charityStudents->parent_name = $request->input('parent_name');
         $charityStudents->parent_email = $request->input('parent_email');

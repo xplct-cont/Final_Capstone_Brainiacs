@@ -80,15 +80,20 @@
                     <input type="text" name="address" class="form-control" value="{{ $wisdomStudents->address }}"
                         required>
                 </div>
-
-                <div class="mx-auto" style="width: 200px;">
-                    <select name="gender" class="form-control" id="options" required>
-                        <option hidden="true"></option>
-                        <option selected disabled>Select Gender</option>
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                    </select>
+               
+                <div class="form-group text-dark d-flex justify-content-center">
+                    <div class="maxl">
+                        <label class="radio inline mr-5">
+                            <input type="radio" name="gender" value="Male" {{ ($wisdomStudents->gender == 'Male' ? ' checked' : 'Unchecked') }}>
+                            <span>Male</span>
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="gender" value="Female"  {{ ($wisdomStudents->gender == 'Female' ? ' checked' : 'Unchecked') }}>
+                            <span>Female</span>
+                        </label>
+                    </div>
                 </div>
+            
 
                 <div class="form-group mb-3 d-flex justify-content-end">
                     <button type="submit" class="btn btn-success"><span class="fas fa-save"></span> Save

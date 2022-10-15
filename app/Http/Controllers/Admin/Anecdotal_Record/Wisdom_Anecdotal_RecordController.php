@@ -38,15 +38,27 @@ class Wisdom_Anecdotal_RecordController extends Controller
     }
 
 
-    public function show($student){
 
-        try{
-        $student_wisd = Anecdotal_Record::findOrFail($student);
-        }
-        catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
-            abort(404);
-        } 
-        return view('admin.student.Wisdom.Anecdotal_Record.show', compact( 'student_wisd'));
+
+
+
+public function show(Student $id, $student){
+
+        $student_wisd = Anecdotal_Record::with(['student'])->find($student);
+        if (empty($student_wisd)) {
+  
+          abort(404);
+      }
+    
+      try{
+        $student_w = Student::find($id);
+       
+      }
+      catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+          abort(404);
+      } 
+
+        return view('admin.student.Wisdom.Anecdotal_Record.show', compact( 'student_wisd'))->with('student_w', $student_w);
 
     }
 

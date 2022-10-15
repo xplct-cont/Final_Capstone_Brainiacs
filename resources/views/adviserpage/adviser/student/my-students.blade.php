@@ -20,7 +20,7 @@
 <a class="btn btn-danger mt-3 ml-3" style="" href="{{route('export_myStudents_pdf')}}"><span class="fas fa-file-pdf"></span> Generate PDF</a>
 <a href="/export_myStudents_excel" class=" mt-3 ml-3 btn btn-success"><span class="fas fa-file-excel"></span> Export to Excel</a>
 
-<div class="card col-md-12 d-flex justify-content-between bg-dark" style="position:relative; top: 30px;">
+<div class="card col-md-12 d-flex justify-content-between bg-dark mt-2">
     <div class="card-header text-secondary">
         <h4 style="position: absolute; left:40%; color:whitesmoke; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">{{Auth::user()->advisory}} Students</h4>
                         {{-- <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image" style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;"> --}}
@@ -70,7 +70,7 @@
                     <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Year/Section</th>
                     <th scope="col">Gender</th>
                     <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Email</th>
-                    <th scope="col">Address</th>
+                    <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Address</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
                   </tr>
@@ -86,7 +86,7 @@
                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->year_section}}</td>
                     <td>{{$student->gender}}</td>
                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->email}}</td>
-                    <td>{{$student->address}}</td>
+                    <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->address}}</td>
                     <td><a href="{{url('/students/edit/' .$student->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-user-edit text-dark"></i></a></td>
                     <td><a href="{{url('delete-student/'.$student->id)}}" class="btn btn-danger btn-xs "><i class="fas fa-trash-alt"></i></a></td>
                   </tr>

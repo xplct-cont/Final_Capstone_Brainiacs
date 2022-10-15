@@ -67,6 +67,7 @@ class HopeStudentController extends Controller
                'lastname' => 'string|required',
                'middlename' => 'string|required',
                'gender' => 'string|required',
+               'age' => 'string|required',
                'year_section' => 'string|required',
                'email' => 'email|required',
                'parent_name' => 'string|required',
@@ -81,6 +82,7 @@ class HopeStudentController extends Controller
                'lastname' => $request->lastname,
                'middlename' => $request->middlename,
                'gender' => $request->gender,
+               'age' => $request->age,
                'year_section' => $request->year_section,
                'email' => $request->email,
                'parent_name' => $request->parent_name,
@@ -99,6 +101,7 @@ class HopeStudentController extends Controller
             $hopeStudents->middlename = $request->input('middlename');
             $hopeStudents->year_section = $request->input('year_section');
             $hopeStudents->gender = $request->input('gender');
+            $hopeStudents->age = $request->input('age');
             $hopeStudents->email = $request->input('email');
             $hopeStudents->parent_name = $request->input('parent_name');
             $hopeStudents->parent_email = $request->input('parent_email');

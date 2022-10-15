@@ -46,6 +46,12 @@
                                     readonly>
 
                             </div>
+
+                            <div class="form-group">
+                                <label for="" style="color:dimgray;">Age</label>
+                                <input type="text" name="age" class="form-control" placeholder="Enter Age" required>
+
+                            </div>
                             <div class="form-group text-dark">
                                 <div class="maxl">
                                     <label class="radio inline">

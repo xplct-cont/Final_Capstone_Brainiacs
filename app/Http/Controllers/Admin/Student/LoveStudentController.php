@@ -67,6 +67,7 @@ class LoveStudentController extends Controller
                'lastname' => 'string|required',
                'middlename' => 'string|required',
                'gender' => 'string|required',
+               'age' => 'string|required',
                'year_section' => 'string|required',
                'email' => 'email|required',
                'parent_name' => 'string|required',
@@ -81,6 +82,7 @@ class LoveStudentController extends Controller
                'lastname' => $request->lastname,
                'middlename' => $request->middlename,
                'gender' => $request->gender,
+               'age' => $request->age,
                'year_section' => $request->year_section,
                'email' => $request->email,
                'parent_name' => $request->parent_name,
@@ -99,6 +101,7 @@ class LoveStudentController extends Controller
             $loveStudents->middlename = $request->input('middlename');
             $loveStudents->year_section = $request->input('year_section');
             $loveStudents->gender = $request->input('gender');
+            $loveStudents->age = $request->input('age');
             $loveStudents->email = $request->input('email');
             $loveStudents->parent_name = $request->input('parent_name');
             $loveStudents->parent_email = $request->input('parent_email');
