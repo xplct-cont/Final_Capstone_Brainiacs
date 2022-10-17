@@ -7,7 +7,7 @@
 style="font-weight:normal; font-size: 25px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; ">
 Records of {{ $myStud->lastname }}, {{ $myStud->firstname }}</h1>
 <hr>
-<div class="container col-md-12 mx-auto" style="position: relative; top: -60px;">
+<div class="container col-md-12 mx-auto mb-5" style="">
     <div class="testimotionals ">
         <div class="card">
             <a href="{{ route('home') }}">
@@ -138,10 +138,11 @@ Records of {{ $myStud->lastname }}, {{ $myStud->firstname }}</h1>
         }
 
         .testimotionals {
-            width: 255px;
+            width: 270px;
             display: inline-block;
-            margin-left: 50px;
             margin-top: 50px;
+            margin-left: 40px;
+            
           
 
         }
@@ -155,7 +156,6 @@ Records of {{ $myStud->lastname }}, {{ $myStud->firstname }}</h1>
             height: 310px;
             margin: auto;
             background: #333;
-            padding: 20px;
             box-sizing: border-box;
             text-align: center;
             box-shadow: 0 10px 40px rgba(0, 0, 0, .5)

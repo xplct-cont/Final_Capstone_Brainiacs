@@ -42,7 +42,7 @@ class Wisdom_Anecdotal_RecordController extends Controller
 
 
 
-public function show(Student $id, $student){
+     public function show(Student $id, $student){
 
         $student_wisd = Anecdotal_Record::with(['student'])->find($student);
         if (empty($student_wisd)) {
@@ -113,10 +113,9 @@ public function show(Student $id, $student){
         return redirect()->back()->with('status','Added New Record!');
     }
 
-        public function destroy(Anecdotal_Record $id){
-            $removeRec = Anecdotal_Record::find($id)->each->delete();
-            return redirect()->back()->with('status', 'Record Deleted Successfully!');
-        
-            
-    }
+    public function destroy($id){
+        $removeRec = Anecdotal_Record::findOrFail($id);
+        $removeRec -> delete();
+        return redirect()->back()->with('status', 'Record Deleted Successfully!');   
+      }    
 }

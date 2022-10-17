@@ -14,7 +14,7 @@
     @endif
 
     <div class="search" style="position:relative; top: 5px;">
-        <div class="mx-auto" style="width:400px;">
+        <div class="mx-auto" style="width:340px;">
             <form action="{{ route('love-list') }}" method="GET" role="search">
 
                 <div class="input-group">
@@ -60,10 +60,10 @@
 
                         <div class="card-body">
                             <div class="" style="position: relative; top:-20px;">
-                                <a class="btn btn-danger mt-2 ml-2" style=""
+                                <a class="btn btn-danger mt-2 ml-2 mr-2" style=""
                                     href="{{ route('export_loveStudents_pdf') }}"><span class="fas fa-file-pdf"
                                         style="font-size: 15px;"></span> Generate PDF</a>
-                                <a href="/export_loveStudents_excel" class=" mt-2 ml-4 btn btn-success"><span
+                                <a href="/export_loveStudents_excel" class=" mt-2 ml-2 btn btn-success"><span
                                         class="fas fa-file-excel" style="font-size: 15px;"></span> Export to Excel</a>
 
                                 <div class="d-flex justify-content-end">
@@ -92,11 +92,15 @@
                                             <th scope="col">Records</th>
                                             <th scope="col">Last Name</th>
                                             <th scope="col">First Name</th>
-                                            <th scope="col">Middle Name</th>
+                                            <th scope="col" 
+                                                class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
+                                                style="text-align: center">Middle Name</th>
                                             <th scope="col"
                                                 class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                 style="text-align: center">Year/Section</th>
-                                            <th scope="col">Gender</th>
+                                            <th scope="col" 
+                                                class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
+                                                style="text-align: center">Gender</th>
                                             <th scope="col"
                                                 class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                 style="text-align: center">Email</th>
@@ -118,10 +122,12 @@
                                                             class="fas fa-mail-bulk"></span></a></td>
                                                 <td>{{ $love->lastname }}</td>
                                                 <td>{{ $love->firstname }}</td>
-                                                <td>{{ $love->middlename }}</td>
+                                                <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
+                                                    style="text-align: center">{{ $love->middlename }}</td>
                                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                     style="text-align: center">{{ $love->year_section }}</td>
-                                                <td>{{ $love->gender }}</td>
+                                                <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
+                                                    style="text-align: center">{{ $love->gender }}</td>
                                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                     style="text-align: center">{{ $love->email }}</td>
                                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"

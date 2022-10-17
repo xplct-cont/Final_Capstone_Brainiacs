@@ -40,9 +40,11 @@
      
 <div class="container" style="margin-top:50px;">
     
-    <h3 class="d-flex justify-content-center" style="font-size: 28px; margin:auto; ">Guidance Information System<br>
-        <br>
-     </h3>
+    <div class="d-flex justify-content-center">
+        <h3 class="text-center" style="font-size: 26px;">Guidance Information System<br>
+            <br>
+         </h3>
+    </div>
 
 
     <div class="row justify-content-center">

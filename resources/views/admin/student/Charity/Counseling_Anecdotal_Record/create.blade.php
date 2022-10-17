@@ -42,27 +42,27 @@
                                 <p class="" style="color: dimgray; font-weight: 700;">Follow up Counseling</p>
                                 <label class="radio inline mr-5">
                                     <input type="radio" name="follow_up_counseling_session"
-                                        value="1st Counceling Session">
+                                        value="1st Counseling Session">
                                     <span>1st</span>
                                 </label>
                                 <label class="radio inline mr-5">
                                     <input type="radio" name="follow_up_counseling_session"
-                                        value="2nd Counceling Session">
+                                        value="2nd Counseling Session">
                                     <span>2nd</span>
                                 </label>
                                 <label class="radio inline mr-5">
                                     <input type="radio" name="follow_up_counseling_session"
-                                        value="3rd Counceling Session">
+                                        value="3rd Counseling Session">
                                     <span>3rd</span>
                                 </label>
                                 <label class="radio inline mr-5">
                                     <input type="radio" name="follow_up_counseling_session"
-                                        value="4th Counceling Session">
+                                        value="4th Counseling Session">
                                     <span>4th</span>
                                 </label>
                                 <label class="radio inline mr-5">
                                     <input type="radio" name="follow_up_counseling_session"
-                                        value="5th Counceling Session">
+                                        value="5th Counseling Session">
                                     <span>5th</span>
                                 </label>
                             </div>

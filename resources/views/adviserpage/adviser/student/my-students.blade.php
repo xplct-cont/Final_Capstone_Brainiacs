@@ -22,7 +22,7 @@
 
 <div class="card col-md-12 d-flex justify-content-between bg-dark mt-2">
     <div class="card-header text-secondary">
-        <h4 style="position: absolute; left:40%; color:whitesmoke; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">{{Auth::user()->advisory}} Students</h4>
+        <h4 class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="position: absolute; left:40%; color:whitesmoke; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;">{{Auth::user()->advisory}} Students</h4>
                         {{-- <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image" style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;"> --}}
                         <a href="{{url('/students/create')}}" class="btn btn-primary"><span class="fas fa-user-graduate mr-1"></span>
                           Add New Student
@@ -33,7 +33,7 @@
         <div class="card-body bg-light" >
 
           <div class="search" style="position:relative; top: -10px;" >
-            <div class="mx-auto" style="width:400px;">
+            <div class="mx-auto" style="width:300px;">
             <form action="{{route('advisory-list-students')}}" method="GET" role="search">
         
                 <div class="input-group">
@@ -66,9 +66,9 @@
                     <th scope="col">View Records</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">First Name</th>
-                    <th scope="col">Middle Name</th>
+                    <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Middle Name</th>
                     <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Year/Section</th>
-                    <th scope="col">Gender</th>
+                    <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Gender</th>
                     <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Email</th>
                     <th scope="col" class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Address</th>
                     <th scope="col">Edit</th>
@@ -82,9 +82,9 @@
                     <td><a href="{{url('show-my-student/'.$student->id)}}" class="btn btn-success btn-sm "><span class="fas fa-mail-bulk"></span></a></td>
                     <td>{{$student->lastname}}</td>
                     <td>{{$student->firstname}}</td>
-                    <td>{{$student->middlename}}</td>
+                    <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->middlename}}</td>
                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->year_section}}</td>
-                    <td>{{$student->gender}}</td>
+                    <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->gender}}</td>
                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->email}}</td>
                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">{{$student->address}}</td>
                     <td><a href="{{url('/students/edit/' .$student->id)}}" class="btn btn-warning btn-xs "><i class="fas fa-user-edit text-dark"></i></a></td>

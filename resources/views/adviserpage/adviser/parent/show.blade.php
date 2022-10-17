@@ -2,11 +2,11 @@
 
 @section('content')
     <div class="card-header col-md-11 mx-auto mb-5" style="position: relative; top: 30px;">
-        <h1
-            style="position: absolute; left:30%; color:whitesmoke; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px; color:dimgray;">
+        <h1 class="text-center"
+            style=" color:whitesmoke; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px; color:dimgray;">
             Send Email to Parent/Guardian of Student</h1>
-        <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image"
-            style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
+        {{-- <img src="/images/image17.png" class="user-image img-circle elevation-2 " alt="User Image"
+            style="width: 40px; height:40px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;"> --}}
     </div>
     <div class="row d-flex justify-content-center text-dark">
         <div class="col-md-11 p-3 rounded bg-light">

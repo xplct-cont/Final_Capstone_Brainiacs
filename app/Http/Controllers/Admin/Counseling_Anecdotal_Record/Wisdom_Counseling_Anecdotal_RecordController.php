@@ -48,4 +48,48 @@ class Wisdom_Counseling_Anecdotal_RecordController extends Controller
       return view('admin.student.Wisdom.Counseling_Anecdotal_Record.create', compact('counseling_anecdotal_wisdom', 'student_wis'));
   }
 
+
+  
+    public function store(Request $request) {
+        $request->validate([
+
+        'student_id' => 'required',
+        'date_time_called' => 'required',
+        'reasons_for_contact' => 'string|required',
+        'referred_by' => 'string|required',
+        'reasons_for_referral' => 'string|required',
+        'follow_up_counseling_session' => 'required',
+        'voluntary' => 'required',
+        'behavior_observed' => 'string|required',
+        'interview_findings' => 'string|required',
+        'clinical_impressions' => 'string|required',
+        'recommendation' => 'string|required',
+       
+        ]);
+
+        $student_wis= Counseling_Anecdotal_Record::create([
+                   
+            'student_id' => $request->student_id,
+            'date_time_called' => $request->date_time_called,
+            'reasons_for_contact' => $request->reasons_for_contact,
+            'referred_by' => $request->referred_by,
+            'reasons_for_referral' => $request->reasons_for_referral,
+            'follow_up_counseling_session' => $request->follow_up_counseling_session,
+            'voluntary' => $request->voluntary,
+            'behavior_observed' => $request->behavior_observed,
+            'interview_findings' => $request->interview_findings,
+            'clinical_impressions' => $request->clinical_impressions,
+            'recommendation' => $request->recommendation,
+           
+        ]);
+        return redirect()->back()->with('status','Added New Record!');
+    }
+
+    public function destroy($id){
+        $removeRec = Counseling_Anecdotal_Record::findOrFail($id);
+        $removeRec -> delete();
+        return redirect()->back()->with('status', 'Record Deleted Successfully!');   
+      }
+    
+
 }

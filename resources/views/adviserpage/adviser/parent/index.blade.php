@@ -1,7 +1,7 @@
 @extends('adviserpage.app')
 
 @section('content')
-    <h1 class="text-dark p-2" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 25px;">Senior
+    <h1 class="text-dark p-2 text-center" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 25px;">Senior
         High School List of Parents/Guardian</h1>
     <div class="div d-flex justify-content-end" style="position:relative; top: -10px;">
         {{ $parentLists->onEachSide(1)->links() }}
@@ -15,7 +15,7 @@
 
 
     <div class="search" style="position:relative; top: 5px;">
-        <div class="" style="width:400px;">
+        <div class="" style="width:340px;">
             <form action="{{ route('parent-lists') }}" method="GET" role="search">
 
                 <div class="input-group">

@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="search" style="position:relative; top: 50px;" >
-    <div class="mx-auto" style="width:400px;">
+    <div class="mx-auto" style="width:340px;">
     <form action="{{route('users')}}" method="GET" role="search">
 
         <div class="input-group">
@@ -50,9 +50,9 @@
                                 <th>Remove</th>
                                 <th>Full Name</th>
                                 {{-- <th>Role</th> --}}
-                                <th>Advisory</th>
+                                <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Advisory</th>
                                 <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Email</th>
-                                <th>Registered at</th>
+                                <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Registered at</th>
                                 <th>Email Verification Status</th>
                                 <th>Approve</th>
                                
@@ -62,9 +62,9 @@
                                     <td><a href="{{ route('admin.users.destroy', $user->id) }}"
                                         class="btn btn-danger btn-sm" style="margin-top: 1px;"><span class="fas fa-trash-alt"></span></a></td>
                                     <td>{{ $user->name }}</td>
-                                    <td>{{$user->advisory}}</td>
+                                    <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{$user->advisory}}</td>
                                     <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $user->email }}</td>
-                                    <td>{{ $user->created_at }}</td>
+                                    <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $user->created_at }}</td>
                                     <td>{{ $user->email_verified_at ? 'Verified' : 'Not Verified' }}</td>
                                     <td> <a href="{{ route('admin.users.approve', $user->id) }}"
                                         class="btn btn-success btn-sm" style="margin-top: 1px;;"><span class="fas fa-check"></span></a></td></td>

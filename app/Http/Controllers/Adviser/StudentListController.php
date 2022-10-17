@@ -109,10 +109,11 @@ class StudentListController extends Controller
     }
 
     
-    public function destroy(Student $student){
-        $student = Student::find($student)->each->delete();
-        return redirect()->route('advisory-list-students')->with('status', 'Student Removed Successfully!'); 
-        }
+    public function destroy($id){
+        $removeStud = Student::findOrFail($id);
+        $removeStud -> delete();
+        return redirect()->back()->with('status', 'Record Deleted Successfully!');   
+      }
 
     public function showStudentRecord($id){
             $myStud = Student::where('user_id', auth()->user()->id)->find($id);

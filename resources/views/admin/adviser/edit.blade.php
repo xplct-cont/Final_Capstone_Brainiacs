@@ -59,13 +59,13 @@
 
         <div class="row">
 
-            <div class="col-md-5" style="height: 283px; overflow:hidden;">
-                <div class="position-relative">
+            <div class="col-md-5 d-flex justify-content-center" style="height: 283px; overflow:hidden;">
+                <div class="d-flex justify-content-center">
                     <img src="/images/avatars/{{ $adviser->avatar }}"
-                        style=" position:absolute; top:0px; width: 255px; left: 120px; height:255px;border-radius: 50%; float:left; ">
+                        style=" width: 255px;height:255px;border-radius: 50%; float:left; ">
 
                 </div>
-                <p style="position:absolute; left: 190px; top: 260px; color:black">{{ $adviser->advisory }} </p>
+                <p class="text-center" style="position:absolute;  top: 260px; color:black">{{ $adviser->advisory }} </p>
             </div>
 
             <div class="col-md-6 text-dark mx-auto">
