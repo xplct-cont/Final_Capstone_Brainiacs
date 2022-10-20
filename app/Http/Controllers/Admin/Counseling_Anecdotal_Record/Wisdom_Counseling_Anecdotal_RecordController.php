@@ -59,7 +59,6 @@ class Wisdom_Counseling_Anecdotal_RecordController extends Controller
         'referred_by' => 'string|required',
         'reasons_for_referral' => 'string|required',
         'follow_up_counseling_session' => 'required',
-        'voluntary' => 'required',
         'behavior_observed' => 'string|required',
         'interview_findings' => 'string|required',
         'clinical_impressions' => 'string|required',
@@ -75,7 +74,6 @@ class Wisdom_Counseling_Anecdotal_RecordController extends Controller
             'referred_by' => $request->referred_by,
             'reasons_for_referral' => $request->reasons_for_referral,
             'follow_up_counseling_session' => $request->follow_up_counseling_session,
-            'voluntary' => $request->voluntary,
             'behavior_observed' => $request->behavior_observed,
             'interview_findings' => $request->interview_findings,
             'clinical_impressions' => $request->clinical_impressions,
@@ -84,6 +82,26 @@ class Wisdom_Counseling_Anecdotal_RecordController extends Controller
         ]);
         return redirect()->back()->with('status','Added New Record!');
     }
+
+
+    public function show(Student $id, $student){
+
+      $student_wisd = Counseling_Anecdotal_Record::with(['student'])->find($student);
+      if (empty($student_wisd)) {
+  
+        abort(404);
+    }
+  
+    try{
+      $student_w = Student::find($id);
+     
+    }
+    catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+        abort(404);
+    } 
+  
+      return view('admin.student.Wisdom.Counseling_Anecdotal_Record.show', compact( 'student_wisd'))->with('student_w', $student_w);
+  }
 
     public function destroy($id){
         $removeRec = Counseling_Anecdotal_Record::findOrFail($id);

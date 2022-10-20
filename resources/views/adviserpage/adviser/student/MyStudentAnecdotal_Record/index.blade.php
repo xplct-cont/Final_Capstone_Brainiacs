@@ -16,7 +16,7 @@
                 </h1>
 
                 <div class="d-flex justify-content-end">
-                    <a href="{{ url('show-student-myStudent/' . $student_myS->id . '/anecdotal_record_myStudent/create/') }}"
+                    <a href="{{ url('show-my-student/' . $student_myS->id . '/anecdotal_record_myStudent/create/') }}"
                         class="btn btn-primary ml-2" style="margin-top: 0px;"><span class=" mr-1"></span>
                         Create New Record
                     </a>
@@ -37,7 +37,7 @@
                             <tr>
                                 <td class="text-dark">{{ $anec_myS->observation_date_time }}</td>
                                 <td class="text-dark">{{ $anec_myS->location_of_incidents }}</td>
-                                <td><a href="{{ url('/show-student-myStudent/'.$anec_myS->student->id.'/anecdotal_record_myStudent/' . $anec_myS->id) }}"
+                                <td><a href="{{ url('/show-my-student/'.$anec_myS->student->id.'/anecdotal_record_myStudent/' . $anec_myS->id) }}"
                                         class="btn btn-xs "><i class="fas fa-search text-info"></i></a></td>
                                 <td><a href="{{ url('delete_anecdotal_record_myStudent/' . $anec_myS->id) }}"
                                         class="btn btn-xs "><i class="text-danger fas fa-trash-alt"></i></a></td>

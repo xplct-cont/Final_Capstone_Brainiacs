@@ -36,7 +36,7 @@
                             <tr>
                                 <td class="text-dark">{{ $coun_anec_wis->date_time_called }}</td>
                                 <td class="text-dark">{{ $coun_anec_wis->reasons_for_contact }}</td>
-                                <td><a href="{{ url('/show-student-wisdom/counseling_anecdotal_record_wisdom/' . $coun_anec_wis->id) }}"
+                                <td><a href="{{ url('/show-student-wisdom/'.$coun_anec_wis->student->id.'/counseling_anecdotal_record_wisdom/' . $coun_anec_wis->id) }}"
                                         class="btn btn-xs "><i class="fas fa-search text-info"></i></a></td>
                                 <td><a href="{{ url('delete_counseling_anecdotal_record_wisdom/' . $coun_anec_wis->id) }}"
                                         class="btn btn-xs "><i class="text-danger fas fa-trash-alt"></i></a></td>

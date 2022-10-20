@@ -99,5 +99,13 @@ class Love_Anecdotal_RecordController extends Controller
         $removeRec -> delete();
         return redirect()->back()->with('status', 'Record Deleted Successfully!');   
       }
+
+      public function export_loveStudents_Anecdotal_ID_pdf(Request $request, $id){
+        $loveStudents_Anecdotal = Anecdotal_Record::findOrFail($id);
+        $pdf = PDF::loadVIew('pdf.love-anecdotal', [
+            'anecdotal_records' => $loveStudents_Anecdotal
+        ]);
+        return $pdf->download('Anecdotal_Record_Love.pdf');
+    }
     
 }

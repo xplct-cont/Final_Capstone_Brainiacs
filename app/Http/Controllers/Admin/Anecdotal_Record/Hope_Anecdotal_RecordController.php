@@ -99,5 +99,13 @@ class Hope_Anecdotal_RecordController extends Controller
         $removeRec -> delete();
         return redirect()->back()->with('status', 'Record Deleted Successfully!');   
       }
+
+      public function export_hopeStudents_Anecdotal_ID_pdf(Request $request, $id){
+        $hopeStudents_Anecdotal = Anecdotal_Record::findOrFail($id);
+        $pdf = PDF::loadVIew('pdf.hope-anecdotal', [
+            'anecdotal_records' => $hopeStudents_Anecdotal
+        ]);
+        return $pdf->download('Anecdotal_Record_Hope.pdf');
+    }
     
 }

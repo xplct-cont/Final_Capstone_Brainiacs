@@ -129,7 +129,7 @@
 
 
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-success float-right btn-sm"><span
+                            <button type="submit" class="btn btn-success float-right btn-sm mb-3"><span
                                     class="fas fa-save"></span> Save Changes</button>
 
                         </div>

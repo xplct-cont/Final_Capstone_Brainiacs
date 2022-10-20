@@ -21,7 +21,6 @@ class CreateCounselingAnecdotalRecords extends Migration
             $table->string('referred_by')->nullable();
             $table->string('reasons_for_referral')->nullable();
             $table->string('follow_up_counseling_session')->nullable();
-            $table->string('voluntary')->nullable();
             $table->string('behavior_observed')->nullable();
             $table->string('interview_findings')->nullable();
             $table->string('clinical_impressions')->nullable();

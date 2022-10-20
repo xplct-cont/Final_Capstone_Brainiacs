@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="d-flex justify-content-center mb-3">
-        <h1 class="text-dark" style="font-size: 25px;">Create Anecdotal Record</h1>
+        <h1 class="text-dark text-center" style="font-size: 25px;">Create Anecdotal Record</h1>
     </div>
 
     <div class="row d-flex justify-content-center text-dark">

@@ -98,5 +98,13 @@ class Charity_Anecdotal_RecordController extends Controller
         $removeRec -> delete();
         return redirect()->back()->with('status', 'Record Deleted Successfully!');   
       }
+
+      public function export_charityStudents_Anecdotal_ID_pdf(Request $request, $id){
+        $charityStudents_Anecdotal = Anecdotal_Record::findOrFail($id);
+        $pdf = PDF::loadVIew('pdf.charity-anecdotal', [
+            'anecdotal_records' => $charityStudents_Anecdotal
+        ]);
+        return $pdf->download('Anecdotal_Record_Charity.pdf');
+    }
     
 }

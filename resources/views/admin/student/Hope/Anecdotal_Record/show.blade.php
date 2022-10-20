@@ -11,6 +11,14 @@
     <div class="row d-flex justify-content-center text-dark">
         <div class="col-md-11 elevation-4 p-3 rounded  mt-5 bg-light mb-3">
 
+            <div class="d-flex justify-content-end">
+
+                <a class="btn btn-danger mt-2 ml-2 mr-2" style=""
+        href="{{ route('export_hopeStudents_anecdotal_pdf', $student_hope->id) }}"><span class="fas fa-file-pdf"
+            style="font-size: 15px;"></span> Generate PDF</a>
+
+            </div>
+
             <div class="container mx-auto">
 
                 <h1 class="text-center mt-4"
@@ -92,9 +100,9 @@
                             <p class="text-dark mt-2">Note: <i class="text-dark">Information revealed is held strictly
                                     CONFIDENTIAL.</i></p>
                             <br>
-                            <p class="text-dark d-flex justify-content-end">______________________________________________
+                            <p class="text-dark d-flex justify-content-end">_________________________________________
                             </p>
-                            <p class="text-dark d-flex justify-content-end" style="position: relative; top: -20px;">
+                            <p class="text-dark d-flex justify-content-end" style="margin-top: -20px;">
                                 Designated Guidance Counselor's Name and Signature</p>
                         </div>
                     </div>

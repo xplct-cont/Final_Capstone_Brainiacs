@@ -98,5 +98,13 @@ class Faith_Anecdotal_RecordController extends Controller
         $removeRec -> delete();
         return redirect()->back()->with('status', 'Record Deleted Successfully!');   
       }
+
+      public function export_faithStudents_Anecdotal_ID_pdf(Request $request, $id){
+        $faithStudents_Anecdotal = Anecdotal_Record::findOrFail($id);
+        $pdf = PDF::loadVIew('pdf.faith-anecdotal', [
+            'anecdotal_records' => $faithStudents_Anecdotal
+        ]);
+        return $pdf->download('Anecdotal_Record_Faith.pdf');
+    }
     
 }

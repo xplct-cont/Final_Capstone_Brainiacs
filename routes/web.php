@@ -89,22 +89,36 @@ Route::middleware(['auth', ])->group(function () {
             //for PDF and Excel Advisers
         Route::get('export_advisers_pdf', [HomeController::class, 'export_advisers_pdf'])->name('export_advisers_pdf');
         Route::get('export_advisers_excel', [HomeController::class, 'export_advisers_excel'])->name('export_advisers_excel');
-            //for PDF and Excel Wisdom Students
+          
+        //for PDF and Excel Wisdom Students
         Route::get('export_wisdomStudents_pdf', [WisdomStudentController::class, 'export_wisdomStudents_pdf'])->name('export_wisdomStudents_pdf');
         Route::get('export_wisdomStudents_excel', [WisdomStudentController::class, 'export_wisdomStudents_excel'])->name('export_wisdomStudents_excel');
-            //for PDF and Excel Faith Students
+
+        Route::get('export_wisdomStudents_anecdotal_pdf/{id}', [Wisdom_Anecdotal_RecordController::class, 'export_wisdomStudents_Anecdotal_ID_pdf'])->name('export_wisdomStudents_anecdotal_pdf');
+       
+        //for PDF and Excel Faith Students
         Route::get('export_faithStudents_pdf', [FaithStudentController::class, 'export_faithStudents_pdf'])->name('export_faithStudents_pdf');
         Route::get('export_faithStudents_excel', [FaithStudentController::class, 'export_faithStudents_excel'])->name('export_faithStudents_excel');
-            //for PDF and Excel Charity Students
+          
+        Route::get('export_faithStudents_anecdotal_pdf/{id}', [Faith_Anecdotal_RecordController::class, 'export_faithStudents_Anecdotal_ID_pdf'])->name('export_faithStudents_anecdotal_pdf');
+        
+        //for PDF and Excel Charity Students
         Route::get('export_charityStudents_pdf', [CharityStudentController::class, 'export_charityStudents_pdf'])->name('export_charityStudents_pdf');
         Route::get('export_charityStudents_excel', [CharityStudentController::class, 'export_charityStudents_excel'])->name('export_charityStudents_excel'); 
-            //for PDF and Excel Hope Students
+        
+        Route::get('export_charitytudents_anecdotal_pdf/{id}', [Charity_Anecdotal_RecordController::class, 'export_charityStudents_Anecdotal_ID_pdf'])->name('export_charityStudents_anecdotal_pdf');
+
+        //for PDF and Excel Hope Students
         Route::get('export_hopeStudents_pdf', [HopeStudentController::class, 'export_hopeStudents_pdf'])->name('export_hopeStudents_pdf');
         Route::get('export_hopeStudents_excel', [HopeStudentController::class, 'export_hopeStudents_excel'])->name('export_hopeStudents_excel'); 
-             //for PDF and Excel Love Students
+        
+        Route::get('export_hopeStudents_anecdotal_pdf/{id}', [Hope_Anecdotal_RecordController::class, 'export_hopeStudents_Anecdotal_ID_pdf'])->name('export_hopeStudents_anecdotal_pdf');
+
+        //for PDF and Excel Love Students
         Route::get('export_loveStudents_pdf', [LoveStudentController::class, 'export_loveStudents_pdf'])->name('export_loveStudents_pdf');
         Route::get('export_loveStudents_excel', [LoveStudentController::class, 'export_loveStudents_excel'])->name('export_loveStudents_excel'); 
              
+        Route::get('export_loveStudents_anecdotal_pdf/{id}', [Love_Anecdotal_RecordController::class, 'export_loveStudents_Anecdotal_ID_pdf'])->name('export_loveStudents_anecdotal_pdf');
        
         //for edit admin profile
         Route::get('/adminprofile', [
@@ -143,6 +157,7 @@ Route::middleware(['auth', ])->group(function () {
 
        Route::get('/show-student-wisdom/{id}/counseling_anecdotal_record_wisdom/', [Wisdom_Counseling_Anecdotal_RecordController::class, 'index']);
        Route::get('/show-student-wisdom/{id}/counseling_anecdotal_record_wisdom/create',[Wisdom_Counseling_Anecdotal_RecordController::class, 'create']);
+       Route::get('/show-student-wisdom/{id}/counseling_anecdotal_record_wisdom/{student}', [Wisdom_Counseling_Anecdotal_RecordController::class, 'show']);
        Route::post('/add_counseling_anecdotal_record_wisdom', [Wisdom_Counseling_Anecdotal_RecordController::class, 'store']);
        Route::get('/delete_counseling_anecdotal_record_wisdom/{id}', [Wisdom_Counseling_Anecdotal_RecordController::class, 'destroy']);
       
@@ -164,6 +179,7 @@ Route::middleware(['auth', ])->group(function () {
 
        Route::get('/show-student-faith/{id}/counseling_anecdotal_record_faith/', [Faith_Counseling_Anecdotal_RecordController::class, 'index']);
        Route::get('/show-student-faith/{id}/counseling_anecdotal_record_faith/create',[Faith_Counseling_Anecdotal_RecordController::class, 'create']);
+       Route::get('/show-student-faith/{id}/counseling_anecdotal_record_faith/{student}', [Faith_Counseling_Anecdotal_RecordController::class, 'show']);
        Route::post('/add_counseling_anecdotal_record_faith', [Faith_Counseling_Anecdotal_RecordController::class, 'store']);
        Route::get('/delete_counseling_anecdotal_record_faith/{id}', [Faith_Counseling_Anecdotal_RecordController::class, 'destroy']);
 
@@ -185,6 +201,7 @@ Route::middleware(['auth', ])->group(function () {
 
        Route::get('/show-student-charity/{id}/counseling_anecdotal_record_charity/', [Charity_Counseling_Anecdotal_RecordController::class, 'index']);
        Route::get('/show-student-charity/{id}/counseling_anecdotal_record_charity/create',[Charity_Counseling_Anecdotal_RecordController::class, 'create']);
+       Route::get('/show-student-charity/{id}/counseling_anecdotal_record_charity/{student}', [Charity_Counseling_Anecdotal_RecordController::class, 'show']);
        Route::post('/add_counseling_anecdotal_record_charity', [Charity_Counseling_Anecdotal_RecordController::class, 'store']);
        Route::get('/delete_counseling_anecdotal_record_charity/{id}', [Charity_Counseling_Anecdotal_RecordController::class, 'destroy']);
 
@@ -206,6 +223,7 @@ Route::middleware(['auth', ])->group(function () {
 
        Route::get('/show-student-hope/{id}/counseling_anecdotal_record_hope/', [Hope_Counseling_Anecdotal_RecordController::class, 'index']);
        Route::get('/show-student-hope/{id}/counseling_anecdotal_record_hope/create',[Hope_Counseling_Anecdotal_RecordController::class, 'create']);
+       Route::get('/show-student-hope/{id}/counseling_anecdotal_record_hope/{student}', [Hope_Counseling_Anecdotal_RecordController::class, 'show']);
        Route::post('/add_counseling_anecdotal_record_hope', [Hope_Counseling_Anecdotal_RecordController::class, 'store']);
        Route::get('/delete_counseling_anecdotal_record_hope/{id}', [Hope_Counseling_Anecdotal_RecordController::class, 'destroy']);
 
@@ -227,6 +245,7 @@ Route::middleware(['auth', ])->group(function () {
 
        Route::get('/show-student-love/{id}/counseling_anecdotal_record_love/', [Love_Counseling_Anecdotal_RecordController::class, 'index']);
        Route::get('/show-student-love/{id}/counseling_anecdotal_record_love/create',[Love_Counseling_Anecdotal_RecordController::class, 'create']);
+       Route::get('/show-student-love/{id}/counseling_anecdotal_record_love/{student}', [Love_Counseling_Anecdotal_RecordController::class, 'show']);
        Route::post('/add_counseling_anecdotal_record_love', [Love_Counseling_Anecdotal_RecordController::class, 'store']);
        Route::get('/delete_counseling_anecdotal_record_love/{id}', [Love_Counseling_Anecdotal_RecordController::class, 'destroy']);
 
@@ -292,11 +311,11 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('/show-my-student/{id}', [StudentListController::class, 'showStudentRecord']);
 
 
-        Route::get('/show-student-myStudent/{id}/anecdotal_record_myStudent/', [MyStudent_Anecdotal_RecordController::class, 'index'])->name('myStudent-anecdotal');
+        Route::get('/show-my-student/{id}/anecdotal_record_myStudent/', [MyStudent_Anecdotal_RecordController::class, 'index'])->name('myStudent-anecdotal');
         Route::get('/delete_anecdotal_record_myStudent/{id}', [MyStudent_Anecdotal_RecordController::class, 'destroy']);
-        Route::get('/show-student-myStudent/{id}/anecdotal_record_myStudent/create',[MyStudent_Anecdotal_RecordController::class, 'create']);
+        Route::get('/show-my-student/{id}/anecdotal_record_myStudent/create',[MyStudent_Anecdotal_RecordController::class, 'create']);
         Route::post('/add_anecdotal_record_myStudent',[MyStudent_Anecdotal_RecordController::class, 'store']);
-        Route::get('/show-student-myStudent/{id}/anecdotal_record_myStudent/{student}', [MyStudent_Anecdotal_RecordController::class, 'show']);
+        Route::get('/show-my-student/{id}/anecdotal_record_myStudent/{student}', [MyStudent_Anecdotal_RecordController::class, 'show']);
 
         //for PDF and Excel My Students Only
         Route::get('export_myStudents_pdf', [StudentListController::class, 'export_myStudents_pdf'])->name('export_myStudents_pdf');

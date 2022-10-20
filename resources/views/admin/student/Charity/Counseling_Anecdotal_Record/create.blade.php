@@ -65,16 +65,14 @@
                                         value="5th Counseling Session">
                                     <span>5th</span>
                                 </label>
+
+                                <label class="radio inline mr-5">
+                                    <input type="radio" name="follow_up_counseling_session"
+                                        value="Voluntary">
+                                    <span>Voluntary</span>
+                                </label>
                             </div>
 
-                            <div class="form-group text-dark">
-                                <div class="maxl">
-                                    <label class="radio inline mr-5">
-                                        <input type="radio" name="voluntary" value="Yes">
-                                        <span> Voluntary </span>
-                                    </label>
-                                </div>
-                            </div>
                         </div>
 
 

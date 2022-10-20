@@ -38,10 +38,6 @@ class Wisdom_Anecdotal_RecordController extends Controller
     }
 
 
-
-
-
-
      public function show(Student $id, $student){
 
         $student_wisd = Anecdotal_Record::with(['student'])->find($student);
@@ -118,4 +114,12 @@ class Wisdom_Anecdotal_RecordController extends Controller
         $removeRec -> delete();
         return redirect()->back()->with('status', 'Record Deleted Successfully!');   
       }    
+
+      public function export_wisdomStudents_Anecdotal_ID_pdf(Request $request, $id){
+        $wisdomStudents_Anecdotal = Anecdotal_Record::findOrFail($id);
+        $pdf = PDF::loadVIew('pdf.wisdom-anecdotal', [
+            'anecdotal_records' => $wisdomStudents_Anecdotal
+        ]);
+        return $pdf->download('Anecdotal_Record_Wisdom.pdf');
+    }
 }

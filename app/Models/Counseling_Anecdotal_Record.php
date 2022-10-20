@@ -19,7 +19,6 @@ class Counseling_Anecdotal_Record extends Model
         'referred_by',
         'reasons_for_referral',
         'follow_up_counseling_session',
-        'voluntary',
         'behavior_observed',
         'interview_findings',
         'clinical_impressions',

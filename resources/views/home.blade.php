@@ -39,7 +39,7 @@
                     <ion-icon name="person"></ion-icon>
                 </div>
                 <div>
-                    <div class="cardName" >Administrator</div>
+                    <div class="cardName d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">Administrator</div>
                     <div class="numbers" ><span>{{$admin}}</span></div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                     <ion-icon name="people"></ion-icon>
                 </div>
                 <div>
-                    <div class="cardName" >Grade 11 Students</div>
+                    <div class="cardName d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" >Grade 11 Students</div>
                     <div class="numbers"><span>{{$student11}}</span></div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                     <ion-icon name="people"></ion-icon>
                 </div>
                 <div>
-                    <div class="cardName" >Grade 12 Students</div>
+                    <div class="cardName d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" >Grade 12 Students</div>
                     <div class="numbers" >{{$student12}}</div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                     <ion-icon name="person-add" class="text-light"></ion-icon>
                 </div>
                 <div>
-                    <div class="cardName text-light" >Adviser</div>      
+                    <div class="cardName text-light d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" >Adviser</div>      
                     <div class="numbers text-light" ><span>{{$user}}</span></div>
                 </div>
             </div>              

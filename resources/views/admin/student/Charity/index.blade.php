@@ -37,7 +37,7 @@
 
         <a href="{{ url('/add-charity-student') }}" class="btn btn-primary ml-2" style="margin-top: 10px;"><span
                 class="fas fa-user-graduate mr-1"></span>
-            Add New Student
+            New Student
         </a>
 
         <div class="container col-md-12" style="position: relative; margin-top:1%;">
@@ -47,7 +47,7 @@
                     <div class="">
                         <div class="card-header " style="height: 60px;">
                             <h4 class="text-center"
-                                style="color:dimgray; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                                style="font-size: 22px; color:dimgray; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
                                 Grade 11 - Charity Students</h4>
                             {{-- <a href="{{url('add-new-wisdom-student')}}" class="btn btn-primary"><span class="fas fa-user-graduate mr-1"></span>
                           Add New Student
@@ -60,11 +60,11 @@
 
                         <div class="card-body">
                             <div class="" style="position: relative; top:-20px;">
-                                <a class="btn btn-danger mt-2 ml-2 mr-2" style=""
-                                    href="{{ route('export_charityStudents_pdf') }}"><span class="fas fa-file-pdf"
-                                        style="font-size: 15px;"></span> Generate PDF</a>
-                                <a href="/export_charityStudents_excel" class=" mt-2 ml-2 btn btn-success"><span
-                                        class="fas fa-file-excel" style="font-size: 15px;"></span> Export to Excel</a>
+                                <a class="btn btn-secondary mt-2 ml-2 mr-2" style=""
+                                    href="{{ route('export_charityStudents_pdf') }}"><span class="text-danger fas fa-file-pdf"
+                                        style="font-size: 15px;"></span> PDF</a>
+                                <a href="/export_charityStudents_excel" class=" mt-2 ml-2 btn btn-secondary"><span
+                                        class="text-success fas fa-file-excel" style="font-size: 15px;"></span> Excel</a>
 
                                 <div class="d-flex justify-content-end">
                                     <p class="text-dark">Number of students : {{ $charity }}</p>
@@ -80,7 +80,9 @@
                                         <tr>
                                             <th scope="col">Records</th>
                                             <th scope="col">Last Name</th>
-                                            <th scope="col">First Name</th>
+                                            <th scope="col"
+                                                class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
+                                                style="text-align: center">First Name</th>
                                             <th scope="col"
                                                 class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                 style="text-align: center">Middle Name</th>
@@ -110,7 +112,8 @@
                                                         class="btn btn-sm btn-success"><span
                                                             class="fas fa-mail-bulk"></span></a></td>
                                                 <td>{{ $charity->lastname }}</td>
-                                                <td>{{ $charity->firstname }}</td>
+                                                <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
+                                                    style="text-align: center">{{ $charity->firstname }}</td>
                                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
                                                     style="text-align: center">{{ $charity->middlename }}</td>
                                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"
