@@ -106,4 +106,13 @@ class Charity_Counseling_Anecdotal_RecordController extends Controller
     return redirect()->back()->with('status', 'Record Deleted Successfully!');   
   }
 
+
+  public function export_charityStudents_Counseling_Anecdotal_ID_pdf(Request $request, $id){
+    $charityStudents_Counseling_Anecdotal = Counseling_Anecdotal_Record::findOrFail($id);
+    $pdf = PDF::loadVIew('pdf.charity-counseling_anecdotal', [
+        'counseling_anecdotal_records' => $charityStudents_Counseling_Anecdotal
+    ]);
+    return $pdf->download('Counseling Anecdotal Record-Charity.pdf');
+  }
+
 }

@@ -106,5 +106,11 @@ class Love_Counseling_Anecdotal_RecordController extends Controller
     return redirect()->back()->with('status', 'Record Deleted Successfully!');   
   }
 
-
+  public function export_loveStudents_Counseling_Anecdotal_ID_pdf(Request $request, $id){
+    $loveStudents_Counseling_Anecdotal = Counseling_Anecdotal_Record::findOrFail($id);
+    $pdf = PDF::loadVIew('pdf.love-counseling_anecdotal', [
+        'counseling_anecdotal_records' => $loveStudents_Counseling_Anecdotal
+    ]);
+    return $pdf->download('Counseling Anecdotal Record-Love.pdf');
+  }
 }

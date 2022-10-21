@@ -95,31 +95,36 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('export_wisdomStudents_excel', [WisdomStudentController::class, 'export_wisdomStudents_excel'])->name('export_wisdomStudents_excel');
 
         Route::get('export_wisdomStudents_anecdotal_pdf/{id}', [Wisdom_Anecdotal_RecordController::class, 'export_wisdomStudents_Anecdotal_ID_pdf'])->name('export_wisdomStudents_anecdotal_pdf');
+        Route::get('export_wisdomStudents_counseling_anecdotal_pdf/{id}', [Wisdom_Counseling_Anecdotal_RecordController::class, 'export_wisdomStudents_Counseling_Anecdotal_ID_pdf'])->name('export_wisdomStudents_counseling_anecdotal_pdf');
        
         //for PDF and Excel Faith Students
         Route::get('export_faithStudents_pdf', [FaithStudentController::class, 'export_faithStudents_pdf'])->name('export_faithStudents_pdf');
         Route::get('export_faithStudents_excel', [FaithStudentController::class, 'export_faithStudents_excel'])->name('export_faithStudents_excel');
           
         Route::get('export_faithStudents_anecdotal_pdf/{id}', [Faith_Anecdotal_RecordController::class, 'export_faithStudents_Anecdotal_ID_pdf'])->name('export_faithStudents_anecdotal_pdf');
-        
+        Route::get('export_faithStudents_counseling_anecdotal_pdf/{id}', [Faith_Counseling_Anecdotal_RecordController::class, 'export_faithStudents_Counseling_Anecdotal_ID_pdf'])->name('export_faithStudents_counseling_anecdotal_pdf');
+
         //for PDF and Excel Charity Students
         Route::get('export_charityStudents_pdf', [CharityStudentController::class, 'export_charityStudents_pdf'])->name('export_charityStudents_pdf');
         Route::get('export_charityStudents_excel', [CharityStudentController::class, 'export_charityStudents_excel'])->name('export_charityStudents_excel'); 
         
-        Route::get('export_charitytudents_anecdotal_pdf/{id}', [Charity_Anecdotal_RecordController::class, 'export_charityStudents_Anecdotal_ID_pdf'])->name('export_charityStudents_anecdotal_pdf');
+        Route::get('export_charityStudents_anecdotal_pdf/{id}', [Charity_Anecdotal_RecordController::class, 'export_charityStudents_Anecdotal_ID_pdf'])->name('export_charityStudents_anecdotal_pdf');
+        Route::get('export_charityStudents_counseling_anecdotal_pdf/{id}', [Charity_Counseling_Anecdotal_RecordController::class, 'export_charityStudents_Counseling_Anecdotal_ID_pdf'])->name('export_charityStudents_counseling_anecdotal_pdf');
 
         //for PDF and Excel Hope Students
         Route::get('export_hopeStudents_pdf', [HopeStudentController::class, 'export_hopeStudents_pdf'])->name('export_hopeStudents_pdf');
         Route::get('export_hopeStudents_excel', [HopeStudentController::class, 'export_hopeStudents_excel'])->name('export_hopeStudents_excel'); 
         
         Route::get('export_hopeStudents_anecdotal_pdf/{id}', [Hope_Anecdotal_RecordController::class, 'export_hopeStudents_Anecdotal_ID_pdf'])->name('export_hopeStudents_anecdotal_pdf');
+        Route::get('export_hopeStudents_counseling_anecdotal_pdf/{id}', [Hope_Counseling_Anecdotal_RecordController::class, 'export_hopeStudents_Counseling_Anecdotal_ID_pdf'])->name('export_hopeStudents_counseling_anecdotal_pdf');
 
         //for PDF and Excel Love Students
         Route::get('export_loveStudents_pdf', [LoveStudentController::class, 'export_loveStudents_pdf'])->name('export_loveStudents_pdf');
         Route::get('export_loveStudents_excel', [LoveStudentController::class, 'export_loveStudents_excel'])->name('export_loveStudents_excel'); 
              
         Route::get('export_loveStudents_anecdotal_pdf/{id}', [Love_Anecdotal_RecordController::class, 'export_loveStudents_Anecdotal_ID_pdf'])->name('export_loveStudents_anecdotal_pdf');
-       
+        Route::get('export_loveStudents_counseling_anecdotal_pdf/{id}', [Love_Counseling_Anecdotal_RecordController::class, 'export_loveStudents_Counseling_Anecdotal_ID_pdf'])->name('export_loveStudents_counseling_anecdotal_pdf');
+
         //for edit admin profile
         Route::get('/adminprofile', [
                 AdminProfileController::class, 'index'

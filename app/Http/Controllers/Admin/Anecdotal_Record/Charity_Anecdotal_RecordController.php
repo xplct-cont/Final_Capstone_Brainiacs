@@ -104,7 +104,7 @@ class Charity_Anecdotal_RecordController extends Controller
         $pdf = PDF::loadVIew('pdf.charity-anecdotal', [
             'anecdotal_records' => $charityStudents_Anecdotal
         ]);
-        return $pdf->download('Anecdotal_Record_Charity.pdf');
+        return $pdf->download('Anecdotal Record-Charity.pdf');
     }
     
 }

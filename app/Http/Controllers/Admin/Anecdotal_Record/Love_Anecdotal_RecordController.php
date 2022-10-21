@@ -105,7 +105,7 @@ class Love_Anecdotal_RecordController extends Controller
         $pdf = PDF::loadVIew('pdf.love-anecdotal', [
             'anecdotal_records' => $loveStudents_Anecdotal
         ]);
-        return $pdf->download('Anecdotal_Record_Love.pdf');
+        return $pdf->download('Anecdotal Record-Love.pdf');
     }
     
 }

@@ -22,7 +22,7 @@
                     </a>
                 </div>
                 <hr>
-                <table class="table table-striped text-dark text-center bg-light">
+                <table class="table table-striped table-sm text-dark text-center bg-light">
                     <thead class="bg-secondary">
                         <tr>
 

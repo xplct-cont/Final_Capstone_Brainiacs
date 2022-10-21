@@ -120,6 +120,6 @@ class Wisdom_Anecdotal_RecordController extends Controller
         $pdf = PDF::loadVIew('pdf.wisdom-anecdotal', [
             'anecdotal_records' => $wisdomStudents_Anecdotal
         ]);
-        return $pdf->download('Anecdotal_Record_Wisdom.pdf');
+        return $pdf->download('Anecdotal Record-Wisdom.pdf');
     }
 }

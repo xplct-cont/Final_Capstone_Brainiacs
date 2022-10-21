@@ -105,7 +105,7 @@ class Hope_Anecdotal_RecordController extends Controller
         $pdf = PDF::loadVIew('pdf.hope-anecdotal', [
             'anecdotal_records' => $hopeStudents_Anecdotal
         ]);
-        return $pdf->download('Anecdotal_Record_Hope.pdf');
+        return $pdf->download('Anecdotal Record-Hope.pdf');
     }
     
 }

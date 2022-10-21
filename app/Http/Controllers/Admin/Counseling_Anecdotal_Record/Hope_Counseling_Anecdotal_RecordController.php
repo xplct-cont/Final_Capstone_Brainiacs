@@ -106,4 +106,12 @@ class Hope_Counseling_Anecdotal_RecordController extends Controller
     return redirect()->back()->with('status', 'Record Deleted Successfully!');   
   }
 
+  public function export_hopeStudents_Counseling_Anecdotal_ID_pdf(Request $request, $id){
+    $hopeStudents_Counseling_Anecdotal = Counseling_Anecdotal_Record::findOrFail($id);
+    $pdf = PDF::loadVIew('pdf.hope-counseling_anecdotal', [
+        'counseling_anecdotal_records' => $hopeStudents_Counseling_Anecdotal
+    ]);
+    return $pdf->download('Counseling Anecdotal Record-Hope.pdf');
+  }
+
 }

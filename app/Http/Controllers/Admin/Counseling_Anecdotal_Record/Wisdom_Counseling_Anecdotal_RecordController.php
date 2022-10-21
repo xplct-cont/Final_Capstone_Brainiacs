@@ -108,6 +108,12 @@ class Wisdom_Counseling_Anecdotal_RecordController extends Controller
         $removeRec -> delete();
         return redirect()->back()->with('status', 'Record Deleted Successfully!');   
       }
-    
 
+      public function export_wisdomStudents_Counseling_Anecdotal_ID_pdf(Request $request, $id){
+        $wisdomStudents_Counseling_Anecdotal = Counseling_Anecdotal_Record::findOrFail($id);
+        $pdf = PDF::loadVIew('pdf.wisdom-counseling_anecdotal', [
+            'counseling_anecdotal_records' => $wisdomStudents_Counseling_Anecdotal
+        ]);
+        return $pdf->download('Counseling Anecdotal Record-Wisdom.pdf');
+      }
 }

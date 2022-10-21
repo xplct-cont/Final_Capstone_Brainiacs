@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 </head>
 
 <body>
@@ -43,18 +42,22 @@
     <div class="" style="">
 
         <p class="" style="font-size:14px;">Description of Incident</p>
-        <textarea style="margin-top: -10px; height: 100px; font-size: 12px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{ $anecdotal_records->description_of_incident }}</textarea>
+        <textarea
+            style="margin-top: -10px; height: 100px; font-size: 12px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{ $anecdotal_records->description_of_incident }}</textarea>
 
         <p class="" style="font-size:14px;">Description of the Location/Setting</p>
-        <textarea style="margin-top: -10px; height: 100px; font-size: 12px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{ $anecdotal_records->location_of_incidents }}</textarea>
+        <textarea
+            style="margin-top: -10px; height: 100px; font-size: 12px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{ $anecdotal_records->location_of_incidents }}</textarea>
 
 
         <p class="" style="font-size:14px;">Action Taken</p>
-        <textarea style="margin-top: -10px; height: 100px; font-size: 12px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{ $anecdotal_records->actions_taken }}</textarea>
+        <textarea
+            style="margin-top: -10px; height: 100px; font-size: 12px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{ $anecdotal_records->actions_taken }}</textarea>
 
 
         <p class="" style="font-size:14px;">Recommendation</p>
-        <textarea style=" margin-top: -10px; height: 100px; font-size: 12px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{ $anecdotal_records->recommendations }}</textarea>
+        <textarea
+            style=" margin-top: -10px; height: 100px; font-size: 12px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{ $anecdotal_records->recommendations }}</textarea>
     </div>
 
 
@@ -103,5 +106,4 @@
         text-align: center;
 
     }
-
 </style>
