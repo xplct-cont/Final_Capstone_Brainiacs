@@ -10,10 +10,11 @@
     </div>
     <div class="row d-flex justify-content-center text-dark">
         <div class="col-md-11 p-3 rounded bg-light">
-            @if (session('status'))
-                <h6 class="alert alert-success">
-                    {{ session('status') }}
-                </h6>
+            @if ($message = Session::get('status'))
+                <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert" style="color:black;">×</button>
+                    <strong>{{ $message }}</strong>
+                </div>
             @endif
             <div class="container mb-0">
                 <div class="row">
@@ -49,7 +50,8 @@
                             <img src="https://pnggrid.com/wp-content/uploads/2021/04/Gmail-Transparent-Logo-1024x768.png"
                                 style="height: 40px;" />
                         </div>
-                        <form method="post">
+                        <form action="{{ url('/send_email_advisory_parent') }}" method="POST">
+                            @csrf
                             <div class="d-flex justify-content-center">
                                 <h3 class="" style="font-size: 20px; ">Name of Parent/Guardian:
                                     {{ $parentLists->parent_name }}</h3>
@@ -63,9 +65,9 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="">Subject:</label>
-                                        <input type="text" name="subject" class="form-control"
-                                            placeholder="Enter subject" />
+                                        <label for="">To:</label>
+                                        <input type="text" name="parent_name" class="form-control"
+                                            value="{{ $parentLists->parent_name }}" required />
                                     </div>
                                     <div class="form-group d-flex justify-content-end">
                                         <button class="btn btn-success"> <span class="fas fa-envelope"></span> Send

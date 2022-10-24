@@ -20,6 +20,7 @@ use PDF;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\WisdomExport;
 use DB;
+use Illuminate\Support\Facades\Mail;
 
 class WisdomStudentController extends Controller
 {
@@ -182,5 +183,22 @@ class WisdomStudentController extends Controller
 
        return view('admin.student.Wisdom.show')->with('wisdomStud', $wisdomStud);
     }
+
+
+    public function sendEmailStudent(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+            'subject' => 'required|string',
+            'content' => 'required|string'
+        ]);
+
+
+            Mail::send('admin.student.Wisdom.Email.email', ['content' => $request->content, 'subject' => $request->subject], function($mails) use($request){
+                $mails->to($request->email);
+                $mails->subject($request->subject);
+          
+        });
+        return redirect()->back()->with('status', 'Email sent successfully!');
+}
 
 }

@@ -6,6 +6,12 @@
         style="font-weight:normal; font-size: 25px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; ">
         Records of {{ $loveStud->lastname }}, {{ $loveStud->firstname }} from {{ $loveStud->year_section }}</h1>
     <hr>
+    @if ($message = Session::get('status'))
+    <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert" style="color:black;">×</button>
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
         <div class="py-5">
             <div class="container">
                 <div class="row hidden-md-up">
@@ -117,24 +123,32 @@
                 </div>
             </div>
         </div>
+
+        <form action="{{ url('/send_email_student_love') }}" method="POST">
+            @csrf
         <div class="input-group mb-3 mx-auto" style="width: 300px; margin-top: -30px;">
-            <input type="text" name="lastname" class="form-control text-center" value="{{ $loveStud->email }}"
+            <input type="email" name="email" class="form-control text-center" value="{{ $loveStud->email }}"
                 required>
         </div>
         <div class="text d-flex justify-content-center text-dark" style="margin-top: 40px; font-size:20px;">
 
             <div class="container " style="position: relative; top:-40px;">
+                <div class="form-group">
+                    <label for="" style="font-weight:400; font-size: 16px;">To:</label>
+                    <input type="text" name="subject" class="form-control"
+                        value="{{ $loveStud->firstname }} {{ $loveStud->middlename }} {{ $loveStud->lastname }}" required />
+                </div>
                 <button type="submit" class="btn btn-info rounded"
                     style="width: 130px; height: 40px; position:relative; top: 10px;">Send Email&nbsp;&nbsp;<span
                         class=""></span></button>
                 <div class="bg-light" style="">
                     <div class="input-group mt-3">
-                        <textarea class="form-control" aria-label="" placeholder="Write something here..." style="height: 12rem;"></textarea>
+                        <textarea class="form-control" required name="content" aria-label="" placeholder="Write something here..." style="height: 12rem;"></textarea>
                     </div>
                 </div>
             </div>
-
-        </div>
+        </form>
+      </div>
 
     </body>
 

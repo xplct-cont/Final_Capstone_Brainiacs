@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Session;
 use PDF;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\MyStudentsExport;
-
+use Illuminate\Support\Facades\Mail;
 
 class StudentListController extends Controller
 {
@@ -138,5 +138,20 @@ class StudentListController extends Controller
              $myStudents = Student::where('user_id', auth()->user()->id)->orderBy('lastname', 'asc')->get();
              return Excel::download(new MyStudentsExport($myStudents),'Students in my advisory.xlsx');
         }
+
+        public function sendEmailMyStudent(Request $request){
+            $request->validate([
+                'email' => 'required|email',
+                'subject' => 'required|string',
+                'content' => 'required|string'
+            ]);
+            
+                Mail::send('adviserpage.adviser.student.Email.email', ['content' => $request->content, 'subject' => $request->subject], function($mails) use($request){
+                    $mails->to($request->email);
+                    $mails->subject($request->subject);
+              
+            });
+            return redirect()->back()->with('status', 'Email sent successfully!');
+    }
 }
 

@@ -19,6 +19,7 @@ use PDF;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\CharityExport;
 use DB;
+use Illuminate\Support\Facades\Mail;
 
 class CharityStudentController extends Controller
 {
@@ -159,6 +160,21 @@ class CharityStudentController extends Controller
        return view('admin.student.Charity.show')->with('charityStud', $charityStud);
     }
 
+    public function sendEmailStudent(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+            'subject' => 'required|string',
+            'content' => 'required|string'
+        ]);
+
+
+            Mail::send('admin.student.Charity.Email.email', ['content' => $request->content, 'subject' => $request->subject], function($mails) use($request){
+                $mails->to($request->email);
+                $mails->subject($request->subject);
+          
+        });
+        return redirect()->back()->with('status', 'Email sent successfully!');
+}
 }
 
 

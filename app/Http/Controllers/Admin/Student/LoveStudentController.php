@@ -19,6 +19,7 @@ use PDF;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\LoveExport;
 use DB;
+use Illuminate\Support\Facades\Mail;
 
 class LoveStudentController extends Controller
 {
@@ -153,4 +154,19 @@ class LoveStudentController extends Controller
                return view('admin.student.Love.show')->with('loveStud', $loveStud);
             }
         
+            public function sendEmailStudent(Request $request){
+                $request->validate([
+                    'email' => 'required|email',
+                    'subject' => 'required|string',
+                    'content' => 'required|string'
+                ]);
+        
+        
+                    Mail::send('admin.student.Love.Email.email', ['content' => $request->content, 'subject' => $request->subject], function($mails) use($request){
+                        $mails->to($request->email);
+                        $mails->subject($request->subject);
+                  
+                });
+                return redirect()->back()->with('status', 'Email sent successfully!');
+        }
 }

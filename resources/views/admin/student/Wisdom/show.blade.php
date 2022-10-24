@@ -2,10 +2,17 @@
 @section('content')
 
     <body>
+
         <h1 class="text-dark p-3"
-        style="font-weight:normal; font-size: 25px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; ">
-        Records of {{ $wisdomStud->lastname }}, {{ $wisdomStud->firstname }} from {{ $wisdomStud->year_section }}</h1>
-    <hr>
+            style="font-weight:normal; font-size: 25px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; ">
+            Records of {{ $wisdomStud->lastname }}, {{ $wisdomStud->firstname }} from {{ $wisdomStud->year_section }}</h1>
+        <hr>
+        @if ($message = Session::get('status'))
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert" style="color:black;">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif
         <div class="py-5">
             <div class="container">
                 <div class="row hidden-md-up">
@@ -117,23 +124,34 @@
                 </div>
             </div>
         </div>
-        <div class="input-group mb-3 mx-auto" style="width: 300px; margin-top: -30px;">
-            <input type="text" name="lastname" class="form-control text-center" value="{{ $wisdomStud->email }}"
-                required>
-        </div>
-        <div class="text d-flex justify-content-center text-dark" style="margin-top: 40px; font-size:20px;">
 
-            <div class="container " style="position: relative; top:-40px;">
-                <button type="submit" class="btn btn-info rounded"
-                    style="width: 130px; height: 40px; position:relative; top: 10px;">Send Email&nbsp;&nbsp;<span
-                        class=""></span></button>
-                <div class="bg-light" style="">
-                    <div class="input-group mt-3">
-                        <textarea class="form-control" aria-label="" placeholder="Write something here..." style="height: 12rem;"></textarea>
+        <form action="{{ url('/send_email_student_wisdom') }}" method="POST">
+            @csrf
+            <div class="input-group mb-3 mx-auto" style="width: 300px; margin-top: -30px;">
+                <input type="email" name="email" class="form-control text-center" value="{{ $wisdomStud->email }}" required
+                    required>
+            </div>
+            <div class="text d-flex justify-content-center text-dark" style="margin-top: 40px; font-size:20px;">
+
+                
+                <div class="container " style="position: relative; top:-40px;">
+                    <div class="form-group">
+                        <label for="" style="font-weight:400; font-size: 16px;">To:</label>
+                        <input type="text" name="subject" class="form-control"
+                            value="{{ $wisdomStud->firstname }} {{ $wisdomStud->middlename }} {{ $wisdomStud->lastname }}" required />
+                    </div>
+    
+                    <button type="submit" class="btn btn-info rounded"
+                        style="width: 130px; height: 40px; position:relative; top: 10px;">Send Email&nbsp;&nbsp;<span
+                            class=""></span></button>  
+
+                    <div class="bg-light" style="">
+                        <div class="input-group mt-3">
+                            <textarea class="form-control" name="content" required aria-label="" placeholder="Write something here..." style="height: 12rem;"></textarea>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+        </form>
         </div>
 
     </body>
