@@ -30,6 +30,13 @@ use App\Http\Controllers\Admin\Counseling_Anecdotal_Record\Faith_Counseling_Anec
 use App\Http\Controllers\Admin\Counseling_Anecdotal_Record\Hope_Counseling_Anecdotal_RecordController;
 use App\Http\Controllers\Admin\Counseling_Anecdotal_Record\Love_Counseling_Anecdotal_RecordController;
 
+use App\Http\Controllers\Admin\Parent_Conference_Record\Wisdom_Parent_Conference_RecordController;
+use App\Http\Controllers\Admin\Parent_Conference_Record\Charity_Parent_Conference_RecordController;
+use App\Http\Controllers\Admin\Parent_Conference_Record\Faith_Parent_Conference_RecordController;
+use App\Http\Controllers\Admin\Parent_Conference_Record\Hope_Parent_Conference_RecordController;
+use App\Http\Controllers\Admin\Parent_Conference_Record\Love_Parent_Conference_RecordController;
+
+
 use App\Http\Controllers\AdviserHomePageController;
 use App\Http\Controllers\Adviser\AdviserProfileController;
 use App\Http\Controllers\Adviser\StudentListController;
@@ -171,6 +178,9 @@ Route::middleware(['auth', ])->group(function () {
        
        Route::post('/send_email_student_wisdom', [WisdomStudentController::class, 'sendEmailStudent']);
 
+       
+       Route::get('/show-student-wisdom/{id}/parent_conference_record_wisdom/', [Wisdom_Parent_Conference_RecordController::class, 'index'])->name('wisdom-parent_conference_record');
+
        //for 11 Faith Students
        Route::get('faith-students', [FaithStudentController::class, 'index'])->name('faith-list');
        Route::get('/edit-faith-student/{id}', [FaithStudentController::class, 'edit']);
@@ -195,6 +205,9 @@ Route::middleware(['auth', ])->group(function () {
 
 
        Route::post('/send_email_student_faith', [FaithStudentController::class, 'sendEmailStudent']);
+
+
+       Route::get('/show-student-faith/{id}/parent_conference_record_faith/', [Faith_Parent_Conference_RecordController::class, 'index'])->name('faith-parent_conference_record');
 
        //for 11 Charity Students
        Route::get('charity-students', [CharityStudentController::class, 'index'])->name('charity-list');
@@ -221,6 +234,9 @@ Route::middleware(['auth', ])->group(function () {
 
        Route::post('/send_email_student_charity', [CharityStudentController::class, 'sendEmailStudent']);
 
+
+       Route::get('/show-student-charity/{id}/parent_conference_record_charity/', [Charity_Parent_Conference_RecordController::class, 'index'])->name('charity-parent_conference_record');
+
        //for 12 Hope Students
        Route::get('hope-students', [HopeStudentController::class, 'index'])->name('hope-list');
        Route::get('/edit-hope-student/{id}', [HopeStudentController::class, 'edit']);
@@ -246,6 +262,9 @@ Route::middleware(['auth', ])->group(function () {
 
        Route::post('/send_email_student_hope', [HopeStudentController::class, 'sendEmailStudent']);
 
+
+       Route::get('/show-student-hope/{id}/parent_conference_record_hope/', [Hope_Parent_Conference_RecordController::class, 'index'])->name('hope-parent_conference_record');
+
        //for 12 Love Students
        Route::get('love-students', [LoveStudentController::class, 'index'])->name('love-list');
        Route::get('/edit-love-student/{id}', [LoveStudentController::class, 'edit']);
@@ -270,6 +289,9 @@ Route::middleware(['auth', ])->group(function () {
 
 
        Route::post('/send_email_student_love', [LoveStudentController::class, 'sendEmailStudent']);
+
+
+       Route::get('/show-student-love/{id}/parent_conference_record_love/', [Love_Parent_Conference_RecordController::class, 'index'])->name('love-parent_conference_record');
 
        //for SHS Parents
        Route::get('shs-parents', [ParentController::class, 'index'])->name('shs-parents');

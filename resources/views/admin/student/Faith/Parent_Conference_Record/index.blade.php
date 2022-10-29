@@ -3,11 +3,11 @@
 @section('content')
     <h1 class="text-dark p-3"
         style="font-weight:normal; font-size: 25px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; ">
-        Counseling Anecdotal Records of {{ $student_lov->lastname }}, {{ $student_lov->firstname }} from
-        {{ $student_lov->year_section }}</h1>
+        Parent Conference Records of {{ $student_fai->lastname }}, {{ $student_fai->firstname }} from
+        {{ $student_fai->year_section }}</h1>
     <hr>
 
-    <div class="container col-md-12" style="">
+    <div class="container" style="">
         <div class="card">
             <div class="card-header text-center">
                 <h1 class="text-dark "
@@ -16,35 +16,36 @@
                 </h1>
 
                 <div class="d-flex justify-content-end">
-                    <a href="{{ url('show-student-love/' . $student_lov->id . '/counseling_anecdotal_record_love/create/') }}"
+                    <a href="{{ url('show-student-faith/' . $student_fai->id . '/parent_conference_record_faith/create/') }}"
                         class="btn btn-primary ml-2" style="margin-top: 0px;"><span class=" mr-1"></span>
                         Create New Record
                     </a>
                 </div>
                 <hr>
-                <table class="table table-striped table-sm text-dark text-center bg-light">
+                <table class="table table-striped  table-sm text-dark text-center bg-light">
                     <thead class="bg-secondary">
                         <tr>
-                            <th>Date/Time Called</th>
+
+                            <th>Date</th>
                             <th>Reasons for Contact</th>
-                            <th>View</th>
+                            <th>View</th>~
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($counseling_anecdotal_love as $coun_anec_lov)
+                        @forelse ($parent_conference_record_faith as $parent_confer_fai)
                             <tr>
-                                <td class="text-dark">{{ $coun_anec_lov->date_time_called->format('F d,  Y - g:i A') }}</td>
-                                <td class="text-dark">{{ $coun_anec_lov->reasons_for_contact }}</td>
-                                <td><a href="{{ url('/show-student-love/'.$coun_anec_lov->student->id.'/counseling_anecdotal_record_love/' . $coun_anec_lov->id) }}"
+                                <td class="text-dark">{{ $parent_confer_fai->date ->format('F d,  Y - l')}}</td>
+                                <td class="text-dark">{{ $parent_confer_fai->reason_for_contact }}</td>
+                                <td><a href="{{ url('/show-student-faith/'.$parent_confer_fai->student->id.'/parent_conference_record_faith/' . $parent_confer_fai->id) }}"
                                         class="btn btn-xs "><i class="fas fa-search text-info"></i></a></td>
-                                <td><a href="{{ url('delete_counseling_anecdotal_record_love/' . $coun_anec_lov->id) }}"
+                                <td><a href="{{ url('delete_parent_conference_record_faith/' . $parent_confer_fai->id) }}"
                                         class="btn btn-xs "><i class="text-danger fas fa-trash-alt"></i></a></td>
                             </tr>
                         @empty
                             <tr>
                                 <td colspan="5" class="text-dark"><span
-                                        class="fas fa-exclamation-circle text-danger"></span> Empty Counseling Anecdotal Records!</td>
+                                        class="fas fa-exclamation-circle text-danger"></span> Empty Parent Conference Records!</td>
                             </tr>
                         @endforelse
 

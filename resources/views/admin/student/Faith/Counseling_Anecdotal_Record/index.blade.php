@@ -34,7 +34,7 @@
                     <tbody>
                         @forelse ($counseling_anecdotal_faith as $coun_anec_fai)
                             <tr>
-                                <td class="text-dark">{{ $coun_anec_fai->date_time_called }}</td>
+                                <td class="text-dark">{{ $coun_anec_fai->date_time_called->format('F d,  Y - g:i A') }}</td>
                                 <td class="text-dark">{{ $coun_anec_fai->reasons_for_contact }}</td>
                                 <td><a href="{{ url('/show-student-faith/'.$coun_anec_fai->student->id.'/counseling_anecdotal_record_faith/' . $coun_anec_fai->id) }}"
                                         class="btn btn-xs "><i class="fas fa-search text-info"></i></a></td>

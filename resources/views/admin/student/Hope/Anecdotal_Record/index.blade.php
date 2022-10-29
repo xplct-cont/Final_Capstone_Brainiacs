@@ -35,7 +35,7 @@
                     <tbody>
                         @forelse ($anecdotal_hope as $anec_hop)
                             <tr>
-                                <td class="text-dark">{{ $anec_hop->observation_date_time }}</td>
+                                <td class="text-dark">{{ $anec_hop->observation_date_time->format('F d,  Y - g:i A') }}</td>
                                 <td class="text-dark">{{ $anec_hop->location_of_incidents }}</td>
                                 <td><a href="{{ url('/show-student-hope/'.$anec_hop->student->id.'/anecdotal_record_hope/' . $anec_hop->id) }}"
                                         class="btn btn-xs "><i class="fas fa-search text-info"></i></a></td>

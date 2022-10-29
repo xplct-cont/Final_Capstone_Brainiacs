@@ -96,7 +96,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card">
-                            <a href="{{ route('home') }}">
+                            <a href="{{ url('show-student-wisdom/' . $wisdomStud->id . '/parent_conference_record_wisdom') }}">
                                 <div class="layer">
 
                                 </div>
@@ -113,7 +113,7 @@
 
                                     </div>
                                     <div class="details mt-2">
-                                        <h2>Exit Interview Form</h2>
+                                        <h2>Parent/Guardian Conference Record</h2>
                                     </div>
                                 </div>
                             </a>

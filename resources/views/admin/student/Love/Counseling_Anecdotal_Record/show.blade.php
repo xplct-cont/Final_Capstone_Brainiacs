@@ -63,7 +63,7 @@
                                 style="  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 17px;">
                                 <span class="text-dark" style="font-weight: 500">Date/Time Called: </span><span
                                     class="text-dark"
-                                    style="border-bottom: 1px solid black">{{ $student_love->date_time_called }} </span>
+                                    style="border-bottom: 1px solid black">{{ $student_love->date_time_called->format('F d,  Y - g:i A') }} </span>
                             </p>
                         </div>
 

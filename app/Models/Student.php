@@ -37,4 +37,8 @@ class Student extends Model
     public function counseling_anecdotal_record(){
         return $this->hasMany('App\Models\Counseling_Anecdotal_Record');
     }
+
+    public function parent_conference_record(){
+        return $this->hasMany('App\Models\Parent_Conference_Record');
+    }
 }

@@ -34,7 +34,7 @@
                     <tbody>
                         @forelse ($anecdotal_wisdom as $anec_wis)
                             <tr>
-                                <td class="text-dark">{{ $anec_wis->observation_date_time }}</td>
+                                <td class="text-dark">{{ $anec_wis->observation_date_time->format('F d,  Y - g:i A') }}</td>
                                 <td class="text-dark">{{ $anec_wis->location_of_incidents }}</td>
                                 <td><a href="{{ url('/show-student-wisdom/'.$anec_wis->student->id.'/anecdotal_record_wisdom/' . $anec_wis->id) }}"
                                         class="btn btn-xs "><i class="fas fa-search text-info"></i></a></td>
