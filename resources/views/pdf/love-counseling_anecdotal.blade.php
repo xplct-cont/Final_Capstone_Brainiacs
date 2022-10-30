@@ -34,7 +34,7 @@
 
     <div class="" style=" position:absolute; top: 205px;  text-align: end;">
         <p style="font-size: 14px">Date/Time Called: <span
-                style="border-bottom: 1px solid dimgray;">{{ $counseling_anecdotal_records->date_time_called }}</span>
+                style="border-bottom: 1px solid dimgray;">{{ $counseling_anecdotal_records->date_time_called->format('F d,  Y - g:i A') }}</span>
         </p>
     </div>
 

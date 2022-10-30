@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notification;
 use App\Models\Event;
 use App\Http\Controllers\HomeController;
 use DB;
+use Carbon;
 
 
 class EmailNotification extends Notification
@@ -54,15 +55,14 @@ class EmailNotification extends Notification
                
 
         return (new MailMessage)
-
                      
-                    ->greeting('Event Title:'.$event->title)
-                    ->line('When:'.$event->start)
-                    ->line('End:'.$event->end)
+                    ->line('Event Title: '.$event->title_of_the_event)
+                    ->line('Event Location: '.$event->location_of_the_event)
+                    ->line('Date/Time of the event: ' . Carbon\Carbon::parse($event->event_date_time)->format('F d,  Y - g:i A'))
                     ->line('Thank you!');
-
-                }
     }
+        
+}
 
     /**
      * Get the array representation of the notification.

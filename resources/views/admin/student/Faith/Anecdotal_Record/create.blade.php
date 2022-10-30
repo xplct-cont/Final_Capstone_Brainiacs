@@ -1,6 +1,9 @@
 @extends('layouts.layoutsidebar')
 
 @section('content')
+<div class="p-3">
+    <a class="fas fa-arrow-left" style="font-size:20px; color:blue;" href="{{ url('show-student-faith/' . $student_fai->id . '/anecdotal_record_faith') }}"></a>
+</div>
     <div class="d-flex justify-content-center mb-3">
         <h1 class="text-dark text-center" style="font-size: 25px;">Create Anecdotal Record</h1>
     </div>

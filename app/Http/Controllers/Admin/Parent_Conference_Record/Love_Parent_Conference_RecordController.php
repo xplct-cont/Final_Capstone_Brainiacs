@@ -39,4 +39,78 @@ class Love_Parent_Conference_RecordController extends Controller
         return view('admin.student.Love.Parent_Conference_Record.index', compact('parent_conference_record_love', 'student_lov'));
       }
     
+      public function show(Student $id, $student){
+
+        $student_love = Parent_Conference_Record::with(['student'])->find($student);
+        if (empty($student_love)) {
+  
+          abort(404);
+      }
+    
+      try{
+        $student_l = Student::find($id);
+       
+      }
+      catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+          abort(404);
+      } 
+
+        return view('admin.student.Love.Parent_Conference_Record.show', compact( 'student_love'))->with('student_l', $student_l);
+    }
+
+    public function create($id) {
+
+      $parent_conference_record_love = Parent_Conference_Record::with(['student'])->where('student_id', '=', $id)->get();
+      
+      $student_lov = Student::find($id);
+
+      return view('admin.student.Love.Parent_Conference_Record.create', compact('parent_conference_record_love', 'student_lov'));
+  }
+
+    
+
+    public function store(Request $request) {
+      $request->validate([
+
+      'student_id' => 'required',
+      'date' => 'required',
+      'relation_to_student' => 'required|string',
+      'reason_for_contact' => 'required|string',
+      'inquiries_referral_appointment' => 'nullable',
+      'problem_concern' => 'required|string',
+      'topics_discussed' => 'required|string',
+      'suggested_resolution' => 'required|string',
+      'action_taken' => 'required'
+     
+      ]);
+
+      $student_lov = Parent_Conference_Record::create([
+                 
+          'student_id' => $request->student_id,
+          'date' => $request->date,
+          'relation_to_student' => $request->relation_to_student,
+          'reason_for_contact' => $request->reason_for_contact,
+          'inquiries_referral_appointment' => $request->inquiries_referral_appointment,
+          'problem_concern' => $request->problem_concern,
+          'topics_discussed' => $request->topics_discussed,
+          'suggested_resolution' => $request->suggested_resolution,
+          'action_taken' => $request->action_taken
+         
+      ]);
+      return redirect()->back()->with('status','Added New Record!');
+  }
+
+    public function destroy($id){
+        $removeRec = Parent_Conference_Record::findOrFail($id);
+        $removeRec -> delete();
+        return redirect()->back()->with('status', 'Record Deleted Successfully!');   
+      }
+
+      public function export_loveStudents_Parent_Conference_Record_ID_pdf(Request $request, $id){
+        $loveStudents_Parent_Conference_Record = Parent_Conference_Record::findOrFail($id);
+        $pdf = PDF::loadVIew('pdf.love-parent-conference-record', [
+            'parent_conference_records' => $loveStudents_Parent_Conference_Record
+        ]);
+        return $pdf->download('Parent Conference Record-Love.pdf');
+    }
 }

@@ -8,7 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 // use App\Http\Controllers\Admin\AdviserController;
 use App\Http\Controllers\Admin\AdminProfileController;
-use App\Http\Controllers\Admin\AdminCalendarController;
+use App\Http\Controllers\Admin\AdminEventController;
 use App\Http\Controllers\Admin\Student\WisdomStudentController;
 use App\Http\Controllers\Admin\Student\FaithStudentController;
 use App\Http\Controllers\Admin\Student\CharityStudentController;
@@ -106,12 +106,16 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('export_wisdomStudents_anecdotal_pdf/{id}', [Wisdom_Anecdotal_RecordController::class, 'export_wisdomStudents_Anecdotal_ID_pdf'])->name('export_wisdomStudents_anecdotal_pdf');
         Route::get('export_wisdomStudents_counseling_anecdotal_pdf/{id}', [Wisdom_Counseling_Anecdotal_RecordController::class, 'export_wisdomStudents_Counseling_Anecdotal_ID_pdf'])->name('export_wisdomStudents_counseling_anecdotal_pdf');
        
+        Route::get('export_wisdomStudents_parent_conference_record_pdf/{id}', [Wisdom_Parent_Conference_RecordController::class, 'export_wisdomStudents_Parent_Conference_Record_ID_pdf'])->name('export_wisdomStudents_parent_conference_record_pdf');
+
         //for PDF and Excel Faith Students
         Route::get('export_faithStudents_pdf', [FaithStudentController::class, 'export_faithStudents_pdf'])->name('export_faithStudents_pdf');
         Route::get('export_faithStudents_excel', [FaithStudentController::class, 'export_faithStudents_excel'])->name('export_faithStudents_excel');
           
         Route::get('export_faithStudents_anecdotal_pdf/{id}', [Faith_Anecdotal_RecordController::class, 'export_faithStudents_Anecdotal_ID_pdf'])->name('export_faithStudents_anecdotal_pdf');
         Route::get('export_faithStudents_counseling_anecdotal_pdf/{id}', [Faith_Counseling_Anecdotal_RecordController::class, 'export_faithStudents_Counseling_Anecdotal_ID_pdf'])->name('export_faithStudents_counseling_anecdotal_pdf');
+
+        Route::get('export_faithStudents_parent_conference_record_pdf/{id}', [Faith_Parent_Conference_RecordController::class, 'export_faithStudents_Parent_Conference_Record_ID_pdf'])->name('export_faithStudents_parent_conference_record_pdf');
 
         //for PDF and Excel Charity Students
         Route::get('export_charityStudents_pdf', [CharityStudentController::class, 'export_charityStudents_pdf'])->name('export_charityStudents_pdf');
@@ -120,6 +124,8 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('export_charityStudents_anecdotal_pdf/{id}', [Charity_Anecdotal_RecordController::class, 'export_charityStudents_Anecdotal_ID_pdf'])->name('export_charityStudents_anecdotal_pdf');
         Route::get('export_charityStudents_counseling_anecdotal_pdf/{id}', [Charity_Counseling_Anecdotal_RecordController::class, 'export_charityStudents_Counseling_Anecdotal_ID_pdf'])->name('export_charityStudents_counseling_anecdotal_pdf');
 
+        Route::get('export_charityStudents_parent_conference_record_pdf/{id}', [Charity_Parent_Conference_RecordController::class, 'export_charityStudents_Parent_Conference_Record_ID_pdf'])->name('export_charityStudents_parent_conference_record_pdf');
+
         //for PDF and Excel Hope Students
         Route::get('export_hopeStudents_pdf', [HopeStudentController::class, 'export_hopeStudents_pdf'])->name('export_hopeStudents_pdf');
         Route::get('export_hopeStudents_excel', [HopeStudentController::class, 'export_hopeStudents_excel'])->name('export_hopeStudents_excel'); 
@@ -127,12 +133,16 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('export_hopeStudents_anecdotal_pdf/{id}', [Hope_Anecdotal_RecordController::class, 'export_hopeStudents_Anecdotal_ID_pdf'])->name('export_hopeStudents_anecdotal_pdf');
         Route::get('export_hopeStudents_counseling_anecdotal_pdf/{id}', [Hope_Counseling_Anecdotal_RecordController::class, 'export_hopeStudents_Counseling_Anecdotal_ID_pdf'])->name('export_hopeStudents_counseling_anecdotal_pdf');
 
+        Route::get('export_hopeStudents_parent_conference_record_pdf/{id}', [Hope_Parent_Conference_RecordController::class, 'export_hopeStudents_Parent_Conference_Record_ID_pdf'])->name('export_hopeStudents_parent_conference_record_pdf');
+
         //for PDF and Excel Love Students
         Route::get('export_loveStudents_pdf', [LoveStudentController::class, 'export_loveStudents_pdf'])->name('export_loveStudents_pdf');
         Route::get('export_loveStudents_excel', [LoveStudentController::class, 'export_loveStudents_excel'])->name('export_loveStudents_excel'); 
              
         Route::get('export_loveStudents_anecdotal_pdf/{id}', [Love_Anecdotal_RecordController::class, 'export_loveStudents_Anecdotal_ID_pdf'])->name('export_loveStudents_anecdotal_pdf');
         Route::get('export_loveStudents_counseling_anecdotal_pdf/{id}', [Love_Counseling_Anecdotal_RecordController::class, 'export_loveStudents_Counseling_Anecdotal_ID_pdf'])->name('export_loveStudents_counseling_anecdotal_pdf');
+
+        Route::get('export_loveStudents_parent_conference_record_pdf/{id}', [Love_Parent_Conference_RecordController::class, 'export_loveStudents_Parent_Conference_Record_ID_pdf'])->name('export_loveStudents_parent_conference_record_pdf');
 
         //for edit admin profile
         Route::get('/adminprofile', [
@@ -180,6 +190,10 @@ Route::middleware(['auth', ])->group(function () {
 
        
        Route::get('/show-student-wisdom/{id}/parent_conference_record_wisdom/', [Wisdom_Parent_Conference_RecordController::class, 'index'])->name('wisdom-parent_conference_record');
+       Route::get('/show-student-wisdom/{id}/parent_conference_record_wisdom/create',[Wisdom_Parent_Conference_RecordController::class, 'create']);
+       Route::get('/show-student-wisdom/{id}/parent_conference_record_wisdom/{student}', [Wisdom_Parent_Conference_RecordController::class, 'show']);
+       Route::post('/add_parent_conference_record_wisdom', [Wisdom_Parent_Conference_RecordController::class, 'store']);
+       Route::get('/delete_parent_conference_record_wisdom/{id}', [Wisdom_Parent_Conference_RecordController::class, 'destroy']);
 
        //for 11 Faith Students
        Route::get('faith-students', [FaithStudentController::class, 'index'])->name('faith-list');
@@ -208,6 +222,10 @@ Route::middleware(['auth', ])->group(function () {
 
 
        Route::get('/show-student-faith/{id}/parent_conference_record_faith/', [Faith_Parent_Conference_RecordController::class, 'index'])->name('faith-parent_conference_record');
+       Route::get('/show-student-faith/{id}/parent_conference_record_faith/create',[Faith_Parent_Conference_RecordController::class, 'create']);
+       Route::get('/show-student-faith/{id}/parent_conference_record_faith/{student}', [Faith_Parent_Conference_RecordController::class, 'show']);
+       Route::post('/add_parent_conference_record_faith', [Faith_Parent_Conference_RecordController::class, 'store']);
+       Route::get('/delete_parent_conference_record_faith/{id}', [Faith_Parent_Conference_RecordController::class, 'destroy']);
 
        //for 11 Charity Students
        Route::get('charity-students', [CharityStudentController::class, 'index'])->name('charity-list');
@@ -236,6 +254,10 @@ Route::middleware(['auth', ])->group(function () {
 
 
        Route::get('/show-student-charity/{id}/parent_conference_record_charity/', [Charity_Parent_Conference_RecordController::class, 'index'])->name('charity-parent_conference_record');
+       Route::get('/show-student-charity/{id}/parent_conference_record_charity/create',[Charity_Parent_Conference_RecordController::class, 'create']);
+       Route::get('/show-student-charity/{id}/parent_conference_record_charity/{student}', [Charity_Parent_Conference_RecordController::class, 'show']);
+       Route::post('/add_parent_conference_record_charity', [Charity_Parent_Conference_RecordController::class, 'store']);
+       Route::get('/delete_parent_conference_record_charity/{id}', [Charity_Parent_Conference_RecordController::class, 'destroy']);
 
        //for 12 Hope Students
        Route::get('hope-students', [HopeStudentController::class, 'index'])->name('hope-list');
@@ -264,6 +286,10 @@ Route::middleware(['auth', ])->group(function () {
 
 
        Route::get('/show-student-hope/{id}/parent_conference_record_hope/', [Hope_Parent_Conference_RecordController::class, 'index'])->name('hope-parent_conference_record');
+       Route::get('/show-student-hope/{id}/parent_conference_record_hope/create',[Hope_Parent_Conference_RecordController::class, 'create']);
+       Route::get('/show-student-hope/{id}/parent_conference_record_hope/{student}', [Hope_Parent_Conference_RecordController::class, 'show']);
+       Route::post('/add_parent_conference_record_hope', [Hope_Parent_Conference_RecordController::class, 'store']);
+       Route::get('/delete_parent_conference_record_hope/{id}', [Hope_Parent_Conference_RecordController::class, 'destroy']);
 
        //for 12 Love Students
        Route::get('love-students', [LoveStudentController::class, 'index'])->name('love-list');
@@ -292,6 +318,10 @@ Route::middleware(['auth', ])->group(function () {
 
 
        Route::get('/show-student-love/{id}/parent_conference_record_love/', [Love_Parent_Conference_RecordController::class, 'index'])->name('love-parent_conference_record');
+       Route::get('/show-student-love/{id}/parent_conference_record_love/create',[Love_Parent_Conference_RecordController::class, 'create']);
+       Route::get('/show-student-love/{id}/parent_conference_record_love/{student}', [Love_Parent_Conference_RecordController::class, 'show']);
+       Route::post('/add_parent_conference_record_love', [Love_Parent_Conference_RecordController::class, 'store']);
+       Route::get('/delete_parent_conference_record_love/{id}', [Love_Parent_Conference_RecordController::class, 'destroy']);
 
        //for SHS Parents
        Route::get('shs-parents', [ParentController::class, 'index'])->name('shs-parents');
@@ -299,11 +329,13 @@ Route::middleware(['auth', ])->group(function () {
        Route::post('/send_email_parent_admin', [ParentEmailController::class, 'sendEmail']);
 
         //for calendar admin panel
-        Route::get('fullcalender', [AdminCalendarController::class, 'index'])->name('calendar');
-        Route::post('fullcalenderAjax', [AdminCalendarController::class, 'ajax']);
+        // Route::get('fullcalender', [AdminCalendarController::class, 'index'])->name('calendar');
+        // Route::post('fullcalenderAjax', [AdminCalendarController::class, 'ajax']);
 
     
        //for events admin
+
+       Route::post('/add_new_event', [AdminEventController::class, 'store']);
 
        Route::get('/event-delete/{id}', [HomeController::class, 'destroy']);
        Route::post('/send-event', function(){

@@ -22,7 +22,7 @@
 
     <div class="">
         <p style="font-size: 14px;">Observation Date and Time: <span
-                style="border-bottom: 1px solid dimgray;">{{ $anecdotal_records->observation_date_time }}</span></p>
+                style="border-bottom: 1px solid dimgray;">{{ $anecdotal_records->observation_date_time->format('F d,  Y - g:i A') }}</span></p>
     </div>
     <div class="" style="margin-top: -10px;">
         <p style="font-size: 14px;">Student Name: <span
