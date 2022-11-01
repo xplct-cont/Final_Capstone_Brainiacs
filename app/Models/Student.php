@@ -41,4 +41,12 @@ class Student extends Model
     public function parent_conference_record(){
         return $this->hasMany('App\Models\Parent_Conference_Record');
     }
+
+    public function career_interest_test_result(){
+        return $this->hasMany('App\Models\Career_Interest_Test_Result');
+    }
+
+    public function personality_test_result(){
+        return $this->hasMany('App\Models\Personality_Test_Result');
+    }
 }

@@ -47,14 +47,16 @@ h2{
 </head>
 
 <body style="text-center">
-
+<img src="{{ public_path('images/image17.png') }}" style="width: 100px; height: 100px; border-radius: 50%; margin-left: 300px;">
 <h1 style="font-size: 25px; text-center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Pangangan National High School - Talisay, Calape, Bohol</h1><hr>
 <h2 style="font-size: 20px; text-center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Senior High School Advisers</h2>
 
 
  <table id="customers">
   <tr>
+
     <th>ID</th>
+    <th>Profile Image</th>
     <th>Name</th>
     <th>Advisory</th>
     <th>Contact Number</th>
@@ -64,6 +66,7 @@ h2{
   @foreach($users as $user)
   <tr>
     <td>{{$user->id}}</td>
+    <td> <img src="{{ public_path('images/avatars/' . $user->avatar) }}" style="width: 30px; height: 30px; border-radius: 50%;"></td>
     <td>{{$user->name}}</td>
     <td>{{$user->advisory}}</td>
     <td>{{$user->contact_no}}</td>

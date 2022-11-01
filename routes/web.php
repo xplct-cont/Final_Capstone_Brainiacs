@@ -36,6 +36,18 @@ use App\Http\Controllers\Admin\Parent_Conference_Record\Faith_Parent_Conference_
 use App\Http\Controllers\Admin\Parent_Conference_Record\Hope_Parent_Conference_RecordController;
 use App\Http\Controllers\Admin\Parent_Conference_Record\Love_Parent_Conference_RecordController;
 
+use App\Http\Controllers\Admin\Career_Interest_Test_Result\Wisdom_Career_Interest_Test_ResultController;
+use App\Http\Controllers\Admin\Career_Interest_Test_Result\Charity_Career_Interest_Test_ResultController;
+use App\Http\Controllers\Admin\Career_Interest_Test_Result\Faith_Career_Interest_Test_ResultController;
+use App\Http\Controllers\Admin\Career_Interest_Test_Result\Hope_Career_Interest_Test_ResultController;
+use App\Http\Controllers\Admin\Career_Interest_Test_Result\Love_Career_Interest_Test_ResultController;
+
+use App\Http\Controllers\Admin\Personality_Test_Result\Wisdom_Personality_Test_ResultController;
+use App\Http\Controllers\Admin\Personality_Test_Result\Charity_Personality_Test_ResultController;
+use App\Http\Controllers\Admin\Personality_Test_Result\Faith_Personality_Test_ResultController;
+use App\Http\Controllers\Admin\Personality_Test_Result\Hope_Personality_Test_ResultController;
+use App\Http\Controllers\Admin\Personality_Test_Result\Love_Personality_Test_ResultController;
+
 
 use App\Http\Controllers\AdviserHomePageController;
 use App\Http\Controllers\Adviser\AdviserProfileController;
@@ -195,6 +207,18 @@ Route::middleware(['auth', ])->group(function () {
        Route::post('/add_parent_conference_record_wisdom', [Wisdom_Parent_Conference_RecordController::class, 'store']);
        Route::get('/delete_parent_conference_record_wisdom/{id}', [Wisdom_Parent_Conference_RecordController::class, 'destroy']);
 
+
+       Route::get('/show-student-wisdom/{id}/career_interest_test_result_wisdom/', [Wisdom_Career_Interest_Test_ResultController::class, 'index'])->name('wisdom-career_interest_test_result');
+       Route::post('/upload_career_interest_result_wisdom', [Wisdom_Career_Interest_Test_ResultController::class, 'store']);   
+       Route::get('/delete_career_interest_test_result_wisdom/{id}', [Wisdom_Career_Interest_Test_ResultController::class, 'destroy']);
+       Route::get('/download_career_interest_test_result_wisdom/{id}',[Wisdom_Career_Interest_Test_ResultController::class, 'downloadFile'])->name('download_career_interest_test_result_wisdom');
+
+
+       Route::get('/show-student-wisdom/{id}/personality_test_result_wisdom/', [Wisdom_Personality_Test_ResultController::class, 'index'])->name('wisdom-personality_test_result');
+       Route::post('/upload_personality_result_wisdom', [Wisdom_Personality_Test_ResultController::class, 'store']);   
+       Route::get('/delete_personality_test_result_wisdom/{id}', [Wisdom_Personality_Test_ResultController::class, 'destroy']);
+       Route::get('/download_personality_test_result_wisdom/{id}',[Wisdom_Personality_Test_ResultController::class, 'downloadFile'])->name('download_personality_test_result_wisdom');
+
        //for 11 Faith Students
        Route::get('faith-students', [FaithStudentController::class, 'index'])->name('faith-list');
        Route::get('/edit-faith-student/{id}', [FaithStudentController::class, 'edit']);
@@ -226,6 +250,18 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-faith/{id}/parent_conference_record_faith/{student}', [Faith_Parent_Conference_RecordController::class, 'show']);
        Route::post('/add_parent_conference_record_faith', [Faith_Parent_Conference_RecordController::class, 'store']);
        Route::get('/delete_parent_conference_record_faith/{id}', [Faith_Parent_Conference_RecordController::class, 'destroy']);
+
+
+       Route::get('/show-student-faith/{id}/career_interest_test_result_faith/', [Faith_Career_Interest_Test_ResultController::class, 'index'])->name('faith-career_interest_test_result');
+       Route::post('/upload_career_interest_result_faith', [Faith_Career_Interest_Test_ResultController::class, 'store']);   
+       Route::get('/delete_career_interest_test_result_faith/{id}', [Faith_Career_Interest_Test_ResultController::class, 'destroy']);
+       Route::get('/download_career_interest_test_result_faith/{id}',[Faith_Career_Interest_Test_ResultController::class, 'downloadFile'])->name('download_career_interest_test_result_faith');
+
+
+       Route::get('/show-student-faith/{id}/personality_test_result_faith/', [Faith_Personality_Test_ResultController::class, 'index'])->name('faith-personality_test_result');
+       Route::post('/upload_personality_result_faith', [Faith_Personality_Test_ResultController::class, 'store']);   
+       Route::get('/delete_personality_test_result_faith/{id}', [Faith_Personality_Test_ResultController::class, 'destroy']);
+       Route::get('/download_personality_test_result_faith/{id}',[Faith_Personality_Test_ResultController::class, 'downloadFile'])->name('download_personality_test_result_faith');
 
        //for 11 Charity Students
        Route::get('charity-students', [CharityStudentController::class, 'index'])->name('charity-list');
@@ -259,6 +295,18 @@ Route::middleware(['auth', ])->group(function () {
        Route::post('/add_parent_conference_record_charity', [Charity_Parent_Conference_RecordController::class, 'store']);
        Route::get('/delete_parent_conference_record_charity/{id}', [Charity_Parent_Conference_RecordController::class, 'destroy']);
 
+       
+       Route::get('/show-student-charity/{id}/career_interest_test_result_charity/', [Charity_Career_Interest_Test_ResultController::class, 'index'])->name('charity-career_interest_test_result');
+       Route::post('/upload_career_interest_result_charity', [Charity_Career_Interest_Test_ResultController::class, 'store']);   
+       Route::get('/delete_career_interest_test_result_charity/{id}', [Charity_Career_Interest_Test_ResultController::class, 'destroy']);
+       Route::get('/download_career_interest_test_result_charity/{id}',[Charity_Career_Interest_Test_ResultController::class, 'downloadFile'])->name('download_career_interest_test_result_charity');
+
+
+       Route::get('/show-student-charity/{id}/personality_test_result_charity/', [Charity_Personality_Test_ResultController::class, 'index'])->name('charity-personality_test_result');
+       Route::post('/upload_personality_result_charity', [Charity_Personality_Test_ResultController::class, 'store']);   
+       Route::get('/delete_personality_test_result_charity/{id}', [Charity_Personality_Test_ResultController::class, 'destroy']);
+       Route::get('/download_personality_test_result_charity/{id}',[Charity_Personality_Test_ResultController::class, 'downloadFile'])->name('download_personality_test_result_charity');
+
        //for 12 Hope Students
        Route::get('hope-students', [HopeStudentController::class, 'index'])->name('hope-list');
        Route::get('/edit-hope-student/{id}', [HopeStudentController::class, 'edit']);
@@ -291,6 +339,18 @@ Route::middleware(['auth', ])->group(function () {
        Route::post('/add_parent_conference_record_hope', [Hope_Parent_Conference_RecordController::class, 'store']);
        Route::get('/delete_parent_conference_record_hope/{id}', [Hope_Parent_Conference_RecordController::class, 'destroy']);
 
+
+       Route::get('/show-student-hope/{id}/career_interest_test_result_hope/', [Hope_Career_Interest_Test_ResultController::class, 'index'])->name('hope-career_interest_test_result');
+       Route::post('/upload_career_interest_result_hope', [Hope_Career_Interest_Test_ResultController::class, 'store']);   
+       Route::get('/delete_career_interest_test_result_hope/{id}', [Hope_Career_Interest_Test_ResultController::class, 'destroy']);
+       Route::get('/download_career_interest_test_result_hope/{id}',[Hope_Career_Interest_Test_ResultController::class, 'downloadFile'])->name('download_career_interest_test_result_hope');
+
+
+       Route::get('/show-student-hope/{id}/personality_test_result_hope/', [Hope_Personality_Test_ResultController::class, 'index'])->name('hope-personality_test_result');
+       Route::post('/upload_personality_result_hope', [Hope_Personality_Test_ResultController::class, 'store']);   
+       Route::get('/delete_personality_test_result_hope/{id}', [Hope_Personality_Test_ResultController::class, 'destroy']);
+       Route::get('/download_personality_test_result_hope/{id}',[Hope_Personality_Test_ResultController::class, 'downloadFile'])->name('download_personality_test_result_hope');
+
        //for 12 Love Students
        Route::get('love-students', [LoveStudentController::class, 'index'])->name('love-list');
        Route::get('/edit-love-student/{id}', [LoveStudentController::class, 'edit']);
@@ -322,6 +382,18 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-love/{id}/parent_conference_record_love/{student}', [Love_Parent_Conference_RecordController::class, 'show']);
        Route::post('/add_parent_conference_record_love', [Love_Parent_Conference_RecordController::class, 'store']);
        Route::get('/delete_parent_conference_record_love/{id}', [Love_Parent_Conference_RecordController::class, 'destroy']);
+
+
+       Route::get('/show-student-love/{id}/career_interest_test_result_love/', [Love_Career_Interest_Test_ResultController::class, 'index'])->name('love-career_interest_test_result');
+       Route::post('/upload_career_interest_result_love', [Love_Career_Interest_Test_ResultController::class, 'store']);   
+       Route::get('/delete_career_interest_test_result_love/{id}', [Love_Career_Interest_Test_ResultController::class, 'destroy']);
+       Route::get('/download_career_interest_test_result_love/{id}',[Love_Career_Interest_Test_ResultController::class, 'downloadFile'])->name('download_career_interest_test_result_love');
+
+
+       Route::get('/show-student-love/{id}/personality_test_result_love/', [Love_Personality_Test_ResultController::class, 'index'])->name('love-personality_test_result');
+       Route::post('/upload_personality_result_love', [Love_Personality_Test_ResultController::class, 'store']);   
+       Route::get('/delete_personality_test_result_love/{id}', [Love_Personality_Test_ResultController::class, 'destroy']);
+       Route::get('/download_personality_test_result_love/{id}',[Love_Personality_Test_ResultController::class, 'downloadFile'])->name('download_personality_test_result_love');
 
        //for SHS Parents
        Route::get('shs-parents', [ParentController::class, 'index'])->name('shs-parents');

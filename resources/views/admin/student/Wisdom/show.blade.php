@@ -121,6 +121,57 @@
 
                     </div>
 
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <a href="{{ url('show-student-wisdom/' . $wisdomStud->id . '/career_interest_test_result_wisdom') }}">
+                                <div class="layer">
+
+                                </div>
+                                <div class="content">
+                                    <div class="div">
+                                        <p style="font-size: 20px;">Pangangan National High School</p>
+                                        <p style="font-size: 15px;">Talisay, Calape, Bohol</p>
+                                    </div>
+
+                                    <div class="image">
+                                        <img src="/images/image17.png" class="user-image img-circle elevation-2 "
+                                            alt="User Image"
+                                            style="width: 62px; height:62px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
+
+                                    </div>
+                                    <div class="details mt-2">
+                                        <h2>Career Interest Test Result</h2>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <a href="{{ url('show-student-wisdom/' . $wisdomStud->id . '/personality_test_result_wisdom') }}">
+                                <div class="layer">
+
+                                </div>
+                                <div class="content">
+                                    <div class="div">
+                                        <p style="font-size: 20px;">Pangangan National High School</p>
+                                        <p style="font-size: 15px;">Talisay, Calape, Bohol</p>
+                                    </div>
+
+                                    <div class="image">
+                                        <img src="/images/image17.png" class="user-image img-circle elevation-2 "
+                                            alt="User Image"
+                                            style="width: 62px; height:62px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
+
+                                    </div>
+                                    <div class="details mt-2">
+                                        <h2>Personality Test Result</h2>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
