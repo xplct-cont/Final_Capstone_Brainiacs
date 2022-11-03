@@ -144,5 +144,85 @@ class MyStudent_Student_Information_SheetController extends Controller
         $removeRec -> delete();
         return redirect()->back()->with('status', 'Record Deleted Successfully!');   
       }
+
+
+      public function updateInfo(Request $request, $id){
+        $myStudents = Student_Information_Sheet::find($id);
+        $myStudents->student_id = $request->input('student_id');
+
+        $myStudents->type_of_student = $request->input('type_of_student');
+        $myStudents->last_attended_school = $request->input('last_attended_school');
+        $myStudents->school_year = $request->input('school_year');
+        //PERSONAL DATA
+        $myStudents->birthdate = $request->input('birthdate');
+        $myStudents->nationality = $request->input('nationality');
+        $myStudents->status = $request->input('status');
+        $myStudents->number = $request->input('number');
+        $myStudents->height = $request->input('height');
+        $myStudents->birthplace = $request->input('birthplace');
+        $myStudents->religion = $request->input('religion');
+        $myStudents->weight = $request->input('weight');
+        //EDUCATIONAL BACKGROUND
+        $myStudents->elementary = $request->input('elementary');
+        $myStudents->secondary = $request->input('secondary');
+        $myStudents->elem_honors_rec = $request->input('elem_honors_rec');
+        $myStudents->secon_honors_rec = $request->input('secon_honors_rec');
+        $myStudents->elem_year_grad = $request->input('elem_year_grad');
+        $myStudents->secon_year_grad = $request->input('secon_year_grad');
+        //FOR TRANSFEREE
+        $myStudents->level_last_attended = $request->input('level_last_attended');
+        $myStudents->school_add = $request->input('school_add');
+        $myStudents->year = $request->input('year');
+        $myStudents->reasons_for_transfer = $request->input('reasons_for_transfer');
+        //AFFILIATION/ORGANIZATION
+        $myStudents->org_name = $request->input('org_name');
+        $myStudents->position = $request->input('position');
+        $myStudents->org_year = $request->input('org_year');
+        //SELF
+        $myStudents->fav_sub = $request->input('fav_sub');
+        $myStudents->most_dif_sub = $request->input('most_dif_sub');
+        $myStudents->hobbies = $request->input('hobbies');
+        $myStudents->likes = $request->input('likes');
+        $myStudents->dislikes = $request->input('dislikes');
+        //FAMILY BACKGROUND
+        $myStudents->father = $request->input('father');
+        $myStudents->mother = $request->input('mother');
+        $myStudents->father_age = $request->input('father_age');
+        $myStudents->mother_age = $request->input('mother_age');
+        $myStudents->father_occupation = $request->input('father_occupation');
+        $myStudents->mother_occupation = $request->input('mother_occupation');
+        $myStudents->father_off_ad = $request->input('father_off_ad');
+        $myStudents->mother_off_ad = $request->input('mother_off_ad');
+        $myStudents->father_educ_stat = $request->input('father_educ_stat');
+        $myStudents->mother_educ_stat = $request->input('mother_educ_stat');
+        $myStudents->monthly_income = $request->input('monthly_income');
+        $myStudents->mar_parents_stat = $request->input('mar_parents_stat');
+        $myStudents->rank_order = $request->input('rank_order');
+        $myStudents->no_of_brothers = $request->input('no_of_brothers');
+        $myStudents->no_of_sisters = $request->input('no_of_sisters');
+        $myStudents->living_with = $request->input('living_with');
+        $myStudents->how_are_you_supp = $request->input('how_are_you_supp');
+        $myStudents->rel_with_father = $request->input('rel_with_father');
+        $myStudents->rel_with_mother = $request->input('rel_with_mother');
+        $myStudents->rel_with_brother = $request->input('rel_with_brother');
+        $myStudents->rel_with_sister = $request->input('rel_with_sister');
+        //IF MARRIED
+        $myStudents->spouse_name = $request->input('spouse_name');
+        $myStudents->spouse_age = $request->input('spouse_age');
+        $myStudents->spouse_nationality = $request->input('spouse_nationality');
+        $myStudents->spouse_occupation = $request->input('spouse_occupation');
+        $myStudents->spouse_comp_name = $request->input('spouse_comp_name');
+        $myStudents->company_num = $request->input('company_num');
+        //HEALTH HISTORY
+        $myStudents->past_disease = $request->input('past_disease');
+        $myStudents->injuries = $request->input('injuries');
+        $myStudents->operations = $request->input('operations');
+        $myStudents->mens_history = $request->input('mens_history');
+        //SIGNED
+        $myStudents->date_signed = $request->input('date_signed');
+    
+        $myStudents->update();
+        return redirect()->back()->with('status', 'Information Updated Successfully!');
+    }
 }
 

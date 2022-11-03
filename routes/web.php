@@ -521,6 +521,7 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('/show-my-student/{id}/student_information_sheet_myStudent/', [MyStudent_Student_Information_SheetController::class, 'index'])->name('myStudent-student_information_sheet');
         Route::post('/upload_student_information_myStudent', [MyStudent_Student_Information_SheetController::class, 'store']);   
         Route::get('/delete_student_information_sheet_myStudent/{id}', [MyStudent_Student_Information_SheetController::class, 'destroy']);
+        Route::put('/update_student_information_sheet_myStudent/{id}', [MyStudent_Student_Information_SheetController::class, 'updateInfo']);
 
         });
     });

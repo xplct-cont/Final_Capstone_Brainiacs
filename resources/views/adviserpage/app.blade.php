@@ -41,7 +41,7 @@
 <div class="wrapper">
   
     <!-- Main Header -->
-     <nav class="main-header navbar navbar-expand navbar-info  elevation-0">
+     <nav class="main-header navbar navbar-expand navbar-info elevation-0">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">

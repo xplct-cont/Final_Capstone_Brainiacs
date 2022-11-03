@@ -830,7 +830,7 @@
                             </div>
                             <div class="form-group ">
                                 <label for="" style="color:dimgray">Home Address: </label>
-                                <input type="text" class="form-control"  value="{{ $stud_info_cha->student->address}}">
+                                <input type="text" class="form-control"  value="{{ $stud_info_cha->student->address}}" readonly>
 
                             </div>
                             <div class="form-group ">

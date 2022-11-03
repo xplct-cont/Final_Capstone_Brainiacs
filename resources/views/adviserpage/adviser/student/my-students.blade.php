@@ -103,7 +103,7 @@
    </div>
 </div>
 
-<div class="div d-flex justify-content-center" style="position: relative; top:-28px;">
+<div class="div d-flex justify-content-center" style="position: relative; top:-58px;">
   {{$myStudents->onEachSide(1)->links()}}
  </div>    
 @endsection
