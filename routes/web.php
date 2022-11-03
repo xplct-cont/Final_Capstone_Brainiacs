@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\Student\LoveStudentController;
 use App\Http\Controllers\Admin\Parent\ParentController;
 use App\Http\Controllers\Admin\Parent\ParentEmailController;
 use App\Models\User;
+use App\Models\Student;
 
 use App\Http\Controllers\Admin\Anecdotal_Record\Wisdom_Anecdotal_RecordController;
 use App\Http\Controllers\Admin\Anecdotal_Record\Charity_Anecdotal_RecordController;
@@ -48,6 +49,11 @@ use App\Http\Controllers\Admin\Personality_Test_Result\Faith_Personality_Test_Re
 use App\Http\Controllers\Admin\Personality_Test_Result\Hope_Personality_Test_ResultController;
 use App\Http\Controllers\Admin\Personality_Test_Result\Love_Personality_Test_ResultController;
 
+use App\Http\Controllers\Admin\Student_Information_Sheet\Wisdom_Student_Information_SheetController;
+use App\Http\Controllers\Admin\Student_Information_Sheet\Charity_Student_Information_SheetController;
+use App\Http\Controllers\Admin\Student_Information_Sheet\Faith_Student_Information_SheetController;
+use App\Http\Controllers\Admin\Student_Information_Sheet\Hope_Student_Information_SheetController;
+use App\Http\Controllers\Admin\Student_Information_Sheet\Love_Student_Information_SheetController;
 
 use App\Http\Controllers\AdviserHomePageController;
 use App\Http\Controllers\Adviser\AdviserProfileController;
@@ -55,6 +61,7 @@ use App\Http\Controllers\Adviser\StudentListController;
 use App\Http\Controllers\Adviser\ParentListController;
 use App\Http\Controllers\Adviser\MyStudent_Anecdotal_RecordController;
 use App\Http\Controllers\Adviser\Parent_EmailController;
+use App\Http\Controllers\Adviser\MyStudent_Student_Information_SheetController;
 
 
 
@@ -219,6 +226,12 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/delete_personality_test_result_wisdom/{id}', [Wisdom_Personality_Test_ResultController::class, 'destroy']);
        Route::get('/download_personality_test_result_wisdom/{id}',[Wisdom_Personality_Test_ResultController::class, 'downloadFile'])->name('download_personality_test_result_wisdom');
 
+
+       Route::get('/show-student-wisdom/{id}/student_information_sheet_wisdom/', [Wisdom_Student_Information_SheetController::class, 'index'])->name('wisdom-student_information_sheet');
+       Route::post('/upload_student_information_wisdom', [Wisdom_Student_Information_SheetController::class, 'store']);   
+       Route::get('/delete_student_information_sheet_wisdom/{id}', [Wisdom_Student_Information_SheetController::class, 'destroy']);
+       Route::put('/update_student_information_sheet_wisdom/{id}', [Wisdom_Student_Information_SheetController::class, 'updateInfo']);
+
        //for 11 Faith Students
        Route::get('faith-students', [FaithStudentController::class, 'index'])->name('faith-list');
        Route::get('/edit-faith-student/{id}', [FaithStudentController::class, 'edit']);
@@ -262,6 +275,12 @@ Route::middleware(['auth', ])->group(function () {
        Route::post('/upload_personality_result_faith', [Faith_Personality_Test_ResultController::class, 'store']);   
        Route::get('/delete_personality_test_result_faith/{id}', [Faith_Personality_Test_ResultController::class, 'destroy']);
        Route::get('/download_personality_test_result_faith/{id}',[Faith_Personality_Test_ResultController::class, 'downloadFile'])->name('download_personality_test_result_faith');
+
+
+       Route::get('/show-student-faith/{id}/student_information_sheet_faith/', [Faith_Student_Information_SheetController::class, 'index'])->name('faith-student_information_sheet');
+       Route::post('/upload_student_information_faith', [Faith_Student_Information_SheetController::class, 'store']);   
+       Route::get('/delete_student_information_sheet_faith/{id}', [Faith_Student_Information_SheetController::class, 'destroy']);
+       Route::put('/update_student_information_sheet_faith/{id}', [Faith_Student_Information_SheetController::class, 'updateInfo']);
 
        //for 11 Charity Students
        Route::get('charity-students', [CharityStudentController::class, 'index'])->name('charity-list');
@@ -307,6 +326,12 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/delete_personality_test_result_charity/{id}', [Charity_Personality_Test_ResultController::class, 'destroy']);
        Route::get('/download_personality_test_result_charity/{id}',[Charity_Personality_Test_ResultController::class, 'downloadFile'])->name('download_personality_test_result_charity');
 
+
+       Route::get('/show-student-charity/{id}/student_information_sheet_charity/', [Charity_Student_Information_SheetController::class, 'index'])->name('charity-student_information_sheet');
+       Route::post('/upload_student_information_charity', [Charity_Student_Information_SheetController::class, 'store']);   
+       Route::get('/delete_student_information_sheet_charity/{id}', [Charity_Student_Information_SheetController::class, 'destroy']);
+       Route::put('/update_student_information_sheet_charity/{id}', [Charity_Student_Information_SheetController::class, 'updateInfo']);
+
        //for 12 Hope Students
        Route::get('hope-students', [HopeStudentController::class, 'index'])->name('hope-list');
        Route::get('/edit-hope-student/{id}', [HopeStudentController::class, 'edit']);
@@ -350,6 +375,12 @@ Route::middleware(['auth', ])->group(function () {
        Route::post('/upload_personality_result_hope', [Hope_Personality_Test_ResultController::class, 'store']);   
        Route::get('/delete_personality_test_result_hope/{id}', [Hope_Personality_Test_ResultController::class, 'destroy']);
        Route::get('/download_personality_test_result_hope/{id}',[Hope_Personality_Test_ResultController::class, 'downloadFile'])->name('download_personality_test_result_hope');
+
+       
+       Route::get('/show-student-hope/{id}/student_information_sheet_hope/', [Hope_Student_Information_SheetController::class, 'index'])->name('hope-student_information_sheet');
+       Route::post('/upload_student_information_hope', [Hope_Student_Information_SheetController::class, 'store']);   
+       Route::get('/delete_student_information_sheet_hope/{id}', [Hope_Student_Information_SheetController::class, 'destroy']);
+       Route::put('/update_student_information_sheet_hope/{id}', [Hope_Student_Information_SheetController::class, 'updateInfo']);
 
        //for 12 Love Students
        Route::get('love-students', [LoveStudentController::class, 'index'])->name('love-list');
@@ -395,6 +426,12 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/delete_personality_test_result_love/{id}', [Love_Personality_Test_ResultController::class, 'destroy']);
        Route::get('/download_personality_test_result_love/{id}',[Love_Personality_Test_ResultController::class, 'downloadFile'])->name('download_personality_test_result_love');
 
+
+       Route::get('/show-student-love/{id}/student_information_sheet_love/', [Love_Student_Information_SheetController::class, 'index'])->name('love-student_information_sheet');
+       Route::post('/upload_student_information_love', [Love_Student_Information_SheetController::class, 'store']);   
+       Route::get('/delete_student_information_sheet_love/{id}', [Love_Student_Information_SheetController::class, 'destroy']);
+       Route::put('/update_student_information_sheet_love/{id}', [Love_Student_Information_SheetController::class, 'updateInfo']);
+
        //for SHS Parents
        Route::get('shs-parents', [ParentController::class, 'index'])->name('shs-parents');
        Route::get('/email_to_parent/{id}', [ParentController::class, 'emailToParent']);
@@ -411,9 +448,9 @@ Route::middleware(['auth', ])->group(function () {
 
        Route::get('/event-delete/{id}', [HomeController::class, 'destroy']);
        Route::post('/send-event', function(){
-           $user = User::all();
-        //    $user->notify(new EmailNotification());
-        Notification::send($user, new EmailNotification());
+           $student = Student::all();
+        //    $student->notify(new EmailNotification());
+        Notification::send($student, new EmailNotification());
         return redirect()->back();
         });
       
@@ -480,6 +517,11 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('/email_parent/{id}', [ParentListController::class, 'emailParent']);
         Route::post('/send_email_advisory_parent', [Parent_EmailController::class, 'sendEmail']);
         
+
+        Route::get('/show-my-student/{id}/student_information_sheet_myStudent/', [MyStudent_Student_Information_SheetController::class, 'index'])->name('myStudent-student_information_sheet');
+        Route::post('/upload_student_information_myStudent', [MyStudent_Student_Information_SheetController::class, 'store']);   
+        Route::get('/delete_student_information_sheet_myStudent/{id}', [MyStudent_Student_Information_SheetController::class, 'destroy']);
+
         });
     });
 

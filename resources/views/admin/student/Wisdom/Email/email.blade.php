@@ -9,7 +9,9 @@
 
 <body>
 
-    <img src="/images/" alt="">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVRTCHiIiL1FcTvHzaU5O1QmhNwdThjQkymI8J_D4BWg&s"
+    style="height: 40px; border-radius: 50%;" />
+    <div></div><div></div>
     <div class="container" style="color:white;  background: linear-gradient(#28313B, #485461); width: 600px;">
         <h2 style="color:white; text-align:center; font-size: 20px;">Pangangan National High School <br><span
                 style="font-size: 15px; margin-top: -20px;">Guidance Office<br></span></h2>
@@ -18,7 +20,7 @@
 
             <div class="card-header">
             </div>
-            <div class="card-body" style="background-color:#292b2c; color:white;">
+            <div class="card-body" style="background-color:#5bc0de; color:white;">
                 <div class="subject" style=" text-align:center; color:white;">
                     To: {{ $subject }}
                 </div><br>

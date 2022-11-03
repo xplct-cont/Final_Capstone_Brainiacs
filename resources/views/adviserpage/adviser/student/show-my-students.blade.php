@@ -19,7 +19,7 @@
                 <div class="row hidden-md-up">
                     <div class="col-md-4">
                         <div class="card mb-3">
-                            <a href="{{ route('home') }}">
+                            <a href="{{ url('show-my-student/' . $myStud->id . '/student_information_sheet_myStudent') }}">
                                 <div class="layer">
                                 </div>
                                 <div class="content">

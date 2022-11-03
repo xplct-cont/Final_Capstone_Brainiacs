@@ -1,6 +1,11 @@
 @extends('adviserpage.app')
 
 @section('content')
+
+<div class="p-3">
+    <a class="fas fa-arrow-left" style="font-size:20px; color:blue;" href="{{ url('show-my-student/' . $student_myS->id . '/anecdotal_record_myStudent') }}"></a>
+</div>
+
     <div class="d-flex justify-content-center mb-3">
         <h1 class="text-dark" style="font-size: 25px;">Create Anecdotal Record</h1>
     </div>

@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class Student extends Model
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable =['user_id', 'firstname', 'lastname', 'middlename', 'gender',  'age', 'year_section', 'email', 'parent_name', 'parent_email', 'address'];
 
@@ -48,5 +50,9 @@ class Student extends Model
 
     public function personality_test_result(){
         return $this->hasMany('App\Models\Personality_Test_Result');
+    }
+
+    public function student_information_sheet(){
+        return $this->hasMany('App\Models\Student_Information_Sheet');
     }
 }

@@ -17,7 +17,7 @@
                 <div class="row hidden-md-up">
                     <div class="col-md-4">
                         <div class="card mb-3">
-                            <a href="{{ route('home') }}">
+                            <a href="{{ url('show-student-love/' . $loveStud->id . '/student_information_sheet_love') }}">
                                 <div class="layer">
                                 </div>
                                 <div class="content">
@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 mb-3">
                         <div class="card">
                             <a href="{{ url('show-student-love/' . $loveStud->id . '/parent_conference_record_love') }}">
                                 <div class="layer">

@@ -11,25 +11,25 @@
     </li>
 </ul>
 
-<li class="nav-item">
-    <a href="{{ route('homepage') }}" class="nav-link {{ Request::is('homepage*') ? '' : '' }}">
-        <p>Home</p>
-        <i class="fas fa-home fa-pull-left fa-md "></i>
+<li class="nav-item mt-4">
+    <a href="{{ route('homepage') }}" class="nav-link {{ Request::is('homepage*') ? 'bg-info active' : '' }}">
+        <p class="text-white">Home</p>
+        <i class="fas fa-home fa-pull-left fa-md text-white"></i>
     </a>
 </li>
 
 <li class="nav-item">
     <a href="{{ route('advisory-list-students') }}"
-        class="nav-link {{ Request::is('advisory-list-students*') ? '' : '' }}">
-        <p>{{ Auth::user()->advisory }}</p>
-        <i class="fas fa-user-graduate fa-pull-left fa-md "></i>
+        class="nav-link {{ Request::is('advisory-list-students*') ? 'bg-info active' : '' }}">
+        <p class="text-white">{{ Auth::user()->advisory }}</p>
+        <i class="fas fa-user-graduate fa-pull-left fa-md text-white"></i>
     </a>
 </li>
 
 <li class="nav-item">
-    <a href="{{ route('parent-lists') }}" class="nav-link {{ Request::is('parent-lists*') ? '' : '' }}">
-        <p>Parents</p>
-        <i class="fas fa-users fa-pull-left fa-md "></i>
+    <a href="{{ route('parent-lists') }}" class="nav-link {{ Request::is('parent-lists*') ? 'bg-info active' : '' }}">
+        <p class="text-white">Parents</p>
+        <i class="fas fa-users fa-pull-left fa-md text-white"></i>
     </a>
 </li>
 
@@ -37,7 +37,7 @@
 
 <style scoped>
     .nav-item p {
-        position: relative;
+        
         font-size: 16px;
         left: 3px;
         top: 1px;

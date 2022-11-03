@@ -11,24 +11,24 @@
     </li>
 </ul>
 
-<li class="nav-item">
-    <a href="{{ route('home') }}" class="nav-link {{ Request::is('home*') ? '' : '' }}">
-        <p>Dashboard</p>
-        <i class="fas fa-tachometer-alt fa-pull-left fa-md "></i>
+<li class="nav-item mt-4">
+    <a href="{{ route('home') }}" class="nav-link {{ Request::is('home*') ? 'bg-info active' : '' }}">
+        <p class="text-white">Dashboard</p>
+        <i class="fas fa-tachometer-alt fa-pull-left fa-md text-white"></i>
     </a>
 </li>
 
 <li class="nav-item">
-    <a href="{{ route('users') }}" class="nav-link {{ Request::is('users') ? '' : '' }}">
-        <p>Pending Requests</p>
-        <i class="fas fa-exclamation-circle fa-pull-left fa-md "></i>
+    <a href="{{ route('users') }}" class="nav-link {{ Request::is('users') ? 'bg-info active' : '' }}">
+        <p class="text-white">Pending Requests</p>
+        <i class="fas fa-exclamation-circle fa-pull-left fa-md text-white"></i>
     </a>
 </li>
 
 <li class="nav-item">
-    <a href="{{ route('shs-parents') }}" class="nav-link {{ Request::is('shs-parents') ? '' : '' }}">
-        <p>Parents</p>
-        <i class="fas fa-users fa-pull-left fa-md "></i>
+    <a href="{{ route('shs-parents') }}" class="nav-link {{ Request::is('shs-parents') ? 'bg-info active' : '' }}">
+        <p class="text-white">Parents</p>
+        <i class="fas fa-users fa-pull-left fa-md text-white"></i>
     </a>
 </li>
 

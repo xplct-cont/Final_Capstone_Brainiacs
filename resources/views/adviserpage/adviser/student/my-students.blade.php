@@ -17,8 +17,8 @@
 @endif
 
 
-<a class="btn btn-danger mt-3 ml-3" style="" href="{{route('export_myStudents_pdf')}}"><span class="fas fa-file-pdf"></span> Generate PDF</a>
-<a href="/export_myStudents_excel" class=" mt-3 ml-3 btn btn-success"><span class="fas fa-file-excel"></span> Export to Excel</a>
+<a class="btn btn-secondary mt-3 ml-3" style="" href="{{route('export_myStudents_pdf')}}"><span class="fas fa-file-pdf text-danger"></span> PDF</a>
+<a href="/export_myStudents_excel" class=" mt-3 ml-3 btn btn-secondary"><span class="fas fa-file-excel text-success"></span> Excel</a>
 
 <div class="card col-md-12 d-flex justify-content-between bg-dark mt-2">
     <div class="card-header text-secondary">
