@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        \Chatify\ChatifyServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -236,6 +237,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => \MaatWebsite\Excel\Facades\Excel::class,
+        'Chatify' => Chatify\Facades\ChatifyMessenger::class,
 
     ],
 

@@ -34,6 +34,13 @@
     </a>
 </li>
 
+<li class="nav-item">
+    <a href="{{ url('guidance_information_system_messenger') }}" class="nav-link {{ Request::is('guidance_information_system_messenger') ? 'bg-info active' : '' }}">
+        <p class="text-white">Chats</p>
+        <i class="fas fa-receipt fa-pull-left fa-md text-white"></i>
+    </a>
+</li>
+
 
 
 <style scoped>

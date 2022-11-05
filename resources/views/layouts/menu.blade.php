@@ -62,6 +62,14 @@
     </ul>
 </li>
 
+
+<li class="nav-item">
+    <a href="{{ url('guidance_information_system_messenger') }}" class="nav-link {{ Request::is('guidance_information_system_messenger') ? 'bg-info active' : '' }}">
+        <p class="text-white">Chats</p>
+        <i class="fas fa-receipt fa-pull-left fa-md text-white"></i>
+    </a>
+</li>
+
 {{-- <div class="text-white text-center mt-1" style="padding:5px; font-size:15px; background-color:dimgray;">
     <div class="bg-info p-2">GRADE 11 SECTIONS</div>
     <ul class="list-unstyled">

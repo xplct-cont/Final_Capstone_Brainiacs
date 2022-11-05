@@ -463,9 +463,9 @@ Route::middleware(['auth', ])->group(function () {
 
        Route::get('/event-delete/{id}', [HomeController::class, 'destroy']);
        Route::post('/send-event', function(){
-           $student = Student::all();
+           $user = User::all();
         //    $student->notify(new EmailNotification());
-        Notification::send($student, new EmailNotification());
+        Notification::send($user, new EmailNotification());
         return redirect()->back();
         });
       
