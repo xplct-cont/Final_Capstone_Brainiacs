@@ -9,13 +9,14 @@
 
 <body>
 
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVRTCHiIiL1FcTvHzaU5O1QmhNwdThjQkymI8J_D4BWg&s"
-    style="height: 40px; border-radius: 50%;" />
-    <div></div><div></div>
+   
     <div class="container" style="color:white;  background: linear-gradient(#28313B, #485461); width: 600px;">
-        <h2 style="color:white; text-align:center; font-size: 20px;">Pangangan National High School <br><span
+        <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVRTCHiIiL1FcTvHzaU5O1QmhNwdThjQkymI8J_D4BWg&s"
+            style="height: 60px; border-radius: 50%; margin-left: 270px; margin-top: 15px;" />
+            <h2 style="color:white; text-align:center; font-size: 20px;">Pangangan National High School <br><span
                 style="font-size: 15px; margin-top: -20px;">Guidance Office<br></span></h2>
-
+        </div>
         <div class="card" style="border:1px solid white;  height: 100px; width: 150px text-align:center;">
 
             <div class="card-header">

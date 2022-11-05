@@ -45,7 +45,8 @@
         <!-- Left navbar links -->
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-light"></i><h2 style="position:relative; margin:auto; left:23px; top:-21.2px; font-size:16px; color:white;">{{date('Y-m-d')}}</h2></a>
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars text-light"></i><h2 style="position:relative; margin:auto; left:23px; top:-21.2px; font-size:16px; color:white;">
+                    Pangangan National High School</h2></a>
             </li>
         </ul>
 
@@ -63,6 +64,8 @@
              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                  @csrf
              </form>
+
+             
                 {{-- <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <!-- User image -->
                     <li class="user-header bg-info">
@@ -89,6 +92,7 @@
             </li>
         </ul>
     </nav> 
+   
 
     <!-- Left side column. contains the logo and sidebar -->
 @include('adviserpage.sidebar')
@@ -96,6 +100,7 @@
 <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <section class="content">
+            <div class="text-dark d-flex justify-content-end"><span style="color:#414a4c; font-weight: 600">Current Date:&nbsp;</span><span> {{date('F d,  Y')}}</span></div>
             @yield('content')
         </section>
     </div>

@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('advisory')->unique();
             $table->string('avatar')->default('image18.png');
             $table->string('role')->default('author');
+            $table->timestamp('last_seen')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

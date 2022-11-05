@@ -1,6 +1,9 @@
 @extends('layouts.layoutsidebar')
 
 @section('content')
+<div class="p-1">
+    <a class="fas fa-arrow-left" style="font-size:20px; color:blue;" href="{{ url('show-student-hope/' . $student_hop->id)}}"></a>
+</div>
     <h1 class="text-dark p-3"
         style="font-weight:normal; font-size: 25px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; ">
         Parent Conference Records of {{ $student_hop->lastname }}, {{ $student_hop->firstname }} from

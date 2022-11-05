@@ -71,13 +71,18 @@
                     <input type="text" name="address" value="{{ $student->address }}" class="form-control" required>
                 </div>
 
-                <div class="mx-auto" style="width: 200px;">
-                    <select name="gender" class="form-control" required>
-                        <option hidden="true"></option>
-                        <option selected disabled>Select Gender</option>
-                        <option value="Female">Female</option>
-                        <option value="Male">Male</option>
-                    </select>
+              
+                <div class="form-group text-dark d-flex justify-content-center">
+                    <div class="maxl">
+                        <label class="radio inline mr-5">
+                            <input type="radio" name="gender" value="Male" {{ ($student->gender == 'Male' ? ' checked' : 'Unchecked') }}>
+                            <span>Male</span>
+                        </label>
+                        <label class="radio inline">
+                            <input type="radio" name="gender" value="Female"  {{ ($student->gender == 'Female' ? ' checked' : 'Unchecked') }}>
+                            <span>Female</span>
+                        </label>
+                    </div>
                 </div>
 
 

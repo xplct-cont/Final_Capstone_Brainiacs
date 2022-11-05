@@ -100,6 +100,24 @@ class Faith_Counseling_Anecdotal_RecordController extends Controller
     return view('admin.student.Faith.Counseling_Anecdotal_Record.show', compact( 'student_fait'))->with('student_f', $student_f);
 }
 
+      public function update(Request $request, $id){
+        $student_fai = Counseling_Anecdotal_Record::find($id);
+        $student_fai->student_id = $request->input('student_id');
+        // $student_fai->date_time_called = $request->input('date_time_called');
+        $student_fai->reasons_for_contact = $request->input('reasons_for_contact');
+        $student_fai->referred_by = $request->input('referred_by');
+        $student_fai->reasons_for_referral = $request->input('reasons_for_referral');
+        $student_fai->follow_up_counseling_session = $request->input('follow_up_counseling_session');
+        $student_fai->behavior_observed = $request->input('behavior_observed');
+        $student_fai->interview_findings = $request->input('interview_findings');
+        $student_fai->clinical_impressions = $request->input('clinical_impressions');
+        $student_fai->recommendation = $request->input('recommendation');
+
+        $student_fai->update();
+        return redirect()->back()->with('status', 'Record Updated Successfully!');
+    }
+
+
    public function destroy($id){
     $removeRec = Counseling_Anecdotal_Record::findOrFail($id);
     $removeRec -> delete();

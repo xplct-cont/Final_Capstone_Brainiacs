@@ -100,6 +100,24 @@ class Love_Counseling_Anecdotal_RecordController extends Controller
     return view('admin.student.Love.Counseling_Anecdotal_Record.show', compact( 'student_love'))->with('student_l', $student_l);
 }
 
+      public function update(Request $request, $id){
+        $student_lov = Counseling_Anecdotal_Record::find($id);
+        $student_lov->student_id = $request->input('student_id');
+        // $student_lov->date_time_called = $request->input('date_time_called');
+        $student_lov->reasons_for_contact = $request->input('reasons_for_contact');
+        $student_lov->referred_by = $request->input('referred_by');
+        $student_lov->reasons_for_referral = $request->input('reasons_for_referral');
+        $student_lov->follow_up_counseling_session = $request->input('follow_up_counseling_session');
+        $student_lov->behavior_observed = $request->input('behavior_observed');
+        $student_lov->interview_findings = $request->input('interview_findings');
+        $student_lov->clinical_impressions = $request->input('clinical_impressions');
+        $student_lov->recommendation = $request->input('recommendation');
+
+        $student_lov->update();
+        return redirect()->back()->with('status', 'Record Updated Successfully!');
+    }
+
+
   public function destroy($id){
     $removeRec = Counseling_Anecdotal_Record::findOrFail($id);
     $removeRec -> delete();

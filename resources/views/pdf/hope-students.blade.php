@@ -66,8 +66,8 @@
             <th scope="col">First Name</th>
             <th scope="col">Middle Name</th>
             <th scope="col">Year/Section</th>
+            <th scope="col">Age</th>
             <th scope="col">Gender</th>
-            <th scope="col">Email</th>
             <th scope="col">Address</th>
         </tr>
         @if (count($students))
@@ -77,8 +77,8 @@
                     <td>{{ $hope->firstname }}</td>
                     <td>{{ $hope->middlename }}</td>
                     <td>{{ $hope->year_section }}</td>
+                    <td>{{ $hope->age }}</td>
                     <td>{{ $hope->gender }}</td>
-                    <td>{{ $hope->email }}</td>
                     <td>{{ $hope->address }}</td>
                 </tr>
             @endforeach

@@ -119,6 +119,8 @@
                     <thead style="background-color: rgb(219, 219, 219)">
                         <tr>
 
+                            
+                            <th style="text-align: center">Status</th>
                             <th style="text-align: center">Profile Image</th>
                             <th style="text-align: center">Name</th>
                             <th style="text-align: center">Advisory</th>
@@ -129,7 +131,7 @@
                             <th class="d-none d-md-table-cell d-lg-table-cell d-lg-table-cell" style="text-align: center">
                                 Email</th>
                             <th style="text-align: center">Edit</th>
-                            <th style="text-align: center">Delete</th>
+                            <th class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell" style="text-align: center">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -137,7 +139,23 @@
                         @forelse ($adviser as $item)
                             <tr class="text-center">
 
-                                <td><img src="{{ asset('images/avatars/' . $item->avatar) }} " width="50px" height="50px"
+                                <td> @if(Cache::has('is_online' . $item->id))
+                                    <span class="logged-in bg-success btn-xs p-1 rounded" style=" color:white; font-size">Online</span>
+                                @else
+                                    <span  class="logged-in bg-secondary btn-xs p-1 rounded" style=" color:white;">Offline</span>
+                                @endif
+                              <div style="font-size: 12px;">
+                                @if($item->last_seen != null)
+                                {{ \Carbon\Carbon::parse($item->last_seen)->diffForHumans() }}
+                            @else
+                                No data
+                            @endif
+                              </div>
+                            </td>
+
+                           
+
+                                <td> <img src="{{ asset('images/avatars/' . $item->avatar) }} " width="50px" height="50px"
                                         alt="Image" style="border-radius: 50%"></td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->advisory }}</td>
@@ -148,7 +166,7 @@
                                 <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell">{{ $item->email }}</td>
                                 <td><a href="{{ url('edit-adviser/' . $item->id) }}" class="btn btn-warning btn-xs "><i
                                             class="fas fa-user-edit text-dark"></i></a></td>
-                                <td><a href="{{ url('delete-adviser/' . $item->id) }}" class="btn btn-danger btn-xs "><i
+                                <td class="d-none d-md-table-cell d-lg-table-cell d-xl-table-cell"><a href="{{ url('delete-adviser/' . $item->id) }}" class="btn btn-danger btn-xs "><i
                                             class="fas fa-trash"></i></a></td>
                                 {{-- <td><a href="{{url('show-adviser/'.$item->id)}}" class="btn btn-success btn-xs"><i class="fas fa-eye"></i></a></td> --}}
                             </tr>

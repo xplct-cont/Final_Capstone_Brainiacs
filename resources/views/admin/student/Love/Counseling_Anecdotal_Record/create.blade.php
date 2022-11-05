@@ -5,7 +5,7 @@
     <a class="fas fa-arrow-left" style="font-size:20px; color:blue;" href="{{ url('show-student-love/' . $student_lov->id . '/counseling_anecdotal_record_love') }}"></a>
 </div>
     <div class="d-flex justify-content-center mb-3">
-        <h1 class="text-dark" style="font-size: 25px;">Create Counseling Anecdotal Record</h1>
+        <h1 class="text-dark text-center" style="font-size: 25px;">Create Counseling Anecdotal Record</h1>
     </div>
 
     <div class="row d-flex justify-content-center text-dark">

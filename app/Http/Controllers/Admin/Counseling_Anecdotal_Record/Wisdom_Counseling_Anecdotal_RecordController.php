@@ -103,6 +103,23 @@ class Wisdom_Counseling_Anecdotal_RecordController extends Controller
       return view('admin.student.Wisdom.Counseling_Anecdotal_Record.show', compact( 'student_wisd'))->with('student_w', $student_w);
   }
 
+      public function update(Request $request, $id){
+        $student_wis = Counseling_Anecdotal_Record::find($id);
+        $student_wis->student_id = $request->input('student_id');
+        // $student_wis->date_time_called = $request->input('date_time_called');
+        $student_wis->reasons_for_contact = $request->input('reasons_for_contact');
+        $student_wis->referred_by = $request->input('referred_by');
+        $student_wis->reasons_for_referral = $request->input('reasons_for_referral');
+        $student_wis->follow_up_counseling_session = $request->input('follow_up_counseling_session');
+        $student_wis->behavior_observed = $request->input('behavior_observed');
+        $student_wis->interview_findings = $request->input('interview_findings');
+        $student_wis->clinical_impressions = $request->input('clinical_impressions');
+        $student_wis->recommendation = $request->input('recommendation');
+
+        $student_wis->update();
+        return redirect()->back()->with('status', 'Record Updated Successfully!');
+    }
+
     public function destroy($id){
         $removeRec = Counseling_Anecdotal_Record::findOrFail($id);
         $removeRec -> delete();

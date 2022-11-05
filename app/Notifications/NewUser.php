@@ -2,7 +2,7 @@
 
 namespace App\Notifications;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -24,6 +24,10 @@ class NewUser extends Notification
         $this->new_user = $new_user;
     }
 
+    public function via($notifiable)
+    {
+        return ['mail'];
+    }
 
     /**
      * Get the mail representation of the notification.
@@ -34,8 +38,11 @@ class NewUser extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('New user has registered with email ' . $this->new_user->email)
-            ->action('Approve user', route('admin.users.approve', $this->new_user->id));
+            ->greeting('New adviser has registered!')
+            ->line('Name: ' . $this->new_user->name)
+            ->line('Email: ' . $this->new_user->email)
+            ->line('Advisory: ' . $this->new_user->advisory)
+            ->action('Approve Adviser', route('admin.users.approve', $this->new_user->id));
     }
 
 }

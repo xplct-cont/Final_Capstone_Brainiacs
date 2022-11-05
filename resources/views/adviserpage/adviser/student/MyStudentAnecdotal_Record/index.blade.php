@@ -1,6 +1,9 @@
 @extends('adviserpage.app')
 
 @section('content')
+<div class="p-1">
+    <a class="fas fa-arrow-left" style="font-size:20px; color:blue;" href="{{ url('show-my-student/' . $student_myS->id)}}"></a>
+</div>
     <h1 class="text-dark p-3"
         style="font-weight:normal; font-size: 25px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; ">
         Anecdotal Records of {{ $student_myS->lastname }}, {{ $student_myS->firstname }} from

@@ -104,6 +104,22 @@ class Charity_Parent_Conference_RecordController extends Controller
   }
 
 
+      public function update(Request $request, $id){
+        $student_cha = Parent_Conference_Record::find($id);
+        $student_cha->student_id = $request->input('student_id');
+        // $student_cha->date = $request->input('date');
+        $student_cha->relation_to_student = $request->input('relation_to_student');
+        $student_cha->reason_for_contact = $request->input('reason_for_contact');
+        $student_cha->inquiries_referral_appointment = $request->input('inquiries_referral_appointment');
+        $student_cha->problem_concern = $request->input('problem_concern');
+        $student_cha->topics_discussed = $request->input('topics_discussed');
+        $student_cha->suggested_resolution = $request->input('suggested_resolution');
+        $student_cha->action_taken = $request->input('action_taken');
+
+        $student_cha->update();
+        return redirect()->back()->with('status', 'Record Updated Successfully!');
+    }
+
     public function destroy($id){
         $removeRec = Parent_Conference_Record::findOrFail($id);
         $removeRec -> delete();

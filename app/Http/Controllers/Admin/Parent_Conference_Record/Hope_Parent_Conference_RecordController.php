@@ -100,6 +100,22 @@ class Hope_Parent_Conference_RecordController extends Controller
       return redirect()->back()->with('status','Added New Record!');
   }
 
+     public function update(Request $request, $id){
+        $student_hop = Parent_Conference_Record::find($id);
+        $student_hop->student_id = $request->input('student_id');
+        // $student_hop->date = $request->input('date');
+        $student_hop->relation_to_student = $request->input('relation_to_student');
+        $student_hop->reason_for_contact = $request->input('reason_for_contact');
+        $student_hop->inquiries_referral_appointment = $request->input('inquiries_referral_appointment');
+        $student_hop->problem_concern = $request->input('problem_concern');
+        $student_hop->topics_discussed = $request->input('topics_discussed');
+        $student_hop->suggested_resolution = $request->input('suggested_resolution');
+        $student_hop->action_taken = $request->input('action_taken');
+
+        $student_hop->update();
+        return redirect()->back()->with('status', 'Record Updated Successfully!');
+    }
+
     public function destroy($id){
         $removeRec = Parent_Conference_Record::findOrFail($id);
         $removeRec -> delete();

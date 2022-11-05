@@ -94,6 +94,19 @@ class Love_Anecdotal_RecordController extends Controller
         return redirect()->back()->with('status','Added New Record!');
     }
 
+    public function update(Request $request, $id){
+        $student_lov = Anecdotal_Record::find($id);
+        $student_lov->student_id = $request->input('student_id');
+        // $student_lov->observation_date_time = $request->input('observation_date_time');
+        $student_lov->description_of_incident = $request->input('description_of_incident');
+        $student_lov->location_of_incidents = $request->input('location_of_incidents');
+        $student_lov->actions_taken = $request->input('actions_taken');
+        $student_lov->recommendations = $request->input('recommendations');
+
+        $student_lov->update();
+        return redirect()->back()->with('status', 'Information Updated Successfully!');
+    }
+
     public function destroy($id){
         $removeRec = Anecdotal_Record::findOrFail($id);
         $removeRec -> delete();

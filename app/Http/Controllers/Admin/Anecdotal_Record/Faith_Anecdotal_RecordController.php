@@ -93,6 +93,20 @@ class Faith_Anecdotal_RecordController extends Controller
         return redirect()->back()->with('status','Added New Record!');
     }
 
+    public function update(Request $request, $id){
+        $student_fai = Anecdotal_Record::find($id);
+        $student_fai->student_id = $request->input('student_id');
+        // $student_fai->observation_date_time = $request->input('observation_date_time');
+        $student_fai->description_of_incident = $request->input('description_of_incident');
+        $student_fai->location_of_incidents = $request->input('location_of_incidents');
+        $student_fai->actions_taken = $request->input('actions_taken');
+        $student_fai->recommendations = $request->input('recommendations');
+
+        $student_fai->update();
+        return redirect()->back()->with('status', 'Information Updated Successfully!');
+    }
+
+
     public function destroy($id){
         $removeRec = Anecdotal_Record::findOrFail($id);
         $removeRec -> delete();

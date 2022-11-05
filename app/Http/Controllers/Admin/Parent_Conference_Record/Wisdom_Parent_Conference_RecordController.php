@@ -99,6 +99,23 @@ class Wisdom_Parent_Conference_RecordController extends Controller
       return redirect()->back()->with('status','Added New Record!');
   }
 
+
+       public function update(Request $request, $id){
+        $student_wis = Parent_Conference_Record::find($id);
+        $student_wis->student_id = $request->input('student_id');
+        // $student_wis->date = $request->input('date');
+        $student_wis->relation_to_student = $request->input('relation_to_student');
+        $student_wis->reason_for_contact = $request->input('reason_for_contact');
+        $student_wis->inquiries_referral_appointment = $request->input('inquiries_referral_appointment');
+        $student_wis->problem_concern = $request->input('problem_concern');
+        $student_wis->topics_discussed = $request->input('topics_discussed');
+        $student_wis->suggested_resolution = $request->input('suggested_resolution');
+        $student_wis->action_taken = $request->input('action_taken');
+
+        $student_wis->update();
+        return redirect()->back()->with('status', 'Record Updated Successfully!');
+    }
+
     public function destroy($id){
         $removeRec = Parent_Conference_Record::findOrFail($id);
         $removeRec -> delete();

@@ -1,6 +1,9 @@
 @extends('layouts.layoutsidebar')
 
 @section('content')
+<div class="p-1">
+    <a class="fas fa-arrow-left" style="font-size:20px; color:blue;" href="{{ url('show-student-love/' . $student_love->student->id . '/counseling_anecdotal_record_love') }}"></a>
+</div>
     @if ($message = Session::get('status'))
         <div class="alert alert-success alert-block">
             <button type="button" class="close" data-dismiss="alert" style="color:black;">×</button>
@@ -18,8 +21,16 @@
         href="{{ route('export_loveStudents_counseling_anecdotal_pdf', $student_love->id) }}"><span class="fas fa-file-pdf"
             style="font-size: 15px;"></span> Generate PDF</a>
             </div>
-
+            <div class="d-flex justify-content-center">
+                <img src="/images/image17.png" class="user-image img-circle elevation-2 "
+                    alt="User Image"
+                    style="width: 120px; height:120px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
+            </div>
             <div class="container mx-auto">
+
+                <form action="{{ url('update_counseling_anecdotal_record_love/' . $student_love->id) }}" method="POST" accept-charset="UTF-8">
+                    @csrf
+                    @method('PUT')
 
                 <h1 class="text-center mt-4"
                     style=" color:whitesmoke; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 22px; color:rgba(60, 58, 58, 0.904);">
@@ -39,82 +50,50 @@
                 <div class="row">
                     <div class="col-md-6">
 
-                        <div class="form-group mt-5">
-                            <p class="text-dark"
-                                style="  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 17px;">
-                                <span class="text-dark" style="font-weight: 500">Name: </span><span class="text-dark"
-                                    style="border-bottom: 1px solid black">{{ $student_love->student->firstname }}
-                                    {{ $student_love->student->middlename }} {{ $student_love->student->lastname }} </span>
-                            </p>
-                        </div>
-
-
-
-                        <div class="form-group mt-3">
-                            <p class="text-dark"
-                                style="  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 17px;">
-                                <span class="text-dark" style="font-weight: 500">Gender: </span><span class="text-dark"
-                                    style="border-bottom: 1px solid black">{{ $student_love->student->gender }} </span>
-                            </p>
+                        <div class="form-group ">
+                            <label for="" style="color:dimgray">Name: </label>
+                            <input type="text" class="form-control" value="{{ $student_love->student->firstname }} {{ $student_love->student->middlename }} {{ $student_love->student->lastname }}" readonly>
                         </div>
 
                         <div class="form-group mt-3">
-                            <p class="text-dark"
-                                style="  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 17px;">
-                                <span class="text-dark" style="font-weight: 500">Date/Time Called: </span><span
-                                    class="text-dark"
-                                    style="border-bottom: 1px solid black">{{ $student_love->date_time_called->format('F d,  Y - g:i A') }} </span>
-                            </p>
+                            <label for="" style="color:dimgray">Gender: </label>
+                            <input type="text" class="form-control" value="{{ $student_love->student->gender }}" readonly>
                         </div>
 
                         <div class="form-group mt-3">
-                            <p class="text-dark"
-                                style="  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 17px;">
-                                <span class="text-dark" style="font-weight: 500">Reason/s for Contact: </span><span
-                                    class="text-dark"
-                                    style="border-bottom: 1px solid black">{{ $student_love->reasons_for_contact }} </span>
-                            </p>
+                            <label for="" style="color:dimgray">Date/Time Called: </label>
+                            <input type="text" class="form-control" value="{{ $student_love->date_time_called->format('F d,  Y - g:i A') }}" readonly>
                         </div>
 
-
+                        <div class="form-group mt-3">
+                            <label for="" style="color:dimgray">Reason/s for Contact: </label>
+                            <input type="text" class="form-control" name="reasons_for_contact" value="{{ $student_love->reasons_for_contact}}">
+                        </div>
 
                     </div>
 
                     <div class="col-md-6">
 
-                        <div class="form-group mt-5">
-                            <p class="text-dark"
-                                style="  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 17px;">
-                                <span class="text-dark" style="font-weight: 500">Age: </span><span class="text-dark"
-                                    style="border-bottom: 1px solid black">{{ $student_love->student->age }}</span>
-                            </p>
-                        </div>
-
-
-                        <div class="form-group mt-3">
-                            <p class="text-dark"
-                                style="  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 17px;">
-                                <span class="text-dark" style="font-weight: 500">Year/Section: </span><span
-                                    class="text-dark"
-                                    style="border-bottom: 1px solid black">{{ $student_love->student->year_section }}</span>
-                            </p>
+                        <div class="form-group ">
+                            <label for="" style="color:dimgray">Age: </label>
+                            <input type="text" class="form-control" value="{{ $student_love->student->age}}" readonly>
                         </div>
 
                         <div class="form-group mt-3">
-                            <p class="text-dark"
-                                style="  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 17px;">
-                                <span class="text-dark" style="font-weight: 500">Referred By: </span><span class="text-dark"
-                                    style="border-bottom: 1px solid black">{{ $student_love->referred_by }}</span>
-                            </p>
+                            <label for="" style="color:dimgray">Year/Section: </label>
+                            <input type="text" class="form-control" value="{{ $student_love->student->year_section}}" readonly>
+                          
                         </div>
 
                         <div class="form-group mt-3">
-                            <p class="text-dark"
-                                style="  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 17px;">
-                                <span class="text-dark" style="font-weight: 500">Follow up Counseling Session: </span><span
-                                    class="text-dark"
-                                    style="border-bottom: 1px solid black">{{ $student_love->follow_up_counseling_session }}</span>
-                            </p>
+                            <label for="" style="color:dimgray">Referred By: </label>
+                            <input type="text" class="form-control" name="referred_by" value="{{ $student_love->referred_by}}">
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="" style="color:dimgray">Follow up Counseling Session: </label>
+                            <input type="text" class="form-control" name="follow_up_counseling_session" value="{{ $student_love->follow_up_counseling_session}}">
+
                         </div>
                     </div>
 
@@ -146,6 +125,8 @@
                             <p class="text-dark mt-2">Note: <i class="text-dark">Information revealed is held strictly
                                     CONFIDENTIAL.</i></p>
                             <br>
+                            <label for="" style="color:dimgray">Student ID </label>
+                            <input type="text" class="form-control text-center" style="width: 45px;" name="student_id" value="{{ $student_love->student_id}}" readonly>
                             <p class="text-dark d-flex justify-content-end">______________________________________________
                             </p>
                             <p class="text-dark d-flex justify-content-end" style="position: relative; top: -20px;">
@@ -154,6 +135,8 @@
                     </div>
                 </div>
             </div>
+            <button class="btn-primary btn btn-sm"><span class="fas fa-save"></span> Submit Changes</button>
+        </form>
         </div>
     </div>
     </div>

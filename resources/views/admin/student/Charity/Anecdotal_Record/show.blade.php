@@ -1,6 +1,9 @@
 @extends('layouts.layoutsidebar')
 
 @section('content')
+<div class="p-1">
+    <a class="fas fa-arrow-left" style="font-size:20px; color:blue;" href="{{ url('show-student-charity/' . $student_char->student->id . '/anecdotal_record_charity') }}"></a>
+</div>
     @if ($message = Session::get('status'))
         <div class="alert alert-success alert-block">
             <button type="button" class="close" data-dismiss="alert" style="color:black;">×</button>
@@ -19,8 +22,18 @@
 
             </div>
 
+            <div class="d-flex justify-content-center">
+                <img src="/images/image17.png" class="user-image img-circle elevation-2 "
+                    alt="User Image"
+                    style="width: 120px; height:120px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
+            </div>
+
             <div class="container mx-auto">
 
+                <form action="{{ url('update_anecdotal_record_charity/' . $student_char->id) }}" method="POST" accept-charset="UTF-8">
+                    @csrf
+                    @method('PUT')
+                 
                 <h1 class="text-center mt-4"
                     style=" color:whitesmoke; margin:auto; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 22px; color:rgba(60, 58, 58, 0.904);">
                     Pangangan National High School </h1>
@@ -35,48 +48,30 @@
                 <div class="row">
                     <div class="col-md-6">
 
-                        <div class="form-group mt-5">
-                            <p class="text-dark"
-                                style="  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 17px;">
-                                <span class="text-dark" style="font-weight: 500">Observation Date and Time: </span><span
-                                    class="text-dark"
-                                    style="border-bottom: 1px solid black">{{ $student_char->observation_date_time->format('F d,  Y - g:i A') }}</span>
-                            </p>
+                        <div class="form-group">
+                            <label for="" style="color:dimgray">Observation Date and Time: </label>
+                            <input type="text" class="form-control" value="{{ $student_char->observation_date_time->format('F d,  Y - g:i A') }}" readonly>
                         </div>
 
+                        <div class="form-group">
+                            <label for="" style="color:dimgray">Student Name: </label>
+                            <input type="text" class="form-control" value="{{ $student_char->student->firstname }} {{ $student_char->student->middlename }} {{ $student_char->student->lastname }}" readonly>
 
-
-                        <div class="form-group mt-3">
-                            <p class="text-dark"
-                                style="  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 17px;">
-                                <span class="text-dark" style="font-weight: 500">Student Name: </span><span
-                                    class="text-dark"
-                                    style="border-bottom: 1px solid black">{{ $student_char->student->firstname }}
-                                    {{ $student_char->student->middlename }} {{ $student_char->student->lastname }} </span>
-                            </p>
                         </div>
 
                     </div>
 
                     <div class="col-md-6">
 
-                        <div class="form-group mt-5">
-                            <p class="text-dark"
-                                style="  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 17px;">
-                                <span class="text-dark" style="font-weight: 500">Observer/Class Adviser: </span><span
-                                    class="text-dark"
-                                    style="border-bottom: 1px solid black">{{ $student_char->student->user->name }}</span>
-                            </p>
+                        <div class="form-group">
+                            <label for="" style="color:dimgray">Observer/Class Adviser: </label>
+                            <input type="text" class="form-control" value="{{ $student_char->student->user->name }}" readonly>
                         </div>
-
-                        <div class="form-group mt-3">
-                            <p class="text-dark"
-                                style="  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 17px;">
-                                <span class="text-dark" style="font-weight: 500">Year/Section: </span><span
-                                    class="text-dark"
-                                    style="border-bottom: 1px solid black">{{ $student_char->student->year_section }}</span>
-                            </p>
+                        <div class="form-group">
+                            <label for="" style="color:dimgray">Year/Section: </label>
+                            <input type="text" class="form-control" value="{{ $student_char->student->year_section }}" readonly>
                         </div>
+                      
                     </div>
 
                     <div class="col-md-12 mb-3 mt-2">
@@ -99,6 +94,10 @@
                                 placeholder="" title="" name="recommendations">{{ $student_char->recommendations }}</textarea>
                             <p class="text-dark mt-2">Note: <i class="text-dark">Information revealed is held strictly
                                     CONFIDENTIAL.</i></p>
+                             <div class="form-group">
+                            <label for="" style="color:dimgray">Student ID: </label>
+                            <input type="text" class="form-control text-center" style="width: 45px;" name="student_id" value="{{ $student_char->student->id }}" readonly>
+                            </div>
                             <br>
                             <p class="text-dark d-flex justify-content-end">_________________________________________
                             </p>
@@ -108,6 +107,8 @@
                     </div>
                 </div>
             </div>
+            <button class="btn-primary btn btn-sm"><span class="fas fa-save"></span> Submit Changes</button>
+        </form>
         </div>
     </div>
     </div>

@@ -99,6 +99,24 @@ class Charity_Counseling_Anecdotal_RecordController extends Controller
     return view('admin.student.Charity.Counseling_Anecdotal_Record.show', compact( 'student_char'))->with('student_c', $student_c);
 }
 
+    public function update(Request $request, $id){
+        $student_cha = Counseling_Anecdotal_Record::find($id);
+        $student_cha->student_id = $request->input('student_id');
+        // $student_cha->date_time_called = $request->input('date_time_called');
+        $student_cha->reasons_for_contact = $request->input('reasons_for_contact');
+        $student_cha->referred_by = $request->input('referred_by');
+        $student_cha->reasons_for_referral = $request->input('reasons_for_referral');
+        $student_cha->follow_up_counseling_session = $request->input('follow_up_counseling_session');
+        $student_cha->behavior_observed = $request->input('behavior_observed');
+        $student_cha->interview_findings = $request->input('interview_findings');
+        $student_cha->clinical_impressions = $request->input('clinical_impressions');
+        $student_cha->recommendation = $request->input('recommendation');
+
+        $student_cha->update();
+        return redirect()->back()->with('status', 'Record Updated Successfully!');
+    }
+
+
 
    public function destroy($id){
     $removeRec = Counseling_Anecdotal_Record::findOrFail($id);

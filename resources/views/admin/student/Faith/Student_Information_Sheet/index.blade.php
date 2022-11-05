@@ -1,6 +1,9 @@
 @extends('layouts.layoutsidebar')
 
 @section('content')
+<div class="p-1">
+    <a class="fas fa-arrow-left" style="font-size:20px; color:blue;" href="{{ url('show-student-faith/' . $student_fai->id)}}"></a>
+</div>
     @if ($message = Session::get('status'))
         <div class="alert alert-success alert-block">
             <button type="button" class="close" data-dismiss="alert" style="color:black;">×</button>
@@ -706,7 +709,11 @@
                         href="{{ route('export_faithStudents_anecdotal_pdf', $student_fai->id) }}"><span
                             class="fas fa-file-pdf" style="font-size: 15px;"></span> Generate PDF</a>
                 </div>
-               
+                <div class="d-flex justify-content-center">
+                    <img src="/images/image17.png" class="user-image img-circle elevation-2 "
+                        alt="User Image"
+                        style="width: 120px; height:120px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
+                </div>
                 <div class="container mx-auto">
 
                     <h1 class="text-center mt-4"
@@ -783,6 +790,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="" style="color:dimgray">Date of Birth: </label>
+                                <div style="font-size:15px;">YYYY-MM-DD</div>
                                 <input type="text" class="form-control" name="birthdate"  value="{{$stud_info_fai->birthdate}}">
                             </div>
                             <div class="form-group">
@@ -1257,7 +1265,8 @@
                           <div class="row">
                             <div class="col-md-4">
                                 <label for="" style="color:dimgray">Date Signed: </label>
-                                <input type="text" class="form-control" name="date_signed"  value="{{$stud_info_fai->date_signed->format('d-m-y')}}">
+                                <div style="font-size:15px;">YYYY-MM-DD</div>
+                                <input type="text" class="form-control" name="date_signed"  value="{{$stud_info_fai->date_signed->format('Y-m-d')}}">
                             
                                 <label for="" style="color:dimgray">Student ID: </label>
                                 <input type="text" class="form-control text-center" style="width: 45px;" name="student_id"  value="{{$stud_info_fai->student_id}}" readonly>

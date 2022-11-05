@@ -94,6 +94,20 @@ class Hope_Anecdotal_RecordController extends Controller
         return redirect()->back()->with('status','Added New Record!');
     }
 
+    public function update(Request $request, $id){
+        $student_hop = Anecdotal_Record::find($id);
+        $student_hop->student_id = $request->input('student_id');
+        // $student_hop->observation_date_time = $request->input('observation_date_time');
+        $student_hop->description_of_incident = $request->input('description_of_incident');
+        $student_hop->location_of_incidents = $request->input('location_of_incidents');
+        $student_hop->actions_taken = $request->input('actions_taken');
+        $student_hop->recommendations = $request->input('recommendations');
+
+        $student_hop->update();
+        return redirect()->back()->with('status', 'Information Updated Successfully!');
+    }
+
+
     public function destroy($id){
         $removeRec = Anecdotal_Record::findOrFail($id);
         $removeRec -> delete();

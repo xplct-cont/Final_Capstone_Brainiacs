@@ -1,11 +1,14 @@
 @extends('layouts.layoutsidebar')
 @section('content')
-
+<div class="p-1">
+    <a class="fas fa-arrow-left" style="font-size:20px; color:blue;" href="{{ url('charity-students')}}"></a>
+</div>
     <body>
         <h1 class="text-dark p-3"
         style="font-weight:normal; font-size: 25px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; ">
         Records of {{ $charityStud->lastname }}, {{ $charityStud->firstname }} from {{ $charityStud->year_section }}</h1>
     <hr>
+   
     @if ($message = Session::get('status'))
     <div class="alert alert-success alert-block">
         <button type="button" class="close" data-dismiss="alert" style="color:black;">×</button>

@@ -195,6 +195,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-wisdom/{id}/anecdotal_record_wisdom/create',[Wisdom_Anecdotal_RecordController::class, 'create']);
        Route::get('/show-student-wisdom/{id}/anecdotal_record_wisdom/{student}', [Wisdom_Anecdotal_RecordController::class, 'show'])->name('wisdom-student-anecdotal-list');
        Route::post('/add_anecdotal_record_wisdom',[Wisdom_Anecdotal_RecordController::class, 'store']);
+       Route::put('/update_anecdotal_record_wisdom/{id}', [Wisdom_Anecdotal_RecordController::class, 'update']);
        Route::get('/delete_anecdotal_record_wisdom/{id}', [Wisdom_Anecdotal_RecordController::class, 'destroy']);
 
 
@@ -202,6 +203,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-wisdom/{id}/counseling_anecdotal_record_wisdom/create',[Wisdom_Counseling_Anecdotal_RecordController::class, 'create']);
        Route::get('/show-student-wisdom/{id}/counseling_anecdotal_record_wisdom/{student}', [Wisdom_Counseling_Anecdotal_RecordController::class, 'show']);
        Route::post('/add_counseling_anecdotal_record_wisdom', [Wisdom_Counseling_Anecdotal_RecordController::class, 'store']);
+       Route::put('/update_counseling_anecdotal_record_wisdom/{id}', [Wisdom_Counseling_Anecdotal_RecordController::class, 'update']);
        Route::get('/delete_counseling_anecdotal_record_wisdom/{id}', [Wisdom_Counseling_Anecdotal_RecordController::class, 'destroy']);
     
        
@@ -212,6 +214,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-wisdom/{id}/parent_conference_record_wisdom/create',[Wisdom_Parent_Conference_RecordController::class, 'create']);
        Route::get('/show-student-wisdom/{id}/parent_conference_record_wisdom/{student}', [Wisdom_Parent_Conference_RecordController::class, 'show']);
        Route::post('/add_parent_conference_record_wisdom', [Wisdom_Parent_Conference_RecordController::class, 'store']);
+       Route::put('/update_parent_conference_record_wisdom/{id}', [Wisdom_Parent_Conference_RecordController::class, 'update']);
        Route::get('/delete_parent_conference_record_wisdom/{id}', [Wisdom_Parent_Conference_RecordController::class, 'destroy']);
 
 
@@ -245,6 +248,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-faith/{id}/anecdotal_record_faith/create',[Faith_Anecdotal_RecordController::class, 'create']);
        Route::get('/show-student-faith/{id}/anecdotal_record_faith/{student}', [Faith_Anecdotal_RecordController::class, 'show'])->name('faith-student-anecdotal-list');
        Route::post('/add_anecdotal_record_faith',[Faith_Anecdotal_RecordController::class, 'store']);
+       Route::put('/update_anecdotal_record_faith/{id}', [Faith_Anecdotal_RecordController::class, 'update']);
        Route::get('/delete_anecdotal_record_faith/{id}', [Faith_Anecdotal_RecordController::class, 'destroy']);
 
 
@@ -252,6 +256,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-faith/{id}/counseling_anecdotal_record_faith/create',[Faith_Counseling_Anecdotal_RecordController::class, 'create']);
        Route::get('/show-student-faith/{id}/counseling_anecdotal_record_faith/{student}', [Faith_Counseling_Anecdotal_RecordController::class, 'show']);
        Route::post('/add_counseling_anecdotal_record_faith', [Faith_Counseling_Anecdotal_RecordController::class, 'store']);
+       Route::put('/update_counseling_anecdotal_record_faith/{id}', [Faith_Counseling_Anecdotal_RecordController::class, 'update']);
        Route::get('/delete_counseling_anecdotal_record_faith/{id}', [Faith_Counseling_Anecdotal_RecordController::class, 'destroy']);
 
 
@@ -262,6 +267,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-faith/{id}/parent_conference_record_faith/create',[Faith_Parent_Conference_RecordController::class, 'create']);
        Route::get('/show-student-faith/{id}/parent_conference_record_faith/{student}', [Faith_Parent_Conference_RecordController::class, 'show']);
        Route::post('/add_parent_conference_record_faith', [Faith_Parent_Conference_RecordController::class, 'store']);
+       Route::put('/update_parent_conference_record_faith/{id}', [Faith_Parent_Conference_RecordController::class, 'update']);
        Route::get('/delete_parent_conference_record_faith/{id}', [Faith_Parent_Conference_RecordController::class, 'destroy']);
 
 
@@ -295,6 +301,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-charity/{id}/anecdotal_record_charity/create',[Charity_Anecdotal_RecordController::class, 'create']);
        Route::get('/show-student-charity/{id}/anecdotal_record_charity/{student}', [Charity_Anecdotal_RecordController::class, 'show'])->name('charity-student-anecdotal-list');
        Route::post('/add_anecdotal_record_charity',[Charity_Anecdotal_RecordController::class, 'store']);
+       Route::put('/update_anecdotal_record_charity/{id}', [Charity_Anecdotal_RecordController::class, 'update']);
        Route::get('/delete_anecdotal_record_charity/{id}', [Charity_Anecdotal_RecordController::class, 'destroy']);
 
 
@@ -302,6 +309,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-charity/{id}/counseling_anecdotal_record_charity/create',[Charity_Counseling_Anecdotal_RecordController::class, 'create']);
        Route::get('/show-student-charity/{id}/counseling_anecdotal_record_charity/{student}', [Charity_Counseling_Anecdotal_RecordController::class, 'show']);
        Route::post('/add_counseling_anecdotal_record_charity', [Charity_Counseling_Anecdotal_RecordController::class, 'store']);
+       Route::put('/update_counseling_anecdotal_record_charity/{id}', [Charity_Counseling_Anecdotal_RecordController::class, 'update']);
        Route::get('/delete_counseling_anecdotal_record_charity/{id}', [Charity_Counseling_Anecdotal_RecordController::class, 'destroy']);
 
 
@@ -312,6 +320,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-charity/{id}/parent_conference_record_charity/create',[Charity_Parent_Conference_RecordController::class, 'create']);
        Route::get('/show-student-charity/{id}/parent_conference_record_charity/{student}', [Charity_Parent_Conference_RecordController::class, 'show']);
        Route::post('/add_parent_conference_record_charity', [Charity_Parent_Conference_RecordController::class, 'store']);
+       Route::put('/update_parent_conference_record_charity/{id}', [Charity_Parent_Conference_RecordController::class, 'update']);
        Route::get('/delete_parent_conference_record_charity/{id}', [Charity_Parent_Conference_RecordController::class, 'destroy']);
 
        
@@ -345,6 +354,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-hope/{id}/anecdotal_record_hope/create',[Hope_Anecdotal_RecordController::class, 'create']);
        Route::get('/show-student-hope/{id}/anecdotal_record_hope/{student}', [Hope_Anecdotal_RecordController::class, 'show'])->name('hope-student-anecdotal-list');
        Route::post('/add_anecdotal_record_hope',[Hope_Anecdotal_RecordController::class, 'store']);
+       Route::put('/update_anecdotal_record_hope/{id}', [Hope_Anecdotal_RecordController::class, 'update']);
        Route::get('/delete_anecdotal_record_hope/{id}', [Hope_Anecdotal_RecordController::class, 'destroy']);
 
 
@@ -352,6 +362,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-hope/{id}/counseling_anecdotal_record_hope/create',[Hope_Counseling_Anecdotal_RecordController::class, 'create']);
        Route::get('/show-student-hope/{id}/counseling_anecdotal_record_hope/{student}', [Hope_Counseling_Anecdotal_RecordController::class, 'show']);
        Route::post('/add_counseling_anecdotal_record_hope', [Hope_Counseling_Anecdotal_RecordController::class, 'store']);
+       Route::put('/update_counseling_anecdotal_record_hope/{id}', [Hope_Counseling_Anecdotal_RecordController::class, 'update']);
        Route::get('/delete_counseling_anecdotal_record_hope/{id}', [Hope_Counseling_Anecdotal_RecordController::class, 'destroy']);
 
 
@@ -362,6 +373,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-hope/{id}/parent_conference_record_hope/create',[Hope_Parent_Conference_RecordController::class, 'create']);
        Route::get('/show-student-hope/{id}/parent_conference_record_hope/{student}', [Hope_Parent_Conference_RecordController::class, 'show']);
        Route::post('/add_parent_conference_record_hope', [Hope_Parent_Conference_RecordController::class, 'store']);
+       Route::put('/update_parent_conference_record_hope/{id}', [Hope_Parent_Conference_RecordController::class, 'update']);
        Route::get('/delete_parent_conference_record_hope/{id}', [Hope_Parent_Conference_RecordController::class, 'destroy']);
 
 
@@ -395,6 +407,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-love/{id}/anecdotal_record_love/create',[Love_Anecdotal_RecordController::class, 'create']);
        Route::get('/show-student-love/{id}/anecdotal_record_love/{student}', [Love_Anecdotal_RecordController::class, 'show'])->name('love-student-anecdotal-list');
        Route::post('/add_anecdotal_record_love',[Love_Anecdotal_RecordController::class, 'store']);
+       Route::put('/update_anecdotal_record_love/{id}', [Love_Anecdotal_RecordController::class, 'update']);
        Route::get('/delete_anecdotal_record_love/{id}', [Love_Anecdotal_RecordController::class, 'destroy']);
 
 
@@ -402,6 +415,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-love/{id}/counseling_anecdotal_record_love/create',[Love_Counseling_Anecdotal_RecordController::class, 'create']);
        Route::get('/show-student-love/{id}/counseling_anecdotal_record_love/{student}', [Love_Counseling_Anecdotal_RecordController::class, 'show']);
        Route::post('/add_counseling_anecdotal_record_love', [Love_Counseling_Anecdotal_RecordController::class, 'store']);
+       Route::put('/update_counseling_anecdotal_record_love/{id}', [Love_Counseling_Anecdotal_RecordController::class, 'update']);
        Route::get('/delete_counseling_anecdotal_record_love/{id}', [Love_Counseling_Anecdotal_RecordController::class, 'destroy']);
 
 
@@ -412,6 +426,7 @@ Route::middleware(['auth', ])->group(function () {
        Route::get('/show-student-love/{id}/parent_conference_record_love/create',[Love_Parent_Conference_RecordController::class, 'create']);
        Route::get('/show-student-love/{id}/parent_conference_record_love/{student}', [Love_Parent_Conference_RecordController::class, 'show']);
        Route::post('/add_parent_conference_record_love', [Love_Parent_Conference_RecordController::class, 'store']);
+       Route::put('/update_parent_conference_record_love/{id}', [Love_Parent_Conference_RecordController::class, 'update']);
        Route::get('/delete_parent_conference_record_love/{id}', [Love_Parent_Conference_RecordController::class, 'destroy']);
 
 
@@ -501,6 +516,7 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('/delete_anecdotal_record_myStudent/{id}', [MyStudent_Anecdotal_RecordController::class, 'destroy']);
         Route::get('/show-my-student/{id}/anecdotal_record_myStudent/create',[MyStudent_Anecdotal_RecordController::class, 'create']);
         Route::post('/add_anecdotal_record_myStudent',[MyStudent_Anecdotal_RecordController::class, 'store']);
+        Route::put('/update_anecdotal_record_myStudent/{id}', [MyStudent_Anecdotal_RecordController::class, 'update']);
         Route::get('/show-my-student/{id}/anecdotal_record_myStudent/{student}', [MyStudent_Anecdotal_RecordController::class, 'show']);
 
 
