@@ -64,9 +64,9 @@
 
 
 <li class="nav-item">
-    <a href="{{ url('guidance_information_system_messenger') }}" class="nav-link {{ Request::is('guidance_information_system_messenger') ? 'bg-info active' : '' }}">
+    <a href="{{ url('guidance_information_system_chats') }}" class="nav-link {{ Request::is('guidance_information_system_chats') ? 'bg-info active' : '' }}">
         <p class="text-white">Chats</p>
-        <i class="fas fa-receipt fa-pull-left fa-md text-white"></i>
+        <i class="fas fa-inbox fa-pull-left fa-md text-white"></i>
     </a>
 </li>
 

@@ -28,14 +28,14 @@
             @if($user->active_status)
                 <span class="activeStatus"></span>
             @endif
-        <div class="avatar av-m"
-        style="background-image: url('{{ $user->avatar }}');">
-        </div>
+          {{-- <div class="avatar av-m">  <img src="{{ asset('images/avatars/' . $user->avatar) }} " width="55px" height="55px"
+            alt="Image" style="border-radius: 50%">
+        </div> --}}
         </td>
         {{-- center side --}}
         <td>
         <p data-id="{{ $user->id }}" data-type="user">
-            {{ strlen($user->name) > 12 ? trim(substr($user->name,0,12)).'..' : $user->name }}
+            {{ strlen($user->name) > 12 ? trim(substr($user->name,0,20)) : $user->name }}
             <span>{{ $lastMessage->created_at->diffForHumans() }}</span></p>
         <span>
             {{-- Last Message user indicator --}}
