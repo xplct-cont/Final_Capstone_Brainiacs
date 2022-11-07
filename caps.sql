@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2022 at 02:02 PM
+-- Generation Time: Nov 07, 2022 at 06:46 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -354,7 +354,7 @@ CREATE TABLE `users` (
   `approved_at` timestamp NULL DEFAULT NULL,
   `contact_no` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `advisory` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'image18.png',
+  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'avatar.png',
   `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'author',
   `last_seen` timestamp NULL DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -370,7 +370,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `admin`, `approved_at`, `contact_no`, `advisory`, `avatar`, `role`, `last_seen`, `remember_token`, `created_at`, `updated_at`, `active_status`, `dark_mode`, `messenger_color`) VALUES
-(1, 'Severus Snape', 'kennbassist@gmail.com', '2022-11-05 05:01:44', '$2y$10$E5SoRVPDHLoiW2OHl6wh4eucBG07QYikvjDtHXWbYH0cauIHzomM2', 1, '2022-11-05 05:01:44', '09361652609', 'Grade 11 - Wisdom', 'image18.png', 'editor', NULL, NULL, '2022-11-05 05:01:44', '2022-11-05 05:01:44', 0, 0, '#2180f3');
+(1, 'Severus Snape', 'kennbassist@gmail.com', '2022-11-06 21:45:51', '$2y$10$/iHUP/f0XZjpfbjRQvAii.9xp2xrzzZjECdXGX/uAMKfJXA/FOmlK', 1, '2022-11-06 21:45:51', '09361652609', 'Grade 11 - Wisdom', 'avatar.png', 'editor', NULL, NULL, '2022-11-06 21:45:51', '2022-11-06 21:45:51', 0, 0, '#2180f3');
 
 --
 -- Indexes for dumped tables
