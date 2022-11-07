@@ -136,13 +136,25 @@ class Hope_Student_Information_SheetController extends Controller
     }
     public function destroy($id){
         $removeRec = Student_Information_Sheet::findOrFail($id);
-        $destination = 'storage/student_information_sheet/'.$removeRec->student_image;
-        if(File::exists($destination)){
-            File::delete($destination);
-        }
+        // $destination = 'storage/student_information_sheet/'.$removeRec->student_image;
+        // if(File::exists($destination)){
+        //     File::delete($destination);
+        // }
         $removeRec -> delete();
         return redirect()->back()->with('status', 'Record Deleted Successfully!');   
       }
+
+      
+      public function downloadInfo($id)
+      {
+          $hopeStudents_student_information_sheet = Student_Information_Sheet::findOrFail($id);
+          $pdf = PDF::loadVIew('pdf.hope-student_information_sheet', [
+              'student_information_sheets' => $hopeStudents_student_information_sheet
+          ]);
+  
+          return $pdf->download('Hope-Student Information Sheet.pdf');
+      }
+
 
       public function updateInfo(Request $request, $id){
         $hopeStudents = Student_Information_Sheet::find($id);

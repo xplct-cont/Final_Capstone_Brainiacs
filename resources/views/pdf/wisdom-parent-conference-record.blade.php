@@ -15,7 +15,7 @@
         <h3>Talisay, Calape, Bohol</h3>
     </div>
     <div class="" style="margin-top: -30px;">
-        <h1>PARENT CONFERENCE RECORD</h1>
+        <h1>PARENT/GUARDIAN CONFERENCE RECORD</h1>
     </div>
     <hr>
 

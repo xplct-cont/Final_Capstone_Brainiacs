@@ -137,10 +137,10 @@ class Charity_Student_Information_SheetController extends Controller
 
     public function destroy($id){
         $removeRec = Student_Information_Sheet::findOrFail($id);
-        $destination = 'storage/student_information_sheet/'.$removeRec->student_image;
-        if(File::exists($destination)){
-            File::delete($destination);
-        }
+        // $destination = 'storage/student_information_sheet/'.$removeRec->student_image;
+        // if(File::exists($destination)){
+        //     File::delete($destination);
+        // }
         $removeRec -> delete();
         return redirect()->back()->with('status', 'Record Deleted Successfully!');   
       }

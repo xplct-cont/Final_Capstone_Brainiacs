@@ -709,7 +709,7 @@
                 <div class="d-flex justify-content-end">
 
                     <a class="btn btn-danger mt-2 ml-2 mr-2" style=""
-                        href="{{ route('export_charityStudents_anecdotal_pdf', $student_cha->id) }}"><span
+                        href="{{ route('export_charityStudents_student_information_sheet_pdf', $stud_info_cha->id) }}"><span
                             class="fas fa-file-pdf" style="font-size: 15px;"></span> Generate PDF</a>
                 </div>
 
@@ -1037,7 +1037,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="" style="color:dimgray">Age: </label>
-                                <input type="text" class="form-control" name="age"  value="{{ $stud_info_cha->father_age}}">
+                                <input type="text" class="form-control" name="father_age"  value="{{ $stud_info_cha->father_age}}">
 
                                
                             </div>

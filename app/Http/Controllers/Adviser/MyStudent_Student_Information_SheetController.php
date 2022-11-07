@@ -145,6 +145,17 @@ class MyStudent_Student_Information_SheetController extends Controller
         return redirect()->back()->with('status', 'Record Deleted Successfully!');   
       }
 
+      public function downloadInfo($id)
+      {
+          $myStudents_student_information_sheet = Student_Information_Sheet::findOrFail($id);
+          $pdf = PDF::loadVIew('pdf.my-students-student_information_sheet', [
+              'student_information_sheets' => $myStudents_student_information_sheet
+          ]);
+  
+          return $pdf->download('My-Student Information Sheet.pdf');
+      }
+
+
 
       public function updateInfo(Request $request, $id){
         $myStudents = Student_Information_Sheet::find($id);

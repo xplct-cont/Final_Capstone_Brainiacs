@@ -38,18 +38,18 @@
                   {{-- <div class="app-modal-header">Update your profile settings</div> --}}
                   <div class="app-modal-body">
                       {{-- Udate profile avatar --}}
-                      {{-- <div class="avatar av-l upload-avatar-preview chatify-d-flex"
+                      <div class="avatar av-l upload-avatar-preview chatify-d-flex"
                       style="background-image: url('{{ Chatify::getUserWithAvatar(Auth::user())->avatar }}');"
-                      ></div> --}}
-                      <div class="mx-auto mb-3">
+                      ></div>
+                      {{-- <div class="mx-auto mb-3">
                         <img src="/images/avatars/{{ Auth::user()->avatar }}"
-                        style="width: 150px;  height:150 px;border-radius: 50%; "></div>
+                        style="width: 150px;  height:150 px;border-radius: 50%; "></div> --}}
 
                       <p class="upload-avatar-details"></p>
-                      {{-- <label class="app-btn a-btn-primary update" style="background-color:{{$messengerColor}}">
-                          Upload New
+                      <label class="app-btn a-btn-primary update" style="background-color:{{$messengerColor}}">
+                          Change Profile
                           <input class="upload-avatar chatify-d-none" accept="image/*" name="avatar" type="file" />
-                      </label> --}}
+                      </label>
                       {{-- Dark/Light Mode  --}}
                       <p class="divider"></p>
                       <p class="app-modal-header">Dark Mode <span class="

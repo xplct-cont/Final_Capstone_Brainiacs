@@ -136,12 +136,23 @@ class Love_Student_Information_SheetController extends Controller
     }
     public function destroy($id){
         $removeRec = Student_Information_Sheet::findOrFail($id);
-        $destination = 'storage/student_information_sheet/'.$removeRec->student_image;
-        if(File::exists($destination)){
-            File::delete($destination);
-        }
+        // $destination = 'storage/student_information_sheet/'.$removeRec->student_image;
+        // if(File::exists($destination)){
+        //     File::delete($destination);
+        // }
         $removeRec -> delete();
         return redirect()->back()->with('status', 'Record Deleted Successfully!');   
+      }
+
+      
+      public function downloadInfo($id)
+      {
+          $loveStudents_student_information_sheet = Student_Information_Sheet::findOrFail($id);
+          $pdf = PDF::loadVIew('pdf.love-student_information_sheet', [
+              'student_information_sheets' => $loveStudents_student_information_sheet
+          ]);
+  
+          return $pdf->download('Love-Student Information Sheet.pdf');
       }
 
       public function updateInfo(Request $request, $id){

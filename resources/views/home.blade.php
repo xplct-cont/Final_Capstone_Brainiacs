@@ -154,9 +154,7 @@
                               </div>
                             </td>
 
-                           
-
-                                <td> <img src="{{ asset('images/avatars/' . $item->avatar) }} " width="50px" height="50px"
+                                <td> <img src="{{ asset('storage/users-avatar/' . $item->avatar) }} " width="50px" height="50px"
                                         alt="Image" style="border-radius: 50%"></td>
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->advisory }}</td>

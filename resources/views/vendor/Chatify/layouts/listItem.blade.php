@@ -28,9 +28,9 @@
             @if($user->active_status)
                 <span class="activeStatus"></span>
             @endif
-          {{-- <div class="avatar av-m">  <img src="{{ asset('images/avatars/' . $user->avatar) }} " width="55px" height="55px"
-            alt="Image" style="border-radius: 50%">
-        </div> --}}
+            <div class="avatar av-m"
+            style="background-image: url('{{ $user->avatar }}');">
+            </div>
         </td>
         {{-- center side --}}
         <td>

@@ -49,9 +49,10 @@
 
             <div class="col-md-5 d-flex justify-content-center" style="height: 400px; overflow:hidden;">
                 <div class="d-flex justify-content-center">
-                    <img src="/images/avatars/{{ $user->avatar }}"
+                    <img src= {{"storage/users-avatar/" .$user->avatar}}
                         style="width: 255px;  height:255px;border-radius: 50%; float:left; ">
-
+                       
+                       
                 </div>
                 <p class="text-center" style="position:absolute;  top: 260px; color:black">{{ $user->advisory }} </p>
                 <a class="btn btn-sm btn-danger align-center" href="{{ url('admin-change-password/' . $user->id) }}"

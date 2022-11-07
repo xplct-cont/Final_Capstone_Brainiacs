@@ -1,7 +1,7 @@
 <ul style="position:relative; left: -38px; margin:auto; height: 50px;">
     <li class="nav-item list-unstyled">
         <a href="{{ url('/adminprofile') }}">
-            <img src="/images/avatars/{{ Auth::user()->avatar }}" class="user-image img-circle elevation-4"
+            <img src="/storage/users-avatar/{{ Auth::user()->avatar }}" class="user-image img-circle elevation-4"
                 alt="User Image"
                 style="width: 37px; height:37px; border-radius: 50%; background-color: #5bc0de; padding-left: 2px; padding-right:2px; padding-bottom:2px; padding-top: 2px;">
             <span class=""

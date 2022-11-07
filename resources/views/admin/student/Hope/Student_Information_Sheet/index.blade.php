@@ -704,8 +704,8 @@
                 <div class="d-flex justify-content-end">
 
                     <a class="btn btn-danger mt-2 ml-2 mr-2" style=""
-                        href="{{ route('export_hopeStudents_anecdotal_pdf', $student_hop->id) }}"><span
-                            class="fas fa-file-pdf" style="font-size: 15px;"></span> Generate PDF</a>
+                    href="{{ route('export_hopeStudents_student_information_sheet_pdf', $stud_info_hop->id) }}"><span
+                        class="fas fa-file-pdf" style="font-size: 15px;"></span> Generate PDF</a>
                 </div>
                 <div class="d-flex justify-content-center">
                     <img src="/images/image17.png" class="user-image img-circle elevation-2 "
@@ -1030,7 +1030,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="" style="color:dimgray">Age: </label>
-                                <input type="text" class="form-control" name="age"  value="{{ $stud_info_hop->father_age}}">
+                                <input type="text" class="form-control" name="father_age"  value="{{ $stud_info_hop->father_age}}">
 
                                
                             </div>

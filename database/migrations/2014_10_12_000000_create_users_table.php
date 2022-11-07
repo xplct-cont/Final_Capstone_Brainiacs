@@ -23,7 +23,8 @@ class CreateUsersTable extends Migration
             $table->timestamp('approved_at')->nullable();
             $table->string('contact_no')->nullable();
             $table->string('advisory')->unique();
-            $table->string('avatar')->default('image18.png');
+            // $table->string('avatar')->default('image18.png');
+            $table->string('avatar')->default(config('chatify.user_avatar.default'));
             $table->string('role')->default('author');
             $table->timestamp('last_seen')->nullable();
             $table->rememberToken();
